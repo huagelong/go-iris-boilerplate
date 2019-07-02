@@ -1,0 +1,5 @@
+/.settings
+/.idea
+/bin
+/configs/config.toml
+/configs/server.toml
