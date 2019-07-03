@@ -5,10 +5,6 @@ import(
 	"log"
 )
 
-//type  AppConfig struct{
-//	CookieHashKey string `yaml:"cookieHashKey"`
-//	CookieBlockKey string `yaml:"cookieBlockKey"`
-//}
 
 var Conf = New()
 /**
