@@ -5,3 +5,6 @@
 /resources/configs/server.toml
 /resources/public/apidoc.html
 /resources/public/apidoc.html.json
+/web/node_modules
+/web/package-lock.json
+
