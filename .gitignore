@@ -3,3 +3,5 @@
 /bin
 /configs/config.toml
 /configs/server.toml
+/apps/http/public/apidoc.html
+/apps/http/public/apidoc.html.json

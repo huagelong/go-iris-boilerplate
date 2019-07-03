@@ -2,12 +2,15 @@ package bootstrap
 
 import (
 	"gitee.com/trensy/duocaiCRM/configs"
+	"gitee.com/trensy/duocaiCRM/utils"
+	"github.com/betacraft/yaag/irisyaag"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/middleware/recover"
 	"time"
 	"github.com/gorilla/securecookie"
+	"github.com/betacraft/yaag/yaag"
 )
 
 
@@ -136,6 +139,20 @@ func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 
 	app.Favicon(staticAssets +"/"+ Favicon)
 	app.StaticWeb("/", staticAssets)
+
+	//环境变量
+	environment := utils.GetEnv()
+	if environment != "prod" {
+		//api doc
+		yaag.Init(&yaag.Config{
+			On:       true,
+			DocTitle: "Api Doc",
+			DocPath:  staticAssets+"/apidoc.html",
+			BaseUrls: map[string]string{"Production": "", "Dev": ""},
+		})
+
+		app.Use(irisyaag.New())
+	}
 
 	// middleware, after static files
 	app.Use(recover.New())
