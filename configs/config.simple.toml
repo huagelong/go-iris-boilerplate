@@ -1,6 +1,7 @@
 [system]
 port=":8080"
 logLevel="debug"
+environment="dev"
 appname="duocaiCRM"
 cookieHashKey="asdarefsdzc1@#!#13123"
 cookieBlockKey="#!@#12312sadadasdada"

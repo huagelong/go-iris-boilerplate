@@ -15,6 +15,7 @@ require (
 	github.com/klauspost/compress v1.6.2 // indirect
 	github.com/klauspost/cpuid v1.2.1 // indirect
 	github.com/pelletier/go-toml v1.4.0
+	github.com/shuLhan/go-bindata v3.4.0+incompatible // indirect
 	github.com/silenceper/gowatch v0.0.0-20190424194219-e7bbc647e300 // indirect
 	github.com/silenceper/log v0.0.0-20171204144354-e5ac7fa8a76a
 	golang.org/x/crypto v0.0.0-20190605123033-f99c8df09eb5 // indirect

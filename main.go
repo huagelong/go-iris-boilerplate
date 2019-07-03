@@ -18,18 +18,17 @@ func main(){
 	port := configs.Conf.Get("system.port").(string)
 	logLevel :=configs.Conf.Get("system.logLevel").(string)
 	appname :=configs.Conf.Get("system.appname").(string)
-	//环境变量
-	environment := utils.GetEnv()
 
 	app = bootstrap.New(appname)
 	app.Bootstrap()
 	app.Configure(routes.MvcRoute)
-
 	app.Logger().SetLevel(logLevel)
+
+	//环境变量
+	environment := utils.GetEnv()
+	log.Println(environment)
 	app.Logger().Println("environment is " + environment)
-	////web项目初始化
-	//bootstrap.Init(app)
-	//routes.Default(app)
+
 	iris.RegisterOnInterrupt(func() {
 		timeout := 5 * time.Second
 		ctx, cancel := context.WithTimeout(context.Background(), timeout)

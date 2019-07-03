@@ -110,6 +110,8 @@ github.com/ryanuber/columnize v2.1.0+incompatible/go.mod h1:sm1tb6uqfes/u+d4ooFo
 github.com/satori/go.uuid v1.2.0/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdhQKdks0=
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=
 github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24/go.mod h1:M+9NzErvs504Cn4c5DxATwIqPbtswREoFCre64PpcG4=
+github.com/shuLhan/go-bindata v3.4.0+incompatible h1:xlNGW4LRRs+BPBpefnlrgSqb9x7vNF9YyzKeMuuqMpk=
+github.com/shuLhan/go-bindata v3.4.0+incompatible/go.mod h1:pkcPAATLBDD2+SpAPnX5vEM90F7fcwHCvvLCMXcmw3g=
 github.com/shurcooL/sanitized_anchor_name v1.0.0 h1:PdmoCO6wvbs+7yrJyMORt4/BmY5IYyJwS/kOiWx8mHo=
 github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
 github.com/silenceper/gowatch v0.0.0-20190424194219-e7bbc647e300 h1:PDkVFMdCbkbzIw8FqGHzYjCZqaVAw8rmDa2HaP6Bbig=
