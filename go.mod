@@ -32,6 +32,5 @@ require (
 	github.com/silenceper/gowatch v0.0.0-20190424194219-e7bbc647e300 // indirect
 	github.com/silenceper/log v0.0.0-20171204144354-e5ac7fa8a76a
 	golang.org/x/crypto v0.0.0-20190605123033-f99c8df09eb5 // indirect
-	gopkg.in/yaml.v1 v1.0.0-20140924161607-9f9df34309c0 // indirect
 	gopkg.in/yaml.v2 v2.2.2
 )

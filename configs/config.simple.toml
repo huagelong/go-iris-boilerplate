@@ -11,7 +11,7 @@ staticAssets="./apps/http/public"
 drive="mysql"
 [db.master]
     host="127.0.0.1"
-    port=3306
+    port= "3306"
     user="root"
     pwd="root123"
     dbname="article"
@@ -19,7 +19,7 @@ drive="mysql"
     maxOpenConns=5
 [db.slave]
     host="127.0.0.1"
-    port=3306
+    port="3306"
     user="root"
     pwd="root123"
     dbname="article"

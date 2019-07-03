@@ -1,11 +1,10 @@
 package datasource
 
 import (
-	"fmt"
 	"gitee.com/trensy/duocaiCRM/configs"
 	"gitee.com/trensy/duocaiCRM/utils"
-	"github.com/go-xorm/xorm"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-xorm/xorm"
 	"log"
 	"sync"
 	"time"
@@ -31,15 +30,15 @@ func InstanceMaster() *xorm.Engine{
 
 	dbDriver := configs.Conf.Get("db.drive").(string)
     dbHost := configs.Conf.Get("db.master.host").(string)
-	dbPort := int(configs.Conf.Get("db.master.port").(int64))
+	dbPort := configs.Conf.Get("db.master.port").(string)
 	dbUser := configs.Conf.Get("db.master.user").(string)
 	dbPwd := configs.Conf.Get("db.master.pwd").(string)
 	dbDbname := configs.Conf.Get("db.master.dbname").(string)
 	dbMaxIdleConns := int(configs.Conf.Get("db.master.maxIdleConns").(int64))
 	dbMaxOpenConns := int(configs.Conf.Get("db.slave.maxOpenConns").(int64))
 
-	driveSource :=fmt.Sprint("%s:%s@tcp(%s:%d)/%s?charset=utf8",
-		dbUser,dbPwd,dbHost,dbPort,dbDbname)
+	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
+	//fmt.Println(driveSource)
 	engine, err := xorm.NewEngine(dbDriver, driveSource)
 	if err !=nil {
 		log.Fatal("dbsource.InstanceMaster", err)
@@ -86,15 +85,14 @@ func InstanceSlave() *xorm.Engine{
 
 	dbDriver := configs.Conf.Get("db.drive").(string)
 	dbHost := configs.Conf.Get("db.slave.host").(string)
-	dbPort := int(configs.Conf.Get("db.slave.port").(int64))
+	dbPort := configs.Conf.Get("db.slave.port").(string)
 	dbUser := configs.Conf.Get("db.slave.user").(string)
 	dbPwd := configs.Conf.Get("db.slave.pwd").(string)
 	dbDbname := configs.Conf.Get("db.slave.dbname").(string)
 	dbMaxIdleConns := int(configs.Conf.Get("db.slave.maxIdleConns").(int64))
 	dbMaxOpenConns := int(configs.Conf.Get("db.slave.maxOpenConns").(int64))
 
-	driveSource :=fmt.Sprint("%s:%s@tcp(%s:%d)/%s?charset=utf8",
-		dbUser,dbPwd,dbHost,dbPort,dbDbname)
+	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
 	engine, err := xorm.NewEngine(dbDriver, driveSource)
 	if err !=nil {
 		log.Fatal("dbsource.InstanceSlave", err)
