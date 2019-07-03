@@ -1,10 +1,10 @@
 package controllers
 
 import (
+	"gitee.com/trensy/duocaiCRM/bootstrap"
 	"gitee.com/trensy/duocaiCRM/services"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"
-	"gitee.com/trensy/duocaiCRM/bootstrap"
 )
 
 type MvcController struct {
@@ -14,8 +14,8 @@ type MvcController struct {
 }
 
 func (c *MvcController) GetInfo() mvc.Result{
-
-	data := c.ArticleService.Get(1)
+	id ,_:= c.Ctx.URLParamInt("id")
+	data := c.ArticleService.Get(id)
 
 	return mvc.View{
 		Name: "index.html",
@@ -27,9 +27,9 @@ func (c *MvcController) GetInfo() mvc.Result{
 
 func (c *MvcController) GetArc() string{
 	title := c.Ctx.URLParam("title")
+	//fmt.Println(title)
      ok :=c.ArticleService.Add(title)
-     //fmt.Println(c.App.AppName)
-     if ok == false{
+     if ok.Id == 0 {
 		c.App.Logger().Println("添加失败!")
 	 }
 	return "add success"

@@ -7,8 +7,8 @@ import (
 )
 
 type ArticleService interface {
-	Get(id int) *models.ArticleModel
-	Add(title string) bool
+	Get(id int) *models.Article
+	Add(title string) *models.Article
 }
 
 type articleService struct {
@@ -24,12 +24,10 @@ func NewArticleService() ArticleService{
 }
 
 
-func (s *articleService) Get(id int) *models.ArticleModel {
+func (s *articleService) Get(id int) *models.Article {
 	return s.daoRead.Get(id)
 }
 
-func (s *articleService) Add(title string) bool {
-
-
-	return true
+func (s *articleService) Add(title string) *models.Article {
+	return s.dao.Insert(title)
 }

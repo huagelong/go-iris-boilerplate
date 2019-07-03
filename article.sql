@@ -5,7 +5,7 @@ CREATE TABLE `article` (
 `desc` varchar(255) DEFAULT '' COMMENT '简述',
 `content` text COMMENT '内容',
 `created_at` int(11) unsigned DEFAULT '0' COMMENT '新建时间',
-`modified_at` int(11) unsigned DEFAULT '0' COMMENT '修改时间',
+`updated_at` int(11) unsigned DEFAULT '0' COMMENT '修改时间',
 `is_delete` int(11) unsigned DEFAULT '0',
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章管理';

@@ -7,11 +7,14 @@ import (
 	"gitee.com/trensy/duocaiCRM/configs"
 	"gitee.com/trensy/duocaiCRM/utils"
 	"github.com/kataras/iris"
+	"log"
 	"time"
 )
 var app *bootstrap.Bootstrapper
 
 func main(){
+	log.SetFlags(log.Lshortfile | log.LstdFlags)
+
 	port := configs.Conf.Get("system.port").(string)
 	logLevel :=configs.Conf.Get("system.logLevel").(string)
 	appname :=configs.Conf.Get("system.appname").(string)

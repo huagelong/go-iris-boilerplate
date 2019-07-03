@@ -50,6 +50,7 @@ func InstanceMaster() *xorm.Engine{
 	}
 
 	env := utils.GetEnv()
+
 	if env == "prod" {
 		engine.ShowSQL(false)
 	} else{
