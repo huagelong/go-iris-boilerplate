@@ -6,7 +6,8 @@ appname="duocaiCRM"
 cookieHashKey="asdarefsdzc1@#!#13123"
 cookieBlockKey="#!@#12312sadadasdada"
 timeLocation="Asia/Shanghai"
-staticAssets="./apps/http/public"
+resourcesPath="./resources"
+
 
 [db]
 drive="mysql"

@@ -38,7 +38,7 @@ func main(){
 	})
 
 	//服务器配置
-	configPath := "./configs/server.toml"
+	configPath := "./resources/configs/server.toml"
 	globalConfig := iris.TOML(configPath)
 
 	_ = app.Run(iris.Addr(port),

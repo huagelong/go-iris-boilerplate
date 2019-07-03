@@ -123,7 +123,8 @@ func (app *Bootstrapper) Configure(cs ...Configurator) {
 //
 // Returns itself.
 func (app *Bootstrapper) Bootstrap() *Bootstrapper {
-	app.SetupViews("./apps/http/views")
+	resourcesPath := configs.Conf.Get("system.resourcesPath").(string)
+	app.SetupViews(resourcesPath+"/views")
 	//app.Logger().Print(app.Conf.CookieHashKey+"======")
 	cookieHashKey := configs.Conf.Get("system.cookieHashKey").(string)
 	cookieBlockKey := configs.Conf.Get("system.cookieBlockKey").(string)
@@ -135,7 +136,7 @@ func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 	app.SetupErrorHandlers()
 
 	// static files
-	staticAssets := configs.Conf.Get("system.staticAssets").(string)
+	staticAssets := resourcesPath+"/public"
 
 	app.Favicon(staticAssets +"/"+ Favicon)
 	app.StaticWeb("/", staticAssets)

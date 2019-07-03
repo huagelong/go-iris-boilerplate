@@ -1,7 +1,7 @@
 /.settings
 /.idea
 /bin
-/configs/config.toml
-/configs/server.toml
-/apps/http/public/apidoc.html
-/apps/http/public/apidoc.html.json
+/resources/configs/config.toml
+/resources/configs/server.toml
+/resources/public/apidoc.html
+/resources/public/apidoc.html.json

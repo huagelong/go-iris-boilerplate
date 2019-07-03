@@ -16,7 +16,7 @@ var Conf = New()
  * @method New
  */
 func New() *toml.Tree {
-	config, err := toml.LoadFile("./configs/config.toml")
+	config, err := toml.LoadFile("./resources/configs/config.toml")
 
 	if err != nil {
 		log.Fatal("TomlError ", err)

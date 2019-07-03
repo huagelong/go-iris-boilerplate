@@ -5,14 +5,16 @@ if [[ ! -d bin  ]];then
   chmod 0777 bin
 fi
 
-if [ ! -f ./configs/config.toml ]; then
-cp ./configs/config.simple.toml ./configs/config.toml
+if [ -f ./resources/configs/config.toml ]; then
+rm -rf ./resources/configs/config.toml
 fi
 
-if [ ! -f ./configs/server.toml ]; then
-cp ./configs/server.simple.toml ./configs/server.toml
+if [ -f ./resources/configs/server.toml ]; then
+rm -rf ./resources/configs/server.toml
 fi
 
+cp ./resources/configs/config.simple.toml ./resources/configs/config.toml
+cp ./resources/configs/server.simple.toml ./resources/configs/server.toml
 # 构建
 echo 'building...'
 gowatch
