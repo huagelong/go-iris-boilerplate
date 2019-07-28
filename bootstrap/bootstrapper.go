@@ -1,16 +1,14 @@
 package bootstrap
 
 import (
-	"gitee.com/trensy/duocaiCRM/configs"
+	"gitee.com/trensy/duocaiCRM/g"
 	"gitee.com/trensy/duocaiCRM/utils"
-	"github.com/betacraft/yaag/irisyaag"
+	"github.com/gorilla/securecookie"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
-	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/middleware/recover"
+	"github.com/kataras/iris/sessions"
 	"time"
-	"github.com/gorilla/securecookie"
-	"github.com/betacraft/yaag/yaag"
 )
 
 
@@ -56,16 +54,16 @@ func New(appName string, cfgs ...Configurator) *Bootstrapper {
 func (app *Bootstrapper) SetupViews(viewsDir string) {
 	htmlEngine := iris.HTML(viewsDir, ".html").Layout("shared/layout.html")
 	// 每次重新加载模版（线上关闭它）
-	htmlEngine.Reload(false)
+	if utils.GetEnv() == "prod"{
+		htmlEngine.Reload(false)
+	}else{
+		htmlEngine.Reload(true)
+	}
 	// 给模版内置各种定制的方法
-	htmlEngine.AddFunc("FromUnixtimeShort", func(t int) string {
-		dt := time.Unix(int64(t), int64(0))
-		return dt.Format(SysTimeformShort)
-	})
-	htmlEngine.AddFunc("FromUnixtime", func(t int) string {
-		dt := time.Unix(int64(t), int64(0))
-		return dt.Format(SysTimeform)
-	})
+	//htmlEngine.AddFunc("FromUnixtimeShort", func(t int) string {
+	//	dt := time.Unix(int64(t), int64(0))
+	//	return dt.Format(SysTimeformShort)
+	//})
 	app.RegisterView(htmlEngine)
 }
 
@@ -118,43 +116,24 @@ func (app *Bootstrapper) Configure(cs ...Configurator) {
 	}
 }
 
-
 // Bootstrap prepares our application.
-//
 // Returns itself.
 func (app *Bootstrapper) Bootstrap() *Bootstrapper {
-	resourcesPath := configs.Conf.Get("system.resourcesPath").(string)
+	app.SetupErrorHandlers()
+	// static files
+	resourcesPath := g.Config.Get("system.resourcesPath").(string)
 	app.SetupViews(resourcesPath+"/views")
-	//app.Logger().Print(app.Conf.CookieHashKey+"======")
-	cookieHashKey := configs.Conf.Get("system.cookieHashKey").(string)
-	cookieBlockKey := configs.Conf.Get("system.cookieBlockKey").(string)
+	staticAssets := resourcesPath+"/public"
+	app.Favicon(staticAssets +"/"+ Favicon)
+	app.StaticWeb("/", staticAssets)
 
+	//session
+	cookieHashKey := g.Config.Get("system.cookieHashKey").(string)
+	cookieBlockKey := g.Config.Get("system.cookieBlockKey").(string)
 	app.SetupSessions(
 		24*time.Hour,
 		[]byte(cookieHashKey),//the-big-and-secret-fash-key-here
 		[]byte(cookieBlockKey))//lot-secret-of-characters-big-too
-	app.SetupErrorHandlers()
-
-	// static files
-	staticAssets := resourcesPath+"/public"
-
-	app.Favicon(staticAssets +"/"+ Favicon)
-	app.StaticWeb("/", staticAssets)
-
-	//环境变量
-	environment := utils.GetEnv()
-	if environment != "prod" {
-		//api doc
-		yaag.Init(&yaag.Config{
-			On:       true,
-			DocTitle: "Api Doc",
-			DocPath:  staticAssets+"/apidoc.html",
-			BaseUrls: map[string]string{"Production": "", "Dev": ""},
-		})
-
-		app.Use(irisyaag.New())
-	}
-
 	// middleware, after static files
 	app.Use(recover.New())
 	app.Use(logger.New())

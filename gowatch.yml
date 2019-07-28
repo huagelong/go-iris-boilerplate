@@ -5,6 +5,7 @@ output: ./bin/duocaiCRM
 # 需要追加监听的文件名后缀，默认只有'.go'文件
 watch_exts:
   - .toml
+  - .html
 # 需要监听的目录，默认只有当前目录
 #watch_paths:
 #  - ../demo

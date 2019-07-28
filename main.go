@@ -2,22 +2,23 @@ package main
 
 import (
 	"context"
-	"gitee.com/trensy/duocaiCRM/apps/http/routes"
+	"gitee.com/trensy/duocaiCRM/app/routes"
 	"gitee.com/trensy/duocaiCRM/bootstrap"
-	"gitee.com/trensy/duocaiCRM/configs"
+	"gitee.com/trensy/duocaiCRM/g"
 	"gitee.com/trensy/duocaiCRM/utils"
+	"github.com/kataras/golog"
 	"github.com/kataras/iris"
-	"log"
 	"time"
 )
 var app *bootstrap.Bootstrapper
 
 func main(){
-	log.SetFlags(log.Lshortfile | log.LstdFlags)
-
-	port := configs.Conf.Get("system.port").(string)
-	logLevel :=configs.Conf.Get("system.logLevel").(string)
-	appname :=configs.Conf.Get("system.appname").(string)
+	//log.SetFlags(log.Lshortfile | log.LstdFlags)
+	//服务器配置
+	conf := g.Config
+	port := conf.Get("system.port").(string)
+	logLevel :=conf.Get("system.logLevel").(string)
+	appname :=conf.Get("system.appname").(string)
 
 	app = bootstrap.New(appname)
 	app.Bootstrap()
@@ -26,8 +27,7 @@ func main(){
 
 	//环境变量
 	environment := utils.GetEnv()
-	log.Println(environment)
-	app.Logger().Println("environment is " + environment)
+	golog.Info("environment is " + environment)
 
 	iris.RegisterOnInterrupt(func() {
 		timeout := 5 * time.Second
@@ -37,8 +37,7 @@ func main(){
 		_ = app.Shutdown(ctx)
 	})
 
-	//服务器配置
-	configPath := "./resources/configs/server.toml"
+	configPath := "./resource/config/app.toml"
 	globalConfig := iris.TOML(configPath)
 
 	_ = app.Run(iris.Addr(port),

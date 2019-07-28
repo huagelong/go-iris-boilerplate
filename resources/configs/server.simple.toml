@@ -1,7 +1,0 @@
-DisablePathCorrection=false
-EnablePathEscape=false
-FireMethodNotAllowed=true
-DisableBodyConsumptionOnUnmarshal=true
-TimeFormat="2019-06-29 15:04:05 UTC"
-Charset="UTF-8"
-PostMaxMemory=67108864

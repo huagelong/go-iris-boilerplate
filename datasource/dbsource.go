@@ -1,7 +1,7 @@
 package datasource
 
 import (
-	"gitee.com/trensy/duocaiCRM/configs"
+	"gitee.com/trensy/duocaiCRM/g"
 	"gitee.com/trensy/duocaiCRM/utils"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
@@ -28,14 +28,15 @@ func InstanceMaster() *xorm.Engine{
 		return masterEngine
 	}
 
-	dbDriver := configs.Conf.Get("db.drive").(string)
-    dbHost := configs.Conf.Get("db.master.host").(string)
-	dbPort := configs.Conf.Get("db.master.port").(string)
-	dbUser := configs.Conf.Get("db.master.user").(string)
-	dbPwd := configs.Conf.Get("db.master.pwd").(string)
-	dbDbname := configs.Conf.Get("db.master.dbname").(string)
-	dbMaxIdleConns := int(configs.Conf.Get("db.master.maxIdleConns").(int64))
-	dbMaxOpenConns := int(configs.Conf.Get("db.slave.maxOpenConns").(int64))
+
+	dbDriver := g.Config.Get("db.drive").(string)
+    dbHost := g.Config.Get("db.master.host").(string)
+	dbPort := g.Config.Get("db.master.port").(string)
+	dbUser := g.Config.Get("db.master.user").(string)
+	dbPwd := g.Config.Get("db.master.pwd").(string)
+	dbDbname := g.Config.Get("db.master.dbname").(string)
+	dbMaxIdleConns := int(g.Config.Get("db.master.maxIdleConns").(int64))
+	dbMaxOpenConns := int(g.Config.Get("db.slave.maxOpenConns").(int64))
 
 	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
 	//fmt.Println(driveSource)
@@ -62,7 +63,7 @@ func InstanceMaster() *xorm.Engine{
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
 
-	timeLocation := configs.Conf.Get("system.timeLocation").(string)
+	timeLocation := g.Config.Get("system.timeLocation").(string)
 	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
 	engine.SetTZLocation(SysTimeLocation)
 	// 性能优化的时候才考虑，加上本机的SQL缓存
@@ -84,14 +85,14 @@ func InstanceSlave() *xorm.Engine{
 		return slaveEngine
 	}
 
-	dbDriver := configs.Conf.Get("db.drive").(string)
-	dbHost := configs.Conf.Get("db.slave.host").(string)
-	dbPort := configs.Conf.Get("db.slave.port").(string)
-	dbUser := configs.Conf.Get("db.slave.user").(string)
-	dbPwd := configs.Conf.Get("db.slave.pwd").(string)
-	dbDbname := configs.Conf.Get("db.slave.dbname").(string)
-	dbMaxIdleConns := int(configs.Conf.Get("db.slave.maxIdleConns").(int64))
-	dbMaxOpenConns := int(configs.Conf.Get("db.slave.maxOpenConns").(int64))
+	dbDriver := g.Config.Get("db.drive").(string)
+	dbHost := g.Config.Get("db.slave.host").(string)
+	dbPort := g.Config.Get("db.slave.port").(string)
+	dbUser := g.Config.Get("db.slave.user").(string)
+	dbPwd := g.Config.Get("db.slave.pwd").(string)
+	dbDbname := g.Config.Get("db.slave.dbname").(string)
+	dbMaxIdleConns := int(g.Config.Get("db.slave.maxIdleConns").(int64))
+	dbMaxOpenConns := int(g.Config.Get("db.slave.maxOpenConns").(int64))
 
 	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
 	engine, err := xorm.NewEngine(dbDriver, driveSource)
@@ -116,7 +117,7 @@ func InstanceSlave() *xorm.Engine{
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
 
-	timeLocation := configs.Conf.Get("system.timeLocation").(string)
+	timeLocation := g.Config.Get("system.timeLocation").(string)
 	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
 	engine.SetTZLocation(SysTimeLocation)
 	// 性能优化的时候才考虑，加上本机的SQL缓存

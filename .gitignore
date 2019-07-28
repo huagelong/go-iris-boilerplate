@@ -1,10 +1,6 @@
 /.settings
 /.idea
 /bin
-/resources/configs/config.toml
-/resources/configs/server.toml
+/resources/configs/app.toml
 /resources/public/apidoc.html
 /resources/public/apidoc.html.json
-/web/node_modules
-/web/package-lock.json
-/web/dist
