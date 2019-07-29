@@ -2,31 +2,30 @@ package main
 
 import (
 	"context"
-	"gitee.com/trensy/duocaiCRM/app/routes"
-	"gitee.com/trensy/duocaiCRM/bootstrap"
+	"gitee.com/trensy/duocaiCRM/app/route"
+	"gitee.com/trensy/duocaiCRM/boot"
 	"gitee.com/trensy/duocaiCRM/g"
-	"gitee.com/trensy/duocaiCRM/utils"
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
+	"log"
 	"time"
 )
-var app *bootstrap.Bootstrapper
 
 func main(){
-	//log.SetFlags(log.Lshortfile | log.LstdFlags)
+	log.SetFlags(log.Lshortfile | log.LstdFlags)
 	//服务器配置
 	conf := g.Config
 	port := conf.Get("system.port").(string)
 	logLevel :=conf.Get("system.logLevel").(string)
 	appname :=conf.Get("system.appname").(string)
 
-	app = bootstrap.New(appname)
+	app := boot.New(appname)
 	app.Bootstrap()
-	app.Configure(routes.MvcRoute)
+	app.Configure(route.Route)
 	app.Logger().SetLevel(logLevel)
 
 	//环境变量
-	environment := utils.GetEnv()
+	environment := g.GetEnv()
 	golog.Info("environment is " + environment)
 
 	iris.RegisterOnInterrupt(func() {

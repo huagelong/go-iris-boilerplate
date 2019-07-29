@@ -1,8 +1,7 @@
-package bootstrap
+package boot
 
 import (
 	"gitee.com/trensy/duocaiCRM/g"
-	"gitee.com/trensy/duocaiCRM/utils"
 	"github.com/gorilla/securecookie"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
@@ -11,17 +10,12 @@ import (
 	"time"
 )
 
+var App *Bootstrapper
 
 const (
 	// Favicon is the relative 9to the "StaticAssets") favicon path for our app.
 	Favicon = "favicon.ico"
-
-	SysTimeform string = "2006-01-02 15:04:05"
-
-	SysTimeformShort string = "2006-01-02"
-
 )
-
 
 type Configurator func(*Bootstrapper)
 
@@ -37,24 +31,24 @@ type Bootstrapper struct {
 
 // New returns a new Bootstrapper.
 func New(appName string, cfgs ...Configurator) *Bootstrapper {
-	app := &Bootstrapper{
+	App = &Bootstrapper{
 		AppName:      appName,
 		AppSpawnDate: time.Now(),
 		Application:  iris.New(),
 	}
 
 	for _, cfg := range cfgs {
-		cfg(app)
+		cfg(App)
 	}
 
-	return app
+	return App
 }
 
 // SetupViews loads the templates.
 func (app *Bootstrapper) SetupViews(viewsDir string) {
 	htmlEngine := iris.HTML(viewsDir, ".html").Layout("shared/layout.html")
 	// 每次重新加载模版（线上关闭它）
-	if utils.GetEnv() == "prod"{
+	if g.GetEnv() == "prod"{
 		htmlEngine.Reload(false)
 	}else{
 		htmlEngine.Reload(true)
@@ -94,7 +88,8 @@ func (app *Bootstrapper) SetupErrorHandlers() {
 		err := iris.Map{
 			"app":     app.AppName,
 			"status":  ctx.GetStatusCode(),
-			"message": ctx.Values().GetString("message"),
+			"msg": ctx.Values().GetString("message"),
+			"data":nil,
 		}
 
 		if jsonOutput := ctx.URLParamExists("json"); jsonOutput {

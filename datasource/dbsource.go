@@ -2,7 +2,6 @@ package datasource
 
 import (
 	"gitee.com/trensy/duocaiCRM/g"
-	"gitee.com/trensy/duocaiCRM/utils"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"log"
@@ -50,7 +49,7 @@ func InstanceMaster() *xorm.Engine{
 		log.Fatal("got err when ping db: ", err)
 	}
 
-	env := utils.GetEnv()
+	env := g.GetEnv()
 
 	if env == "prod" {
 		engine.ShowSQL(false)
@@ -105,7 +104,7 @@ func InstanceSlave() *xorm.Engine{
 		log.Fatal("got err when ping db: ", err)
 	}
 
-	env := utils.GetEnv()
+	env := g.GetEnv()
 	if env == "prod" {
 		engine.ShowSQL(false)
 	} else{

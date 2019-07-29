@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"gitee.com/trensy/duocaiCRM/bootstrap"
+	"gitee.com/trensy/duocaiCRM/boot"
 	"gitee.com/trensy/duocaiCRM/app/service"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"
@@ -9,7 +9,7 @@ import (
 
 type MvcController struct {
 	Ctx iris.Context
-	App *bootstrap.Bootstrapper
+	App *boot.Bootstrapper
 	ArticleService service.ArticleService
 }
 
