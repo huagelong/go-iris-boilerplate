@@ -1,18 +1,18 @@
 package db
 
 import (
-	"trensy/g/support"
-	"trensy/g/tomlparse"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"github.com/kataras/golog"
+	"github.com/pelletier/go-toml"
 	"sync"
 	"time"
+	"trensy/lib/support"
 )
 
 var engineMysqlGroup *xorm.EngineGroup
 
-func InstanceMysqlGroup() *xorm.EngineGroup  {
+func InstanceMysqlGroup(c *toml.Tree) *xorm.EngineGroup  {
 	if engineMysqlGroup != nil{
 		return engineMysqlGroup
 	}
@@ -25,8 +25,8 @@ func InstanceMysqlGroup() *xorm.EngineGroup  {
 		return engineMysqlGroup
 	}
 
-	masterEngine := master()
-	slaveEngine := slave()
+	masterEngine := master(c)
+	slaveEngine := slave(c)
 	engine, err := xorm.NewEngineGroup(masterEngine, []*xorm.Engine{slaveEngine})
 	if err !=nil {
 		golog.Fatal("dbsource.engineGroup", err)
@@ -37,15 +37,14 @@ func InstanceMysqlGroup() *xorm.EngineGroup  {
 		golog.Fatal("got err when ping db: ", err)
 	}
 
-	env := support.GetEnv()
+	env := support.GetEnv(c)
 
 	if env == "prod" {
 		engine.ShowSQL(false)
 	} else{
 		engine.ShowSQL(true)
 	}
-	g := tomlparse.Config()
-	timeLocation := g.Get("system.timeLocation").(string)
+	timeLocation := c.Get("system.timeLocation").(string)
 	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
 	engine.SetTZLocation(SysTimeLocation)
 	// 性能优化的时候才考虑，加上本机的SQL缓存
@@ -55,16 +54,15 @@ func InstanceMysqlGroup() *xorm.EngineGroup  {
 	return engine
 }
 
-func master() *xorm.Engine{
-	g := tomlparse.Config()
-	dbDriver := g.Get("db.drive").(string)
-    dbHost := g.Get("db.master.host").(string)
-	dbPort := g.Get("db.master.port").(string)
-	dbUser := g.Get("db.master.user").(string)
-	dbPwd := g.Get("db.master.pwd").(string)
-	dbDbname := g.Get("db.master.dbname").(string)
-	dbMaxIdleConns := int(g.Get("db.master.maxIdleConns").(int64))
-	dbMaxOpenConns := int(g.Get("db.slave.maxOpenConns").(int64))
+func master(c *toml.Tree) *xorm.Engine{
+	dbDriver :=c.Get("db.drive").(string)
+    dbHost :=c.Get("db.master.host").(string)
+	dbPort :=c.Get("db.master.port").(string)
+	dbUser :=c.Get("db.master.user").(string)
+	dbPwd :=c.Get("db.master.pwd").(string)
+	dbDbname :=c.Get("db.master.dbname").(string)
+	dbMaxIdleConns := int(c.Get("db.master.maxIdleConns").(int64))
+	dbMaxOpenConns := int(c.Get("db.slave.maxOpenConns").(int64))
 
 	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
 	//fmt.Println(driveSource)
@@ -81,17 +79,15 @@ func master() *xorm.Engine{
 	return engine
 }
 
-func slave() *xorm.Engine{
-
-	g := tomlparse.Config()
-	dbDriver := g.Get("db.drive").(string)
-	dbHost := g.Get("db.slave.host").(string)
-	dbPort := g.Get("db.slave.port").(string)
-	dbUser := g.Get("db.slave.user").(string)
-	dbPwd := g.Get("db.slave.pwd").(string)
-	dbDbname := g.Get("db.slave.dbname").(string)
-	dbMaxIdleConns := int(g.Get("db.slave.maxIdleConns").(int64))
-	dbMaxOpenConns := int(g.Get("db.slave.maxOpenConns").(int64))
+func slave(c *toml.Tree) *xorm.Engine{
+	dbDriver :=c.Get("db.drive").(string)
+	dbHost :=c.Get("db.slave.host").(string)
+	dbPort :=c.Get("db.slave.port").(string)
+	dbUser :=c.Get("db.slave.user").(string)
+	dbPwd :=c.Get("db.slave.pwd").(string)
+	dbDbname :=c.Get("db.slave.dbname").(string)
+	dbMaxIdleConns := int(c.Get("db.slave.maxIdleConns").(int64))
+	dbMaxOpenConns := int(c.Get("db.slave.maxOpenConns").(int64))
 
 	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
 	engine, err := xorm.NewEngine(dbDriver, driveSource)

@@ -3,10 +3,10 @@ package redis
 import (
 	"github.com/gomodule/redigo/redis"
 	"github.com/kataras/golog"
+	"github.com/pelletier/go-toml"
 	"strconv"
 	"sync"
 	"time"
-	"trensy/g/tomlparse"
 )
 
 type Redis struct {
@@ -26,7 +26,7 @@ var (
  * 返回单例实例
  * @method New
  */
-func InstanceRedis() *Redis {
+func InstanceRedis(conf *toml.Tree) *Redis {
 	if r != nil{
 		return r
 	}
@@ -38,7 +38,6 @@ func InstanceRedis() *Redis {
 		return r
 	}
 
-	conf :=tomlparse.Config()
 	connect := conf.Get("db.redis.addr").(string)
 	db, _ := strconv.Atoi(conf.Get("db.redis.database").(string))
 	maxidle:=int(conf.Get("db.redis.maxIdle").(int64))

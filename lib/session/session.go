@@ -5,9 +5,9 @@ import (
 	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/sessions/sessiondb/redis"
 	"github.com/kataras/iris/sessions/sessiondb/redis/service"
+	"github.com/pelletier/go-toml"
 	"sync"
 	"time"
-	"trensy/g/tomlparse"
 )
 
 var (
@@ -15,11 +15,11 @@ var (
 	instanceRedis *redis.Database
 )
 
-func InstanceSession() *sessions.Sessions {
+func InstanceSession(c *toml.Tree) *sessions.Sessions {
 	if instanceSession != nil{
 		return instanceSession
 	}
-	expires := 24*time.Hour
+	expires := 6*time.Hour
 	ses := sessions.New(sessions.Config{
 		Cookie:   "tsessionid",
 		Expires:  expires,
@@ -27,12 +27,12 @@ func InstanceSession() *sessions.Sessions {
 	})
 
 	instanceSession = ses
-	redisDb := redisConn()
+	redisDb := redisConn(c)
 	instanceSession.UseDatabase(redisDb)
 	return instanceSession;
 }
 
-func redisConn()  *redis.Database {
+func redisConn(conf *toml.Tree)  *redis.Database {
 	if instanceRedis != nil{
 		return instanceRedis
 	}
@@ -44,7 +44,6 @@ func redisConn()  *redis.Database {
 		return instanceRedis
 	}
 	golog.Info("session redis created!...")
-	conf := tomlparse.Config()
 	db := redis.New(service.Config{
 		Network:   conf.Get("db.redis.network").(string),
 		Addr:      conf.Get("db.redis.addr").(string),

@@ -4,17 +4,12 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
+	"github.com/pelletier/go-toml"
 	"time"
-	"trensy/g/support"
-	"trensy/g/tomlparse"
+	"trensy/lib/support"
 )
 
 var App *Bootstrapper
-
-const (
-	// Favicon is the relative 9to the "StaticAssets") favicon path for our app.
-	Favicon = "favicon.ico"
-)
 
 type Configurator func(*Bootstrapper)
 
@@ -39,11 +34,11 @@ func New(appName string) *Bootstrapper {
 }
 
 // SetupViews loads the templates.
-func (app *Bootstrapper) SetupViews(resourcesPath string) {
+func (app *Bootstrapper) SetupViews(resourcesPath string, c *toml.Tree) {
 	viewsDir := resourcesPath+"/views"
 	htmlEngine := iris.Django(viewsDir, ".html")
 	// 每次重新加载模版（线上关闭它）
-	if support.GetEnv() == "prod"{
+	if support.GetEnv(c) == "prod"{
 		htmlEngine.Reload(false)
 	}else{
 		htmlEngine.Reload(true)
@@ -55,7 +50,7 @@ func (app *Bootstrapper) SetupViews(resourcesPath string) {
 	//	return dt.Format(SysTimeformShort)
 	//})
 	staticAssets := resourcesPath+"/public"
-	app.Favicon(staticAssets +"/"+ Favicon)
+	app.Favicon(staticAssets +"/favicon.ico")
 	app.StaticWeb("/", staticAssets)
 	app.RegisterView(htmlEngine)
 }
@@ -82,7 +77,6 @@ func (app *Bootstrapper) SetupErrorHandlers() {
 	})
 }
 
-
 // Configure accepts configurations and runs them inside the Bootstraper's context.
 func (app *Bootstrapper) Configure(cs ...Configurator) {
 	for _, c := range cs {
@@ -92,12 +86,11 @@ func (app *Bootstrapper) Configure(cs ...Configurator) {
 
 // Bootstrap prepares our application.
 // Returns itself.
-func (app *Bootstrapper) Bootstrap() *Bootstrapper {
+func (app *Bootstrapper) Bootstrap(conf *toml.Tree) *Bootstrapper {
 	app.SetupErrorHandlers()
-	g := tomlparse.Config()
 	// static files
-	resourcesPath := g.Get("system.resourcesPath").(string)
-	app.SetupViews(resourcesPath)
+	resourcesPath := conf.Get("system.resourcesPath").(string)
+	app.SetupViews(resourcesPath, conf)
 
 	app.Use(recover.New())
 	requestLogger := logger.New(logger.Config{

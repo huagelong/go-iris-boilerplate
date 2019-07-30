@@ -2,33 +2,32 @@ package main
 
 import (
 	"context"
-	"trensy/app/route"
-	"trensy/boot"
-	"trensy/g"
-	"trensy/g/support"
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"log"
 	"runtime"
 	"time"
+	"trensy/app/http"
+	"trensy/boot"
+	"trensy/lib/support"
+	"trensy/lib/tomlparse"
 )
 
 func main(){
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
 	//服务器配置
-	conf := g.Config
+	conf := tomlparse.Config()
 	port := conf.Get("system.port").(string)
 	logLevel :=conf.Get("system.logLevel").(string)
 	appname :=conf.Get("system.appname").(string)
 
 	app := boot.New(appname)
-	app.Bootstrap()
-	app.Configure(route.Route)
+	app.Bootstrap(conf)
 	app.Logger().SetLevel(logLevel)
-
+	http.Init(conf, app)
 	//环境变量
-	environment :=support.GetEnv()
+	environment :=support.GetEnv(conf)
 	golog.Info("environment is " + environment)
 
 	iris.RegisterOnInterrupt(func() {

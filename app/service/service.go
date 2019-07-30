@@ -1,37 +1,26 @@
 package service
 
 import (
-	"trensy/app/model"
-	"trensy/g"
-	"log"
-	"time"
+	"github.com/kataras/iris/sessions"
+	"github.com/pelletier/go-toml"
+	"trensy/app/dao"
+	"trensy/boot"
+	"trensy/lib/session"
 )
 
-type ArticleService struct {}
+type Service struct {
+	App *boot.Bootstrapper
+	Config *toml.Tree
+	Dao *dao.Dao
+	Session *sessions.Sessions
+}
 
-func (s *ArticleService) Get(id int) *model.Article {
-	data := &model.Article{Id: id}
-	ok,err :=g.DB.Get(data)
-	if ok && err == nil {
-		return data
-	}else{
-		data.Id=0
-		return data
+func New(c *toml.Tree, app *boot.Bootstrapper) *Service {
+	return &Service{
+		App:		app,
+		Config:  	c,
+		Dao:     	dao.New(c, app),
+		Session: 	session.InstanceSession(c),
 	}
 }
 
-func (s *ArticleService) Add(title string) *model.Article {
-	article := &model.Article{
-		Title:title,
-		Content:title,
-		Desc:title,
-		IsDelete:0,
-		CreatedAt:int(time.Now().Unix()),
-		UpdatedAt:int(time.Now().Unix()),
-	}
-	_, err := g.DB.Insert(article)
-	if err != nil {
-		log.Fatal("insert error: ", err)
-	}
-	return article
-}
