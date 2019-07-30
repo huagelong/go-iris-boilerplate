@@ -1,8 +1,8 @@
 package datasource
 
 import (
-	"gitee.com/trensy/duocaiCRM/g"
-	"gitee.com/trensy/duocaiCRM/g/tomlparse"
+	"trensy/g/support"
+	"trensy/g/tomlparse"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"github.com/kataras/golog"
@@ -37,15 +37,15 @@ func InstanceGroup() *xorm.EngineGroup  {
 		golog.Fatal("got err when ping db: ", err)
 	}
 
-	env := g.GetEnv()
+	env := support.GetEnv()
 
 	if env == "prod" {
 		engine.ShowSQL(false)
 	} else{
 		engine.ShowSQL(true)
 	}
-
-	timeLocation := g.Config.Get("system.timeLocation").(string)
+	g := tomlparse.Config()
+	timeLocation := g.Get("system.timeLocation").(string)
 	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
 	engine.SetTZLocation(SysTimeLocation)
 	// 性能优化的时候才考虑，加上本机的SQL缓存

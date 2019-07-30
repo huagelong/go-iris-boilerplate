@@ -1,7 +1,8 @@
 package boot
 
 import (
-	"gitee.com/trensy/duocaiCRM/g"
+	"trensy/g/support"
+	"trensy/g/tomlparse"
 	"github.com/gorilla/securecookie"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
@@ -49,7 +50,7 @@ func (app *Bootstrapper) SetupViews(resourcesPath string) {
 	viewsDir := resourcesPath+"/views"
 	htmlEngine := iris.Django(viewsDir, ".html")
 	// 每次重新加载模版（线上关闭它）
-	if g.GetEnv() == "prod"{
+	if support.GetEnv() == "prod"{
 		htmlEngine.Reload(false)
 	}else{
 		htmlEngine.Reload(true)
@@ -120,14 +121,15 @@ func (app *Bootstrapper) Configure(cs ...Configurator) {
 // Returns itself.
 func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 	app.SetupErrorHandlers()
+	g := tomlparse.Config()
 	// static files
-	resourcesPath := g.Config.Get("system.resourcesPath").(string)
+	resourcesPath := g.Get("system.resourcesPath").(string)
 	app.SetupViews(resourcesPath)
 
 
 	//session
-	cookieHashKey := g.Config.Get("system.cookieHashKey").(string)
-	cookieBlockKey := g.Config.Get("system.cookieBlockKey").(string)
+	cookieHashKey := g.Get("system.cookieHashKey").(string)
+	cookieBlockKey := g.Get("system.cookieBlockKey").(string)
 	app.SetupSessions(
 		24*time.Hour,
 		[]byte(cookieHashKey),//the-big-and-secret-fash-key-here

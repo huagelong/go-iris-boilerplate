@@ -1,8 +1,8 @@
 package service
 
 import (
-	"gitee.com/trensy/duocaiCRM/app/model"
-	"gitee.com/trensy/duocaiCRM/g"
+	"trensy/app/model"
+	"trensy/g"
 	"log"
 	"time"
 )

@@ -1,18 +1,23 @@
 package controllers
 
 import (
-	"gitee.com/trensy/duocaiCRM/app/service"
-	"gitee.com/trensy/duocaiCRM/boot"
+	"trensy/app/service"
+	"trensy/boot"
+	"trensy/g"
 	"github.com/kataras/iris"
 )
+var appInstance *boot.Bootstrapper
 
 func NewArc(app *boot.Bootstrapper)  {
+	appInstance = app
 	app.Get("/", test)
 }
 
 func test(ctx iris.Context) {
-
-
+	sess := appInstance.Sessions.Start(ctx)
+	sess.Set("test", "helloworld!")
+	str := sess.Get("test")
+	g.Log.Debug(str)
 	arcService := &service.ArticleService{}
 
 	arcService.Add("测试")

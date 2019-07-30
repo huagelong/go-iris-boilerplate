@@ -1,4 +1,4 @@
-module gitee.com/trensy/duocaiCRM
+module trensy
 
 go 1.12
 

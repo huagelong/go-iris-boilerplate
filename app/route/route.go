@@ -1,8 +1,8 @@
 package route
 
 import (
-	"gitee.com/trensy/duocaiCRM/app/http/controllers"
-	"gitee.com/trensy/duocaiCRM/boot"
+	"trensy/app/http/controllers"
+	"trensy/boot"
 )
 
 func Route (app *boot.Bootstrapper){

@@ -2,9 +2,10 @@ package main
 
 import (
 	"context"
-	"gitee.com/trensy/duocaiCRM/app/route"
-	"gitee.com/trensy/duocaiCRM/boot"
-	"gitee.com/trensy/duocaiCRM/g"
+	"trensy/app/route"
+	"trensy/boot"
+	"trensy/g"
+	"trensy/g/support"
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"log"
@@ -27,7 +28,7 @@ func main(){
 	app.Logger().SetLevel(logLevel)
 
 	//环境变量
-	environment := g.GetEnv()
+	environment :=support.GetEnv()
 	golog.Info("environment is " + environment)
 
 	iris.RegisterOnInterrupt(func() {
