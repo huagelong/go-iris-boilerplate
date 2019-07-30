@@ -4,3 +4,4 @@
 /resources/configs/app.toml
 /resources/public/apidoc.html
 /resources/public/apidoc.html.json
+/go.sum

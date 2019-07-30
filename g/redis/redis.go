@@ -68,11 +68,19 @@ func setPoll() {
 			if err != nil {
 				golog.Fatal("redis.pool", err)
 			}
-			_, errping :=c.Do("SELECT", r.Db)
+			_, errping :=c.Do("PING", r.Db)
 			if errping != nil {
 				golog.Fatal("got err when ping redis: ", errping)
 			}
 			return c, nil
+		},
+		//是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+		TestOnBorrow: func(c redis.Conn, t time.Time) error {
+			if time.Since(t) < time.Minute {
+				return nil
+			}
+			_, err := c.Do("PING")
+			return err
 		},
 	}
 }

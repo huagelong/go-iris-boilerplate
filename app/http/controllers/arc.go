@@ -13,7 +13,8 @@ func NewArc(app *boot.Bootstrapper)  {
 
 func test(ctx iris.Context) {
 	sess := g.Session.Start(ctx)
-	sess.Set("test", "dasdasdasda!")
+	//sess.Set("test", "dasdasdasda!")
+	//sess.Set("test2222", "asdasdasdasdadasd!")
 	str := sess.Get("test")
 	g.Log.Debug(str)
 	arcService := &service.ArticleService{}
