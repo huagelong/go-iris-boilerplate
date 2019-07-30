@@ -1,4 +1,4 @@
-package datasource
+package db
 
 import (
 	"trensy/g/support"
@@ -10,19 +10,19 @@ import (
 	"time"
 )
 
-var engineGroup *xorm.EngineGroup
+var engineMysqlGroup *xorm.EngineGroup
 
-func InstanceGroup() *xorm.EngineGroup  {
-	if engineGroup != nil{
-		return engineGroup
+func InstanceMysqlGroup() *xorm.EngineGroup  {
+	if engineMysqlGroup != nil{
+		return engineMysqlGroup
 	}
 
 	var lock sync.Mutex
 	lock.Lock()
 	defer lock.Unlock()
 
-	if engineGroup != nil{
-		return engineGroup
+	if engineMysqlGroup != nil{
+		return engineMysqlGroup
 	}
 
 	masterEngine := master()

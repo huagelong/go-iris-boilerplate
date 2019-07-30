@@ -1,14 +1,12 @@
 package boot
 
 import (
-	"trensy/g/support"
-	"trensy/g/tomlparse"
-	"github.com/gorilla/securecookie"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
-	"github.com/kataras/iris/sessions"
 	"time"
+	"trensy/g/support"
+	"trensy/g/tomlparse"
 )
 
 var App *Bootstrapper
@@ -27,19 +25,14 @@ type Bootstrapper struct {
 	*iris.Application
 	AppName      string  //应用名称
 	AppSpawnDate time.Time //当前时间
-	Sessions *sessions.Sessions //session
 }
 
 // New returns a new Bootstrapper.
-func New(appName string, cfgs ...Configurator) *Bootstrapper {
+func New(appName string) *Bootstrapper {
 	App = &Bootstrapper{
 		AppName:      appName,
 		AppSpawnDate: time.Now(),
 		Application:  iris.New(),
-	}
-
-	for _, cfg := range cfgs {
-		cfg(App)
 	}
 
 	return App
@@ -66,26 +59,6 @@ func (app *Bootstrapper) SetupViews(resourcesPath string) {
 	app.StaticWeb("/", staticAssets)
 	app.RegisterView(htmlEngine)
 }
-
-// SetupSessions initializes the sessions, optionally.
-func (app *Bootstrapper) SetupSessions(expires time.Duration, cookieHashKey, cookieBlockKey []byte) {
-	app.Sessions = sessions.New(sessions.Config{
-		Cookie:   "SECRET_SESS_COOKIE_" + app.AppName,
-		Expires:  expires,
-		Encoding: securecookie.New(cookieHashKey, cookieBlockKey),
-	})
-}
-
-//// SetupWebsockets prepares the websocket server.
-//func (b *Bootstrapper) SetupWebsockets(endpoint string, onConnection websocket.ConnectionFunc) {
-//	ws := websocket.New(websocket.Config{})
-//	ws.OnConnection(onConnection)
-//
-//	b.Get(endpoint, ws.Handler())
-//	b.Any("/iris-ws.js", func(ctx iris.Context) {
-//		ctx.Write(websocket.ClientSource)
-//	})
-//}
 
 // SetupErrorHandlers prepares the http error handlers
 // `(context.StatusCodeNotSuccessful`,  which defaults to < 200 || >= 400 but you can change it).
@@ -126,15 +99,6 @@ func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 	resourcesPath := g.Get("system.resourcesPath").(string)
 	app.SetupViews(resourcesPath)
 
-
-	//session
-	cookieHashKey := g.Get("system.cookieHashKey").(string)
-	cookieBlockKey := g.Get("system.cookieBlockKey").(string)
-	app.SetupSessions(
-		24*time.Hour,
-		[]byte(cookieHashKey),//the-big-and-secret-fash-key-here
-		[]byte(cookieBlockKey))//lot-secret-of-characters-big-too
-	// middleware, after static files
 	app.Use(recover.New())
 	requestLogger := logger.New(logger.Config{
 		Status: true,

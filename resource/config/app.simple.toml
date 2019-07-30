@@ -34,3 +34,12 @@ drive="mysql"
     dbname="article"
     maxIdleConns=5
     maxOpenConns=5
+[db.redis]
+    network = "tcp"
+    addr = "127.0.0.1:6379"
+    idleTimeout = 30
+    maxActive = 10
+    maxIdle = 10
+    password = ""
+    database =  "1"
+    prefix =  "trensy_"
