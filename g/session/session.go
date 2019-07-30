@@ -1,7 +1,7 @@
 package session
 
 import (
-	"github.com/kataras/iris"
+	"github.com/kataras/golog"
 	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/sessions/sessiondb/redis"
 	"github.com/kataras/iris/sessions/sessiondb/redis/service"
@@ -27,8 +27,8 @@ func InstanceSession() *sessions.Sessions {
 	})
 
 	instanceSession = ses
-	redis:=redisConn()
-	instanceSession.UseDatabase(redis)
+	redisDb := redisConn()
+	instanceSession.UseDatabase(redisDb)
 	return instanceSession;
 }
 
@@ -43,7 +43,7 @@ func redisConn()  *redis.Database {
 	if instanceRedis != nil{
 		return instanceRedis
 	}
-
+	golog.Info("session redis created!...")
 	conf := tomlparse.Config()
 	db := redis.New(service.Config{
 		Network:   conf.Get("db.redis.network").(string),
@@ -55,11 +55,10 @@ func redisConn()  *redis.Database {
 		Database:  conf.Get("db.redis.database").(string),
 		Prefix:    conf.Get("db.redis.prefix").(string),
 	})
-	iris.RegisterOnInterrupt(func() {
-		db.Close()
-	})
-
-	defer db.Close()
 	instanceRedis = db;
+	//defer instanceRedis.Close()
+	//iris.RegisterOnInterrupt(func() {
+	//	_ = instanceRedis.Close()
+	//})
 	return instanceRedis
 }

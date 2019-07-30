@@ -37,9 +37,9 @@ drive="mysql"
 [db.redis]
     network = "tcp"
     addr = "127.0.0.1:6379"
-    idleTimeout = 30
+    idleTimeout = 300
     maxActive = 10
     maxIdle = 10
     password = ""
-    database =  "1"
+    database = "1"
     prefix =  "trensy_"

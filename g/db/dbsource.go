@@ -77,7 +77,7 @@ func master() *xorm.Engine{
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
-	golog.Info("master created ....")
+	golog.Info("master db created ....")
 	return engine
 }
 
@@ -103,6 +103,6 @@ func slave() *xorm.Engine{
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
-	golog.Info("slave created ....")
+	golog.Info("slave db created ....")
 	return engine
 }

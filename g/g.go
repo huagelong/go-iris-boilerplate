@@ -2,6 +2,7 @@ package g
 
 import (
 	"trensy/g/db"
+	"trensy/g/redis"
 	"trensy/g/session"
 	"trensy/g/tomlparse"
 	"github.com/kataras/golog"
@@ -12,4 +13,5 @@ var (
 	DB = db.InstanceMysqlGroup()
 	Log = golog.Default
 	Session = session.InstanceSession()
+	Redis = redis.InstanceRedis()
 )

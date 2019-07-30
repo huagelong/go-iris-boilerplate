@@ -13,7 +13,7 @@ func NewArc(app *boot.Bootstrapper)  {
 
 func test(ctx iris.Context) {
 	sess := g.Session.Start(ctx)
-	sess.Set("test", "helloworld!")
+	sess.Set("test", "dasdasdasda!")
 	str := sess.Get("test")
 	g.Log.Debug(str)
 	arcService := &service.ArticleService{}
@@ -21,6 +21,11 @@ func test(ctx iris.Context) {
 	arcService.Add("测试")
 
 	arc := arcService.Get(5)
+
+	//g.Redis.SetString("test", "hello", "3123123123")
+	//
+	//cache, _:=g.Redis.GetString("test")
+	//g.Log.Debug(cache)
 
 	ctx.ViewLayout("shared/layout.html")
 	ctx.ViewData("title", "测试")
