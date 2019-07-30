@@ -12,5 +12,4 @@ var (
 	DB = db.InstanceMysqlGroup()
 	Log = golog.Default
 	Session = session.InstanceSession()
-	Redis = db.InstanceRedis()
 )
