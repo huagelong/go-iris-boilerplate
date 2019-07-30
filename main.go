@@ -8,10 +8,12 @@ import (
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"log"
+	"runtime"
 	"time"
 )
 
 func main(){
+	runtime.GOMAXPROCS(runtime.NumCPU())
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
 	//服务器配置
 	conf := g.Config
@@ -47,4 +49,3 @@ func main(){
 		//启用更快的json序列化和优化：
 		iris.WithOptimizations)
 }
-

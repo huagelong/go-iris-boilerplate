@@ -10,23 +10,44 @@ import (
 )
 
 var (
-	masterEngine *xorm.Engine
-	slaveEngine *xorm.Engine
 	lock sync.Mutex
+	Db =  InstanceGroup()
 )
 
-func InstanceMaster() *xorm.Engine{
-	if masterEngine != nil{
-		return masterEngine
+func InstanceGroup() *xorm.EngineGroup  {
+	masterEngine := master()
+	slaveEngine := slave()
+	engine, err := xorm.NewEngineGroup(masterEngine, []*xorm.Engine{slaveEngine})
+	if err !=nil {
+		log.Fatal("dbsource.engineGroup", err)
 	}
 
+	err = engine.Ping()
+	if err != nil {
+		log.Fatal("got err when ping db: ", err)
+	}
+
+	env := g.GetEnv()
+
+	if env == "prod" {
+		engine.ShowSQL(false)
+	} else{
+		engine.ShowSQL(true)
+	}
+
+	timeLocation := g.Config.Get("system.timeLocation").(string)
+	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
+	engine.SetTZLocation(SysTimeLocation)
+	// 性能优化的时候才考虑，加上本机的SQL缓存
+	cacher := xorm.NewLRUCacher(xorm.NewMemoryStore(), 1000)
+	engine.SetDefaultCacher(cacher)
+
+	return engine
+}
+
+func master() *xorm.Engine{
 	lock.Lock()
 	defer lock.Unlock()
-
-	if masterEngine != nil{
-		return masterEngine
-	}
-
 
 	dbDriver := g.Config.Get("db.drive").(string)
     dbHost := g.Config.Get("db.master.host").(string)
@@ -44,45 +65,18 @@ func InstanceMaster() *xorm.Engine{
 		log.Fatal("dbsource.InstanceMaster", err)
 	}
 
-	err = engine.Ping()
-	if err != nil {
-		log.Fatal("got err when ping db: ", err)
-	}
-
-	env := g.GetEnv()
-
-	if env == "prod" {
-		engine.ShowSQL(false)
-	} else{
-		engine.ShowSQL(true)
-	}
-
 	//设置连接池的空闲数大小
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
 
-	timeLocation := g.Config.Get("system.timeLocation").(string)
-	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
-	engine.SetTZLocation(SysTimeLocation)
-	// 性能优化的时候才考虑，加上本机的SQL缓存
-	cacher := xorm.NewLRUCacher(xorm.NewMemoryStore(), 1000)
-	engine.SetDefaultCacher(cacher)
-	masterEngine = engine
-	return masterEngine
+	return engine
 }
 
-func InstanceSlave() *xorm.Engine{
-	if slaveEngine != nil{
-		return slaveEngine
-	}
+func slave() *xorm.Engine{
 
 	lock.Lock()
 	defer lock.Unlock()
-
-	if slaveEngine != nil{
-		return slaveEngine
-	}
 
 	dbDriver := g.Config.Get("db.drive").(string)
 	dbHost := g.Config.Get("db.slave.host").(string)
@@ -99,29 +93,10 @@ func InstanceSlave() *xorm.Engine{
 		log.Fatal("dbsource.InstanceSlave", err)
 	}
 
-	err = engine.Ping()
-	if err != nil {
-		log.Fatal("got err when ping db: ", err)
-	}
-
-	env := g.GetEnv()
-	if env == "prod" {
-		engine.ShowSQL(false)
-	} else{
-		engine.ShowSQL(true)
-	}
-
 	//设置连接池的空闲数大小
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
 
-	timeLocation := g.Config.Get("system.timeLocation").(string)
-	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
-	engine.SetTZLocation(SysTimeLocation)
-	// 性能优化的时候才考虑，加上本机的SQL缓存
-	cacher := xorm.NewLRUCacher(xorm.NewMemoryStore(), 1000)
-	engine.SetDefaultCacher(cacher)
-	slaveEngine = engine
-	return slaveEngine
+	return engine
 }

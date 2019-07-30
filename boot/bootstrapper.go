@@ -45,19 +45,24 @@ func New(appName string, cfgs ...Configurator) *Bootstrapper {
 }
 
 // SetupViews loads the templates.
-func (app *Bootstrapper) SetupViews(viewsDir string) {
-	htmlEngine := iris.HTML(viewsDir, ".html").Layout("shared/layout.html")
+func (app *Bootstrapper) SetupViews(resourcesPath string) {
+	viewsDir := resourcesPath+"/views"
+	htmlEngine := iris.Django(viewsDir, ".html")
 	// 每次重新加载模版（线上关闭它）
 	if g.GetEnv() == "prod"{
 		htmlEngine.Reload(false)
 	}else{
 		htmlEngine.Reload(true)
 	}
+
 	// 给模版内置各种定制的方法
 	//htmlEngine.AddFunc("FromUnixtimeShort", func(t int) string {
 	//	dt := time.Unix(int64(t), int64(0))
 	//	return dt.Format(SysTimeformShort)
 	//})
+	staticAssets := resourcesPath+"/public"
+	app.Favicon(staticAssets +"/"+ Favicon)
+	app.StaticWeb("/", staticAssets)
 	app.RegisterView(htmlEngine)
 }
 
@@ -117,10 +122,8 @@ func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 	app.SetupErrorHandlers()
 	// static files
 	resourcesPath := g.Config.Get("system.resourcesPath").(string)
-	app.SetupViews(resourcesPath+"/views")
-	staticAssets := resourcesPath+"/public"
-	app.Favicon(staticAssets +"/"+ Favicon)
-	app.StaticWeb("/", staticAssets)
+	app.SetupViews(resourcesPath)
+
 
 	//session
 	cookieHashKey := g.Config.Get("system.cookieHashKey").(string)
@@ -131,7 +134,17 @@ func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 		[]byte(cookieBlockKey))//lot-secret-of-characters-big-too
 	// middleware, after static files
 	app.Use(recover.New())
-	app.Use(logger.New())
+	requestLogger := logger.New(logger.Config{
+		Status: true,
+		IP: true,
+		Method: true,
+		Path: true,
+		Query: true,
+		Columns:true,
+		MessageContextKeys: []string{"logger_message"},
+		MessageHeaderKeys: []string{"User-Agent"},
+	})
+	app.Use(requestLogger)
 
 	return app
 }

@@ -1,24 +1,17 @@
-package dao
+package service
 
 import (
 	"gitee.com/trensy/duocaiCRM/app/model"
-	"github.com/go-xorm/xorm"
+	"gitee.com/trensy/duocaiCRM/datasource"
 	"log"
 	"time"
 )
 
-type ArticleDao struct {
-	engine *xorm.Engine
-}
+type articleService struct {}
 
-func NewArticleDao(engine *xorm.Engine) *ArticleDao{
-	return &ArticleDao{
-		engine:engine}
-}
-
-func (dao *ArticleDao) Get(id int) *model.Article {
+func (s *articleService) Get(id int) *model.Article {
 	data := &model.Article{Id: id}
-	ok,err :=dao.engine.Get(data)
+	ok,err :=datasource.Db.Get(data)
 	if ok && err == nil {
 		return data
 	}else{
@@ -27,7 +20,7 @@ func (dao *ArticleDao) Get(id int) *model.Article {
 	}
 }
 
-func (dao *ArticleDao) Insert(title string) *model.Article {
+func (s *articleService) Add(title string) *model.Article {
 	article := &model.Article{
 		Title:title,
 		Content:title,
@@ -36,10 +29,9 @@ func (dao *ArticleDao) Insert(title string) *model.Article {
 		CreatedAt:int(time.Now().Unix()),
 		UpdatedAt:int(time.Now().Unix()),
 	}
-	_, err := dao.engine.Insert(article)
+	_, err := datasource.Db.Insert(article)
 	if err != nil {
 		log.Fatal("insert error: ", err)
 	}
 	return article
 }
-

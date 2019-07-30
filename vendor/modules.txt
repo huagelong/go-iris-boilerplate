@@ -14,7 +14,7 @@ github.com/eknkc/amber
 github.com/eknkc/amber/parser
 # github.com/fatih/structs v1.1.0
 github.com/fatih/structs
-# github.com/flosch/pongo2 v0.0.0-20190505152737-8914e1cf9164
+# github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4
 github.com/flosch/pongo2
 # github.com/go-sql-driver/mysql v1.4.1
 github.com/go-sql-driver/mysql
@@ -32,7 +32,7 @@ github.com/iris-contrib/blackfriday
 github.com/iris-contrib/formBinder
 # github.com/iris-contrib/go.uuid v2.0.0+incompatible
 github.com/iris-contrib/go.uuid
-# github.com/json-iterator/go v1.1.6
+# github.com/json-iterator/go v1.1.7
 github.com/json-iterator/go
 # github.com/juju/errors v0.0.0-20181118221551-089d3ea4e4d5
 github.com/juju/errors
