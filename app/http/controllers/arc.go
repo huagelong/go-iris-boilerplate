@@ -23,10 +23,10 @@ func test(ctx iris.Context) {
 
 	arc := arcService.Get(5)
 
-	//g.Redis.SetString("test", "hello", "3123123123")
+	g.Redis.SetString("test", "hello", "3123123123")
 	//
-	//cache, _:=g.Redis.GetString("test")
-	//g.Log.Debug(cache)
+	cache, _:=g.Redis.GetString("test")
+	g.Log.Debug(cache)
 
 	ctx.ViewLayout("shared/layout.html")
 	ctx.ViewData("title", "测试")

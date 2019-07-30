@@ -21,7 +21,7 @@ func InstanceSession() *sessions.Sessions {
 	}
 	expires := 24*time.Hour
 	ses := sessions.New(sessions.Config{
-		Cookie:   "Tsessionid",
+		Cookie:   "tsessionid",
 		Expires:  expires,
 		AllowReclaim: true,
 	})
