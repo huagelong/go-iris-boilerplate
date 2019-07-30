@@ -140,7 +140,7 @@ func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 		Method: true,
 		Path: true,
 		Query: true,
-		Columns:true,
+		Columns:false,
 		MessageContextKeys: []string{"logger_message"},
 		MessageHeaderKeys: []string{"User-Agent"},
 	})

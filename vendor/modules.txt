@@ -40,7 +40,6 @@ github.com/juju/errors
 github.com/kataras/golog
 # github.com/kataras/iris v11.1.1+incompatible
 github.com/kataras/iris
-github.com/kataras/iris/mvc
 github.com/kataras/iris/middleware/logger
 github.com/kataras/iris/middleware/recover
 github.com/kataras/iris/sessions
@@ -52,20 +51,18 @@ github.com/kataras/iris/core/host
 github.com/kataras/iris/core/netutil
 github.com/kataras/iris/core/router
 github.com/kataras/iris/view
-github.com/kataras/iris/hero
-github.com/kataras/iris/hero/di
-github.com/kataras/iris/macro
 github.com/kataras/iris/core/memstore
 github.com/kataras/iris/cache/client
+github.com/kataras/iris/macro
 github.com/kataras/iris/macro/handler
 github.com/kataras/iris/macro/interpreter/ast
 github.com/kataras/iris/macro/interpreter/lexer
-github.com/kataras/iris/macro/interpreter/parser
 github.com/kataras/iris/cache/cfg
 github.com/kataras/iris/cache/client/rule
 github.com/kataras/iris/cache/entry
 github.com/kataras/iris/cache/ruleset
 github.com/kataras/iris/cache/uri
+github.com/kataras/iris/macro/interpreter/parser
 github.com/kataras/iris/macro/interpreter/token
 # github.com/kataras/pio v0.0.0-20190103105442-ea782b38602d
 github.com/kataras/pio

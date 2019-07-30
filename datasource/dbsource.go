@@ -2,29 +2,39 @@ package datasource
 
 import (
 	"gitee.com/trensy/duocaiCRM/g"
+	"gitee.com/trensy/duocaiCRM/g/tomlparse"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
-	"log"
+	"github.com/kataras/golog"
 	"sync"
 	"time"
 )
 
-var (
-	lock sync.Mutex
-	Db =  InstanceGroup()
-)
+var engineGroup *xorm.EngineGroup
 
 func InstanceGroup() *xorm.EngineGroup  {
+	if engineGroup != nil{
+		return engineGroup
+	}
+
+	var lock sync.Mutex
+	lock.Lock()
+	defer lock.Unlock()
+
+	if engineGroup != nil{
+		return engineGroup
+	}
+
 	masterEngine := master()
 	slaveEngine := slave()
 	engine, err := xorm.NewEngineGroup(masterEngine, []*xorm.Engine{slaveEngine})
 	if err !=nil {
-		log.Fatal("dbsource.engineGroup", err)
+		golog.Fatal("dbsource.engineGroup", err)
 	}
 
 	err = engine.Ping()
 	if err != nil {
-		log.Fatal("got err when ping db: ", err)
+		golog.Fatal("got err when ping db: ", err)
 	}
 
 	env := g.GetEnv()
@@ -41,62 +51,58 @@ func InstanceGroup() *xorm.EngineGroup  {
 	// 性能优化的时候才考虑，加上本机的SQL缓存
 	cacher := xorm.NewLRUCacher(xorm.NewMemoryStore(), 1000)
 	engine.SetDefaultCacher(cacher)
-
+	golog.Info("dbgroup created ....")
 	return engine
 }
 
 func master() *xorm.Engine{
-	lock.Lock()
-	defer lock.Unlock()
-
-	dbDriver := g.Config.Get("db.drive").(string)
-    dbHost := g.Config.Get("db.master.host").(string)
-	dbPort := g.Config.Get("db.master.port").(string)
-	dbUser := g.Config.Get("db.master.user").(string)
-	dbPwd := g.Config.Get("db.master.pwd").(string)
-	dbDbname := g.Config.Get("db.master.dbname").(string)
-	dbMaxIdleConns := int(g.Config.Get("db.master.maxIdleConns").(int64))
-	dbMaxOpenConns := int(g.Config.Get("db.slave.maxOpenConns").(int64))
+	g := tomlparse.Config()
+	dbDriver := g.Get("db.drive").(string)
+    dbHost := g.Get("db.master.host").(string)
+	dbPort := g.Get("db.master.port").(string)
+	dbUser := g.Get("db.master.user").(string)
+	dbPwd := g.Get("db.master.pwd").(string)
+	dbDbname := g.Get("db.master.dbname").(string)
+	dbMaxIdleConns := int(g.Get("db.master.maxIdleConns").(int64))
+	dbMaxOpenConns := int(g.Get("db.slave.maxOpenConns").(int64))
 
 	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
 	//fmt.Println(driveSource)
 	engine, err := xorm.NewEngine(dbDriver, driveSource)
 	if err !=nil {
-		log.Fatal("dbsource.InstanceMaster", err)
+		golog.Fatal("dbsource.InstanceMaster", err)
 	}
 
 	//设置连接池的空闲数大小
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
-
+	golog.Info("master created ....")
 	return engine
 }
 
 func slave() *xorm.Engine{
 
-	lock.Lock()
-	defer lock.Unlock()
-
-	dbDriver := g.Config.Get("db.drive").(string)
-	dbHost := g.Config.Get("db.slave.host").(string)
-	dbPort := g.Config.Get("db.slave.port").(string)
-	dbUser := g.Config.Get("db.slave.user").(string)
-	dbPwd := g.Config.Get("db.slave.pwd").(string)
-	dbDbname := g.Config.Get("db.slave.dbname").(string)
-	dbMaxIdleConns := int(g.Config.Get("db.slave.maxIdleConns").(int64))
-	dbMaxOpenConns := int(g.Config.Get("db.slave.maxOpenConns").(int64))
+	g := tomlparse.Config()
+	dbDriver := g.Get("db.drive").(string)
+	dbHost := g.Get("db.slave.host").(string)
+	dbPort := g.Get("db.slave.port").(string)
+	dbUser := g.Get("db.slave.user").(string)
+	dbPwd := g.Get("db.slave.pwd").(string)
+	dbDbname := g.Get("db.slave.dbname").(string)
+	dbMaxIdleConns := int(g.Get("db.slave.maxIdleConns").(int64))
+	dbMaxOpenConns := int(g.Get("db.slave.maxOpenConns").(int64))
 
 	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
 	engine, err := xorm.NewEngine(dbDriver, driveSource)
 	if err !=nil {
-		log.Fatal("dbsource.InstanceSlave", err)
+		golog.Fatal("dbsource.InstanceSlave", err)
 	}
 
 	//设置连接池的空闲数大小
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
-
+	golog.Info("slave created ....")
 	return engine
 }

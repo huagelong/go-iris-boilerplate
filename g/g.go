@@ -1,26 +1,15 @@
 package g
 
 import (
-	"github.com/kataras/golog"
-	"github.com/pelletier/go-toml"
+	"gitee.com/trensy/duocaiCRM/datasource"
+	"gitee.com/trensy/duocaiCRM/g/tomlparse"
 )
 
 var (
-	Config = NewConfig()
+	Config = tomlparse.Config()
+	DB = datasource.InstanceGroup()
 )
 
-func NewConfig(name ...string) *toml.Tree {
-	group := "app"
-	if len(name) > 0 {
-		group = name[0]
-	}
-	config, err := toml.LoadFile("./resource/config/"+group+".toml")
-	if err != nil {
-		golog.Fatal("TomlError err : "+err.Error())
-		return nil
-	}
-	return config
-}
 
 func GetEnv() string{
 	//环境变量

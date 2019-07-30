@@ -2,16 +2,16 @@ package service
 
 import (
 	"gitee.com/trensy/duocaiCRM/app/model"
-	"gitee.com/trensy/duocaiCRM/datasource"
+	"gitee.com/trensy/duocaiCRM/g"
 	"log"
 	"time"
 )
 
-type articleService struct {}
+type ArticleService struct {}
 
-func (s *articleService) Get(id int) *model.Article {
+func (s *ArticleService) Get(id int) *model.Article {
 	data := &model.Article{Id: id}
-	ok,err :=datasource.Db.Get(data)
+	ok,err :=g.DB.Get(data)
 	if ok && err == nil {
 		return data
 	}else{
@@ -20,7 +20,7 @@ func (s *articleService) Get(id int) *model.Article {
 	}
 }
 
-func (s *articleService) Add(title string) *model.Article {
+func (s *ArticleService) Add(title string) *model.Article {
 	article := &model.Article{
 		Title:title,
 		Content:title,
@@ -29,7 +29,7 @@ func (s *articleService) Add(title string) *model.Article {
 		CreatedAt:int(time.Now().Unix()),
 		UpdatedAt:int(time.Now().Unix()),
 	}
-	_, err := datasource.Db.Insert(article)
+	_, err := g.DB.Insert(article)
 	if err != nil {
 		log.Fatal("insert error: ", err)
 	}
