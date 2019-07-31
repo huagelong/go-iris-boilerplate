@@ -1,7 +1,7 @@
 # 当前目录执行下生成的可执行文件的名字，默认是当前目录名
 appname: "trensy"
 # 指定编译后的目标文件目录
-output: ./bin/trensy
+output: ./bin/main
 # 需要追加监听的文件名后缀，默认只有'.go'文件
 watch_exts:
   - .toml

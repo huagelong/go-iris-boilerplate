@@ -11,7 +11,7 @@ ENV WORKDIR /var/www/http
 
 RUN mkdir -p $WORKDIR
 # 添加应用可执行文件，并设置执行权限
-ADD cmd/main $WORKDIR
+ADD bin/main $WORKDIR
 RUN chmod +x  $WORKDIR
 
 # 添加静态文件、配置文件、模板文件

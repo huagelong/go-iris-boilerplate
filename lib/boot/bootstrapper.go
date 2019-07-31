@@ -23,14 +23,12 @@ type Configurator func(*Bootstrapper)
 // 参考文章： https://hackthology.com/golangzhong-de-mian-xiang-dui-xiang-ji-cheng.html
 type Bootstrapper struct {
 	*iris.Application
-	AppName      string  //应用名称
 	AppSpawnDate time.Time //当前时间
 }
 
 // New returns a new Bootstrapper.
-func New(appName string) *Bootstrapper {
+func New() *Bootstrapper {
 	App = &Bootstrapper{
-		AppName:      appName,
 		AppSpawnDate: time.Now(),
 		Application:  iris.New(),
 	}
@@ -63,7 +61,6 @@ func (app *Bootstrapper) SetupViews(resourcesPath string, c *toml.Tree) {
 func (app *Bootstrapper) SetupErrorHandlers() {
 	app.OnAnyErrorCode(func(ctx iris.Context) {
 		err := iris.Map{
-			"app":     app.AppName,
 			"status":  ctx.GetStatusCode(),
 			"msg": ctx.Values().GetString("message"),
 			"data":nil,

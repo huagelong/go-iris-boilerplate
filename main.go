@@ -3,8 +3,7 @@ package main
 import (
 	"flag"
 	"github.com/kataras/iris"
-	"trensy/app/module/admin/http/api"
-	"trensy/app/module/admin/http/web"
+	"trensy/app/module/admin"
 	"trensy/lib/boot"
 	"trensy/lib/tomlparse"
 )
@@ -19,22 +18,11 @@ func main(){
 	//服务器配置
 	conf := tomlparse.Config(confPath)
 	port := conf.Get("system.port").(string)
-	appname :=conf.Get("system.appname").(string)
 
-	app := boot.New(appname)
+	app := boot.New()
 	app.Bootstrap(conf)
-
-	web.Init(conf, app)
-	api.Init(conf, app)
-
-	app.Use(func(ctx iris.Context) {
-		//ctx.ViewLayout("./shared/layout.html")
-		appTitle := conf.Get("system.appTitle").(string)
-		poweredBy := conf.Get("system.poweredBy").(string)
-		ctx.ViewData("appTitle", appTitle)
-		ctx.ViewData("poweredBy", poweredBy)
-		ctx.Next()
-	})
+	//modules
+	admin.Init(conf, app)
 
 	globalConfig := iris.TOML(confPath)
 	_ = app.Run(iris.Addr(port),
