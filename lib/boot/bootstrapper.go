@@ -40,6 +40,11 @@ func New(appName string) *Bootstrapper {
 
 // SetupViews loads the templates.
 func (app *Bootstrapper) SetupViews(resourcesPath string, c *toml.Tree) {
+
+	staticAssets := resourcesPath+"/public"
+	app.Favicon(staticAssets +"/favicon.ico")
+	app.StaticWeb("/", staticAssets)
+
 	viewsDir := resourcesPath+"/views"
 	htmlEngine := iris.Django(viewsDir, ".html")
 	// 每次重新加载模版（线上关闭它）
@@ -50,14 +55,6 @@ func (app *Bootstrapper) SetupViews(resourcesPath string, c *toml.Tree) {
 	}
 	//func ,filter
     view.New(htmlEngine, c)
-	// 给模版内置各种定制的方法
-	//htmlEngine.AddFunc("FromUnixtimeShort", func(t int) string {
-	//	dt := time.Unix(int64(t), int64(0))
-	//	return dt.Format(SysTimeformShort)
-	//})
-	staticAssets := resourcesPath+"/public"
-	app.Favicon(staticAssets +"/favicon.ico")
-	app.StaticWeb("/", staticAssets)
 	app.RegisterView(htmlEngine)
 }
 
@@ -104,16 +101,9 @@ func (app *Bootstrapper) Bootstrap(conf *toml.Tree) *Bootstrapper {
 	environment :=support.GetEnv(conf)
 	golog.Info("environment is " + environment)
 	app.Use(recover.New())
-	requestLogger := logger.New(logger.Config{
-		Status: true,
-		IP: false,
-		Method: true,
-		Path: true,
-		Query: false,
-		Columns:false,
-	})
+	requestLogger := logger.New()
 	app.Use(requestLogger)
-	logLevel :=conf.Get("system.logLevel").(string)
+	logLevel := conf.Get("system.logLevel").(string)
 	app.Logger().SetLevel(logLevel)
 
 	iris.RegisterOnInterrupt(func() {

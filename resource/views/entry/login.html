@@ -1,0 +1,145 @@
+{% extends "shared/layout.html" %}
+{% block title %}登录{% endblock %}
+{% block styles %}
+<style>
+    #login main{
+        color: #333;
+        font-weight: 400;
+        opacity: 1;
+    }
+    #login main h3{
+        font-weight: 400;
+    }
+    #login main img{
+        width: 200px;
+    }
+    #login footer{
+        color: #333;
+    }
+</style>
+{% endblock %}
+{% block bodyAttr %}
+id="login"
+{% endblock %}
+{% block body %}
+<main>
+    <img  src="/static/ui/img/logo.png" alt="">
+    <h3>物联网管理系统</h3>
+    <div id="toggle">
+        <form class="position-absolute" id="signIn" method="post">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg" name="userName" type="text" placeholder="请输入邮箱地址" >
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg" name="password" type="password" placeholder="请输入密码" >
+                </div>
+            </div>
+            <div class="form-group">
+                <div id="verify"></div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input class="custom-control-input" id="remember" type="checkbox">
+                    <label class="custom-control-label" for="remember">记住密码</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-12">
+                    <button class="btn btn-primary btn-lg btn-block" type="button" disabled>登&emsp;录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+<footer>{{ poweredBy }}</footer>
+<div class="k-loading-image" id="loading"></div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/ui/js/jquery.verify.js"></script>
+<script>
+    $(function () {
+        // 登录注册切换
+        $('#toggle').height(400);
+        // 是否已登录
+        if (sessionStorage.getItem('logged')) {
+            sessionStorage.removeItem('token');
+            sessionStorage.removeItem('userId');
+            sessionStorage.removeItem('userName');
+            sessionStorage.removeItem('password');
+            sessionStorage.removeItem('logged');
+        }
+        // 记住密码
+        $('#signIn input[name="userName"]').val(localStorage.getItem('userName'));
+        $('#signIn input[name="password"]').val(localStorage.getItem('password'));
+        if (localStorage.getItem('remember')) {
+            $('#remember').prop('checked', true);
+        } else {
+            $('#remember').prop('checked', false);
+        }
+        // 登录表单验证
+        var validatorSignIn = $('#signIn').kendoValidator().data('kendoValidator');
+        // 登录滑块验证
+        $('#verify').slideVerify({
+            success: function (obj) {
+                $('#signIn .btn-primary').prop('disabled', false).unbind('click').click(function () {
+                    // 登录表单验证成功
+                    if (validatorSignIn.validate()) {
+                        $('#loading').show();
+                        $('#signIn .btn-primary').prop('disabled', true);
+                        $.fn.ajaxPost({
+                            ajaxData: $('#signIn').serializeObject(),
+                            ajaxUrl: '/api/login',
+                            finished: function (res) {
+                                $('#loading').hide();
+                            },
+                            succeed: function (res) {
+                                if(res.status == 200){
+                                    // 记住密码
+                                    if ($('#remember').prop('checked')) {
+                                        localStorage.setItem('userName', $('#signIn input[name="userName"]').val());
+                                        localStorage.setItem('password', $('#signIn input[name="password"]').val());
+                                        localStorage.setItem('remember', true);
+                                    } else {
+                                        localStorage.removeItem('userName');
+                                        localStorage.removeItem('password');
+                                        localStorage.removeItem('remember');
+                                    }
+                                    // 存储登录状态
+                                    sessionStorage.setItem('token', res.data.token);
+                                    sessionStorage.setItem('userId', res.data.uid);
+                                    sessionStorage.setItem('userName', $('#signIn input[name="userName"]').val());
+                                    sessionStorage.setItem('password', $('#signIn input[name="password"]').val());
+                                    sessionStorage.setItem('logged', true);
+                                    goLogin();
+                                }else{
+                                    noticeMsg(res.msg, 'error', 'top', 5000);
+                                }
+                            },
+                            failed: function (res) {
+                                obj.refresh();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        // 完成登录
+        function goLogin() {
+            $('#toggle').removeAttr('style');
+            $('#signIn').removeClass('position-absolute');
+            $('.form-group, p, .form-row').slideUp(800, function () {
+                location.href = "/";
+            });
+        }
+    })
+</script>
+{% endblock %}

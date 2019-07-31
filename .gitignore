@@ -3,4 +3,4 @@
 /bin
 /go.sum
 /vendor
-/app/admin/cmd/main
+/main
