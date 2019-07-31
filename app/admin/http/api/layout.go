@@ -6,7 +6,7 @@ import (
 )
 
 func navJson(ctx iris.Context)  {
-	filename := "./resource/public/resource/js/json/nav.json"
+	filename := "./app/admin/resource/public/resource/js/json/nav.json"
 	plan, _ := ioutil.ReadFile(filename)
 	data := string(plan[:])
 	ctx.Header("Content-type", "application/json")
@@ -14,7 +14,7 @@ func navJson(ctx iris.Context)  {
 }
 
 func menuJson(ctx iris.Context)  {
-	filename := "./resource/public/resource/js/json/menu.json"
+	filename := "./app/admin/resource/public/resource/js/json/menu.json"
 	plan, _ := ioutil.ReadFile(filename)
 	data := string(plan[:])
 	ctx.Header("Content-type", "application/json")
@@ -22,7 +22,7 @@ func menuJson(ctx iris.Context)  {
 }
 
 func homeJson(ctx iris.Context)  {
-	filename := "./resource/public/resource/js/json/home.json"
+	filename := "./app/admin/resource/public/resource/js/json/home.json"
 	plan, _ := ioutil.ReadFile(filename)
 	data := string(plan[:])
 	ctx.Header("Content-type", "application/json")

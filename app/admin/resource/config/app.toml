@@ -14,7 +14,7 @@ appname="trensy"
 cookieHashKey="asdarefsdzc1@#!#13123"
 cookieBlockKey="#!@#12312sadadasdada"
 timeLocation="Asia/Shanghai"
-resourcesPath="./resource"
+resourcesPath="./app/admin/resource"
 appTitle="trensy模板"
 poweredBy="powered by trensy"
 

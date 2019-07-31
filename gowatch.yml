@@ -11,7 +11,7 @@ watch_exts:
 #  - ../demo
 # 在执行命令时，需要增加的其他参数
 cmd_args:
-  - c=./app/admin/resource/config/app.toml
+  - -c=./app/admin/resource/config/app.toml
 # 需要增加环境变量，默认已加载当前环境变量
 envs:
 #  - environment=dev

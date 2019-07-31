@@ -10,9 +10,12 @@ import (
 )
 
 func main(){
-	var confi = flag.String("c", "./app/admin/cmd/app.toml", "set configuration `file`")
+	var confi = flag.String("c", "./app/admin/resource/config/app.toml", "set configuration `file`")
 	flag.Parse()
 	confPath := *confi
+	if confPath == "" {
+		flag.Usage()
+	}
 	//服务器配置
 	conf := tomlparse.Config(confPath)
 	port := conf.Get("system.port").(string)
