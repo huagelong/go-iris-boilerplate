@@ -1,6 +1,6 @@
 package dao
 
-import "trensy/app/admin/model"
+import "trensy/app/model"
 
 func (d *Dao) GetUserById(uid int) *model.User{
 	var userModel model.User

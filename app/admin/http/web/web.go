@@ -18,7 +18,6 @@ func Init(c *toml.Tree, app *boot.Bootstrapper) {
 func initRoute(app *boot.Bootstrapper)  {
 	app.Get("/", index)
 	app.Get("/login", login)
-	app.Get("/test", test)
 
 	pageApp := app.Party("/page")
 	{

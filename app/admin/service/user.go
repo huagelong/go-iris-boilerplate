@@ -2,7 +2,7 @@ package service
 
 import (
 	"errors"
-	"trensy/app/admin/model"
+	"trensy/app/model"
 	"trensy/lib/support"
 )
 

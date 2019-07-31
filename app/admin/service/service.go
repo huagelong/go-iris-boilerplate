@@ -3,7 +3,7 @@ package service
 import (
 	"github.com/kataras/iris/sessions"
 	"github.com/pelletier/go-toml"
-	"trensy/app/admin/dao"
+	"trensy/app/dao"
 	"trensy/lib/boot"
 	"trensy/lib/session"
 )
