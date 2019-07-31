@@ -13,7 +13,6 @@ watch_exts:
 cmd_args:
 #  - port=:8080
 #  - logLevel=debug
-#  - appname=duocaiCRM
 # 需要增加环境变量，默认已加载当前环境变量
 envs:
 #  - environment=dev
@@ -23,7 +22,7 @@ vendor_watch: true
 excluded_paths:
   - bin
 # main 包路径，也可以是单个文件，多个文件使用逗号分隔
-build_pkg: "main.go"
+build_pkg: "./app/admin/cmd/main.go"
 # build tags
 build_tags: ""
 

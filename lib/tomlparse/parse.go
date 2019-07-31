@@ -3,14 +3,25 @@ package tomlparse
 import (
 	"github.com/kataras/golog"
 	"github.com/pelletier/go-toml"
+	"sync"
 )
 
-func Config(name ...string) *toml.Tree {
-	group := "app"
-	if len(name) > 0 {
-		group = name[0]
+var (
+	configInstance map[string]*toml.Tree
+)
+
+func Config(path string) *toml.Tree {
+	if configInstance[path] != nil{
+		return configInstance[path]
 	}
-	config, err := toml.LoadFile("./resource/config/"+group+".toml")
+	var lock sync.Mutex
+	lock.Lock()
+	defer lock.Unlock()
+
+	if configInstance[path] != nil{
+		return configInstance[path]
+	}
+	config, err := toml.LoadFile(path)
 	if err != nil {
 		golog.Fatal("TomlError err : "+err.Error())
 		return nil

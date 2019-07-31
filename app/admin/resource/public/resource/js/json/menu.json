@@ -1,0 +1,70 @@
+{
+    "status": 200,
+    "msg": "",
+    "data": [
+        {
+            "text": "<i class='fas fa-sync-alt'></i>刷新",
+            "encoded": false,
+            "url": "javascript:refresh();"
+        },
+        {
+            "text": "<i class='fas fa-expand'></i>全屏",
+            "encoded": false,
+            "cssClass": "fullscreen",
+            "url": "javascript:;"
+        },
+        {
+            "text": "<hr>",
+            "encoded": false
+        },
+        {
+            "text": "<i class='fas fa-bell'></i><sup class='theme-m-bg'>8</sup>提醒",
+            "encoded": false,
+            "cssClass": "links-notice",
+            "url": "javascript:linkTo(\"/users/\", \"notice\");"
+        },
+        {
+            "text": "<hr>",
+            "encoded": false
+        },
+        {
+            "text": "<abbr>汪汪 [ 管理员 ]</abbr><img src='/resource/image/defaultuser.png'>",
+            "encoded": false,
+            "items": [
+                {
+                    "text": "<i class='fab fa-github'></i>Github",
+                    "encoded": false,
+                    "url": "https://github.com/IKKI2000/"
+                },
+                {
+                    "text": "<i class='fas fa-desktop'></i>前台网站",
+                    "encoded": false,
+                    "url": "site/index.html"
+                },
+                {
+                    "text": "<i class='fas fa-user'></i>用户中心",
+                    "encoded": false,
+                    "cssClass": "links-account",
+                    "url": "javascript:linkTo(\"/users/\", \"account\");"
+                },
+                {
+                    "text": "<i class='fas fa-key'></i>修改密码",
+                    "encoded": false,
+                    "cssClass": "links-password",
+                    "url": "javascript:linkTo(\"/users/\", \"password\");"
+                },
+                {
+                    "text": "<i class='fas fa-cog'></i>系统设置",
+                    "encoded": false,
+                    "cssClass": "links-setting",
+                    "url": "javascript:linkTo(\"/users/\", \"setting\");"
+                },
+                {
+                    "text": "<i class='fas fa-sign-out-alt'></i>退出登录",
+                    "encoded": false,
+                    "url": "javascript:confirmMsg(\"退出登录\", \"你确定要退出登录吗？\", \"question\", logout);"
+                }
+            ]
+        }
+    ]
+}

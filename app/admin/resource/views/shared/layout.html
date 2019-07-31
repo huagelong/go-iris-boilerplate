@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}-{{ appTitle }}</title>
+    <base href="/resource/js" type="">
+    <link href="/resource/ui/img/favicon.png" rel="icon" type="image/png">
+    <link href="/resource/ui/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="/resource/ui/css/flag-icon.min.css" rel="stylesheet">
+    <link href="/resource/ui/css/kendo.ui.widgets.icon.css" rel="stylesheet">
+    <link href="/resource/ui/css/bootstrap.min.css" rel="stylesheet">
+    <link id="Amikoko" href="/resource/ui/css/themes/theme_default.min.css" rel="stylesheet">
+    <link href="/resource/ui/css/amikoko.admin.css" rel="stylesheet">
+    <script src="/resource/ui/js/jquery.min.js"></script>
+    <script src="/resource/ui/js/kendo.all.min.js"></script>
+    <script id="IKKI" src="/resource/ui/js/global/kendo.zh-CHS.js"></script>
+    <script src="/resource/ui/js/ikki.layout.js"></script>
+    <script src="/resource/ui/js/ikki.router.js"></script>
+    <script src="/resource/ui/js/ikki.js"></script>
+    {% block styles %}{% endblock %}
+</head>
+<body {% block bodyAttr %}{% endblock %}>
+{% block header %}{% endblock %}
+{% block body %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block scripts %}{% endblock %}
+</body>
+</html>
