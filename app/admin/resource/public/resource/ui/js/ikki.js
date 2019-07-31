@@ -78,12 +78,12 @@ $(function () {
                         sessionStorage.setItem('token', xhr.getResponseHeader('Authorization'));
                     }
                     opts.finished(res);
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         opts.succeed(res);
                         if (opts.isMsg && res.msg.length > 0) {
                             alertMsgNoBtn(res.msg, 'success');
                         }
-                    } else if (res.status === 500) {
+                    } else if (res.status != 200) {
                         opts.failed(res);
                         if (res.msg.length > 0) {
                             alertMsg(res.msg, 'error');
@@ -148,12 +148,12 @@ $(function () {
                 if (res.status) {
                     sessionStorage.setItem('token', xhr.getResponseHeader('Authorization'));
                     opts.finished(res);
-                    if (res.status === 200) {
+                    if (res.status == 200) {
                         opts.succeed(res);
                         if (opts.isMsg && res.msg.length > 0) {
                             alertMsgNoBtn(res.msg, 'success');
                         }
-                    } else if (res.status === 500) {
+                    } else if (res.status != 200) {
                         opts.failed(res);
                         if (res.msg.length > 0) {
                             alertMsg(res.msg, 'error');
