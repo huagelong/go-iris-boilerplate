@@ -10,6 +10,7 @@
 var path = $('base').attr('href'),
     accentColor,
     minorColor,
+    tokenUrl = '/sapi/checkLogin',
     navUrl = '/api/navjson',
     menuUrl = '/api/menujson';
 
@@ -100,6 +101,28 @@ $(function () {
     });
 });
 
+// 发送 Token 验证
+function tokenAuth() {
+    var tokenStr = sessionStorage.getItem('token')
+    var idtokenStr = sessionStorage.getItem('idToken')
+    if(!(idtokenStr && tokenStr)) return true
+    $.fn.ajaxPost({
+        ajaxAsync: false,
+        ajaxData: {
+            token: tokenStr,
+            idtoken:idtokenStr
+        },
+        ajaxUrl: tokenUrl,
+        succeed: function (res) {
+            if (sessionStorage.getItem('locked')) {
+                lockScreen();
+            }
+        },
+        failed: function (res) {
+            logout();
+        }
+    });
+}
 
 // 面包屑导航
 function showPath(hash) {

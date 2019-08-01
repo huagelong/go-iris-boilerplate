@@ -18,15 +18,21 @@ func Init(c *toml.Tree, app *boot.Bootstrapper) {
 }
 
 func initRoute(app *boot.Bootstrapper)  {
-	apiApp := app.Party("/api")
+
+	apiApp := app.Party("/api", authMiddleware)
 	{
-		apiApp.Post("/navjson", authMiddleware, navJson)
-		apiApp.Post("/menujson", authMiddleware, menuJson)
-		apiApp.Post("/homejson", authMiddleware, homeJson)
-
-		apiApp.Post("/login", login)
-
+		apiApp.Post("/navjson", navJson)
+		apiApp.Post("/menujson",menuJson)
+		apiApp.Post("/homejson",homeJson)
 	}
+
+	//无登录状态api
+	statelessApiApp := app.Party("/sapi")
+	{
+		statelessApiApp.Post("/login", login)
+		statelessApiApp.Post("/checkLogin", checkLogin)
+	}
+
 }
 
 //判断是否登录

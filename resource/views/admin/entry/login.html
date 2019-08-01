@@ -87,8 +87,6 @@ id="login"
         if (sessionStorage.getItem('logged')) {
             sessionStorage.removeItem('token');
             sessionStorage.removeItem('idToken');
-            sessionStorage.removeItem('userName');
-            sessionStorage.removeItem('password');
             sessionStorage.removeItem('logged');
         }
         // 记住密码
@@ -111,7 +109,7 @@ id="login"
                         $('#signIn .btn-primary').prop('disabled', true);
                         $.fn.ajaxPost({
                             ajaxData: $('#signIn').serializeObject(),
-                            ajaxUrl: '/api/login',
+                            ajaxUrl: '/sapi/login',
                             finished: function (res) {
                                 $('#loading').hide();
                             },

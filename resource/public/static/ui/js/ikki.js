@@ -74,9 +74,6 @@ $(function () {
             dataType: 'json',
             success: function (res, status, xhr) {
                 if (res.status !=9527) {
-                    if (opts.urlType === 'api') {
-                        sessionStorage.setItem('token', xhr.getResponseHeader('Authorization'));
-                    }
                     opts.finished(res);
                     if (res.status == 200) {
                         opts.succeed(res);
@@ -124,9 +121,9 @@ $(function () {
     $.fn.ajaxPostBlob = function (options) {
         var defaults = { // 参数默认值
                 ajaxAsync: true,
-                ajaxType: 'get', // GitHub Pages 演示只支持 get 请求，正常使用请改回 post 请求
+                ajaxType: 'post', // GitHub Pages 演示只支持 get 请求，正常使用请改回 post 请求
                 ajaxData: '',
-                ajaxUrl: 'json/response.json', // GitHub Pages 模拟返回的 json 文件，正常使用请改回空字符串
+                ajaxUrl: '', // GitHub Pages 模拟返回的 json 文件，正常使用请改回空字符串
                 finished: noFunc,
                 succeed: noFunc,
                 failed: noFunc,
@@ -146,7 +143,6 @@ $(function () {
             dataType: 'json',
             success: function (res, status, xhr) {
                 if (res.status != 9527) {
-                    sessionStorage.setItem('token', xhr.getResponseHeader('Authorization'));
                     opts.finished(res);
                     if (res.status == 200) {
                         opts.succeed(res);

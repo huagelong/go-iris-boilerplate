@@ -20,12 +20,6 @@ func checkLogin(ctx iris.Context) {
 	user := &userStruct{}
 	ctx.ReadJSON(user)
 
-	uid:=srv.GetSessionUid(ctx)
-	if uid == 0{
-		support.ResponseJson(ctx, 500, "你的登录已失效，请重新登录")
-		return
-	}
-
 	idToken := user.IdToken
 	loginToken :=user.LoginToken
 	if idToken !="" && loginToken != ""{
@@ -41,7 +35,6 @@ func checkLogin(ctx iris.Context) {
 			return
 		}
 	}
-
 	support.ResponseJson(ctx, 200, "认证成功！")
 }
 
@@ -50,14 +43,17 @@ func login(ctx iris.Context) {
 	err := ctx.ReadJSON(login)
 	if err !=nil{
 		 support.ResponseJson(ctx, 500, "参数错误!")
+		return
 	}
 
 	if login.UserName == "" {
 		 support.ResponseJson(ctx, 500, "账户不能为空!")
+		return
 	}
 
 	if login.Password == "" {
 		support.ResponseJson(ctx, 500, "密码不能为空!")
+		return
 	}
 
 	userModel,loginerr := srv.Login(login.UserName, login.Password)
@@ -74,6 +70,7 @@ func login(ctx iris.Context) {
 		token := srv.CreateUUId()
 		if ok := srv.UpdateLoginToken(token, uid);!ok{
 			support.ResponseJson(ctx, 500, "token 更新失败，请重试")
+			return
 		}
 		loginData["idToken"] = userModel.IdToken
 		loginData["token"] = token
