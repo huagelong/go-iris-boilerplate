@@ -4,6 +4,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"github.com/kataras/golog"
+	"github.com/kataras/iris"
 	"github.com/pelletier/go-toml"
 	"sync"
 	"time"
@@ -31,7 +32,11 @@ func InstanceMysqlGroup(c *toml.Tree) *xorm.EngineGroup  {
 	if err !=nil {
 		golog.Fatal("dbsource.engineGroup", err)
 	}
-	defer engine.Close()
+
+	iris.RegisterOnInterrupt(func() {
+		engine.Close()
+	})
+
 	err = engine.Ping()
 	if err != nil {
 		golog.Fatal("got err when ping db: ", err)

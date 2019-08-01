@@ -2,6 +2,7 @@ package service
 
 import (
 	"errors"
+	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"github.com/rs/xid"
 	"trensy/app/model"
@@ -40,6 +41,7 @@ func (s * Service) UpdateLoginToken(token string , uid int) bool {
 func (s *Service) Login(username, pwd string) (*model.User, error){
 	newPwd := support.NewSha1(pwd, s.Config)
 	user := s.Dao.CheckLogin(username, newPwd)
+	golog.Info(user)
 	if user.Id >0 {
 		return user, nil
 	}else{
