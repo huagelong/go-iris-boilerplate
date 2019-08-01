@@ -9,11 +9,12 @@ import (
 )
 
 func main(){
-	var confi = flag.String("c", "./resource/config/app.toml", "set configuration `file`")
-	var isInstalli = flag.Bool("i", false, "project install")
+	var confi = flag.String("c", "", "set configuration `file`")
+	var isInstalli bool
+	flag.BoolVar(&isInstalli, "install", false, "project install")
 	flag.Parse()
 	confPath := *confi
-	isInstall :=*isInstalli
+	isInstall := isInstalli
 
 	if confPath == "" {
 		flag.Usage()
