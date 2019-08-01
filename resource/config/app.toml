@@ -26,7 +26,7 @@ drive="mysql"
     port= "3306"
     user="root"
     pwd="root123"
-    dbname="ling"
+    dbname="article"
     maxIdleConns=5
     maxOpenConns=5
 [db.slave]
@@ -34,7 +34,7 @@ drive="mysql"
     port="3306"
     user="root"
     pwd="root123"
-    dbname="ling"
+    dbname="article"
     maxIdleConns=5
     maxOpenConns=5
 [db.redis]

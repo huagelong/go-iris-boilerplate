@@ -10,8 +10,11 @@ import (
 
 func main(){
 	var confi = flag.String("c", "./resource/config/app.toml", "set configuration `file`")
+	var isInstalli = flag.Bool("i", false, "project install")
 	flag.Parse()
 	confPath := *confi
+	isInstall :=*isInstalli
+
 	if confPath == "" {
 		flag.Usage()
 	}
@@ -21,8 +24,12 @@ func main(){
 
 	app := boot.New()
 	app.Bootstrap(conf)
+
 	//modules
-	admin.Init(conf, app)
+	ok := admin.Init(conf, app, isInstall)
+	if !ok {
+		return
+	}
 
 	globalConfig := iris.TOML(confPath)
 	_ = app.Run(iris.Addr(port),
