@@ -1,5 +1,19 @@
-{% extends "shared/layout.html" %}
+{% extends "shared/base.html" %}
 {% block title %}登录{% endblock %}
+{% block head %}
+<base href="/static/js" type="">
+<link href="/static/ui/img/favicon.png" rel="icon" type="image/png">
+<link href="/static/ui/css/fontawesome-all.min.css" rel="stylesheet">
+<link href="/static/ui/css/flag-icon.min.css" rel="stylesheet">
+<link href="/static/ui/css/kendo.ui.widgets.icon.css" rel="stylesheet">
+<link href="/static/ui/css/bootstrap.min.css" rel="stylesheet">
+<link id="Amikoko" href="/static/ui/css/themes/theme_default.min.css" rel="stylesheet">
+<link href="/static/ui/css/amikoko.admin.css" rel="stylesheet">
+<script src="/static/ui/js/jquery.min.js"></script>
+<script src="/static/ui/js/kendo.all.min.js"></script>
+<script id="IKKI" src="/static/ui/js/global/kendo.zh-CHS.js"></script>
+<script src="/static/ui/js/ikki.js"></script>
+{% endblock %}
 {% block styles %}
 <style>
     #login main{
@@ -72,7 +86,7 @@ id="login"
         // 是否已登录
         if (sessionStorage.getItem('logged')) {
             sessionStorage.removeItem('token');
-            sessionStorage.removeItem('userId');
+            sessionStorage.removeItem('idToken');
             sessionStorage.removeItem('userName');
             sessionStorage.removeItem('password');
             sessionStorage.removeItem('logged');
@@ -115,7 +129,7 @@ id="login"
                                     }
                                     // 存储登录状态
                                     sessionStorage.setItem('token', res.data.token);
-                                    sessionStorage.setItem('userId', res.data.uid);
+                                    sessionStorage.setItem('idToken', res.data.idToken);
                                     sessionStorage.setItem('userName', $('#signIn input[name="userName"]').val());
                                     sessionStorage.setItem('password', $('#signIn input[name="password"]').val());
                                     sessionStorage.setItem('logged', true);

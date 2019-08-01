@@ -11,7 +11,6 @@ var router = new kendo.Router({
         change: function (e) {
             $('#inProgress').css('display', 'flex');
             $('#inProgress .progress-bar').removeClass('w-100').addClass('animated');
-            tokenAuth();
             showPath(e.url.split('/')[e.url.split('/').length - 1]);
         },
         routeMissing: function () {
@@ -72,7 +71,6 @@ $(function () {
 function refresh() {
     $('#inProgress').css('display', 'flex');
     $('#inProgress .progress-bar').removeClass('w-100').addClass('animated');
-    tokenAuth();
     $.get('/page' + location.hash.split('#')[1], function (temp) {
         $('#template').html(temp);
         layout.showIn('#container', new kendo.View(location.hash.split('/')[location.hash.split('/').length - 1] + 'Temp', { wrap: false }));

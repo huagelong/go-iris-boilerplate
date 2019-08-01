@@ -2,5 +2,38 @@
 
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-<div id="app">{{ content }}</div>
+<!-- 控件 -->
+<input id="navCkb" type="checkbox">
+<input id="menuCkb" type="checkbox">
+<label for="navCkb"><span id="mask"></span></label>
+<!-- 侧栏 -->
+<aside class="theme-m-bg" id="aside">
+    <h1>{{ appTitle }}</h1>
+    <nav id="nav">
+        <ul id="navPanelBar"></ul>
+        <ul id="navMenu"></ul>
+    </nav>
+</aside>
+<!-- 主体 -->
+<main id="main">
+    <!-- 头部 -->
+    <header class="theme-m" id="header">
+        <label for="navCkb"><i class="fas fa-bars"></i></label>
+        <label for="menuCkb"><i class="fas fa-ellipsis-h"></i></label>
+        <h1>{{ appTitle }}</h1>
+        <nav id="path"></nav>
+        <menu id="menuH"></menu>
+        <menu id="menuV"></menu>
+    </header>
+    <!-- 内容 -->
+    <section id="section">
+        <!-- 脚部 -->
+        <footer id="footer">{{ poweredBy }}</footer>
+        <div class="progress" id="inProgress">
+            <div class="progress-bar progress-bar-striped theme-m-bg"></div>
+        </div>
+        <div class="k-loading-image" id="loading"></div>
+    </section>
+</main>
+<template id="template"></template>
 {% endblock %}

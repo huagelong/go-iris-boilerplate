@@ -42,7 +42,7 @@ $(function () {
                 ajaxAsync: true,
                 ajaxType: 'post', // GitHub Pages 演示只支持 get 请求，正常使用请改回 post 请求
                 ajaxData: '',
-                urlType: 'static', // GitHub Pages 演示接口为静态 json 文件，正常使用请改回 api 类型
+                urlType: 'api', // GitHub Pages 演示接口为静态 json 文件，正常使用请改回 api 类型
                 ajaxUrl: '', // GitHub Pages 模拟返回的 json 文件，正常使用请改回空字符串
                 ajaxContentType: 'application/json; charset=UTF-8', // 标准表单提交请使用：application/x-www-form-urlencoded
                 finished: noFunc,
@@ -58,7 +58,7 @@ $(function () {
             });
         }
         if (opts.urlType === 'api') {
-            urls = apiPath + opts.ajaxUrl;
+            urls = opts.ajaxUrl;
         } else if (opts.urlType === 'static') {
             urls = opts.ajaxUrl;
         }
@@ -73,7 +73,7 @@ $(function () {
             contentType: opts.ajaxContentType,
             dataType: 'json',
             success: function (res, status, xhr) {
-                if (res.status) {
+                if (res.status !=9527) {
                     if (opts.urlType === 'api') {
                         sessionStorage.setItem('token', xhr.getResponseHeader('Authorization'));
                     }
@@ -83,7 +83,7 @@ $(function () {
                         if (opts.isMsg && res.msg.length > 0) {
                             alertMsgNoBtn(res.msg, 'success');
                         }
-                    } else if (res.status != 200) {
+                    } else{
                         opts.failed(res);
                         if (res.msg.length > 0) {
                             alertMsg(res.msg, 'error');
@@ -145,7 +145,7 @@ $(function () {
             contentType: false,
             dataType: 'json',
             success: function (res, status, xhr) {
-                if (res.status) {
+                if (res.status != 9527) {
                     sessionStorage.setItem('token', xhr.getResponseHeader('Authorization'));
                     opts.finished(res);
                     if (res.status == 200) {

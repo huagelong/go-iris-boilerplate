@@ -1,17 +1,29 @@
 package service
 
 import (
-	"errors"
-	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"github.com/rs/xid"
 	"trensy/app/model"
 	"trensy/lib/support"
 )
 
+//通过idToken 获取用户信息
+func (s *Service)GetUserByIdToken(idToken string) *model.User{
+	return s.Dao.GetUserByIdToken(idToken)
+}
+
 //登录设置session
 func (s *Service) SetLogin(uid int, ctx iris.Context){
 	s.Session.Start(ctx).Set(LOGIN_SESSION_KEY, uid)
+}
+
+//获取session数据
+func (s *Service)GetSessionUid(ctx iris.Context) int {
+	uid,err:=s.Session.Start(ctx).GetInt(LOGIN_SESSION_KEY)
+	if err != nil{
+		return 0
+	}
+	return uid
 }
 
 //退出
@@ -34,18 +46,16 @@ func (s *Service) CreateUUId() string  {
 
 //更新token
 func (s * Service) UpdateLoginToken(token string , uid int) bool {
-	return s.Dao.UpdateToken(token, uid);
+	return s.Dao.UpdateLoginToken(token, uid)
 }
 
 //登录检查
 func (s *Service) Login(username, pwd string) (*model.User, error){
 	newPwd := support.NewSha1(pwd, s.Config)
-	user := s.Dao.CheckLogin(username, newPwd)
-	golog.Info(user)
-	if user.Id >0 {
+	user ,err:= s.Dao.CheckLogin(username, newPwd)
+	if user.Id >0 && err==nil {
 		return user, nil
 	}else{
-		err := errors.New("账户或者密码错误")
 		return user,err
 	}
 }
