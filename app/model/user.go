@@ -5,7 +5,7 @@ type User struct {
 	IdToken				string		`xorm:"not null default('') comment('id 唯一token,对外') VARCHAR(88)" form:"idtoken"`
 	Username			string		`xorm:"not null default('') comment('标题') VARCHAR(88)" form:"username"`
 	CompanyId			int 		`xorm:"not null default(0) comment('公司id') INT(11)" form:"company_id"`
-	displayName			string		`xorm:"not null default('') comment('昵称') VARCHAR(100)" form:"display_name"`
+	DisplayName			string		`xorm:"not null default('') comment('昵称') VARCHAR(100)" form:"display_name"`
 	FaceImg				string		`xorm:"not null default('') comment('头像') VARCHAR(250)" form:"face_img"`
 	Passwd				string		`xorm:"not null default('') comment('密码') VARCHAR(250)" form:"passwd"`
 	IsLock				int			`xorm:"not null default(0) comment('是否已锁定') INT(1)" form:"is_lock"`

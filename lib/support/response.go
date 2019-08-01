@@ -1,6 +1,8 @@
 package support
 
-import "github.com/kataras/iris"
+import (
+	"github.com/kataras/iris"
+)
 
 // 标准返回结果数据结构封装。
 // 返回固定数据结构的JSON:
@@ -12,10 +14,12 @@ func ResponseJson(ctx iris.Context, status int, msg string, data ...interface{})
 	if len(data) > 0 {
 		responseData = data[0]
 	}
+
 	mapData:= iris.Map{
 		"status":	status,
 		"msg": 		msg,
 		"data":		responseData,
 	}
 	ctx.JSON(mapData)
+	return
 }

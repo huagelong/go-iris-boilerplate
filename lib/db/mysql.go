@@ -31,7 +31,7 @@ func InstanceMysqlGroup(c *toml.Tree) *xorm.EngineGroup  {
 	if err !=nil {
 		golog.Fatal("dbsource.engineGroup", err)
 	}
-
+	defer engine.Close()
 	err = engine.Ping()
 	if err != nil {
 		golog.Fatal("got err when ping db: ", err)
@@ -70,7 +70,6 @@ func master(c *toml.Tree) *xorm.Engine{
 	if err !=nil {
 		golog.Fatal("dbsource.InstanceMaster", err)
 	}
-
 	//设置连接池的空闲数大小
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
@@ -94,7 +93,6 @@ func slave(c *toml.Tree) *xorm.Engine{
 	if err !=nil {
 		golog.Fatal("dbsource.InstanceSlave", err)
 	}
-
 	//设置连接池的空闲数大小
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数

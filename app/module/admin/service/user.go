@@ -3,6 +3,7 @@ package service
 import (
 	"errors"
 	"github.com/kataras/iris"
+	"github.com/rs/xid"
 	"trensy/app/model"
 	"trensy/lib/support"
 )
@@ -23,8 +24,20 @@ func (s *Service) GetUserInfo(uid int) *model.User{
 	return user
 }
 
+//获取token
+func (s *Service) CreateUUId() string  {
+	guid := xid.New()
+	token := guid.String()
+	return token
+}
+
+//更新token
+func (s * Service) UpdateLoginToken(token string , uid int) bool {
+	return s.Dao.UpdateToken(token, uid);
+}
+
 //登录检查
-func (s *Service) login(username, pwd string) (*model.User, error){
+func (s *Service) Login(username, pwd string) (*model.User, error){
 	newPwd := support.NewSha1(pwd, s.Config)
 	user := s.Dao.CheckLogin(username, newPwd)
 	if user.Id >0 {

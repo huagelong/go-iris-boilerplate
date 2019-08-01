@@ -5,9 +5,9 @@ import (
 )
 
 func index(ctx iris.Context){
-	ctx.View("entry/index.html")
+	ctx.View("admin/entry/index.html")
 }
 
 func login(ctx iris.Context){
-	ctx.View("entry/login.html")
+	ctx.View("admin/entry/login.html")
 }
