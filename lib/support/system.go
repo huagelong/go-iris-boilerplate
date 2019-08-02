@@ -3,6 +3,7 @@ package support
 import (
 	"crypto/sha1"
 	"fmt"
+	"github.com/kataras/iris"
 	"github.com/pelletier/go-toml"
 )
 
@@ -22,4 +23,10 @@ func NewSha1(str string, conf *toml.Tree) string {
 	h.Write([]byte(str+hashKey))
 	l := fmt.Sprintf("%x", h.Sum(nil))
 	return l
+}
+
+//中断
+func Exit(ctx iris.Context)  {
+	ctx.StopExecution()
+	panic("exit")
 }

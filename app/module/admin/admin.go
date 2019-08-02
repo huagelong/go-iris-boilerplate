@@ -1,7 +1,9 @@
 package admin
 
 import (
+	"github.com/kataras/iris"
 	"github.com/pelletier/go-toml"
+	"time"
 	"trensy/app/module/admin/http/api"
 	"trensy/app/module/admin/http/web"
 	"trensy/app/module/admin/service"
@@ -17,9 +19,10 @@ func Init(conf *toml.Tree, app *boot.Bootstrapper, isInstall bool) bool {
 	}
 
 	//后置中间件
-	//app.Done(func(ctx iris.Context) {
-	//
-	//})
+	app.Use(func(ctx iris.Context) {
+		ctx.Values().Set("startTime", time.Now().UnixNano())
+		ctx.Next()
+	})
 
 	web.Init(conf, app)
 	api.Init(conf, app)

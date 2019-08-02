@@ -19,20 +19,17 @@ type loginStruct struct {
 func checkLogin(ctx iris.Context) {
 	user := &userStruct{}
 	ctx.ReadJSON(user)
-
 	idToken := user.IdToken
 	loginToken :=user.LoginToken
 	if idToken !="" && loginToken != ""{
 		userInfo := srv.GetUserByIdToken(idToken)
 		if userInfo.Id ==0 {
 			support.ResponseJson(ctx, 500, "你没有访问权限，请重新登录")
-			return
 		}
 		golog.Info(userInfo.LoginToken, loginToken)
 		if userInfo.LoginToken != loginToken{
 			srv.SetLogout(ctx)
 			support.ResponseJson(ctx, 500, "你的账号已经在其他地方登录，你被踢出，请重新登录")
-			return
 		}
 	}
 	support.ResponseJson(ctx, 200, "认证成功！")
@@ -43,17 +40,14 @@ func login(ctx iris.Context) {
 	err := ctx.ReadJSON(login)
 	if err !=nil{
 		 support.ResponseJson(ctx, 500, "参数错误!")
-		return
 	}
 
 	if login.UserName == "" {
 		 support.ResponseJson(ctx, 500, "账户不能为空!")
-		return
 	}
 
 	if login.Password == "" {
 		support.ResponseJson(ctx, 500, "密码不能为空!")
-		return
 	}
 
 	userModel,loginerr := srv.Login(login.UserName, login.Password)
@@ -70,7 +64,6 @@ func login(ctx iris.Context) {
 		token := srv.CreateUUId()
 		if ok := srv.UpdateLoginToken(token, uid);!ok{
 			support.ResponseJson(ctx, 500, "token 更新失败，请重试")
-			return
 		}
 		loginData["idToken"] = userModel.IdToken
 		loginData["token"] = token
