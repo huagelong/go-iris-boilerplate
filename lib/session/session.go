@@ -15,7 +15,7 @@ var (
 	instanceRedis *redis.Database
 )
 
-func InstanceSession(c *toml.Tree) *sessions.Sessions {
+func New(c *toml.Tree) *sessions.Sessions {
 	if instanceSession != nil{
 		return instanceSession
 	}

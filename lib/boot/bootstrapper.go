@@ -6,10 +6,13 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
+	"github.com/kataras/iris/sessions"
 	"github.com/pelletier/go-toml"
 	"log"
 	"runtime"
 	"time"
+	"trensy/lib/db"
+	"trensy/lib/redis"
 	"trensy/lib/support"
 	"trensy/lib/view"
 )
@@ -24,20 +27,33 @@ type Configurator func(*Bootstrapper)
 type Bootstrapper struct {
 	*iris.Application
 	AppSpawnDate time.Time //当前时间
+	Env	string //开发环境
+	Conf *toml.Tree
+	DB  *db.DBEngine
+	Redis *redis.Redis
+	Session *sessions.Sessions
+	Support *support.Support
 }
 
 // New returns a new Bootstrapper.
-func New() *Bootstrapper {
+func New(conf *toml.Tree) *Bootstrapper {
+
+	environment := conf.Get("system.environment").(string)
+	if environment == "" {
+		environment = "prod";
+	}
+
 	App = &Bootstrapper{
 		AppSpawnDate: time.Now(),
 		Application:  iris.New(),
+		Conf:		  conf,
+		Env:		environment,
 	}
-
 	return App
 }
 
 // SetupViews loads the templates.
-func (app *Bootstrapper) SetupViews(resourcesPath string, c *toml.Tree) {
+func (app *Bootstrapper) SetupViews(resourcesPath string) {
 
 	staticAssets := resourcesPath+"/public"
 	app.Favicon(staticAssets +"/favicon.ico")
@@ -46,13 +62,13 @@ func (app *Bootstrapper) SetupViews(resourcesPath string, c *toml.Tree) {
 	viewsDir := resourcesPath+"/views"
 	htmlEngine := iris.Django(viewsDir, ".html")
 	// 每次重新加载模版（线上关闭它）
-	if support.GetEnv(c) == "prod"{
+	if app.Env == "prod"{
 		htmlEngine.Reload(false)
 	}else{
 		htmlEngine.Reload(true)
 	}
 	//func ,filter
-    view.New(htmlEngine, c)
+    view.New(htmlEngine, app.Conf)
 	app.RegisterView(htmlEngine)
 }
 
@@ -86,23 +102,21 @@ func (app *Bootstrapper) Configure(cs ...Configurator) {
 
 // Bootstrap prepares our application.
 // Returns itself.
-func (app *Bootstrapper) Bootstrap(conf *toml.Tree) *Bootstrapper {
+func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
 
 	app.SetupErrorHandlers()
 	// static files
-	resourcesPath := conf.Get("system.resourcesPath").(string)
-	app.SetupViews(resourcesPath, conf)
+	resourcesPath := app.Conf.Get("system.resourcesPath").(string)
+	app.SetupViews(resourcesPath)
 	//环境变量
-	environment :=support.GetEnv(conf)
+	environment :=app.Env
 	golog.Info("environment is " + environment)
 	app.Use(recover.New())
-	requestLogger := logger.New()
-	app.Use(requestLogger)
-	logLevel := conf.Get("system.logLevel").(string)
+	app.Use(logger.New())
+	logLevel := app.Conf.Get("system.logLevel").(string)
 	app.Logger().SetLevel(logLevel)
-
 	iris.RegisterOnInterrupt(func() {
 		timeout := 5 * time.Second
 		ctx, cancel := context.WithTimeout(context.Background(), timeout)

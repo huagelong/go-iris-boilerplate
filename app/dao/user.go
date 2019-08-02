@@ -27,6 +27,7 @@ func (d *Dao) GetUserById(uid int) *model.User{
 	}
 }
 
+//检查登录
 func  (d *Dao)CheckLogin(username, pwd string) (*model.User, error){
 	userModel := &model.User{}
 	ok,err := d.DB.Select("*").Where("username=? and passwd=?", username, pwd).Get(userModel)

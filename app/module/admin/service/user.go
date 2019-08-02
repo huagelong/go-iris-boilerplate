@@ -4,7 +4,6 @@ import (
 	"github.com/kataras/iris"
 	"github.com/rs/xid"
 	"trensy/app/model"
-	"trensy/lib/support"
 )
 
 //通过idToken 获取用户信息
@@ -51,7 +50,7 @@ func (s * Service) UpdateLoginToken(token string , uid int) bool {
 
 //登录检查
 func (s *Service) Login(username, pwd string) (*model.User, error){
-	newPwd := support.NewSha1(pwd, s.Config)
+	newPwd := s.Support.NewSha1(pwd)
 	user ,err:= s.Dao.CheckLogin(username, newPwd)
 	if user.Id >0 && err==nil {
 		return user, nil

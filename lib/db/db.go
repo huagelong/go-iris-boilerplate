@@ -8,12 +8,29 @@ import (
 	"github.com/pelletier/go-toml"
 	"sync"
 	"time"
-	"trensy/lib/support"
 )
 
-var engineMysqlGroup *xorm.EngineGroup
+var (
+	engineMysqlGroup *xorm.EngineGroup
+	engineMaster *xorm.Engine
+	engineSlave *xorm.Engine
+	)
 
-func InstanceMysqlGroup(c *toml.Tree) *xorm.EngineGroup  {
+type DBEngine struct {
+	Conf *toml.Tree
+	Env	string //开发环境
+}
+
+func New(conf *toml.Tree, env string) *DBEngine {
+	return &DBEngine{Conf:conf, Env:env}
+}
+
+//master
+func (e *DBEngine)GetMaster() *xorm.Engine {
+	return master(e.Conf)
+}
+
+func (e *DBEngine)GetGroup() *xorm.EngineGroup  {
 	if engineMysqlGroup != nil{
 		return engineMysqlGroup
 	}
@@ -26,8 +43,8 @@ func InstanceMysqlGroup(c *toml.Tree) *xorm.EngineGroup  {
 		return engineMysqlGroup
 	}
 
-	masterEngine := master(c)
-	slaveEngine := slave(c)
+	masterEngine := master(e.Conf)
+	slaveEngine := slave(e.Conf)
 	engine, err := xorm.NewEngineGroup(masterEngine, []*xorm.Engine{slaveEngine})
 	if err !=nil {
 		golog.Fatal("dbsource.engineGroup", err)
@@ -42,14 +59,12 @@ func InstanceMysqlGroup(c *toml.Tree) *xorm.EngineGroup  {
 		golog.Fatal("got err when ping db: ", err)
 	}
 
-	env := support.GetEnv(c)
-
-	if env == "prod" {
+	if e.Env == "prod" {
 		engine.ShowSQL(false)
 	} else{
 		engine.ShowSQL(true)
 	}
-	timeLocation := c.Get("system.timeLocation").(string)
+	timeLocation := e.Conf.Get("system.timeLocation").(string)
 	var SysTimeLocation, _ = time.LoadLocation(timeLocation)
 	engine.SetTZLocation(SysTimeLocation)
 	// 性能优化的时候才考虑，加上本机的SQL缓存
@@ -60,6 +75,19 @@ func InstanceMysqlGroup(c *toml.Tree) *xorm.EngineGroup  {
 }
 
 func master(c *toml.Tree) *xorm.Engine{
+
+	if engineMaster != nil{
+		return engineMaster
+	}
+
+	var lock sync.Mutex
+	lock.Lock()
+	defer lock.Unlock()
+
+	if engineMaster != nil{
+		return engineMaster
+	}
+
 	dbDriver :=c.Get("db.drive").(string)
     dbHost :=c.Get("db.master.host").(string)
 	dbPort :=c.Get("db.master.port").(string)
@@ -84,6 +112,19 @@ func master(c *toml.Tree) *xorm.Engine{
 }
 
 func slave(c *toml.Tree) *xorm.Engine{
+
+	if engineSlave != nil{
+		return engineSlave
+	}
+
+	var lock sync.Mutex
+	lock.Lock()
+	defer lock.Unlock()
+
+	if engineSlave != nil{
+		return engineSlave
+	}
+
 	dbDriver :=c.Get("db.drive").(string)
 	dbHost :=c.Get("db.slave.host").(string)
 	dbPort :=c.Get("db.slave.port").(string)

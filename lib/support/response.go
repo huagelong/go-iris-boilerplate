@@ -10,7 +10,7 @@ import (
 // err:  错误码(0:成功, 1:失败, >1:错误码);
 // msg:  请求结果信息;
 // data: 请求结果,根据不同接口返回结果的数据结构不同;
-func ResponseJson(ctx iris.Context, status int, msg string, data ...interface{}) {
+func (sp *Support)ResponseJson(ctx iris.Context, status int, msg string, data ...interface{}) {
 	responseData := interface{}(nil)
 	if len(data) > 0 {
 		responseData = data[0]
@@ -27,5 +27,5 @@ func ResponseJson(ctx iris.Context, status int, msg string, data ...interface{})
 		"spendTime": 	spendTime,
 	}
 	ctx.JSON(mapData)
-	Exit(ctx)
+	sp.Exit(ctx)
 }

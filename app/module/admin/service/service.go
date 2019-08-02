@@ -2,25 +2,24 @@ package service
 
 import (
 	"github.com/kataras/iris/sessions"
-	"github.com/pelletier/go-toml"
 	"trensy/app/dao"
 	"trensy/lib/boot"
-	"trensy/lib/session"
+	"trensy/lib/support"
 )
 
 type Service struct {
 	App *boot.Bootstrapper
-	Config *toml.Tree
 	Dao *dao.Dao
 	Session *sessions.Sessions
+	Support *support.Support
 }
 
-func New(c *toml.Tree, app *boot.Bootstrapper) *Service {
+func New(app *boot.Bootstrapper) *Service {
 	return &Service{
 		App:		app,
-		Config:  	c,
-		Dao:     	dao.New(c, app),
-		Session: 	session.InstanceSession(c),
+		Dao:     	dao.New(app),
+		Session:	app.Session,
+		Support:	app.Support,
 	}
 }
 

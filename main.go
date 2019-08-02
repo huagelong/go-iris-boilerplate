@@ -2,9 +2,16 @@ package main
 
 import (
 	"flag"
+	"github.com/kataras/golog"
 	"github.com/kataras/iris"
+	"time"
+	"trensy/app/model"
 	"trensy/app/module/admin"
 	"trensy/lib/boot"
+	"trensy/lib/db"
+	"trensy/lib/redis"
+	"trensy/lib/session"
+	"trensy/lib/support"
 	"trensy/lib/tomlparse"
 )
 
@@ -23,14 +30,25 @@ func main(){
 	conf := tomlparse.Config(confPath)
 	port := conf.Get("system.port").(string)
 
-	app := boot.New()
-	app.Bootstrap(conf)
-
-	//modules
-	ok := admin.Init(conf, app, isInstall)
-	if !ok {
+	app := boot.New(conf)
+	app.Bootstrap()
+	app.DB = db.New(conf, app.Env)
+	app.Redis = redis.New(conf)
+	app.Session = session.New(conf)
+	app.Support = support.New(conf)
+	//加入对象
+	if isInstall {
+		install(app)
 		return
 	}
+
+	app.Configure(admin.New)
+
+	app.Use(func(ctx iris.Context) {
+		//开始时间
+		ctx.Values().Set("startTime", time.Now().UnixNano())
+		ctx.Next()
+	})
 
 	globalConfig := iris.TOML(confPath)
 	_ = app.Run(iris.Addr(port),
@@ -42,3 +60,14 @@ func main(){
 		iris.WithOptimizations,
 	)
 }
+
+//安装同步数据库
+func install(app *boot.Bootstrapper){
+	err := app.DB.GetMaster().Sync2(new(model.User))
+	if err !=nil{
+		golog.Fatal("sync database struct fail ", err)
+	}else{
+		golog.Info("install success!")
+	}
+}
+

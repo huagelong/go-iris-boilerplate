@@ -22,11 +22,12 @@ var (
 	r    *Redis
 	redisClient *redis.Pool
 )
+
 /**
  * 返回单例实例
  * @method New
  */
-func InstanceRedis(conf *toml.Tree) *Redis {
+func New(conf *toml.Tree) *Redis {
 	if r != nil{
 		return r
 	}
