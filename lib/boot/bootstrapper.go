@@ -6,13 +6,10 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
-	"github.com/kataras/iris/sessions"
 	"github.com/pelletier/go-toml"
 	"log"
 	"runtime"
 	"time"
-	"trensy/lib/db"
-	"trensy/lib/redis"
 	"trensy/lib/support"
 	"trensy/lib/view"
 )
@@ -29,9 +26,6 @@ type Bootstrapper struct {
 	AppSpawnDate time.Time //当前时间
 	Env	string //开发环境
 	Conf *toml.Tree
-	DB  *db.DBEngine
-	Redis *redis.Redis
-	Session *sessions.Sessions
 	Support *support.Support
 }
 

@@ -5,6 +5,8 @@ import (
 	"trensy/app/dao"
 	"trensy/lib/boot"
 	"trensy/lib/support"
+	"trensy/lib/session"
+	"trensy/lib/redis"
 )
 
 type Service struct {
@@ -12,14 +14,16 @@ type Service struct {
 	Dao *dao.Dao
 	Session *sessions.Sessions
 	Support *support.Support
+	Redis 	*redis.Redis
 }
 
 func New(app *boot.Bootstrapper) *Service {
 	return &Service{
 		App:		app,
 		Dao:     	dao.New(app),
-		Session:	app.Session,
+		Session:	session.New(app.Conf),
 		Support:	app.Support,
+		Redis:	redis.New(app.Conf),
 	}
 }
 

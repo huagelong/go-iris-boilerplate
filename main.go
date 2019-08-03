@@ -9,8 +9,6 @@ import (
 	"trensy/app/module/admin"
 	"trensy/lib/boot"
 	"trensy/lib/db"
-	"trensy/lib/redis"
-	"trensy/lib/session"
 	"trensy/lib/support"
 	"trensy/lib/tomlparse"
 )
@@ -32,9 +30,6 @@ func main(){
 
 	app := boot.New(conf)
 	app.Bootstrap()
-	app.DB = db.New(conf, app.Env)
-	app.Redis = redis.New(conf)
-	app.Session = session.New(conf)
 	app.Support = support.New(conf)
 	//加入对象
 	if isInstall {
@@ -63,7 +58,8 @@ func main(){
 
 //安装同步数据库
 func install(app *boot.Bootstrapper){
-	err := app.DB.GetMaster().Sync2(new(model.User))
+	dbObj := db.New(app.Conf, app.Env)
+	err := dbObj.GetMaster().Sync2(new(model.User))
 	if err !=nil{
 		golog.Fatal("sync database struct fail ", err)
 	}else{

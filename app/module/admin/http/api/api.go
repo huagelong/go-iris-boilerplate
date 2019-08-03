@@ -37,7 +37,7 @@ func initRoute(app *boot.Bootstrapper)  {
 func authMiddleware(ctx iris.Context){
 	uid:=srv.GetSessionUid(ctx)
 	if uid == 0{
-		srv.Support.ResponseJson(ctx, 500, "你的登录已失效，请重新登录")
+		srv.Support.ResponseJson(ctx, 9527, "你的登录已失效，请重新登录")
 	}
 	ctx.Next()
 }
