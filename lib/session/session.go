@@ -19,6 +19,15 @@ func New(c *toml.Tree) *sessions.Sessions {
 	if instanceSession != nil{
 		return instanceSession
 	}
+
+	var lock sync.Mutex
+	lock.Lock()
+	defer lock.Unlock()
+
+	if instanceSession != nil{
+		return instanceSession
+	}
+
 	expires := 6*time.Hour
 	ses := sessions.New(sessions.Config{
 		Cookie:   "tsessionid",

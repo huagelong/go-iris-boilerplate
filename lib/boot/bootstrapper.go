@@ -7,6 +7,7 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
 	"github.com/kataras/iris/middleware/recover"
+	"github.com/kataras/iris/sessions"
 	"github.com/pelletier/go-toml"
 	"log"
 	"runtime"
@@ -29,6 +30,7 @@ type Bootstrapper struct {
 	Conf *toml.Tree
 	Support *support.Support
 	Casbin *casbin.Enforcer//casbin 权限控制
+	Session *sessions.Sessions
 }
 
 // New returns a new Bootstrapper.

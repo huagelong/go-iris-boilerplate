@@ -70,12 +70,13 @@ func (e *DBEngine)GetGroup() *xorm.EngineGroup  {
 	// 性能优化的时候才考虑，加上本机的SQL缓存
 	cacher := xorm.NewLRUCacher(xorm.NewMemoryStore(), 1000)
 	engine.SetDefaultCacher(cacher)
+	engineMysqlGroup = engine
 	golog.Info("dbgroup created ....")
-	return engine
+	return engineMysqlGroup
 }
 
 func master(c *toml.Tree) *xorm.Engine{
-
+	//golog.Debug("master: ",engineMaster)
 	if engineMaster != nil{
 		return engineMaster
 	}
@@ -83,7 +84,7 @@ func master(c *toml.Tree) *xorm.Engine{
 	var lock sync.Mutex
 	lock.Lock()
 	defer lock.Unlock()
-
+	//golog.Debug("master: ",engineMaster)
 	if engineMaster != nil{
 		return engineMaster
 	}
@@ -107,8 +108,9 @@ func master(c *toml.Tree) *xorm.Engine{
 	engine.SetMaxIdleConns(dbMaxIdleConns)
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
+	engineMaster = engine
 	golog.Info("master db created ....")
-	return engine
+	return engineMaster
 }
 
 func slave(c *toml.Tree) *xorm.Engine{
@@ -144,5 +146,6 @@ func slave(c *toml.Tree) *xorm.Engine{
 	//设置最大打开连接数
 	engine.SetMaxOpenConns(dbMaxOpenConns)
 	golog.Info("slave db created ....")
-	return engine
+	engineSlave = engine
+	return engineSlave
 }

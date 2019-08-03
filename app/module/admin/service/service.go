@@ -4,9 +4,8 @@ import (
 	"github.com/kataras/iris/sessions"
 	"trensy/app/dao"
 	"trensy/lib/boot"
-	"trensy/lib/support"
-	"trensy/lib/session"
 	"trensy/lib/redis"
+	"trensy/lib/support"
 )
 
 type Service struct {
@@ -21,7 +20,7 @@ func New(app *boot.Bootstrapper) *Service {
 	return &Service{
 		App:		app,
 		Dao:     	dao.New(app),
-		Session:	session.New(app.Conf),
+		Session:	app.Session,
 		Support:	app.Support,
 		Redis:	redis.New(app.Conf),
 	}

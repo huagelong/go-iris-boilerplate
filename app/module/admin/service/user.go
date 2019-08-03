@@ -5,6 +5,7 @@ import (
 	"github.com/pelletier/go-toml"
 	"github.com/rs/xid"
 	"trensy/app/model"
+	"trensy/app/module/admin/constdata"
 )
 
 //通过idToken 获取用户信息
@@ -14,12 +15,12 @@ func (s *Service)GetUserByIdToken(idToken string) *model.User{
 
 //登录设置session
 func (s *Service) SetLogin(uid int, ctx iris.Context){
-	s.Session.Start(ctx).Set(LOGIN_SESSION_KEY, uid)
+	s.Session.Start(ctx).Set(constdata.LOGIN_SESSION_KEY, uid)
 }
 
 //获取session数据
 func (s *Service)GetSessionUid(ctx iris.Context) int {
-	uid,err:=s.Session.Start(ctx).GetInt(LOGIN_SESSION_KEY)
+	uid,err:=s.Session.Start(ctx).GetInt(constdata.LOGIN_SESSION_KEY)
 	if err != nil{
 		return 0
 	}
@@ -28,7 +29,7 @@ func (s *Service)GetSessionUid(ctx iris.Context) int {
 
 //退出
 func (s *Service) SetLogout(ctx iris.Context){
-	s.Session.Start(ctx).Delete(LOGIN_SESSION_KEY)
+	s.Session.Start(ctx).Delete(constdata.LOGIN_SESSION_KEY)
 }
 
 //获取用户信息
