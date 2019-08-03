@@ -10,7 +10,7 @@
 var path = $('base').attr('href'),
     accentColor,
     minorColor,
-    tokenUrl = '/sapi/checkLogin',
+    tokenUrl = '/api/stateless/checkLogin',
     navUrl = '/api/navjson',
     menuUrl = '/api/menujson';
 

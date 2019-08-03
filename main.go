@@ -14,11 +14,14 @@ import (
 )
 
 func main(){
-	var confi = flag.String("c", "", "set configuration `file`")
-	var isInstalli bool
+	var (
+		isInstalli bool
+		confi string
+	)
+	flag.StringVar(&confi, "conf", "", "set configuration `file`")
 	flag.BoolVar(&isInstalli, "install", false, "project install")
 	flag.Parse()
-	confPath := *confi
+	confPath := confi
 	isInstall := isInstalli
 
 	if confPath == "" {

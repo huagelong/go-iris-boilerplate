@@ -109,7 +109,7 @@ id="login"
                         $('#signIn .btn-primary').prop('disabled', true);
                         $.fn.ajaxPost({
                             ajaxData: $('#signIn').serializeObject(),
-                            ajaxUrl: '/sapi/login',
+                            ajaxUrl: '/api/stateless/login',
                             finished: function (res) {
                                 $('#loading').hide();
                             },

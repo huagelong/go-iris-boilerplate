@@ -25,11 +25,11 @@ func checkLogin(ctx iris.Context) {
 	if idToken !="" && loginToken != ""{
 		userInfo := srv.GetUserByIdToken(idToken)
 		if userInfo.Id ==0 {
-			srv.Support.ResponseJson(ctx, 9527, "你没有访问权限，请重新登录")
+			srv.Support.ResponseJson(ctx, 403, "你没有访问权限，请重新登录")
 		}
 		if userInfo.LoginToken != loginToken{
 			srv.SetLogout(ctx)
-			srv.Support.ResponseJson(ctx, 9527, "你的账号已经在其他地方登录，你被踢出，请重新登录")
+			srv.Support.ResponseJson(ctx, 403, "你的账号已经在其他地方登录，你被踢出，请重新登录")
 		}
 	}
 	srv.Support.ResponseJson(ctx, 200, "认证成功！")

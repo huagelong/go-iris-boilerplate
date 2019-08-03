@@ -73,7 +73,7 @@ $(function () {
             contentType: opts.ajaxContentType,
             dataType: 'json',
             success: function (res, status, xhr) {
-                if (res.status !=9527) {
+                if (res.status !=403) {
                     opts.finished(res);
                     if (res.status == 200) {
                         opts.succeed(res);
@@ -142,7 +142,7 @@ $(function () {
             contentType: false,
             dataType: 'json',
             success: function (res, status, xhr) {
-                if (res.status != 9527) {
+                if (res.status != 403) {
                     opts.finished(res);
                     if (res.status == 200) {
                         opts.succeed(res);

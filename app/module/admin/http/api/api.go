@@ -17,27 +17,27 @@ func New(app *boot.Bootstrapper) {
 
 func initRoute(app *boot.Bootstrapper)  {
 
+	//无登录状态api
+	statelessApiApp := app.Party("/api/stateless")
+	{
+		statelessApiApp.Post("/login", login)
+		statelessApiApp.Post("/checkLogin", checkLogin)
+	}
+
+
 	apiApp := app.Party("/api", authMiddleware)
 	{
 		apiApp.Post("/navjson", navJson)
 		apiApp.Post("/menujson",menuJson)
 		apiApp.Post("/homejson",homeJson)
 	}
-
-	//无登录状态api
-	statelessApiApp := app.Party("/sapi")
-	{
-		statelessApiApp.Post("/login", login)
-		statelessApiApp.Post("/checkLogin", checkLogin)
-	}
-
 }
 
 //判断是否登录
 func authMiddleware(ctx iris.Context){
 	uid:=srv.GetSessionUid(ctx)
 	if uid == 0{
-		srv.Support.ResponseJson(ctx, 9527, "你的登录已失效，请重新登录")
+		srv.Support.ResponseJson(ctx, 403, "你的登录已失效，请重新登录")
 	}
 	ctx.Next()
 }

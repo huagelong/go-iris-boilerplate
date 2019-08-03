@@ -2,6 +2,7 @@ package boot
 
 import (
 	"context"
+	"github.com/casbin/casbin/v2"
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
@@ -27,6 +28,7 @@ type Bootstrapper struct {
 	Env	string //开发环境
 	Conf *toml.Tree
 	Support *support.Support
+	Casbin *casbin.Enforcer//casbin 权限控制
 }
 
 // New returns a new Bootstrapper.
@@ -66,34 +68,6 @@ func (app *Bootstrapper) SetupViews(resourcesPath string) {
 	app.RegisterView(htmlEngine)
 }
 
-// SetupErrorHandlers prepares the http error handlers
-// `(context.StatusCodeNotSuccessful`,  which defaults to < 200 || >= 400 but you can change it).
-func (app *Bootstrapper) SetupErrorHandlers() {
-	app.OnAnyErrorCode(func(ctx iris.Context) {
-		var msg string
-		switch ctx.GetStatusCode() {
-			case 404:msg="页面不存在"
-			case 500:msg="服务器报错!"
-			default:
-				msg="出错啦!"
-		}
-		err := iris.Map{
-			"status":  ctx.GetStatusCode(),
-			"msg": msg,
-			"data":nil,
-		}
-
-		if jsonOutput := ctx.URLParamExists("json"); jsonOutput {
-			_, _ = ctx.JSON(err)
-			return
-		}
-
-		ctx.ViewData("err", err)
-		ctx.ViewData("title", "出错了！~")
-		_ = ctx.View("shared/error.html")
-	})
-}
-
 // Configure accepts configurations and runs them inside the Bootstraper's context.
 func (app *Bootstrapper) Configure(cs ...Configurator) {
 	for _, c := range cs {
@@ -106,8 +80,6 @@ func (app *Bootstrapper) Configure(cs ...Configurator) {
 func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
-
-	app.SetupErrorHandlers()
 	// static files
 	resourcesPath := app.Conf.Get("system.resourcesPath").(string)
 	app.SetupViews(resourcesPath)

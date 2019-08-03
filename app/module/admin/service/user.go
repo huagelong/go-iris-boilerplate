@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/kataras/iris"
+	"github.com/pelletier/go-toml"
 	"github.com/rs/xid"
 	"trensy/app/model"
 )
@@ -57,4 +58,9 @@ func (s *Service) Login(username, pwd string) (*model.User, error){
 	}else{
 		return user,err
 	}
+}
+
+//rbac 权限处理
+func (s *Service)  CasbinRBAC(conf *toml.Tree){
+
 }
