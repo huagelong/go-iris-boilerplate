@@ -70,9 +70,16 @@ func (app *Bootstrapper) SetupViews(resourcesPath string) {
 // `(context.StatusCodeNotSuccessful`,  which defaults to < 200 || >= 400 but you can change it).
 func (app *Bootstrapper) SetupErrorHandlers() {
 	app.OnAnyErrorCode(func(ctx iris.Context) {
+		var msg string
+		switch ctx.GetStatusCode() {
+			case 404:msg="页面不存在"
+			case 500:msg="服务器报错!"
+			default:
+				msg="出错啦!"
+		}
 		err := iris.Map{
 			"status":  ctx.GetStatusCode(),
-			"msg": ctx.Values().GetString("message"),
+			"msg": msg,
 			"data":nil,
 		}
 
@@ -81,8 +88,8 @@ func (app *Bootstrapper) SetupErrorHandlers() {
 			return
 		}
 
-		ctx.ViewData("Err", err)
-		ctx.ViewData("Title", "Error")
+		ctx.ViewData("err", err)
+		ctx.ViewData("title", "出错了！~")
 		_ = ctx.View("shared/error.html")
 	})
 }

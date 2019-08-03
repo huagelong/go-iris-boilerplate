@@ -1,5 +1,42 @@
-﻿<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
-<h3>{{Err.status}}</h3>
-<h4>{{Err.message}}</h4>
+﻿{% extends "shared/base.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block head %}
+<base href="/static/js" type="">
+<link href="/static/ui/img/favicobasen.png" rel="icon" type="image/png">
+<link href="/static/ui/css/fontawesome-all.min.css" rel="stylesheet">
+<link href="/static/ui/css/flag-icon.min.css" rel="stylesheet">
+<link href="/static/ui/css/kendo.ui.widgets.icon.css" rel="stylesheet">
+<link href="/static/ui/css/bootstrap.min.css" rel="stylesheet">
+<link id="Amikoko" href="/static/ui/css/themes/theme_default.min.css" rel="stylesheet">
+<link href="/static/ui/css/amikoko.admin.css" rel="stylesheet">
+<script src="/static/ui/js/jquery.min.js"></script>
+<script src="/static/ui/js/kendo.all.min.js"></script>
+<script id="IKKI" src="/static/ui/js/global/kendo.zh-CHS.js"></script>
+<script src="/static/ui/js/ikki.js"></script>
+{% endblock %}
+{% block body %}
+<div class="position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+    <p><img src="/static/ui/img/404.png" alt="404"><span class="display-1 align-middle">{{err.status}}</span></p>
+    <p class="lead">{{err.msg}}~</p>
+    <p><time class="h5 theme-m mr-2"></time>秒后</p>
+    <p><a class="k-button k-button-lg k-state-selected" href="/">返回首页</a></p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+    $(function () {
+        // 返回首页
+        var sec = 3,
+            intervalID = setInterval(function () {
+                if (sec > 1) {
+                    sec = sec - 1;
+                    $('time').text(sec);
+                } else {
+                    clearInterval(intervalID);
+                    location.href = '/';
+                }
+            }, 1000);
+        $('time').text(sec);
+    });
+</script>
+{% endblock %}

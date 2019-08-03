@@ -33,5 +33,4 @@ func initRoute(app *boot.Bootstrapper)  {
 		pageApp.Get("/404", page404)
 		pageApp.Get("/home", pageHome)
 	}
-
 }

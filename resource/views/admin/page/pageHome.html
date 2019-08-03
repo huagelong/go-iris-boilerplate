@@ -1,1 +1,154 @@
-hello
+<script id="homeTemp" type="text/x-kendo-template">
+    <div id="hasChart" class="row">
+        <div class="col-md-6 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="d-flex h-100 display-4 justify-content-center align-items-center">
+                                <i class="fa fa-atlas theme-m"></i>
+                            </div>
+                        </div>
+                        <div class="col-8 text-center">
+                            <h3 class="lead text-muted">浏览量（PV）</h3>
+                            <p class="display-4 mb-0 theme-m" id="pvCount">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="d-flex h-100 display-4 justify-content-center align-items-center">
+                                <i class="fa fa-globe-asia theme-m"></i>
+                            </div>
+                        </div>
+                        <div class="col-8 text-center">
+                            <h3 class="lead text-muted">访问次数</h3>
+                            <p class="display-4 mb-0 theme-m" id="visitCount">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="d-flex h-100 display-4 justify-content-center align-items-center">
+                                <i class="fa fa-user theme-m"></i>
+                            </div>
+                        </div>
+                        <div class="col-8 text-center">
+                            <h3 class="lead text-muted">访客数（UV）</h3>
+                            <p class="display-4 mb-0 theme-m" id="visitorCount">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="d-flex h-100 display-4 justify-content-center align-items-center">
+                                <i class="fa fa-hdd theme-m"></i>
+                            </div>
+                        </div>
+                        <div class="col-8 text-center">
+                            <h3 class="lead text-muted">IP 数</h3>
+                            <p class="display-4 mb-0 theme-m" id="ipCount">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-9">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="lead text-center text-muted">访客趋势图</h3>
+                    <div id="trendMonth"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="lead text-center text-muted">新访客占比</h3>
+                    <div class="position-relative">
+                        <div id="visitNew"></div>
+                        <div id="visitNewInnerContent" class="d-flex justify-content-center align-items-center position-absolute w-100 h-100 text-center display-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="lead text-center text-muted">客户端来源分析</h3>
+                    <div id="visitClient"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="lead text-center text-muted">访客分时趋势图</h3>
+                    <div id="trendHour"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="lead text-center text-muted">访问来源分析</h3>
+                    <div id="visitSource"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="lead text-center text-muted">中国访客地域分布</h3>
+                    <div id="visitChina"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="lead text-center text-muted">世界访客地域分布</h3>
+                    <div id="visitWorld"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        #updatedLog {
+            overflow-y: hidden !important;
+            min-height: 372px;
+        }
+        #updatedLog img {
+            width: 30px;
+            height: 30px;
+        }
+        #visitNewInnerContent {
+            top: 0;
+            left: 0;
+        }
+        #visitChina,
+        #visitWorld {
+            height: 360px;
+        }
+        .k-tooltip-content {
+            white-space: nowrap;
+        }
+    </style>
+</script>
