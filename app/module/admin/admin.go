@@ -18,12 +18,6 @@ func New(app *boot.Bootstrapper) {
 		ctx.Next()
 	})
 
-	//casbin权限控制
-	//enforcer := casbinrbac.GetEnforcer("./resource/config/rbac_model.conf", db.New(app.Conf, app.Env).GetGroup())
-	//app.Casbin = enforcer
-	//casbinMiddleware := cm.New(enforcer, app)
-	//app.Use(casbinMiddleware.ServeHTTP)
-
 	app.OnAnyErrorCode(func(ctx iris.Context) {
 		app.Support.ShowStatusError(ctx,ctx.GetStatusCode())
 	})
