@@ -6,8 +6,8 @@ import (
 	"trensy/lib/boot"
 )
 
-type Controller struct {
+type Controller struct{
 	Srv *service.Service
 	App *boot.Bootstrapper
-	Ctx  iris.Context
+	Ctx iris.Context
 }

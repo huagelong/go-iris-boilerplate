@@ -1,4 +1,4 @@
-package apistateless
+package http
 
 import (
 	"github.com/kataras/iris"
