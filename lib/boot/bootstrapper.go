@@ -2,11 +2,10 @@ package boot
 
 import (
 	"context"
-	"github.com/casbin/casbin/v2"
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
-	"github.com/kataras/iris/middleware/recover"
+	"trensy/lib/middleware/recover"
 	"github.com/kataras/iris/sessions"
 	"github.com/pelletier/go-toml"
 	"log"
@@ -29,7 +28,6 @@ type Bootstrapper struct {
 	Env	string //开发环境
 	Conf *toml.Tree
 	Support *support.Support
-	Casbin *casbin.Enforcer//casbin 权限控制
 	Session *sessions.Sessions
 }
 

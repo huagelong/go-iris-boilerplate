@@ -27,5 +27,5 @@ func (sp *Support)ResponseJson(ctx iris.Context, status int, msg string, data ..
 		"spendTime": 	spendTime,
 	}
 	ctx.JSON(mapData)
-	sp.Exit(ctx)
+	panic("trensy_exit")
 }

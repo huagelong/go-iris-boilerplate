@@ -15,11 +15,6 @@ func (sp *Support)NewSha1(str string) string {
 	return l
 }
 
-//中断
-func (sp *Support)Exit(ctx iris.Context)  {
-	ctx.StopExecution()
-	panic("exit")
-}
 
 func (sp *Support) ShowStatusError(ctx iris.Context, status int)  {
 	var msg string
