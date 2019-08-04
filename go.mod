@@ -9,8 +9,8 @@ require (
 	github.com/ajg/form v0.0.0-20160822230020-523a5da1a92f // indirect
 	github.com/aymerick/raymond v2.0.2+incompatible // indirect
 	github.com/casbin/casbin v1.9.1 // indirect
-	github.com/casbin/casbin/v2 v2.0.0
-	github.com/casbin/xorm-adapter v0.0.0-20190716004226-a317737a1007
+	github.com/casbin/casbin/v2 v2.0.0 // indirect
+	github.com/casbin/xorm-adapter v0.0.0-20190716004226-a317737a1007 // indirect
 	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
@@ -32,7 +32,6 @@ require (
 	github.com/kataras/pio v0.0.0-20190103105442-ea782b38602d // indirect
 	github.com/klauspost/compress v1.6.2 // indirect
 	github.com/klauspost/cpuid v1.2.1 // indirect
-	github.com/lib/pq v1.0.0
 	github.com/mattn/go-colorable v0.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.4 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.2 // indirect

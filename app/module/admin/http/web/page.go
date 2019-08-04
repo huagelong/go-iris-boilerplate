@@ -1,12 +1,9 @@
 package web
 
-import "github.com/kataras/iris"
-
-func pageHome(ctx iris.Context)  {
-	//srv.App.Casbin.AddPolicy("root", "/page/404", "get")
-	ctx.View("admin/page/pageHome.html")
+func (c *Controller)GetPageHome()  {
+	c.Ctx.View("admin/page/pageHome.html")
 }
 
-func page404(ctx iris.Context)  {
-	ctx.View("admin/page/page404.html")
+func (c *Controller)GetPageT404()  {
+	c.Ctx.View("admin/page/paget404.html")
 }

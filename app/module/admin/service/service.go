@@ -9,20 +9,19 @@ import (
 )
 
 type Service struct {
-	App *boot.Bootstrapper
-	Dao *dao.Dao
+	App     *boot.Bootstrapper
+	Dao     *dao.Dao
 	Session *sessions.Sessions
 	Support *support.Support
-	Redis 	*redis.Redis
+	Redis   *redis.Redis
 }
 
-func New(app *boot.Bootstrapper) *Service {
+func New(app *boot.Bootstrapper, dao *dao.Dao) *Service {
 	return &Service{
-		App:		app,
-		Dao:     	dao.New(app),
-		Session:	app.Session,
-		Support:	app.Support,
-		Redis:	redis.New(app.Conf),
+		App:     app,
+		Dao:     dao,
+		Session: app.Session,
+		Support: app.Support,
+		Redis:   app.Redis,
 	}
 }
-

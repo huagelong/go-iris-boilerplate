@@ -3,7 +3,6 @@ package dao
 import (
 	"github.com/go-xorm/xorm"
 	"trensy/lib/boot"
-	"trensy/lib/db"
 )
 
 type Dao struct {
@@ -15,7 +14,7 @@ type Dao struct {
 func New(app *boot.Bootstrapper) *Dao {
 	return &Dao{
 		App:		app,
-		DB:			db.New(app.Conf, app.Env).GetGroup(),
-		DBMaster:	db.New(app.Conf, app.Env).GetMaster(),
+		DB:			app.DB.GetGroup(),
+		DBMaster:	app.DB.GetMaster(),
 	}
 }

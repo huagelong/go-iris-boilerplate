@@ -4,11 +4,10 @@ package recover
 import (
 	"bytes"
 	"fmt"
+	"github.com/kataras/iris/context"
 	"io/ioutil"
-	"reflect"
 	"runtime"
 	"strconv"
-	"github.com/kataras/iris/context"
 )
 
 func getRequestLogs(ctx context.Context) string {
@@ -35,9 +34,6 @@ func New() context.Handler {
 	return func(ctx context.Context) {
 		defer func() {
 			if err := recover(); err != nil {
-				if (reflect.TypeOf(err).String() == "string") && (err == "trensy_exit")   {
-					return
-				}
 
 				if ctx.IsStopped() {
 					return

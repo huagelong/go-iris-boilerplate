@@ -30,6 +30,7 @@ func (sp *Support) ShowStatusError(ctx iris.Context, status int)  {
 		checkPre := path[1:4]
 		if checkPre == "api"{
 			sp.ResponseJson(ctx,status,msg)
+			return
 		}
 	}
 

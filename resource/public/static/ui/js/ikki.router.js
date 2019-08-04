@@ -55,7 +55,7 @@ router.route('/', function () {
 
 // 路由丢失
 function error404() {
-    router.navigate('/404');
+    router.navigate('/t404');
 }
 
 // 路由导航链接

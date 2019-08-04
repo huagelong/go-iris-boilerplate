@@ -5,12 +5,14 @@ import (
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/middleware/logger"
-	"trensy/lib/middleware/recover"
 	"github.com/kataras/iris/sessions"
 	"github.com/pelletier/go-toml"
 	"log"
 	"runtime"
 	"time"
+	"trensy/lib/db"
+	"trensy/lib/middleware/recover"
+	"trensy/lib/redis"
 	"trensy/lib/support"
 	"trensy/lib/view"
 )
@@ -25,10 +27,12 @@ type Configurator func(*Bootstrapper)
 type Bootstrapper struct {
 	*iris.Application
 	AppSpawnDate time.Time //当前时间
-	Env	string //开发环境
-	Conf *toml.Tree
-	Support *support.Support
-	Session *sessions.Sessions
+	Env          string    //开发环境
+	Conf         *toml.Tree
+	Support      *support.Support
+	Session      *sessions.Sessions
+	DB           *db.DBEngine
+	Redis        *redis.Redis
 }
 
 // New returns a new Bootstrapper.
@@ -42,8 +46,8 @@ func New(conf *toml.Tree) *Bootstrapper {
 	App = &Bootstrapper{
 		AppSpawnDate: time.Now(),
 		Application:  iris.New(),
-		Conf:		  conf,
-		Env:		environment,
+		Conf:         conf,
+		Env:          environment,
 	}
 	return App
 }
@@ -51,20 +55,20 @@ func New(conf *toml.Tree) *Bootstrapper {
 // SetupViews loads the templates.
 func (app *Bootstrapper) SetupViews(resourcesPath string) {
 
-	staticAssets := resourcesPath+"/public"
-	app.Favicon(staticAssets +"/favicon.ico")
+	staticAssets := resourcesPath + "/public"
+	app.Favicon(staticAssets + "/favicon.ico")
 	app.StaticWeb("/", staticAssets)
 
-	viewsDir := resourcesPath+"/views"
+	viewsDir := resourcesPath + "/views"
 	htmlEngine := iris.Django(viewsDir, ".html")
 	// 每次重新加载模版（线上关闭它）
-	if app.Env == "prod"{
+	if app.Env == "prod" {
 		htmlEngine.Reload(false)
-	}else{
+	} else {
 		htmlEngine.Reload(true)
 	}
 	//func ,filter
-    view.New(htmlEngine, app.Conf)
+	view.New(htmlEngine, app.Conf)
 	app.RegisterView(htmlEngine)
 }
 
@@ -84,7 +88,7 @@ func (app *Bootstrapper) Bootstrap() *Bootstrapper {
 	resourcesPath := app.Conf.Get("system.resourcesPath").(string)
 	app.SetupViews(resourcesPath)
 	//环境变量
-	environment :=app.Env
+	environment := app.Env
 	golog.Info("environment is " + environment)
 	app.Use(recover.New())
 	app.Use(logger.New())
