@@ -8,9 +8,6 @@ require (
 	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398 // indirect
 	github.com/ajg/form v0.0.0-20160822230020-523a5da1a92f // indirect
 	github.com/aymerick/raymond v2.0.2+incompatible // indirect
-	github.com/casbin/casbin v1.9.1 // indirect
-	github.com/casbin/casbin/v2 v2.0.0 // indirect
-	github.com/casbin/xorm-adapter v0.0.0-20190716004226-a317737a1007 // indirect
 	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
