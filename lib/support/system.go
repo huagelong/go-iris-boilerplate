@@ -4,6 +4,7 @@ import (
 	"crypto/sha1"
 	"fmt"
 	"github.com/kataras/iris"
+	"reflect"
 )
 
 //sha1加密
@@ -39,4 +40,15 @@ func (sp *Support) ShowStatusError(ctx iris.Context, status int)  {
 	ctx.ViewData("title", "出错了！~")
 	_ = ctx.View("shared/error.html")
 	ctx.StopExecution()
+}
+
+func (sp *Support) Struct2Map(obj interface{}) map[string]interface{} {
+	t := reflect.TypeOf(obj)
+	v := reflect.ValueOf(obj)
+
+	var data = make(map[string]interface{})
+	for i := 0; i < t.NumField(); i++ {
+		data[t.Field(i).Name] = v.Field(i).Interface()
+	}
+	return data
 }

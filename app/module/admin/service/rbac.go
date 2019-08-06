@@ -6,7 +6,7 @@ import (
 )
 
 //添加access
-func (s *Service)AddAccess(name, validateTag string ,pid ,sort int) error {
+func (s *Service)AddAccess(name, validateTag string , pid ,sort int) error {
 	access := &model.Access{}
 	access.Name = name
 	access.ValidateTag= validateTag
@@ -64,7 +64,7 @@ func (s *Service)GetAllAccess() map[int]AccessGroup {
 //软删除权限
 func (s *Service)DelAccess(id int) error {
 	access :=&model.Access{}
-	_,err := s.DB.Id(id).Delete(&access)
+	_,err := s.DB.Id(id).Delete(access)
 	if err !=nil{
 		return err
 	}
@@ -72,9 +72,10 @@ func (s *Service)DelAccess(id int) error {
 }
 
 //添加角色
-func (s *Service)AddRole(name string) error {
+func (s *Service)AddRole(name string,companyid int) error {
 	role := &model.Role{}
 	role.Name = name
+	role.CompanyId = companyid
 	role.CreatedAt = int(time.Now().Unix())
 	role.UpdatedAt = int(time.Now().Unix())
 	affected, err := s.DB.Insert(role)
@@ -99,7 +100,7 @@ func (s *Service)UpdateRole(id int, name string) error{
 //删除角色
 func (s *Service)DelRole(id int) error {
 	role :=&model.Role{}
-	_,err := s.DB.Id(id).Delete(&role)
+	_,err := s.DB.Id(id).Delete(role)
 	if err !=nil{
 		return err
 	}
@@ -143,13 +144,38 @@ func (s *Service)BindRoleUser(roleId []int,uid int) error {
 }
 
 //获取用户绑定的角色
-func (s *Service)GetUserRoles(uid int) *model.Role {
-	
+func (s *Service)GetUserRoles(uid int) ([]model.Role, error) {
+	roleUser := make([]model.RoleUser,1)
+	err := s.DB.Where("uid=?", uid).Find(&roleUser)
+	if err !=nil{
+		return nil, err
+	}
+
+	var roleIds []int
+	for _,v:=range roleUser{
+		roleIds = append(roleIds, v.RoleId)
+	}
+
+	role := make([]model.Role, 0)
+	errrole := s.DB.Where("id in (?)", roleIds).Find(&role)
+	if errrole != nil{
+		return nil, errrole
+	}
+	return role, nil
 }
 
 //获取角色绑定的权限
-func (s *Service)GetRoleAccess(role int) *model.RoleAccess  {
-
+func (s *Service)GetRoleAccess(roleId int) ([]int, error)  {
+	roleAccess := make([]model.RoleAccess,1)
+	err :=s.DB.Where("role_id=?", roleId).Find(&roleAccess)
+	if err !=nil{
+		return nil, err
+	}
+	var accessIds []int
+	for _,v:=range roleAccess{
+		accessIds = append(accessIds, v.AccessId)
+	}
+	return accessIds, err
 }
 
 
