@@ -13,10 +13,10 @@ import (
 	"trensy/lib/tomlparse"
 )
 
-func main(){
+func main() {
 	var (
 		isInstalli bool
-		confi string
+		confi      string
 	)
 	flag.StringVar(&confi, "conf", "", "set configuration `file`")
 	flag.BoolVar(&isInstalli, "install", false, "project install")
@@ -60,13 +60,17 @@ func main(){
 }
 
 //安装同步数据库
-func install(app *boot.Bootstrapper){
+func install(app *boot.Bootstrapper) {
 	dbObj := db.New(app.Conf, app.Env)
-	err := dbObj.GetMaster().Sync2(new(model.User))
-	if err !=nil{
+	err := dbObj.GetMaster().Sync2(new(model.User),
+		new(model.Access),
+		new(model.Role),
+		new(model.RoleAccess),
+		new(model.RoleUser),
+	)
+	if err != nil {
 		golog.Fatal("sync database struct fail ", err)
-	}else{
+	} else {
 		golog.Info("install success!")
 	}
 }
-

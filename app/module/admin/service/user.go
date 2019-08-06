@@ -2,15 +2,22 @@ package service
 
 import (
 	"github.com/kataras/iris"
-	"github.com/pelletier/go-toml"
 	"github.com/rs/xid"
+	"time"
 	"trensy/app/model"
 	"trensy/app/module/admin/constdata"
 )
 
 //通过idToken 获取用户信息
 func (s *Service)GetUserByIdToken(idToken string) *model.User{
-	return s.Dao.GetUserByIdToken(idToken)
+	var userModel model.User
+	ok,err := s.DB.Select("*").Where("id_token=?", idToken).Get(&userModel)
+	if ok && err == nil {
+		return &userModel
+	}else{
+		userModel.Id=0
+		return &userModel
+	}
 }
 
 //登录设置session
@@ -34,8 +41,14 @@ func (s *Service) SetLogout(ctx iris.Context){
 
 //获取用户信息
 func (s *Service) GetUserInfo(uid int) *model.User{
-	user := s.Dao.GetUserById(uid)
-	return user
+	var userModel model.User
+	ok,err := s.DB.Where("id=?", uid).Get(&userModel)
+	if ok && err == nil {
+		return &userModel
+	}else{
+		userModel.Id=0
+		return &userModel
+	}
 }
 
 //获取token
@@ -47,13 +60,22 @@ func (s *Service) CreateUUId() string  {
 
 //更新token
 func (s * Service) UpdateLoginToken(token string , uid int) bool {
-	return s.Dao.UpdateLoginToken(token, uid)
+	userModel := &model.User{}
+	userModel.LoginToken = token
+	userModel.LastLoginTime = int(time.Now().Unix())
+	userModel.UpdatedAt = int(time.Now().Unix())
+	_, err := s.DB.ID(uid).Update(userModel)
+	if err != nil{
+		return false
+	}else{
+		return true
+	}
 }
 
 //登录检查
 func (s *Service) Login(username, pwd string) (*model.User, error){
 	newPwd := s.Support.NewSha1(pwd)
-	user ,err:= s.Dao.CheckLogin(username, newPwd)
+	user ,err:= s.CheckLogin(username, newPwd)
 	if user.Id >0 && err==nil {
 		return user, nil
 	}else{
@@ -61,7 +83,14 @@ func (s *Service) Login(username, pwd string) (*model.User, error){
 	}
 }
 
-//rbac 权限处理
-func (s *Service)  CasbinRBAC(conf *toml.Tree){
-
+//检查登录处理
+func  (s *Service)CheckLogin(username, pwd string) (*model.User, error){
+	userModel := &model.User{}
+	ok,err := s.DB.Select("*").Where("username=? and passwd=?", username, pwd).Get(userModel)
+	if ok && err == nil {
+		return userModel, nil
+	}else{
+		userModel.Id=0
+		return userModel, err
+	}
 }

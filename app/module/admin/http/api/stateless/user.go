@@ -1,4 +1,4 @@
-package apistateless
+package stateless
 
 type userStruct struct {
 	IdToken    string `json:"idToken"`

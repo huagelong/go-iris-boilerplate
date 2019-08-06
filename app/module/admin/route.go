@@ -3,9 +3,8 @@ package admin
 import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"
-	"trensy/app/dao"
 	"trensy/app/module/admin/http/api"
-	"trensy/app/module/admin/http/apistateless"
+	"trensy/app/module/admin/http/api/stateless"
 	"trensy/app/module/admin/http/web"
 	"trensy/app/module/admin/middleware"
 	"trensy/app/module/admin/service"
@@ -28,9 +27,9 @@ func New(app *boot.Bootstrapper) {
 		app.Support.ShowStatusError(ctx, ctx.GetStatusCode())
 	})
 
-	daoObj := dao.New(app)
-	serviceObj :=service.New(app, daoObj)
+	serviceObj :=service.New(app)
 
+	//路由设置开始
 	webMvc := mvc.New(app.Party("/"))
 	webMvc.Register(serviceObj,app)
 	webMvc.Router.Use(middleware.WebMvcInit(app))
@@ -43,6 +42,6 @@ func New(app *boot.Bootstrapper) {
 
 	apistatelessMvc := mvc.New(app.Party("/api/stateless"))
 	apistatelessMvc.Register(serviceObj,app)
-	apistatelessMvc.Handle(new(apistateless.Controller))
+	apistatelessMvc.Handle(new(stateless.Controller))
 
 }
