@@ -38,7 +38,7 @@ type AccessGroup struct {
 
 //获取所有access，按照分组排序
 func (s *Service)GetAllAccess() map[int]AccessGroup {
-	allAccess := make([]model.Access, 0)
+	var allAccess []model.Access
 	err := s.DB.OrderBy("sort ASC").Find(&allAccess)
 	if err !=nil {
 		return nil
@@ -109,7 +109,7 @@ func (s *Service)DelRole(id int) error {
 
 //批量绑定角色和权限,先清空，后绑定
 func (s *Service)BindRoleAccess(accessId []int, roleId int) error {
-	roleAccessGroup :=make([]model.RoleAccess,1)
+	var roleAccessGroup []model.RoleAccess
 	for k,v:=range accessId{
 		roleAccess := &model.RoleAccess{}
 		roleAccess.AccessId = v
@@ -127,7 +127,7 @@ func (s *Service)BindRoleAccess(accessId []int, roleId int) error {
 
 //绑定用户和角色,先清空，后绑定
 func (s *Service)BindRoleUser(roleId []int,uid int) error {
-	roleUserGroup := make([]model.RoleUser,1)
+	var roleUserGroup []model.RoleUser
 	for k,v:=range roleId{
 		roleUser := &model.RoleUser{}
 		roleUser.RoleId=v
@@ -145,7 +145,7 @@ func (s *Service)BindRoleUser(roleId []int,uid int) error {
 
 //获取用户绑定的角色
 func (s *Service)GetUserRoles(uid int) ([]model.Role, error) {
-	roleUser := make([]model.RoleUser,1)
+	var roleUser []model.RoleUser
 	err := s.DB.Where("uid=?", uid).Find(&roleUser)
 	if err !=nil{
 		return nil, err
@@ -156,7 +156,7 @@ func (s *Service)GetUserRoles(uid int) ([]model.Role, error) {
 		roleIds = append(roleIds, v.RoleId)
 	}
 
-	role := make([]model.Role, 0)
+	var role []model.Role
 	errrole := s.DB.Where("id in (?)", roleIds).Find(&role)
 	if errrole != nil{
 		return nil, errrole
@@ -165,9 +165,9 @@ func (s *Service)GetUserRoles(uid int) ([]model.Role, error) {
 }
 
 //获取角色绑定的权限
-func (s *Service)GetRoleAccess(roleId int) ([]int, error)  {
-	roleAccess := make([]model.RoleAccess,1)
-	err :=s.DB.Where("role_id=?", roleId).Find(&roleAccess)
+func (s *Service)GetRoleAccess(roleIds []int) ([]int, error)  {
+	var roleAccess []model.RoleAccess
+	err :=s.DB.Where("role_id IN(?)", roleIds).Find(&roleAccess)
 	if err !=nil{
 		return nil, err
 	}
@@ -176,6 +176,38 @@ func (s *Service)GetRoleAccess(roleId int) ([]int, error)  {
 		accessIds = append(accessIds, v.AccessId)
 	}
 	return accessIds, err
+}
+
+//获取用户的权限
+func (s *Service) GetUserAccess(uid int) ([]model.Access, error) {
+	var roleUser []model.RoleUser
+	err := s.DB.Where("uid=?", uid).Find(&roleUser)
+	if err !=nil{
+		return nil, err
+	}
+
+	var roleIds []int
+	for _,v:=range roleUser{
+		roleIds = append(roleIds, v.RoleId)
+	}
+
+	var roleAccess []model.RoleAccess
+	errrole :=s.DB.Where("role_id IN(?)", roleIds).Find(&roleAccess)
+	if errrole !=nil{
+		return nil, errrole
+	}
+
+	var accessIds []int
+	for _,v:=range roleAccess{
+		accessIds = append(accessIds, v.AccessId)
+	}
+
+	var allAccess []model.Access
+	errAccess := s.DB.Where("id IN(?)", accessIds).OrderBy("sort ASC").Find(&allAccess)
+	if errAccess !=nil {
+		return nil, errAccess
+	}
+	return allAccess, nil
 }
 
 
