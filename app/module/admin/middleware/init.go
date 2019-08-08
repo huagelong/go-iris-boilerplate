@@ -15,8 +15,8 @@ func InitData() iris.Handler {
 }
 
 //webmvc 初始化数据
-func WebMvcInit(app *boot.Bootstrapper) iris.Handler  {
-	return func(ctx iris.Context){
+func WebMvcInit(app *boot.Bootstrapper) iris.Handler {
+	return func(ctx iris.Context) {
 		appTitle := app.Conf.Get("setting.appTitle").(string)
 		poweredBy := app.Conf.Get("setting.poweredBy").(string)
 		ctx.ViewData("appTitle", appTitle)

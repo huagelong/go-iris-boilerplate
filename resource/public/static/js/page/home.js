@@ -25,9 +25,9 @@ $(function () {
                             model: {
                                 id: 'uid',
                                 fields: {
-                                    category: { type: 'string' },
-                                    pv_count: { type: 'number' },
-                                    visitor_count: { type: 'number' }
+                                    category: {type: 'string'},
+                                    pv_count: {type: 'number'},
+                                    visitor_count: {type: 'number'}
                                 }
                             }
                         }
@@ -78,8 +78,8 @@ $(function () {
                             model: {
                                 id: 'uid',
                                 fields: {
-                                    category: { type: 'string' },
-                                    value: { type: 'number' }
+                                    category: {type: 'string'},
+                                    value: {type: 'number'}
                                 }
                             }
                         }
@@ -111,9 +111,9 @@ $(function () {
                             model: {
                                 id: 'uid',
                                 fields: {
-                                    category: { type: 'string' },
-                                    pc: { type: 'number' },
-                                    mobile: { type: 'number' }
+                                    category: {type: 'string'},
+                                    pc: {type: 'number'},
+                                    mobile: {type: 'number'}
                                 }
                             }
                         }
@@ -157,12 +157,12 @@ $(function () {
                             model: {
                                 id: 'uid',
                                 fields: {
-                                    category: { type: 'string' },
-                                    pv_count: { type: 'number' },
-                                    visit_count: { type: 'number' },
-                                    visitor_count: { type: 'number' },
-                                    new_visitor_count: { type: 'number' },
-                                    ip_count: { type: 'number' }
+                                    category: {type: 'string'},
+                                    pv_count: {type: 'number'},
+                                    visit_count: {type: 'number'},
+                                    visitor_count: {type: 'number'},
+                                    new_visitor_count: {type: 'number'},
+                                    ip_count: {type: 'number'}
                                 }
                             }
                         }
@@ -219,9 +219,9 @@ $(function () {
                             model: {
                                 id: 'uid',
                                 fields: {
-                                    category: { type: 'string' },
-                                    through: { type: 'number' },
-                                    link: { type: 'number' }
+                                    category: {type: 'string'},
+                                    through: {type: 'number'},
+                                    link: {type: 'number'}
                                 }
                             }
                         }

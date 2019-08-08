@@ -9,8 +9,8 @@ import (
 	"trensy/app/module/admin/middleware"
 	"trensy/app/module/admin/service"
 	"trensy/lib/boot"
-	"trensy/lib/redis"
 	"trensy/lib/db"
+	"trensy/lib/redis"
 	"trensy/lib/session"
 )
 
@@ -27,21 +27,21 @@ func New(app *boot.Bootstrapper) {
 		app.Support.ShowStatusError(ctx, ctx.GetStatusCode())
 	})
 
-	serviceObj :=service.New(app)
+	serviceObj := service.New(app)
 
 	//路由设置开始
 	webMvc := mvc.New(app.Party("/"))
-	webMvc.Register(serviceObj,app)
+	webMvc.Register(serviceObj, app)
 	webMvc.Router.Use(middleware.WebMvcInit(app))
 	webMvc.Handle(new(web.Controller))
 
 	apiMvc := mvc.New(app.Party("/api"))
-	apiMvc.Register(serviceObj,app)
+	apiMvc.Register(serviceObj, app)
 	apiMvc.Router.Use(middleware.Auth(serviceObj))
 	apiMvc.Handle(new(api.Controller))
 
 	apistatelessMvc := mvc.New(app.Party("/api/stateless"))
-	apistatelessMvc.Register(serviceObj,app)
+	apistatelessMvc.Register(serviceObj, app)
 	apistatelessMvc.Handle(new(stateless.Controller))
 
 }

@@ -5,10 +5,10 @@ import (
 	"github.com/pelletier/go-toml"
 )
 
-func New(engine *view.DjangoEngine, c *toml.Tree)  {
+func New(engine *view.DjangoEngine, c *toml.Tree) {
 	list := funclist()
-	for k,v:= range list{
-		engine.AddFunc(k,v)
+	for k, v := range list {
+		engine.AddFunc(k, v)
 	}
 	//filter := filterlist()
 	//for fk,fv :=range filter{
@@ -16,11 +16,9 @@ func New(engine *view.DjangoEngine, c *toml.Tree)  {
 	//}
 }
 
-func funclist() map[string]interface{}  {
+func funclist() map[string]interface{} {
 	list := make(map[string]interface{})
 	//todo
 
-
 	return list;
 }
-

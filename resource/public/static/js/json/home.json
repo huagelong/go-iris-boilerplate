@@ -1,1186 +1,1186 @@
 {
-    "status": 200,
-    "msg": "欢迎登录 Kendo UI Admin 后台管理系统 =^^=",
-    "count": {
-        "pv_count": 17110,
-        "visit_count": 3913,
-        "visitor_count": 2585,
-        "ip_count": 2262
+  "status": 200,
+  "msg": "欢迎登录 Kendo UI Admin 后台管理系统 =^^=",
+  "count": {
+    "pv_count": 17110,
+    "visit_count": 3913,
+    "visitor_count": 2585,
+    "ip_count": 2262
+  },
+  "area": [
+    {
+      "category": "2018-06",
+      "pv_count": 973,
+      "visitor_count": 105
     },
-    "area": [
-        {
-            "category": "2018-06",
-            "pv_count": 973,
-            "visitor_count": 105
-        },
-        {
-            "category": "",
-            "pv_count": 583,
-            "visitor_count": 113
-        },
-        {
-            "category": "",
-            "pv_count": 522,
-            "visitor_count": 108
-        },
-        {
-            "category": "2018-09",
-            "pv_count": 370,
-            "visitor_count": 88
-        },
-        {
-            "category": "",
-            "pv_count": 665,
-            "visitor_count": 86
-        },
-        {
-            "category": "",
-            "pv_count": 769,
-            "visitor_count": 131
-        },
-        {
-            "category": "2018-12",
-            "pv_count": 2194,
-            "visitor_count": 256
-        },
-        {
-            "category": "",
-            "pv_count": 765,
-            "visitor_count": 109
-        },
-        {
-            "category": "",
-            "pv_count": 869,
-            "visitor_count": 69
-        },
-        {
-            "category": "2019-03",
-            "pv_count": 2936,
-            "visitor_count": 592
-        },
-        {
-            "category": "",
-            "pv_count": 3397,
-            "visitor_count": 481
-        },
-        {
-            "category": "",
-            "pv_count": 3067,
-            "visitor_count": 447
-        }
-    ],
-    "donut": [
-        {
-            "category": "新访客",
-            "value": 0.6542
-        },
-        {
-            "category": "老访客",
-            "value": 0.3458
-        }
-    ],
-    "bar": [
-        {
-            "category": "浏览量",
-            "pc": 16267,
-            "mobile": 843
-        },
-        {
-            "category": "访问次数",
-            "pc": 3739,
-            "mobile": 174
-        },
-        {
-            "category": "访客数",
-            "pc": 2441,
-            "mobile": 144
-        },
-        {
-            "category": "IP 数",
-            "pc": 2118,
-            "mobile": 144
-        }
-    ],
-    "line": [
-        {
-            "category": "0点",
-            "pv_count": 192,
-            "visit_count": 50,
-            "visitor_count": 43,
-            "new_visitor_count": 32,
-            "ip_count": 43
-        },
-        {
-            "category": "",
-            "pv_count": 123,
-            "visit_count": 26,
-            "visitor_count": 25,
-            "new_visitor_count": 13,
-            "ip_count": 24
-        },
-        {
-            "category": "",
-            "pv_count": 81,
-            "visit_count": 28,
-            "visitor_count": 24,
-            "new_visitor_count": 15,
-            "ip_count": 24
-        },
-        {
-            "category": "3点",
-            "pv_count": 35,
-            "visit_count": 15,
-            "visitor_count": 14,
-            "new_visitor_count": 8,
-            "ip_count": 14
-        },
-        {
-            "category": "",
-            "pv_count": 39,
-            "visit_count": 10,
-            "visitor_count": 8,
-            "new_visitor_count": 7,
-            "ip_count": 8
-        },
-        {
-            "category": "",
-            "pv_count": 54,
-            "visit_count": 30,
-            "visitor_count": 18,
-            "new_visitor_count": 17,
-            "ip_count": 21
-        },
-        {
-            "category": "6点",
-            "pv_count": 21,
-            "visit_count": 12,
-            "visitor_count": 12,
-            "new_visitor_count": 12,
-            "ip_count": 11
-        },
-        {
-            "category": "",
-            "pv_count": 49,
-            "visit_count": 19,
-            "visitor_count": 17,
-            "new_visitor_count": 13,
-            "ip_count": 17
-        },
-        {
-            "category": "",
-            "pv_count": 596,
-            "visit_count": 246,
-            "visitor_count": 217,
-            "new_visitor_count": 74,
-            "ip_count": 197
-        },
-        {
-            "category": "9点",
-            "pv_count": 1454,
-            "visit_count": 311,
-            "visitor_count": 221,
-            "new_visitor_count": 125,
-            "ip_count": 188
-        },
-        {
-            "category": "",
-            "pv_count": 1303,
-            "visit_count": 279,
-            "visitor_count": 174,
-            "new_visitor_count": 111,
-            "ip_count": 144
-        },
-        {
-            "category": "",
-            "pv_count": 1002,
-            "visit_count": 196,
-            "visitor_count": 127,
-            "new_visitor_count": 90,
-            "ip_count": 106
-        },
-        {
-            "category": "12点",
-            "pv_count": 328,
-            "visit_count": 107,
-            "visitor_count": 64,
-            "new_visitor_count": 58,
-            "ip_count": 61
-        },
-        {
-            "category": "",
-            "pv_count": 1151,
-            "visit_count": 262,
-            "visitor_count": 130,
-            "new_visitor_count": 84,
-            "ip_count": 118
-        },
-        {
-            "category": "",
-            "pv_count": 1650,
-            "visit_count": 294,
-            "visitor_count": 177,
-            "new_visitor_count": 136,
-            "ip_count": 165
-        },
-        {
-            "category": "15点",
-            "pv_count": 1419,
-            "visit_count": 263,
-            "visitor_count": 141,
-            "new_visitor_count": 108,
-            "ip_count": 131
-        },
-        {
-            "category": "",
-            "pv_count": 1591,
-            "visit_count": 283,
-            "visitor_count": 162,
-            "new_visitor_count": 131,
-            "ip_count": 140
-        },
-        {
-            "category": "",
-            "pv_count": 1004,
-            "visit_count": 228,
-            "visitor_count": 139,
-            "new_visitor_count": 113,
-            "ip_count": 126
-        },
-        {
-            "category": "18点",
-            "pv_count": 481,
-            "visit_count": 112,
-            "visitor_count": 75,
-            "new_visitor_count": 58,
-            "ip_count": 67
-        },
-        {
-            "category": "",
-            "pv_count": 315,
-            "visit_count": 92,
-            "visitor_count": 61,
-            "new_visitor_count": 52,
-            "ip_count": 61
-        },
-        {
-            "category": "",
-            "pv_count": 434,
-            "visit_count": 118,
-            "visitor_count": 73,
-            "new_visitor_count": 52,
-            "ip_count": 66
-        },
-        {
-            "category": "21点",
-            "pv_count": 495,
-            "visit_count": 127,
-            "visitor_count": 91,
-            "new_visitor_count": 58,
-            "ip_count": 89
-        },
-        {
-            "category": "",
-            "pv_count": 473,
-            "visit_count": 146,
-            "visitor_count": 101,
-            "new_visitor_count": 78,
-            "ip_count": 100
-        },
-        {
-            "category": "",
-            "pv_count": 372,
-            "visit_count": 98,
-            "visitor_count": 57,
-            "new_visitor_count": 52,
-            "ip_count": 58
-        }
-    ],
-    "radar": [
-        {
-            "category": "浏览量比率",
-            "through": 86.79,
-            "link": 13.2
-        },
-        {
-            "category": "访问次数比率",
-            "through": 77.36,
-            "link": 22.59
-        },
-        {
-            "category": "访客数比率",
-            "through": 79.19,
-            "link": 20.74
-        },
-        {
-            "category": "新访客比率",
-            "through": 73.79,
-            "link": 26.10
-        },
-        {
-            "category": "IP 数比率",
-            "through": 76.48,
-            "link": 23.44
-        },
-        {
-            "category": "跳出率",
-            "through": 36.9,
-            "link": 46.38
-        }
-    ],
-    "map": {
-        "China": [
-            {
-                "id": "31",
-                "name": "上海",
-                "pv_count": 8683,
-                "visit_count": 1403,
-                "visitor_count": 858,
-                "ip_count": 593
-            },
-            {
-                "id": "44",
-                "name": "广东",
-                "pv_count": 1272,
-                "visit_count": 369,
-                "visitor_count": 305,
-                "ip_count": 278
-            },
-            {
-                "id": "37",
-                "name": "山东",
-                "pv_count": 994,
-                "visit_count": 164,
-                "visitor_count": 118,
-                "ip_count": 108
-            },
-            {
-                "id": "35",
-                "name": "福建",
-                "pv_count": 823,
-                "visit_count": 114,
-                "visitor_count": 74,
-                "ip_count": 74
-            },
-            {
-                "id": "51",
-                "name": "四川",
-                "pv_count": 538,
-                "visit_count": 141,
-                "visitor_count": 104,
-                "ip_count": 102
-            },
-            {
-                "id": "42",
-                "name": "湖北",
-                "pv_count": 449,
-                "visit_count": 152,
-                "visitor_count": 121,
-                "ip_count": 118
-            },
-            {
-                "id": "33",
-                "name": "浙江",
-                "pv_count": 432,
-                "visit_count": 129,
-                "visitor_count": 94,
-                "ip_count": 90
-            },
-            {
-                "id": "32",
-                "name": "江苏",
-                "pv_count": 364,
-                "visit_count": 131,
-                "visitor_count": 101,
-                "ip_count": 97
-            },
-            {
-                "id": "43",
-                "name": "湖南",
-                "pv_count": 352,
-                "visit_count": 96,
-                "visitor_count": 71,
-                "ip_count": 69
-            },
-            {
-                "id": "11",
-                "name": "北京",
-                "pv_count": 315,
-                "visit_count": 144,
-                "visitor_count": 111,
-                "ip_count": 108
-            },
-            {
-                "id": "13",
-                "name": "河北",
-                "pv_count": 231,
-                "visit_count": 68,
-                "visitor_count": 40,
-                "ip_count": 38
-            },
-            {
-                "id": "41",
-                "name": "河南",
-                "pv_count": 223,
-                "visit_count": 72,
-                "visitor_count": 56,
-                "ip_count": 60
-            },
-            {
-                "id": "21",
-                "name": "辽宁",
-                "pv_count": 205,
-                "visit_count": 61,
-                "visitor_count": 49,
-                "ip_count": 46
-            },
-            {
-                "id": "34",
-                "name": "安徽",
-                "pv_count": 166,
-                "visit_count": 44,
-                "visitor_count": 33,
-                "ip_count": 35
-            },
-            {
-                "id": "61",
-                "name": "陕西",
-                "pv_count": 143,
-                "visit_count": 55,
-                "visitor_count": 36,
-                "ip_count": 33
-            },
-            {
-                "id": "50",
-                "name": "重庆",
-                "pv_count": 122,
-                "visit_count": 36,
-                "visitor_count": 31,
-                "ip_count": 30
-            },
-            {
-                "id": "45",
-                "name": "广西",
-                "pv_count": 104,
-                "visit_count": 44,
-                "visitor_count": 29,
-                "ip_count": 28
-            },
-            {
-                "id": "53",
-                "name": "云南",
-                "pv_count": 83,
-                "visit_count": 40,
-                "visitor_count": 27,
-                "ip_count": 25
-            },
-            {
-                "id": "23",
-                "name": "黑龙江",
-                "pv_count": 78,
-                "visit_count": 26,
-                "visitor_count": 23,
-                "ip_count": 20
-            },
-            {
-                "id": "71",
-                "name": "台湾",
-                "pv_count": 69,
-                "visit_count": 20,
-                "visitor_count": 18,
-                "ip_count": 15
-            },
-            {
-                "id": "22",
-                "name": "吉林",
-                "pv_count": 65,
-                "visit_count": 22,
-                "visitor_count": 20,
-                "ip_count": 18
-            },
-            {
-                "id": "52",
-                "name": "贵州",
-                "pv_count": 50,
-                "visit_count": 18,
-                "visitor_count": 16,
-                "ip_count": 16
-            },
-            {
-                "id": "36",
-                "name": "江西",
-                "pv_count": 49,
-                "visit_count": 19,
-                "visitor_count": 16,
-                "ip_count": 15
-            },
-            {
-                "id": "14",
-                "name": "山西",
-                "pv_count": 42,
-                "visit_count": 11,
-                "visitor_count": 10,
-                "ip_count": 10
-            },
-            {
-                "id": "81",
-                "name": "香港",
-                "pv_count": 30,
-                "visit_count": 17,
-                "visitor_count": 10,
-                "ip_count": 10
-            },
-            {
-                "id": "0",
-                "name": "其他",
-                "pv_count": 27,
-                "visit_count": 11,
-                "visitor_count": 8,
-                "ip_count": 7
-            },
-            {
-                "id": "12",
-                "name": "天津",
-                "pv_count": 27,
-                "visit_count": 11,
-                "visitor_count": 11,
-                "ip_count": 10
-            },
-            {
-                "id": "63",
-                "name": "青海",
-                "pv_count": 15,
-                "visit_count": 10,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "62",
-                "name": "甘肃",
-                "pv_count": 13,
-                "visit_count": 3,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "46",
-                "name": "海南",
-                "pv_count": 7,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "15",
-                "name": "内蒙古",
-                "pv_count": 5,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "65",
-                "name": "新疆",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            }
-        ],
-        "world": [
-            {
-                "id": "China",
-                "name": "中国",
-                "code": "cn",
-                "pv_count": 15978,
-                "visit_count": 3436,
-                "visitor_count": 2401,
-                "ip_count": 2064
-            },
-            {
-                "id": "United States",
-                "name": "美国",
-                "code": "us",
-                "pv_count": 227,
-                "visit_count": 74,
-                "visitor_count": 63,
-                "ip_count": 61
-            },
-            {
-                "id": "India",
-                "name": "印度",
-                "code": "in",
-                "pv_count": 110,
-                "visit_count": 52,
-                "visitor_count": 52,
-                "ip_count": 49
-            },
-            {
-                "id": "Indonesia",
-                "name": "印度尼西亚",
-                "code": "id",
-                "pv_count": 63,
-                "visit_count": 35,
-                "visitor_count": 32,
-                "ip_count": 32
-            },
-            {
-                "id": "Singapore",
-                "name": "新加坡",
-                "code": "sg",
-                "pv_count": 58,
-                "visit_count": 17,
-                "visitor_count": 10,
-                "ip_count": 10
-            },
-            {
-                "id": "Brazil",
-                "name": "巴西",
-                "code": "br",
-                "pv_count": 48,
-                "visit_count": 23,
-                "visitor_count": 23,
-                "ip_count": 23
-            },
-            {
-                "id": "Saudi Arabia",
-                "name": "沙特阿拉伯",
-                "code": "sa",
-                "pv_count": 45,
-                "visit_count": 10,
-                "visitor_count": 10,
-                "ip_count": 10
-            },
-            {
-                "id": "Turkey",
-                "name": "土耳其",
-                "code": "tr",
-                "pv_count": 42,
-                "visit_count": 26,
-                "visitor_count": 23,
-                "ip_count": 23
-            },
-            {
-                "id": "Iran",
-                "name": "伊朗",
-                "code": "ir",
-                "pv_count": 42,
-                "visit_count": 9,
-                "visitor_count": 8,
-                "ip_count": 6
-            },
-            {
-                "id": "Jordan",
-                "name": "约旦",
-                "code": "jo",
-                "pv_count": 39,
-                "visit_count": 3,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Vietnam",
-                "name": "越南",
-                "code": "vn",
-                "pv_count": 38,
-                "visit_count": 15,
-                "visitor_count": 13,
-                "ip_count": 12
-            },
-            {
-                "id": "Korea",
-                "name": "韩国",
-                "code": "kr",
-                "pv_count": 36,
-                "visit_count": 21,
-                "visitor_count": 19,
-                "ip_count": 19
-            },
-            {
-                "id": "Russia",
-                "name": "俄罗斯",
-                "code": "ru",
-                "pv_count": 32,
-                "visit_count": 9,
-                "visitor_count": 9,
-                "ip_count": 9
-            },
-            {
-                "id": "Thailand",
-                "name": "泰国",
-                "code": "th",
-                "pv_count": 28,
-                "visit_count": 17,
-                "visitor_count": 15,
-                "ip_count": 15
-            },
-            {
-                "id": "Mexico",
-                "name": "墨西哥",
-                "code": "mx",
-                "pv_count": 26,
-                "visit_count": 14,
-                "visitor_count": 14,
-                "ip_count": 14
-            },
-            {
-                "id": "Canada",
-                "name": "加拿大",
-                "code": "ca",
-                "pv_count": 26,
-                "visit_count": 11,
-                "visitor_count": 10,
-                "ip_count": 10
-            },
-            {
-                "id": "Netherlands",
-                "name": "荷兰",
-                "code": "nl",
-                "pv_count": 25,
-                "visit_count": 12,
-                "visitor_count": 12,
-                "ip_count": 10
-            },
-            {
-                "id": "Malaysia",
-                "name": "马来西亚",
-                "code": "my",
-                "pv_count": 20,
-                "visit_count": 6,
-                "visitor_count": 5,
-                "ip_count": 5
-            },
-            {
-                "id": "Peru",
-                "name": "秘鲁",
-                "code": "pe",
-                "pv_count": 20,
-                "visit_count": 5,
-                "visitor_count": 5,
-                "ip_count": 5
-            },
-            {
-                "id": "Ukraine",
-                "name": "乌克兰",
-                "code": "ua",
-                "pv_count": 18,
-                "visit_count": 13,
-                "visitor_count": 13,
-                "ip_count": 10
-            },
-            {
-                "id": "Germany",
-                "name": "德国",
-                "code": "de",
-                "pv_count": 14,
-                "visit_count": 8,
-                "visitor_count": 8,
-                "ip_count": 8
-            },
-            {
-                "id": "Philippines",
-                "name": "菲律宾",
-                "code": "ph",
-                "pv_count": 13,
-                "visit_count": 6,
-                "visitor_count": 6,
-                "ip_count": 6
-            },
-            {
-                "id": "United Kingdom",
-                "name": "英国",
-                "code": "gb",
-                "pv_count": 12,
-                "visit_count": 6,
-                "visitor_count": 6,
-                "ip_count": 6
-            },
-            {
-                "id": "Spain",
-                "name": "西班牙",
-                "code": "es",
-                "pv_count": 10,
-                "visit_count": 4,
-                "visitor_count": 4,
-                "ip_count": 4
-            },
-            {
-                "id": "Italy",
-                "name": "意大利",
-                "code": "it",
-                "pv_count": 9,
-                "visit_count": 6,
-                "visitor_count": 6,
-                "ip_count": 6
-            },
-            {
-                "id": "Slovakia",
-                "name": "斯洛伐克",
-                "code": "sk",
-                "pv_count": 8,
-                "visit_count": 5,
-                "visitor_count": 5,
-                "ip_count": 5
-            },
-            {
-                "id": "United Arab Emirates",
-                "name": "阿拉伯联合酋长国",
-                "code": "ae",
-                "pv_count": 8,
-                "visit_count": 2,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Egypt",
-                "name": "埃及",
-                "code": "eg",
-                "pv_count": 8,
-                "visit_count": 5,
-                "visitor_count": 5,
-                "ip_count": 5
-            },
-            {
-                "id": "Bangladesh",
-                "name": "孟加拉国",
-                "code": "bd",
-                "pv_count": 6,
-                "visit_count": 4,
-                "visitor_count": 4,
-                "ip_count": 4
-            },
-            {
-                "id": "Uzbekistan",
-                "name": "乌兹别克斯坦",
-                "code": "uz",
-                "pv_count": 6,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Australia",
-                "name": "澳大利亚",
-                "code": "au",
-                "pv_count": 6,
-                "visit_count": 3,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "Poland",
-                "name": "波兰",
-                "code": "pl",
-                "pv_count": 5,
-                "visit_count": 3,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "Benin",
-                "name": "贝宁",
-                "code": "bj",
-                "pv_count": 5,
-                "visit_count": 2,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "France",
-                "name": "法国",
-                "code": "fr",
-                "pv_count": 5,
-                "visit_count": 4,
-                "visitor_count": 4,
-                "ip_count": 4
-            },
-            {
-                "id": "Colombia",
-                "name": "哥伦比亚",
-                "code": "co",
-                "pv_count": 5,
-                "visit_count": 3,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "Morocco",
-                "name": "摩洛哥",
-                "code": "ma",
-                "pv_count": 5,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "Uruguay",
-                "name": "乌拉圭",
-                "code": "uy",
-                "pv_count": 4,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "South Africa",
-                "name": "南非",
-                "code": "za",
-                "pv_count": 4,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "Nepal",
-                "name": "尼泊尔",
-                "code": "np",
-                "pv_count": 4,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "Portugal",
-                "name": "葡萄牙",
-                "code": "pt",
-                "pv_count": 3,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "Tunisia",
-                "name": "突尼斯",
-                "code": "tn",
-                "pv_count": 3,
-                "visit_count": 3,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "Kazakhstan",
-                "name": "哈萨克斯坦",
-                "code": "kz",
-                "pv_count": 3,
-                "visit_count": 3,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "Greece",
-                "name": "希腊",
-                "code": "gr",
-                "pv_count": 3,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Japan",
-                "name": "日本",
-                "code": "jp",
-                "pv_count": 3,
-                "visit_count": 3,
-                "visitor_count": 3,
-                "ip_count": 3
-            },
-            {
-                "id": "Belgium",
-                "name": "比利时",
-                "code": "be",
-                "pv_count": 3,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "Venezuela",
-                "name": "委内瑞拉",
-                "code": "ve",
-                "pv_count": 3,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Algeria",
-                "name": "阿尔及利亚",
-                "code": "dz",
-                "pv_count": 3,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "Bulgaria",
-                "name": "保加利亚",
-                "code": "bg",
-                "pv_count": 3,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Belarus",
-                "name": "白俄罗斯",
-                "code": "by",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Romania",
-                "name": "罗马尼亚",
-                "code": "ro",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Austria",
-                "name": "奥地利",
-                "code": "at",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Mauritius",
-                "name": "毛里求斯",
-                "code": "mu",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Kenya",
-                "name": "肯尼亚",
-                "code": "ke",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Finland",
-                "name": "芬兰",
-                "code": "fi",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Palestine",
-                "name": "巴勒斯坦",
-                "code": "ps",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Ireland",
-                "name": "爱尔兰",
-                "code": "ie",
-                "pv_count": 2,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Pakistan",
-                "name": "巴基斯坦",
-                "code": "pk",
-                "pv_count": 2,
-                "visit_count": 2,
-                "visitor_count": 2,
-                "ip_count": 2
-            },
-            {
-                "id": "Nigeria",
-                "name": "尼日利亚",
-                "code": "ng",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Qatar",
-                "name": "卡塔尔",
-                "code": "qa",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Macedonia",
-                "name": "马其顿",
-                "code": "mk",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Croatia",
-                "name": "克罗地亚",
-                "code": "hr",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Argentina",
-                "name": "阿根廷",
-                "code": "ar",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Azerbaijan",
-                "name": "阿塞拜疆",
-                "code": "az",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "New Zealand",
-                "name": "新西兰",
-                "code": "nz",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Ethiopia",
-                "name": "埃塞俄比亚",
-                "code": "et",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            },
-            {
-                "id": "Lithuania",
-                "name": "立陶宛",
-                "code": "lt",
-                "pv_count": 1,
-                "visit_count": 1,
-                "visitor_count": 1,
-                "ip_count": 1
-            }
-        ]
+    {
+      "category": "",
+      "pv_count": 583,
+      "visitor_count": 113
+    },
+    {
+      "category": "",
+      "pv_count": 522,
+      "visitor_count": 108
+    },
+    {
+      "category": "2018-09",
+      "pv_count": 370,
+      "visitor_count": 88
+    },
+    {
+      "category": "",
+      "pv_count": 665,
+      "visitor_count": 86
+    },
+    {
+      "category": "",
+      "pv_count": 769,
+      "visitor_count": 131
+    },
+    {
+      "category": "2018-12",
+      "pv_count": 2194,
+      "visitor_count": 256
+    },
+    {
+      "category": "",
+      "pv_count": 765,
+      "visitor_count": 109
+    },
+    {
+      "category": "",
+      "pv_count": 869,
+      "visitor_count": 69
+    },
+    {
+      "category": "2019-03",
+      "pv_count": 2936,
+      "visitor_count": 592
+    },
+    {
+      "category": "",
+      "pv_count": 3397,
+      "visitor_count": 481
+    },
+    {
+      "category": "",
+      "pv_count": 3067,
+      "visitor_count": 447
     }
+  ],
+  "donut": [
+    {
+      "category": "新访客",
+      "value": 0.6542
+    },
+    {
+      "category": "老访客",
+      "value": 0.3458
+    }
+  ],
+  "bar": [
+    {
+      "category": "浏览量",
+      "pc": 16267,
+      "mobile": 843
+    },
+    {
+      "category": "访问次数",
+      "pc": 3739,
+      "mobile": 174
+    },
+    {
+      "category": "访客数",
+      "pc": 2441,
+      "mobile": 144
+    },
+    {
+      "category": "IP 数",
+      "pc": 2118,
+      "mobile": 144
+    }
+  ],
+  "line": [
+    {
+      "category": "0点",
+      "pv_count": 192,
+      "visit_count": 50,
+      "visitor_count": 43,
+      "new_visitor_count": 32,
+      "ip_count": 43
+    },
+    {
+      "category": "",
+      "pv_count": 123,
+      "visit_count": 26,
+      "visitor_count": 25,
+      "new_visitor_count": 13,
+      "ip_count": 24
+    },
+    {
+      "category": "",
+      "pv_count": 81,
+      "visit_count": 28,
+      "visitor_count": 24,
+      "new_visitor_count": 15,
+      "ip_count": 24
+    },
+    {
+      "category": "3点",
+      "pv_count": 35,
+      "visit_count": 15,
+      "visitor_count": 14,
+      "new_visitor_count": 8,
+      "ip_count": 14
+    },
+    {
+      "category": "",
+      "pv_count": 39,
+      "visit_count": 10,
+      "visitor_count": 8,
+      "new_visitor_count": 7,
+      "ip_count": 8
+    },
+    {
+      "category": "",
+      "pv_count": 54,
+      "visit_count": 30,
+      "visitor_count": 18,
+      "new_visitor_count": 17,
+      "ip_count": 21
+    },
+    {
+      "category": "6点",
+      "pv_count": 21,
+      "visit_count": 12,
+      "visitor_count": 12,
+      "new_visitor_count": 12,
+      "ip_count": 11
+    },
+    {
+      "category": "",
+      "pv_count": 49,
+      "visit_count": 19,
+      "visitor_count": 17,
+      "new_visitor_count": 13,
+      "ip_count": 17
+    },
+    {
+      "category": "",
+      "pv_count": 596,
+      "visit_count": 246,
+      "visitor_count": 217,
+      "new_visitor_count": 74,
+      "ip_count": 197
+    },
+    {
+      "category": "9点",
+      "pv_count": 1454,
+      "visit_count": 311,
+      "visitor_count": 221,
+      "new_visitor_count": 125,
+      "ip_count": 188
+    },
+    {
+      "category": "",
+      "pv_count": 1303,
+      "visit_count": 279,
+      "visitor_count": 174,
+      "new_visitor_count": 111,
+      "ip_count": 144
+    },
+    {
+      "category": "",
+      "pv_count": 1002,
+      "visit_count": 196,
+      "visitor_count": 127,
+      "new_visitor_count": 90,
+      "ip_count": 106
+    },
+    {
+      "category": "12点",
+      "pv_count": 328,
+      "visit_count": 107,
+      "visitor_count": 64,
+      "new_visitor_count": 58,
+      "ip_count": 61
+    },
+    {
+      "category": "",
+      "pv_count": 1151,
+      "visit_count": 262,
+      "visitor_count": 130,
+      "new_visitor_count": 84,
+      "ip_count": 118
+    },
+    {
+      "category": "",
+      "pv_count": 1650,
+      "visit_count": 294,
+      "visitor_count": 177,
+      "new_visitor_count": 136,
+      "ip_count": 165
+    },
+    {
+      "category": "15点",
+      "pv_count": 1419,
+      "visit_count": 263,
+      "visitor_count": 141,
+      "new_visitor_count": 108,
+      "ip_count": 131
+    },
+    {
+      "category": "",
+      "pv_count": 1591,
+      "visit_count": 283,
+      "visitor_count": 162,
+      "new_visitor_count": 131,
+      "ip_count": 140
+    },
+    {
+      "category": "",
+      "pv_count": 1004,
+      "visit_count": 228,
+      "visitor_count": 139,
+      "new_visitor_count": 113,
+      "ip_count": 126
+    },
+    {
+      "category": "18点",
+      "pv_count": 481,
+      "visit_count": 112,
+      "visitor_count": 75,
+      "new_visitor_count": 58,
+      "ip_count": 67
+    },
+    {
+      "category": "",
+      "pv_count": 315,
+      "visit_count": 92,
+      "visitor_count": 61,
+      "new_visitor_count": 52,
+      "ip_count": 61
+    },
+    {
+      "category": "",
+      "pv_count": 434,
+      "visit_count": 118,
+      "visitor_count": 73,
+      "new_visitor_count": 52,
+      "ip_count": 66
+    },
+    {
+      "category": "21点",
+      "pv_count": 495,
+      "visit_count": 127,
+      "visitor_count": 91,
+      "new_visitor_count": 58,
+      "ip_count": 89
+    },
+    {
+      "category": "",
+      "pv_count": 473,
+      "visit_count": 146,
+      "visitor_count": 101,
+      "new_visitor_count": 78,
+      "ip_count": 100
+    },
+    {
+      "category": "",
+      "pv_count": 372,
+      "visit_count": 98,
+      "visitor_count": 57,
+      "new_visitor_count": 52,
+      "ip_count": 58
+    }
+  ],
+  "radar": [
+    {
+      "category": "浏览量比率",
+      "through": 86.79,
+      "link": 13.2
+    },
+    {
+      "category": "访问次数比率",
+      "through": 77.36,
+      "link": 22.59
+    },
+    {
+      "category": "访客数比率",
+      "through": 79.19,
+      "link": 20.74
+    },
+    {
+      "category": "新访客比率",
+      "through": 73.79,
+      "link": 26.10
+    },
+    {
+      "category": "IP 数比率",
+      "through": 76.48,
+      "link": 23.44
+    },
+    {
+      "category": "跳出率",
+      "through": 36.9,
+      "link": 46.38
+    }
+  ],
+  "map": {
+    "China": [
+      {
+        "id": "31",
+        "name": "上海",
+        "pv_count": 8683,
+        "visit_count": 1403,
+        "visitor_count": 858,
+        "ip_count": 593
+      },
+      {
+        "id": "44",
+        "name": "广东",
+        "pv_count": 1272,
+        "visit_count": 369,
+        "visitor_count": 305,
+        "ip_count": 278
+      },
+      {
+        "id": "37",
+        "name": "山东",
+        "pv_count": 994,
+        "visit_count": 164,
+        "visitor_count": 118,
+        "ip_count": 108
+      },
+      {
+        "id": "35",
+        "name": "福建",
+        "pv_count": 823,
+        "visit_count": 114,
+        "visitor_count": 74,
+        "ip_count": 74
+      },
+      {
+        "id": "51",
+        "name": "四川",
+        "pv_count": 538,
+        "visit_count": 141,
+        "visitor_count": 104,
+        "ip_count": 102
+      },
+      {
+        "id": "42",
+        "name": "湖北",
+        "pv_count": 449,
+        "visit_count": 152,
+        "visitor_count": 121,
+        "ip_count": 118
+      },
+      {
+        "id": "33",
+        "name": "浙江",
+        "pv_count": 432,
+        "visit_count": 129,
+        "visitor_count": 94,
+        "ip_count": 90
+      },
+      {
+        "id": "32",
+        "name": "江苏",
+        "pv_count": 364,
+        "visit_count": 131,
+        "visitor_count": 101,
+        "ip_count": 97
+      },
+      {
+        "id": "43",
+        "name": "湖南",
+        "pv_count": 352,
+        "visit_count": 96,
+        "visitor_count": 71,
+        "ip_count": 69
+      },
+      {
+        "id": "11",
+        "name": "北京",
+        "pv_count": 315,
+        "visit_count": 144,
+        "visitor_count": 111,
+        "ip_count": 108
+      },
+      {
+        "id": "13",
+        "name": "河北",
+        "pv_count": 231,
+        "visit_count": 68,
+        "visitor_count": 40,
+        "ip_count": 38
+      },
+      {
+        "id": "41",
+        "name": "河南",
+        "pv_count": 223,
+        "visit_count": 72,
+        "visitor_count": 56,
+        "ip_count": 60
+      },
+      {
+        "id": "21",
+        "name": "辽宁",
+        "pv_count": 205,
+        "visit_count": 61,
+        "visitor_count": 49,
+        "ip_count": 46
+      },
+      {
+        "id": "34",
+        "name": "安徽",
+        "pv_count": 166,
+        "visit_count": 44,
+        "visitor_count": 33,
+        "ip_count": 35
+      },
+      {
+        "id": "61",
+        "name": "陕西",
+        "pv_count": 143,
+        "visit_count": 55,
+        "visitor_count": 36,
+        "ip_count": 33
+      },
+      {
+        "id": "50",
+        "name": "重庆",
+        "pv_count": 122,
+        "visit_count": 36,
+        "visitor_count": 31,
+        "ip_count": 30
+      },
+      {
+        "id": "45",
+        "name": "广西",
+        "pv_count": 104,
+        "visit_count": 44,
+        "visitor_count": 29,
+        "ip_count": 28
+      },
+      {
+        "id": "53",
+        "name": "云南",
+        "pv_count": 83,
+        "visit_count": 40,
+        "visitor_count": 27,
+        "ip_count": 25
+      },
+      {
+        "id": "23",
+        "name": "黑龙江",
+        "pv_count": 78,
+        "visit_count": 26,
+        "visitor_count": 23,
+        "ip_count": 20
+      },
+      {
+        "id": "71",
+        "name": "台湾",
+        "pv_count": 69,
+        "visit_count": 20,
+        "visitor_count": 18,
+        "ip_count": 15
+      },
+      {
+        "id": "22",
+        "name": "吉林",
+        "pv_count": 65,
+        "visit_count": 22,
+        "visitor_count": 20,
+        "ip_count": 18
+      },
+      {
+        "id": "52",
+        "name": "贵州",
+        "pv_count": 50,
+        "visit_count": 18,
+        "visitor_count": 16,
+        "ip_count": 16
+      },
+      {
+        "id": "36",
+        "name": "江西",
+        "pv_count": 49,
+        "visit_count": 19,
+        "visitor_count": 16,
+        "ip_count": 15
+      },
+      {
+        "id": "14",
+        "name": "山西",
+        "pv_count": 42,
+        "visit_count": 11,
+        "visitor_count": 10,
+        "ip_count": 10
+      },
+      {
+        "id": "81",
+        "name": "香港",
+        "pv_count": 30,
+        "visit_count": 17,
+        "visitor_count": 10,
+        "ip_count": 10
+      },
+      {
+        "id": "0",
+        "name": "其他",
+        "pv_count": 27,
+        "visit_count": 11,
+        "visitor_count": 8,
+        "ip_count": 7
+      },
+      {
+        "id": "12",
+        "name": "天津",
+        "pv_count": 27,
+        "visit_count": 11,
+        "visitor_count": 11,
+        "ip_count": 10
+      },
+      {
+        "id": "63",
+        "name": "青海",
+        "pv_count": 15,
+        "visit_count": 10,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "62",
+        "name": "甘肃",
+        "pv_count": 13,
+        "visit_count": 3,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "46",
+        "name": "海南",
+        "pv_count": 7,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "15",
+        "name": "内蒙古",
+        "pv_count": 5,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "65",
+        "name": "新疆",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      }
+    ],
+    "world": [
+      {
+        "id": "China",
+        "name": "中国",
+        "code": "cn",
+        "pv_count": 15978,
+        "visit_count": 3436,
+        "visitor_count": 2401,
+        "ip_count": 2064
+      },
+      {
+        "id": "United States",
+        "name": "美国",
+        "code": "us",
+        "pv_count": 227,
+        "visit_count": 74,
+        "visitor_count": 63,
+        "ip_count": 61
+      },
+      {
+        "id": "India",
+        "name": "印度",
+        "code": "in",
+        "pv_count": 110,
+        "visit_count": 52,
+        "visitor_count": 52,
+        "ip_count": 49
+      },
+      {
+        "id": "Indonesia",
+        "name": "印度尼西亚",
+        "code": "id",
+        "pv_count": 63,
+        "visit_count": 35,
+        "visitor_count": 32,
+        "ip_count": 32
+      },
+      {
+        "id": "Singapore",
+        "name": "新加坡",
+        "code": "sg",
+        "pv_count": 58,
+        "visit_count": 17,
+        "visitor_count": 10,
+        "ip_count": 10
+      },
+      {
+        "id": "Brazil",
+        "name": "巴西",
+        "code": "br",
+        "pv_count": 48,
+        "visit_count": 23,
+        "visitor_count": 23,
+        "ip_count": 23
+      },
+      {
+        "id": "Saudi Arabia",
+        "name": "沙特阿拉伯",
+        "code": "sa",
+        "pv_count": 45,
+        "visit_count": 10,
+        "visitor_count": 10,
+        "ip_count": 10
+      },
+      {
+        "id": "Turkey",
+        "name": "土耳其",
+        "code": "tr",
+        "pv_count": 42,
+        "visit_count": 26,
+        "visitor_count": 23,
+        "ip_count": 23
+      },
+      {
+        "id": "Iran",
+        "name": "伊朗",
+        "code": "ir",
+        "pv_count": 42,
+        "visit_count": 9,
+        "visitor_count": 8,
+        "ip_count": 6
+      },
+      {
+        "id": "Jordan",
+        "name": "约旦",
+        "code": "jo",
+        "pv_count": 39,
+        "visit_count": 3,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Vietnam",
+        "name": "越南",
+        "code": "vn",
+        "pv_count": 38,
+        "visit_count": 15,
+        "visitor_count": 13,
+        "ip_count": 12
+      },
+      {
+        "id": "Korea",
+        "name": "韩国",
+        "code": "kr",
+        "pv_count": 36,
+        "visit_count": 21,
+        "visitor_count": 19,
+        "ip_count": 19
+      },
+      {
+        "id": "Russia",
+        "name": "俄罗斯",
+        "code": "ru",
+        "pv_count": 32,
+        "visit_count": 9,
+        "visitor_count": 9,
+        "ip_count": 9
+      },
+      {
+        "id": "Thailand",
+        "name": "泰国",
+        "code": "th",
+        "pv_count": 28,
+        "visit_count": 17,
+        "visitor_count": 15,
+        "ip_count": 15
+      },
+      {
+        "id": "Mexico",
+        "name": "墨西哥",
+        "code": "mx",
+        "pv_count": 26,
+        "visit_count": 14,
+        "visitor_count": 14,
+        "ip_count": 14
+      },
+      {
+        "id": "Canada",
+        "name": "加拿大",
+        "code": "ca",
+        "pv_count": 26,
+        "visit_count": 11,
+        "visitor_count": 10,
+        "ip_count": 10
+      },
+      {
+        "id": "Netherlands",
+        "name": "荷兰",
+        "code": "nl",
+        "pv_count": 25,
+        "visit_count": 12,
+        "visitor_count": 12,
+        "ip_count": 10
+      },
+      {
+        "id": "Malaysia",
+        "name": "马来西亚",
+        "code": "my",
+        "pv_count": 20,
+        "visit_count": 6,
+        "visitor_count": 5,
+        "ip_count": 5
+      },
+      {
+        "id": "Peru",
+        "name": "秘鲁",
+        "code": "pe",
+        "pv_count": 20,
+        "visit_count": 5,
+        "visitor_count": 5,
+        "ip_count": 5
+      },
+      {
+        "id": "Ukraine",
+        "name": "乌克兰",
+        "code": "ua",
+        "pv_count": 18,
+        "visit_count": 13,
+        "visitor_count": 13,
+        "ip_count": 10
+      },
+      {
+        "id": "Germany",
+        "name": "德国",
+        "code": "de",
+        "pv_count": 14,
+        "visit_count": 8,
+        "visitor_count": 8,
+        "ip_count": 8
+      },
+      {
+        "id": "Philippines",
+        "name": "菲律宾",
+        "code": "ph",
+        "pv_count": 13,
+        "visit_count": 6,
+        "visitor_count": 6,
+        "ip_count": 6
+      },
+      {
+        "id": "United Kingdom",
+        "name": "英国",
+        "code": "gb",
+        "pv_count": 12,
+        "visit_count": 6,
+        "visitor_count": 6,
+        "ip_count": 6
+      },
+      {
+        "id": "Spain",
+        "name": "西班牙",
+        "code": "es",
+        "pv_count": 10,
+        "visit_count": 4,
+        "visitor_count": 4,
+        "ip_count": 4
+      },
+      {
+        "id": "Italy",
+        "name": "意大利",
+        "code": "it",
+        "pv_count": 9,
+        "visit_count": 6,
+        "visitor_count": 6,
+        "ip_count": 6
+      },
+      {
+        "id": "Slovakia",
+        "name": "斯洛伐克",
+        "code": "sk",
+        "pv_count": 8,
+        "visit_count": 5,
+        "visitor_count": 5,
+        "ip_count": 5
+      },
+      {
+        "id": "United Arab Emirates",
+        "name": "阿拉伯联合酋长国",
+        "code": "ae",
+        "pv_count": 8,
+        "visit_count": 2,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Egypt",
+        "name": "埃及",
+        "code": "eg",
+        "pv_count": 8,
+        "visit_count": 5,
+        "visitor_count": 5,
+        "ip_count": 5
+      },
+      {
+        "id": "Bangladesh",
+        "name": "孟加拉国",
+        "code": "bd",
+        "pv_count": 6,
+        "visit_count": 4,
+        "visitor_count": 4,
+        "ip_count": 4
+      },
+      {
+        "id": "Uzbekistan",
+        "name": "乌兹别克斯坦",
+        "code": "uz",
+        "pv_count": 6,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Australia",
+        "name": "澳大利亚",
+        "code": "au",
+        "pv_count": 6,
+        "visit_count": 3,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "Poland",
+        "name": "波兰",
+        "code": "pl",
+        "pv_count": 5,
+        "visit_count": 3,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "Benin",
+        "name": "贝宁",
+        "code": "bj",
+        "pv_count": 5,
+        "visit_count": 2,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "France",
+        "name": "法国",
+        "code": "fr",
+        "pv_count": 5,
+        "visit_count": 4,
+        "visitor_count": 4,
+        "ip_count": 4
+      },
+      {
+        "id": "Colombia",
+        "name": "哥伦比亚",
+        "code": "co",
+        "pv_count": 5,
+        "visit_count": 3,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "Morocco",
+        "name": "摩洛哥",
+        "code": "ma",
+        "pv_count": 5,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "Uruguay",
+        "name": "乌拉圭",
+        "code": "uy",
+        "pv_count": 4,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "South Africa",
+        "name": "南非",
+        "code": "za",
+        "pv_count": 4,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "Nepal",
+        "name": "尼泊尔",
+        "code": "np",
+        "pv_count": 4,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "Portugal",
+        "name": "葡萄牙",
+        "code": "pt",
+        "pv_count": 3,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "Tunisia",
+        "name": "突尼斯",
+        "code": "tn",
+        "pv_count": 3,
+        "visit_count": 3,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "Kazakhstan",
+        "name": "哈萨克斯坦",
+        "code": "kz",
+        "pv_count": 3,
+        "visit_count": 3,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "Greece",
+        "name": "希腊",
+        "code": "gr",
+        "pv_count": 3,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Japan",
+        "name": "日本",
+        "code": "jp",
+        "pv_count": 3,
+        "visit_count": 3,
+        "visitor_count": 3,
+        "ip_count": 3
+      },
+      {
+        "id": "Belgium",
+        "name": "比利时",
+        "code": "be",
+        "pv_count": 3,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "Venezuela",
+        "name": "委内瑞拉",
+        "code": "ve",
+        "pv_count": 3,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Algeria",
+        "name": "阿尔及利亚",
+        "code": "dz",
+        "pv_count": 3,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "Bulgaria",
+        "name": "保加利亚",
+        "code": "bg",
+        "pv_count": 3,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Belarus",
+        "name": "白俄罗斯",
+        "code": "by",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Romania",
+        "name": "罗马尼亚",
+        "code": "ro",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Austria",
+        "name": "奥地利",
+        "code": "at",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Mauritius",
+        "name": "毛里求斯",
+        "code": "mu",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Kenya",
+        "name": "肯尼亚",
+        "code": "ke",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Finland",
+        "name": "芬兰",
+        "code": "fi",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Palestine",
+        "name": "巴勒斯坦",
+        "code": "ps",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Ireland",
+        "name": "爱尔兰",
+        "code": "ie",
+        "pv_count": 2,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Pakistan",
+        "name": "巴基斯坦",
+        "code": "pk",
+        "pv_count": 2,
+        "visit_count": 2,
+        "visitor_count": 2,
+        "ip_count": 2
+      },
+      {
+        "id": "Nigeria",
+        "name": "尼日利亚",
+        "code": "ng",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Qatar",
+        "name": "卡塔尔",
+        "code": "qa",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Macedonia",
+        "name": "马其顿",
+        "code": "mk",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Croatia",
+        "name": "克罗地亚",
+        "code": "hr",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Argentina",
+        "name": "阿根廷",
+        "code": "ar",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Azerbaijan",
+        "name": "阿塞拜疆",
+        "code": "az",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "New Zealand",
+        "name": "新西兰",
+        "code": "nz",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Ethiopia",
+        "name": "埃塞俄比亚",
+        "code": "et",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      },
+      {
+        "id": "Lithuania",
+        "name": "立陶宛",
+        "code": "lt",
+        "pv_count": 1,
+        "visit_count": 1,
+        "visitor_count": 1,
+        "ip_count": 1
+      }
+    ]
+  }
 }

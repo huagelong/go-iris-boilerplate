@@ -9,5 +9,5 @@ type Support struct {
 }
 
 func New(conf *toml.Tree) *Support {
-	return &Support{Conf:conf}
+	return &Support{Conf: conf}
 }

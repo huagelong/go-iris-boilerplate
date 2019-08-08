@@ -12,11 +12,11 @@ import (
 
 var (
 	instanceSession *sessions.Sessions
-	instanceRedis *redis.Database
+	instanceRedis   *redis.Database
 )
 
 func New(c *toml.Tree) *sessions.Sessions {
-	if instanceSession != nil{
+	if instanceSession != nil {
 		return instanceSession
 	}
 
@@ -24,14 +24,14 @@ func New(c *toml.Tree) *sessions.Sessions {
 	lock.Lock()
 	defer lock.Unlock()
 
-	if instanceSession != nil{
+	if instanceSession != nil {
 		return instanceSession
 	}
 
-	expires := 6*time.Hour
+	expires := 6 * time.Hour
 	ses := sessions.New(sessions.Config{
-		Cookie:   "tsessionid",
-		Expires:  expires,
+		Cookie:       "tsessionid",
+		Expires:      expires,
 		AllowReclaim: true,
 	})
 
@@ -41,27 +41,27 @@ func New(c *toml.Tree) *sessions.Sessions {
 	return instanceSession;
 }
 
-func redisConn(conf *toml.Tree)  *redis.Database {
-	if instanceRedis != nil{
+func redisConn(conf *toml.Tree) *redis.Database {
+	if instanceRedis != nil {
 		return instanceRedis
 	}
 	var lock sync.Mutex
 	lock.Lock()
 	defer lock.Unlock()
 
-	if instanceRedis != nil{
+	if instanceRedis != nil {
 		return instanceRedis
 	}
 	golog.Info("session redis created!...")
 	db := redis.New(service.Config{
-		Network:   conf.Get("db.redis.network").(string),
-		Addr:      conf.Get("db.redis.addr").(string),
-		IdleTimeout:   time.Duration(int(conf.Get("db.redis.idleTimeout").(int64))) * time.Second,
-		MaxIdle:int(conf.Get("db.redis.maxIdle").(int64)),
-		MaxActive: int(conf.Get("db.redis.maxActive").(int64)),
-		Password:  conf.Get("db.redis.password").(string),
-		Database:  conf.Get("db.redis.database").(string),
-		Prefix:    conf.Get("db.redis.prefix").(string),
+		Network:     conf.Get("db.redis.network").(string),
+		Addr:        conf.Get("db.redis.addr").(string),
+		IdleTimeout: time.Duration(int(conf.Get("db.redis.idleTimeout").(int64))) * time.Second,
+		MaxIdle:     int(conf.Get("db.redis.maxIdle").(int64)),
+		MaxActive:   int(conf.Get("db.redis.maxActive").(int64)),
+		Password:    conf.Get("db.redis.password").(string),
+		Database:    conf.Get("db.redis.database").(string),
+		Prefix:      conf.Get("db.redis.prefix").(string),
 	})
 	instanceRedis = db;
 	//defer instanceRedis.Close()

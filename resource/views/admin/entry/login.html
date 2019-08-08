@@ -16,18 +16,21 @@
 {% endblock %}
 {% block styles %}
 <style>
-    #login main{
+    #login main {
         color: #333;
         font-weight: 400;
         opacity: 1;
     }
-    #login main h3{
+
+    #login main h3 {
         font-weight: 400;
     }
-    #login main img{
+
+    #login main img {
         width: 200px;
     }
-    #login footer{
+
+    #login footer {
         color: #333;
     }
 </style>
@@ -37,7 +40,7 @@ id="login"
 {% endblock %}
 {% block body %}
 <main>
-    <img  src="/static/ui/img/logo.png" alt="">
+    <img src="/static/ui/img/logo.png" alt="">
     <h3>物联网管理系统</h3>
     <div id="toggle">
         <form class="position-absolute" id="signIn" method="post">
@@ -46,7 +49,7 @@ id="login"
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input class="form-control form-control-lg" name="userName" type="text" placeholder="请输入邮箱地址" >
+                    <input class="form-control form-control-lg" name="userName" type="text" placeholder="请输入邮箱地址">
                 </div>
             </div>
             <div class="form-group">
@@ -54,7 +57,7 @@ id="login"
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input class="form-control form-control-lg" name="password" type="password" placeholder="请输入密码" >
+                    <input class="form-control form-control-lg" name="password" type="password" placeholder="请输入密码">
                 </div>
             </div>
             <div class="form-group">
@@ -114,7 +117,7 @@ id="login"
                                 $('#loading').hide();
                             },
                             succeed: function (res) {
-                                if(res.status == 200){
+                                if (res.status == 200) {
                                     // 记住密码
                                     if ($('#remember').prop('checked')) {
                                         localStorage.setItem('userName', $('#signIn input[name="userName"]').val());
@@ -132,7 +135,7 @@ id="login"
                                     sessionStorage.setItem('password', $('#signIn input[name="password"]').val());
                                     sessionStorage.setItem('logged', true);
                                     goLogin();
-                                }else{
+                                } else {
                                     noticeMsg(res.msg, 'error', 'top', 5000);
                                 }
                             },
@@ -144,6 +147,7 @@ id="login"
                 });
             }
         });
+
         // 完成登录
         function goLogin() {
             $('#toggle').removeAttr('style');

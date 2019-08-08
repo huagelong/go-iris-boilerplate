@@ -2,9 +2,9 @@
 @font-face {
     src: url('../fonts/kendo-ui-widgets-icon.eot');
     src: url('../fonts/kendo-ui-widgets-icon.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/kendo-ui-widgets-icon.woff') format('woff'),
-         url('../fonts/kendo-ui-widgets-icon.ttf') format('truetype'),
-         url('../fonts/kendo-ui-widgets-icon.svg') format('svg');
+    url('../fonts/kendo-ui-widgets-icon.woff') format('woff'),
+    url('../fonts/kendo-ui-widgets-icon.ttf') format('truetype'),
+    url('../fonts/kendo-ui-widgets-icon.svg') format('svg');
     font-family: 'widgets';
     font-weight: normal;
     font-style: normal;

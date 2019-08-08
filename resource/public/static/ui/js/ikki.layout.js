@@ -73,15 +73,15 @@ $(function () {
     }, 200);
     // 全屏
     $('#header').on('click', '.fullscreen', function () {
-        var fullscreenEnabled = document.fullscreenEnabled       ||
-                                document.webkitFullscreenEnabled ||
-                                document.mozFullScreenEnabled    ||
-                                document.msFullscreenEnabled;
+        var fullscreenEnabled = document.fullscreenEnabled ||
+            document.webkitFullscreenEnabled ||
+            document.mozFullScreenEnabled ||
+            document.msFullscreenEnabled;
         if (fullscreenEnabled) {
-            var isFullscreen = document.fullscreenElement        ||
-                               document.webkitFullscreenElement  ||
-                               document.mozFullScreenElement     ||
-                               document.msFullscreenElement;
+            var isFullscreen = document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.mozFullScreenElement ||
+                document.msFullscreenElement;
             if (isFullscreen) {
                 exitFullscreen();
                 $(this).find('.fa-compress').addClass('fa-expand').removeClass('fa-compress');
@@ -95,7 +95,7 @@ $(function () {
     });
     // 回车解锁
     $('body').on('keyup', '#locking input', function (event) {
-        if(event.keyCode === 13){
+        if (event.keyCode === 13) {
             unlockScreen();
         }
     });
@@ -105,12 +105,12 @@ $(function () {
 function tokenAuth() {
     var tokenStr = sessionStorage.getItem('token')
     var idtokenStr = sessionStorage.getItem('idToken')
-    if(!(idtokenStr && tokenStr)) return true
+    if (!(idtokenStr && tokenStr)) return true
     $.fn.ajaxPost({
         ajaxAsync: false,
         ajaxData: {
             token: tokenStr,
-            idtoken:idtokenStr
+            idtoken: idtokenStr
         },
         ajaxUrl: tokenUrl,
         succeed: function (res) {
@@ -127,7 +127,7 @@ function tokenAuth() {
 // 面包屑导航
 function showPath(hash) {
     $('#path').html('');
-    $.each($('#navPanelBar, #menuH, #menuV').find('.links-'+ hash).children('.k-link').parents('.k-item'), function (i, doms) {
+    $.each($('#navPanelBar, #menuH, #menuV').find('.links-' + hash).children('.k-link').parents('.k-item'), function (i, doms) {
         $('#path').prepend('<span><i class="fas fa-angle-double-right"></i>' + $(doms).children('.k-link').html() + '</span>');
     });
     if (hash === '404') {
@@ -143,8 +143,8 @@ function showPath(hash) {
     // 展开导航并定位
     if ($('#navPanelBar').data('kendoPanelBar')) {
         $('#navPanelBar .k-link').removeClass('k-state-selected');
-        $('#navPanelBar').data('kendoPanelBar').expand($('.links-'+ hash).parents('.k-group').parent());
-        $('.links-'+ hash).find('a.k-link').addClass('k-state-selected');
+        $('#navPanelBar').data('kendoPanelBar').expand($('.links-' + hash).parents('.k-group').parent());
+        $('.links-' + hash).find('a.k-link').addClass('k-state-selected');
     }
     // 判断面包屑长度
     if ($(window).width() > 767) {
@@ -163,10 +163,10 @@ function showPath(hash) {
 // 进入全屏
 function enterFullscreen(element) {
     var el = element instanceof HTMLElement ? element : document.documentElement;
-    var infs = el.requestFullscreen       ||
-               el.webkitRequestFullscreen ||
-               el.mozRequestFullScreen    ||
-               el.msRequestFullscreen;
+    var infs = el.requestFullscreen ||
+        el.webkitRequestFullscreen ||
+        el.mozRequestFullScreen ||
+        el.msRequestFullscreen;
     if (infs) {
         infs.call(el);
     } else if (window.ActiveXObject) {
@@ -177,10 +177,10 @@ function enterFullscreen(element) {
 
 // 退出全屏
 function exitFullscreen() {
-    var outfs = document.exitFullscreen       ||
-                document.webkitExitFullscreen ||
-                document.mozCancelFullScreen  ||
-                document.msExitFullscreen;
+    var outfs = document.exitFullscreen ||
+        document.webkitExitFullscreen ||
+        document.mozCancelFullScreen ||
+        document.msExitFullscreen;
     if (outfs) {
         outfs.call(document);
     } else if (window.ActiveXObject) {
@@ -196,10 +196,10 @@ function lockScreen() {
         // 屏蔽 F12
         if (e.keyCode === 123) {
             return false;
-        // 屏蔽 Ctrl+Shift+I
+            // 屏蔽 Ctrl+Shift+I
         } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode === 73)) {
             return false;
-        // 屏蔽 Shift+F10
+            // 屏蔽 Shift+F10
         } else if ((e.shiftKey) && (e.keyCode === 121)) {
             return false;
         }
@@ -286,5 +286,5 @@ function changeLang(lang) {
 // 退出登录
 function logout() {
     sessionStorage.clear();
-    location.href ='/login';
+    location.href = '/login';
 }

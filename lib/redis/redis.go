@@ -10,16 +10,16 @@ import (
 )
 
 type Redis struct {
-	Network	  string
-	Connect   string //连接字符串
-	Db        int    //数据库
-	Maxidle   int    //最大空闲连接数，表示即使没有redis连接时依然可以保持N个空闲的连接，而不被清除，随时处于待命状态
-	Maxactive int    //最大的激活连接数，表示同时最多有N个连接
+	Network     string
+	Connect     string //连接字符串
+	Db          int    //数据库
+	Maxidle     int    //最大空闲连接数，表示即使没有redis连接时依然可以保持N个空闲的连接，而不被清除，随时处于待命状态
+	Maxactive   int    //最大的激活连接数，表示同时最多有N个连接
 	IdleTimeout int
 }
 
 var (
-	r    *Redis
+	r           *Redis
 	redisClient *redis.Pool
 )
 
@@ -28,24 +28,24 @@ var (
  * @method New
  */
 func New(conf *toml.Tree) *Redis {
-	if r != nil{
+	if r != nil {
 		return r
 	}
 	var lock sync.Mutex
 	lock.Lock()
 	defer lock.Unlock()
 
-	if r != nil{
+	if r != nil {
 		return r
 	}
 
 	connect := conf.Get("db.redis.addr").(string)
 	db, _ := strconv.Atoi(conf.Get("db.redis.database").(string))
-	maxidle:=int(conf.Get("db.redis.maxIdle").(int64))
-	maxactive:=int(conf.Get("db.redis.maxActive").(int64))
-	idleTimeout:=int(conf.Get("db.redis.idleTimeout").(int64))
+	maxidle := int(conf.Get("db.redis.maxIdle").(int64))
+	maxactive := int(conf.Get("db.redis.maxActive").(int64))
+	idleTimeout := int(conf.Get("db.redis.idleTimeout").(int64))
 	network := conf.Get("db.redis.network").(string)
-	instanceRedis := &Redis{Network:network,Connect: connect, Db: db, Maxidle:maxidle, Maxactive:maxactive, IdleTimeout:idleTimeout}
+	instanceRedis := &Redis{Network: network, Connect: connect, Db: db, Maxidle: maxidle, Maxactive: maxactive, IdleTimeout: idleTimeout}
 	r = instanceRedis
 	setPoll()
 	return r
@@ -60,15 +60,15 @@ func New(conf *toml.Tree) *Redis {
  */
 func setPoll() {
 	redisClient = &redis.Pool{
-		MaxIdle: r.Maxidle,
-		MaxActive: r.Maxactive,
-		IdleTimeout: time.Duration(r.IdleTimeout)*time.Second,
-		Dial: func() (redis.Conn, error) {//建立连接
+		MaxIdle:     r.Maxidle,
+		MaxActive:   r.Maxactive,
+		IdleTimeout: time.Duration(r.IdleTimeout) * time.Second,
+		Dial: func() (redis.Conn, error) { //建立连接
 			c, err := redis.Dial(r.Network, r.Connect)
 			if err != nil {
 				golog.Fatal("redis.pool", err)
 			}
-			_, errping :=c.Do("PING", r.Db)
+			_, errping := c.Do("PING", r.Db)
 			if errping != nil {
 				golog.Fatal("got err when ping redis: ", errping)
 			}
@@ -108,6 +108,7 @@ func (n *Redis) SetString(key string, value string, ex string) (interface{}, err
 	defer conn.Close()
 	return conn.Do("SET", key, value, "EX", ex)
 }
+
 /**
  * 获取键的值
  * @method func

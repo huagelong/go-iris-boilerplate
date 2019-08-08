@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 )
 
-func (c *Controller)PostNavjson()  {
+func (c *Controller) PostNavjson() {
 	filename := "./resource/public/static/js/json/nav.json"
 	plan, _ := ioutil.ReadFile(filename)
 	data := string(plan[:])
@@ -12,7 +12,7 @@ func (c *Controller)PostNavjson()  {
 	c.Ctx.WriteString(data)
 }
 
-func (c *Controller)PostMenujson()  {
+func (c *Controller) PostMenujson() {
 	filename := "./resource/public/static/js/json/menu.json"
 	plan, _ := ioutil.ReadFile(filename)
 	data := string(plan[:])
@@ -20,7 +20,7 @@ func (c *Controller)PostMenujson()  {
 	c.Ctx.WriteString(data)
 }
 
-func (c *Controller)PostHomejson()  {
+func (c *Controller) PostHomejson() {
 	filename := "./resource/public/static/js/json/home.json"
 	plan, _ := ioutil.ReadFile(filename)
 	data := string(plan[:])

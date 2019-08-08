@@ -18,7 +18,7 @@ var router = new kendo.Router({
             error404();
         }
     }),
-    layout = new kendo.Layout('<div id="container"></div>', { wrap: false });
+    layout = new kendo.Layout('<div id="container"></div>', {wrap: false});
 
 // 路由初始化
 router.bind('init', function () {
@@ -38,7 +38,7 @@ router.route('(/:lv1)(/:lv2)(/:lv3)(/:lv4)(/:lv5)', function (lv1, lv2, lv3, lv4
     });
     $.get(routePath, function (temp) {
         $('#template').html(temp);
-        layout.showIn('#container', new kendo.View(routeFile + 'Temp', { wrap: false }));
+        layout.showIn('#container', new kendo.View(routeFile + 'Temp', {wrap: false}));
         $.getScript(path + routePath + '.js', function () {
             $('#inProgress .progress-bar').removeClass('animated').addClass('w-100');
             $('#inProgress').fadeOut();
@@ -75,7 +75,7 @@ function refresh() {
     tokenAuth();
     $.get('/page' + location.hash.split('#')[1], function (temp) {
         $('#template').html(temp);
-        layout.showIn('#container', new kendo.View(location.hash.split('/')[location.hash.split('/').length - 1] + 'Temp', { wrap: false }));
+        layout.showIn('#container', new kendo.View(location.hash.split('/')[location.hash.split('/').length - 1] + 'Temp', {wrap: false}));
         $.getScript(path + '/page' + location.hash.split('#')[1] + '.js', function () {
             $('#inProgress .progress-bar').removeClass('animated').addClass('w-100');
             $('#inProgress').fadeOut();

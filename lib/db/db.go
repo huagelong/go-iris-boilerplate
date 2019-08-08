@@ -12,26 +12,26 @@ import (
 
 var (
 	engineMysqlGroup *xorm.EngineGroup
-	engineMaster *xorm.Engine
-	engineSlave *xorm.Engine
-	)
+	engineMaster     *xorm.Engine
+	engineSlave      *xorm.Engine
+)
 
 type DBEngine struct {
 	Conf *toml.Tree
-	Env	string //开发环境
+	Env  string //开发环境
 }
 
 func New(conf *toml.Tree, env string) *DBEngine {
-	return &DBEngine{Conf:conf, Env:env}
+	return &DBEngine{Conf: conf, Env: env}
 }
 
 //master
-func (e *DBEngine)GetMaster() *xorm.Engine {
+func (e *DBEngine) GetMaster() *xorm.Engine {
 	return master(e.Conf)
 }
 
-func (e *DBEngine)GetGroup() *xorm.EngineGroup  {
-	if engineMysqlGroup != nil{
+func (e *DBEngine) GetGroup() *xorm.EngineGroup {
+	if engineMysqlGroup != nil {
 		return engineMysqlGroup
 	}
 
@@ -39,14 +39,14 @@ func (e *DBEngine)GetGroup() *xorm.EngineGroup  {
 	lock.Lock()
 	defer lock.Unlock()
 
-	if engineMysqlGroup != nil{
+	if engineMysqlGroup != nil {
 		return engineMysqlGroup
 	}
 
 	masterEngine := master(e.Conf)
 	slaveEngine := slave(e.Conf)
 	engine, err := xorm.NewEngineGroup(masterEngine, []*xorm.Engine{slaveEngine})
-	if err !=nil {
+	if err != nil {
 		golog.Fatal("dbsource.engineGroup", err)
 	}
 
@@ -61,7 +61,7 @@ func (e *DBEngine)GetGroup() *xorm.EngineGroup  {
 
 	if e.Env == "prod" {
 		engine.ShowSQL(false)
-	} else{
+	} else {
 		engine.ShowSQL(true)
 	}
 	timeLocation := e.Conf.Get("system.timeLocation").(string)
@@ -75,9 +75,9 @@ func (e *DBEngine)GetGroup() *xorm.EngineGroup  {
 	return engineMysqlGroup
 }
 
-func master(c *toml.Tree) *xorm.Engine{
+func master(c *toml.Tree) *xorm.Engine {
 	//golog.Debug("master: ",engineMaster)
-	if engineMaster != nil{
+	if engineMaster != nil {
 		return engineMaster
 	}
 
@@ -85,23 +85,23 @@ func master(c *toml.Tree) *xorm.Engine{
 	lock.Lock()
 	defer lock.Unlock()
 	//golog.Debug("master: ",engineMaster)
-	if engineMaster != nil{
+	if engineMaster != nil {
 		return engineMaster
 	}
 
-	dbDriver :=c.Get("db.drive").(string)
-    dbHost :=c.Get("db.master.host").(string)
-	dbPort :=c.Get("db.master.port").(string)
-	dbUser :=c.Get("db.master.user").(string)
-	dbPwd :=c.Get("db.master.pwd").(string)
-	dbDbname :=c.Get("db.master.dbname").(string)
+	dbDriver := c.Get("db.drive").(string)
+	dbHost := c.Get("db.master.host").(string)
+	dbPort := c.Get("db.master.port").(string)
+	dbUser := c.Get("db.master.user").(string)
+	dbPwd := c.Get("db.master.pwd").(string)
+	dbDbname := c.Get("db.master.dbname").(string)
 	dbMaxIdleConns := int(c.Get("db.master.maxIdleConns").(int64))
 	dbMaxOpenConns := int(c.Get("db.slave.maxOpenConns").(int64))
 
-	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
+	driveSource := dbUser + ":" + dbPwd + "@tcp(" + dbHost + ":" + dbPort + ")/" + dbDbname + "?charset=utf8"
 	//fmt.Println(driveSource)
 	engine, err := xorm.NewEngine(dbDriver, driveSource)
-	if err !=nil {
+	if err != nil {
 		golog.Fatal("dbsource.InstanceMaster", err)
 	}
 	//设置连接池的空闲数大小
@@ -113,9 +113,9 @@ func master(c *toml.Tree) *xorm.Engine{
 	return engineMaster
 }
 
-func slave(c *toml.Tree) *xorm.Engine{
+func slave(c *toml.Tree) *xorm.Engine {
 
-	if engineSlave != nil{
+	if engineSlave != nil {
 		return engineSlave
 	}
 
@@ -123,22 +123,22 @@ func slave(c *toml.Tree) *xorm.Engine{
 	lock.Lock()
 	defer lock.Unlock()
 
-	if engineSlave != nil{
+	if engineSlave != nil {
 		return engineSlave
 	}
 
-	dbDriver :=c.Get("db.drive").(string)
-	dbHost :=c.Get("db.slave.host").(string)
-	dbPort :=c.Get("db.slave.port").(string)
-	dbUser :=c.Get("db.slave.user").(string)
-	dbPwd :=c.Get("db.slave.pwd").(string)
-	dbDbname :=c.Get("db.slave.dbname").(string)
+	dbDriver := c.Get("db.drive").(string)
+	dbHost := c.Get("db.slave.host").(string)
+	dbPort := c.Get("db.slave.port").(string)
+	dbUser := c.Get("db.slave.user").(string)
+	dbPwd := c.Get("db.slave.pwd").(string)
+	dbDbname := c.Get("db.slave.dbname").(string)
 	dbMaxIdleConns := int(c.Get("db.slave.maxIdleConns").(int64))
 	dbMaxOpenConns := int(c.Get("db.slave.maxOpenConns").(int64))
 
-	driveSource := dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbDbname+"?charset=utf8"
+	driveSource := dbUser + ":" + dbPwd + "@tcp(" + dbHost + ":" + dbPort + ")/" + dbDbname + "?charset=utf8"
 	engine, err := xorm.NewEngine(dbDriver, driveSource)
-	if err !=nil {
+	if err != nil {
 		golog.Fatal("dbsource.InstanceSlave", err)
 	}
 	//设置连接池的空闲数大小

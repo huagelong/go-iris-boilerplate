@@ -31,7 +31,7 @@ $(function () {
         }
     });
     $('#goTop').click(function () {
-        $('#section').animate({ scrollTop: 0 }, 500);
+        $('#section').animate({scrollTop: 0}, 500);
     });
 });
 
@@ -73,14 +73,14 @@ $(function () {
             contentType: opts.ajaxContentType,
             dataType: 'json',
             success: function (res, status, xhr) {
-                if (res.status !=403) {
+                if (res.status != 403) {
                     opts.finished(res);
                     if (res.status == 200) {
                         opts.succeed(res);
                         if (opts.isMsg && res.msg.length > 0) {
                             alertMsgNoBtn(res.msg, 'success');
                         }
-                    } else{
+                    } else {
                         opts.failed(res);
                         if (res.msg.length > 0) {
                             alertMsg(res.msg, 'error');
@@ -186,7 +186,8 @@ $(function () {
 })(jQuery);
 
 // 空方法
-function noFunc() {}
+function noFunc() {
+}
 
 /* 模态框 ****************************************************************************/
 
@@ -333,7 +334,7 @@ function alertMsgNoBtn(msg, type, closed) {
             if (closed) {
                 closed();
             }
-            setTimeout(function (){
+            setTimeout(function () {
                 alertDialog.close();
             }, 2000);
         },
@@ -451,7 +452,7 @@ function showBigPic(url) {
             picWindow.destroy();
         }
     }).data('kendoWindow');
-    picWindow.content('<img src="'+ url +'">').center().open().maximize();
+    picWindow.content('<img src="' + url + '">').center().open().maximize();
 }
 
 /* 表单操作 ****************************************************************************/
@@ -506,6 +507,7 @@ function numericRange(rangeStart, rangeEnd, format, decimals, step, min, max) {
         }).data('kendoNumericTextBox');
     start.max(end.value());
     end.min(start.value());
+
     function startChange() {
         var startNumeric = start.value(),
             endNumeric = end.value();
@@ -520,6 +522,7 @@ function numericRange(rangeStart, rangeEnd, format, decimals, step, min, max) {
             end.min(min);
         }
     }
+
     function endChange() {
         var endNumeric = end.value(),
             startNumeric = start.value();
@@ -602,6 +605,7 @@ function dateRange(rangeStart, rangeEnd, type) {
     }
     start.max(end.value());
     end.min(start.value());
+
     function startChange() {
         var startDate = start.value(),
             endDate = end.value();
@@ -617,7 +621,8 @@ function dateRange(rangeStart, rangeEnd, type) {
             end.min(new Date('1900'));
         }
     }
-    function endChange(){
+
+    function endChange() {
         var endDate = end.value(),
             startDate = start.value();
         if (endDate) {
@@ -684,6 +689,7 @@ function dateInputRange(rangeStart, rangeEnd, type) {
     }
     start.max(end.value());
     end.min(start.value());
+
     function startChange() {
         var startDate = start.value(),
             endDate = end.value();
@@ -699,14 +705,15 @@ function dateInputRange(rangeStart, rangeEnd, type) {
             end.min(new Date('1900'));
         }
     }
+
     function endChange() {
         var endDate = end.value(),
             startDate = start.value();
-        if (endDate){
+        if (endDate) {
             endDate = new Date(endDate);
             endDate.setDate(endDate.getDate());
             start.max(endDate);
-        } else if (startDate){
+        } else if (startDate) {
             end.min(new Date(startDate));
             start.max(new Date('2100'));
         } else {
@@ -955,7 +962,7 @@ function btnDetails(e) {
 
 // 链接详情
 function linkDetails(dataItem) {
-    $('.k-grid-content').on('click', 'a[data-uid='+ dataItem.uid +']', function () {
+    $('.k-grid-content').on('click', 'a[data-uid=' + dataItem.uid + ']', function () {
         if ($('body > .k-overlay').length === 0) {
             divWindow('详情', '80%', '40%', kendo.template($('#detailsTemplate').html())(dataItem));
         }
@@ -968,7 +975,7 @@ function linkDetails(dataItem) {
 function steps(func) {
     $('.k-step').kendoTabStrip({
         animation: false,
-        show: function(e) {
+        show: function (e) {
             $(e.contentElement).find('.k-step-prev').unbind('click').click(function () {
                 $('.k-step').data('kendoTabStrip').select($(e.item).index() - 1);
             });
@@ -986,7 +993,7 @@ function steps(func) {
 function stepsForm(func) {
     var kendoStep = $('.k-step').kendoTabStrip({
         animation: false,
-        show: function(e) {
+        show: function (e) {
             $(e.contentElement).find('.k-step-prev').unbind('click').click(function () {
                 kendoStep.select($(e.item).index() - 1);
             });
@@ -995,7 +1002,7 @@ function stepsForm(func) {
                     $.fn.ajaxPost({
                         ajaxData: $(e.contentElement).find('form').serializeObject(),
                         ajaxUrl: $(e.contentElement).find('form').attr('action'),
-                        succeed: function() {
+                        succeed: function () {
                             kendoStep.select($(e.item).index() + 1);
                         },
                         isMsg: true
@@ -1007,7 +1014,7 @@ function stepsForm(func) {
                     $.fn.ajaxPost({
                         ajaxData: $(e.contentElement).find('form').serializeObject(),
                         ajaxUrl: $(e.contentElement).find('form').attr('action'),
-                        succeed: function() {
+                        succeed: function () {
                             func();
                         },
                         isMsg: true
@@ -1023,17 +1030,17 @@ function stepsForm(func) {
 function stepsNoBack(func) {
     var kendoStep = $('.k-step').kendoTabStrip({
         animation: false,
-        show: function(e) {
+        show: function (e) {
             $(e.contentElement).find('.k-step-next').unbind('click').click(function () {
                 if ($(e.contentElement).find('form').kendoValidator().data('kendoValidator').validate()) {
                     $(e.contentElement).find('.k-step-next').addClass('k-state-disabled').removeClass('k-state-selected').prop('disabled', true);
                     $.fn.ajaxPost({
                         ajaxData: $(e.contentElement).find('form').serializeObject(),
                         ajaxUrl: $(e.contentElement).find('form').attr('action'),
-                        succeed: function() {
+                        succeed: function () {
                             kendoStep.disable(kendoStep.tabGroup.children()).enable(kendoStep.tabGroup.children().eq($(e.item).index() + 1)).select($(e.item).index() + 1);
                         },
-                        failed: function(){
+                        failed: function () {
                             $(e.contentElement).find('.k-step-next').addClass('k-state-selected').removeClass('k-state-disabled').prop('disabled', false);
                         },
                         isMsg: true
@@ -1048,10 +1055,10 @@ function stepsNoBack(func) {
                     $.fn.ajaxPost({
                         ajaxData: $(e.contentElement).find('form').serializeObject(),
                         ajaxUrl: $(e.contentElement).find('form').attr('action'),
-                        succeed: function() {
+                        succeed: function () {
                             func();
                         },
-                        failed: function(){
+                        failed: function () {
                             $(e.contentElement).find('.k-step-fin').addClass('k-state-selected').removeClass('k-state-disabled').prop('disabled', false);
                         },
                         isMsg: true

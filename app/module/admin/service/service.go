@@ -27,5 +27,3 @@ func New(app *boot.Bootstrapper) *Service {
 		DBMaster: app.DB.GetMaster(),
 	}
 }
-
-
