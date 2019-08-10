@@ -1,0 +1,26 @@
+<script id="drawingTemp" type="text/x-kendo-template">
+    <div class="card mb-3">
+        <h5 class="card-header">交互区域</h5>
+        <div class="card-body">
+            选择绘图类型：
+            <ul id="drawingType">
+                <li>SVG</li>
+                <li>Canvas</li>
+                <li>VML</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h5 class="card-header">结果区域</h5>
+        <div class="card-body d-flex justify-content-center">
+            <div id="surfaceClock"></div>
+            <div class="position-absolute w-100" id="surfacePath"></div>
+        </div>
+    </div>
+    <style scoped>
+        #surfaceClock,
+        #surfacePath {
+            height: 300px;
+        }
+    </style>
+</script>

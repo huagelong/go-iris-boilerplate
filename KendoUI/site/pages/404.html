@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="renderer" content="webkit">
+        <meta name="force-rendering" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="IKKI, IKKI2000, IKKI Studio, IKKI-Studio, ikki, ikki2000, ikkistudio, Kendo, Kendo UI, KendoUI, Kendo-UI, kendo, kendoui, kendo-ui, admin, admin-ui, admin-dashboard, dashboard, dashboard-templates, template, framework, site, website, bootstrap, bootstrap4, responsive, responsive-design, responsive-web-design, responsive-layout, layout">
+        <meta name="description" content="Kendo UI Admin & Site base on Kendo UI for jQuery and Bootstrap 4.">
+        <meta name="author" content="IKKI &amp; Amikoko">
+        <meta name="copyright" content="UED Center">
+        <title>Kendo UI Site by IKKI &amp; Amikoko</title>
+        <base href="https://ikki2000.github.io/KendoUI-Admin-Site/" type="site">
+        <link href="img/favicon.png" rel="icon" type="image/png">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/themes/theme_default.min.css" rel="stylesheet">
+        <link href="css/amikoko.site.css" rel="stylesheet">
+        <script src="js/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+            <p><img src="img/404.png" alt="404"><span class="display-1 align-middle">404</span></p>
+            <p class="lead">页面找不到啦~</p>
+            <p><time class="h5 theme-m mr-2"></time>秒后</p>
+            <p><a class="k-button k-button-lg k-state-selected" href="site/pages/home.html">返回首页</a></p>
+        </div>
+        <script>
+            $(function () {
+                // 返回首页
+                var sec = 3,
+                    intervalID = setInterval(function () {
+                        if (sec > 1) {
+                            sec = sec - 1;
+                            $('time').text(sec);
+                        } else {
+                            clearInterval(intervalID);
+                            location.href = 'site/pages/home.html';
+                        }
+                    }, 1000);
+                $('time').text(sec);
+            });
+        </script>
+    </body>
+</html>

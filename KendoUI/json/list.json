@@ -1,0 +1,955 @@
+{
+    "result": "y",
+    "msg": "数据获取错误，请重试！",
+    "total": 12,
+    "data": [
+        {
+            "id": "uid001",
+            "userName": "user001",
+            "realName": "穆",
+            "nickName": "Mu",
+            "password": "010101010101",
+            "confirmPassword": "010101010101",
+            "online": true,
+            "gender": "1",
+            "age": 10,
+            "height": 1.1,
+            "bloodType": "1",
+            "birthday": "2001-01-01",
+            "mateBirthday": "2001-01-01",
+            "creditCard": "6225000000000001",
+            "asset": 10000000,
+            "nativePlace": {
+                "province": "110000",
+                "provinceName": "北京市",
+                "city": "110100",
+                "cityName": "市辖区",
+                "area": "110102",
+                "areaName": "西城区"
+            },
+            "domicile": {
+                "code": "11",
+                "name": "北京市"
+            },
+            "nation": {
+                "nation": "01",
+                "nationName": "阿昌族"
+            },
+            "zodiac": {
+                "zodiac": "01",
+                "zodiacName": "鼠"
+            },
+            "language": "普通话 北方话 吴语",
+            "education": [
+                "1",
+                "2",
+                "3"
+            ],
+            "graduation": "2001",
+            "firstJob": "2001-01",
+            "mobile": "13800138111",
+            "email": "010101@010101.com",
+            "homepage": "http://www.010101.com",
+            "getUp": "01:01",
+            "importantMoment": "2001-01-01 01:01",
+            "character": 0,
+            "color": "rgba(195, 155, 143, 1)",
+            "constellation": [
+                "12",
+                "1",
+                "2"
+            ],
+            "tourism": [
+                {
+                    "code": "11",
+                    "name": "北京市"
+                },
+                {
+                    "code": "3501",
+                    "name": "福州市"
+                },
+                {
+                    "code": "3502",
+                    "name": "厦门市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫穆！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Aries.png",
+                "name": "Aries",
+                "extension": ".png",
+                "size": 38110
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(217, 182, 172, .8);'>我叫穆！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid002",
+            "userName": "user002",
+            "realName": "阿鲁迪巴",
+            "nickName": "Aldebaran",
+            "password": "020202020202",
+            "confirmPassword": "020202020202",
+            "online": true,
+            "gender": "2",
+            "age": 20,
+            "height": 1.2,
+            "bloodType": "2",
+            "birthday": "2002-02-02",
+            "mateBirthday": "2002-02-02",
+            "creditCard": "6225000000000002",
+            "asset": 20000000,
+            "nativePlace": {
+                "province": "120000",
+                "provinceName": "天津市",
+                "city": "120100",
+                "cityName": "市辖区",
+                "area": "120102",
+                "areaName": "河东区"
+            },
+            "domicile": {
+                "code": "12",
+                "name": "天津市"
+            },
+            "nation": {
+                "nation": "05",
+                "nationName": "布依族"
+            },
+            "zodiac": {
+                "zodiac": "02",
+                "zodiacName": "牛"
+            },
+            "language": "湘语 赣语 客家话",
+            "education": [
+                "2",
+                "3",
+                "4"
+            ],
+            "graduation": "2002",
+            "firstJob": "2002-02",
+            "mobile": "13800138222",
+            "email": "020202@020202.com",
+            "homepage": "http://www.020202.com",
+            "getUp": "02:02",
+            "importantMoment": "2002-02-02 02:02",
+            "character": 2,
+            "color": "rgba(215, 112, 173, 1)",
+            "constellation": [
+                "1",
+                "2",
+                "3"
+            ],
+            "tourism": [
+                {
+                    "code": "12",
+                    "name": "天津市"
+                },
+                {
+                    "code": "3601",
+                    "name": "南昌市"
+                },
+                {
+                    "code": "3602",
+                    "name": "景德镇市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫阿鲁迪巴！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Taurus.png",
+                "name": "Taurus",
+                "extension": ".png",
+                "size": 39803
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(236, 135, 192, .8);'>我叫阿鲁迪巴！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid003",
+            "userName": "user003",
+            "realName": "撒加",
+            "nickName": "Saga",
+            "password": "030303030303",
+            "confirmPassword": "030303030303",
+            "online": false,
+            "gender": "1",
+            "age": 30,
+            "height": 1.3,
+            "bloodType": "3",
+            "birthday": "2003-03-03",
+            "mateBirthday": "2003-03-03",
+            "creditCard": "6225000000000003",
+            "asset": 30000000,
+            "nativePlace": {
+                "province": "130000",
+                "provinceName": "河北省",
+                "city": "130100",
+                "cityName": "石家庄市",
+                "area": "130102",
+                "areaName": "长安区"
+            },
+            "domicile": {
+                "code": "1301",
+                "name": "石家庄市"
+            },
+            "nation": {
+                "nation": "10",
+                "nationName": "东乡族"
+            },
+            "zodiac": {
+                "zodiac": "03",
+                "zodiacName": "虎"
+            },
+            "language": "粤语 闽语 英语",
+            "education": [
+                "3",
+                "4",
+                "5"
+            ],
+            "graduation": "2003",
+            "firstJob": "2003-03",
+            "mobile": "13800138333",
+            "email": "030303@030303.com",
+            "homepage": "http://www.030303.com",
+            "getUp": "03:03",
+            "importantMoment": "2003-03-03 03:03",
+            "character": 4,
+            "color": "rgba(218, 68, 83, 1)",
+            "constellation": [
+                "2",
+                "3",
+                "4"
+            ],
+            "tourism": [
+                {
+                    "code": "1301",
+                    "name": "石家庄市"
+                },
+                {
+                    "code": "3701",
+                    "name": "济南市"
+                },
+                {
+                    "code": "3702",
+                    "name": "青岛市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫撒加！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Gemini.png",
+                "name": "Gemini",
+                "extension": ".png",
+                "size": 36968
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(237, 85, 101, .8);'>我叫撒加！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid004",
+            "userName": "user004",
+            "realName": "迪斯马斯克",
+            "nickName": "Death Mask",
+            "password": "040404040404",
+            "confirmPassword": "040404040404",
+            "online": false,
+            "gender": "2",
+            "age": 40,
+            "height": 1.4,
+            "bloodType": "4",
+            "birthday": "2004-04-04",
+            "mateBirthday": "2004-04-04",
+            "creditCard": "6225000000000004",
+            "asset": 40000000,
+            "nativePlace": {
+                "province": "140000",
+                "provinceName": "山西省",
+                "city": "140100",
+                "cityName": "太原市",
+                "area": "140105",
+                "areaName": "小店区"
+            },
+            "domicile": {
+                "code": "1401",
+                "name": "太原市"
+            },
+            "nation": {
+                "nation": "15",
+                "nationName": "鄂温克族"
+            },
+            "zodiac": {
+                "zodiac": "04",
+                "zodiacName": "兔"
+            },
+            "language": "法语 德语 西班牙语",
+            "education": [
+                "4",
+                "5",
+                "6"
+            ],
+            "graduation": "2004",
+            "firstJob": "2004-04",
+            "mobile": "13800138444",
+            "email": "040404@040404.com",
+            "homepage": "http://www.040404.com",
+            "getUp": "04:04",
+            "importantMoment": "2004-04-04 04:04",
+            "character": 6,
+            "color": "rgba(255, 152, 0, 1)",
+            "constellation": [
+                "3",
+                "4",
+                "5"
+            ],
+            "tourism": [
+                {
+                    "code": "1401",
+                    "name": "太原市"
+                },
+                {
+                    "code": "4101",
+                    "name": "郑州市"
+                },
+                {
+                    "code": "4102",
+                    "name": "开封市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫迪斯马斯克！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Cancer.png",
+                "name": "Cancer",
+                "extension": ".png",
+                "size": 40222
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(255, 183, 77, .8);'>我叫迪斯马斯克！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid005",
+            "userName": "user005",
+            "realName": "艾欧里亚",
+            "nickName": "Aiolia",
+            "password": "050505050505",
+            "confirmPassword": "050505050505",
+            "online": true,
+            "gender": "1",
+            "age": 50,
+            "height": 1.5,
+            "bloodType": "5",
+            "birthday": "2005-05-05",
+            "mateBirthday": "2005-05-05",
+            "creditCard": "6225000000000005",
+            "asset": 50000000,
+            "nativePlace": {
+                "province": "150000",
+                "provinceName": "内蒙古自治区",
+                "city": "150100",
+                "cityName": "呼和浩特市",
+                "area": "150102",
+                "areaName": "新城区"
+            },
+            "domicile": {
+                "code": "1501",
+                "name": "呼和浩特市"
+            },
+            "nation": {
+                "nation": "20",
+                "nationName": "汉族"
+            },
+            "zodiac": {
+                "zodiac": "05",
+                "zodiacName": "龙"
+            },
+            "language": "俄语 日语 朝鲜语",
+            "education": [
+                "5",
+                "6",
+                "7"
+            ],
+            "graduation": "2005",
+            "firstJob": "2005-05",
+            "mobile": "13800138555",
+            "email": "050505@050505.com",
+            "homepage": "http://www.050505.com",
+            "getUp": "05:05",
+            "importantMoment": "2005-05-05 05:05",
+            "character": 8,
+            "color": "rgba(246, 187, 66, 1)",
+            "constellation": [
+                "4",
+                "5",
+                "6"
+            ],
+            "tourism": [
+                {
+                    "code": "1501",
+                    "name": "呼和浩特市"
+                },
+                {
+                    "code": "4201",
+                    "name": "武汉市"
+                },
+                {
+                    "code": "4202",
+                    "name": "黄石市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫艾欧里亚！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Leo.png",
+                "name": "Leo",
+                "extension": ".png",
+                "size": 32804
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(255, 206, 84, .8);'>我叫艾欧里亚！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid006",
+            "userName": "user006",
+            "realName": "沙加",
+            "nickName": "Shaka",
+            "password": "060606060606",
+            "confirmPassword": "060606060606",
+            "online": true,
+            "gender": "2",
+            "age": 60,
+            "height": 1.6,
+            "bloodType": "1",
+            "birthday": "2006-06-06",
+            "mateBirthday": "2006-06-06",
+            "creditCard": "6225000000000006",
+            "asset": 60000000,
+            "nativePlace": {
+                "province": "210000",
+                "provinceName": "辽宁省",
+                "city": "210100",
+                "cityName": "沈阳市",
+                "area": "210102",
+                "areaName": "和平区"
+            },
+            "domicile": {
+                "code": "2101",
+                "name": "沈阳市"
+            },
+            "nation": {
+                "nation": "25",
+                "nationName": "景颇族"
+            },
+            "zodiac": {
+                "zodiac": "06",
+                "zodiacName": "蛇"
+            },
+            "language": "Chinese English French",
+            "education": [
+                "6",
+                "7",
+                "8"
+            ],
+            "graduation": "2006",
+            "firstJob": "2006-06",
+            "mobile": "13800138666",
+            "email": "060606@060606.com",
+            "homepage": "http://www.060606.com",
+            "getUp": "06:06",
+            "importantMoment": "2006-06-06 06:06",
+            "character": 10,
+            "color": "rgba(140, 193, 82, 1)",
+            "constellation": [
+                "5",
+                "6",
+                "7"
+            ],
+            "tourism": [
+                {
+                    "code": "2101",
+                    "name": "沈阳市"
+                },
+                {
+                    "code": "4301",
+                    "name": "长沙市"
+                },
+                {
+                    "code": "4302",
+                    "name": "株洲市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫沙加！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Virgo.png",
+                "name": "Virgo",
+                "extension": ".png",
+                "size": 34011
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(160, 212, 104, .8);'>我叫沙加！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid007",
+            "userName": "user007",
+            "realName": "童虎",
+            "nickName": "Dohko",
+            "password": "070707070707",
+            "confirmPassword": "070707070707",
+            "online": true,
+            "gender": "1",
+            "age": 70,
+            "height": 1.7,
+            "bloodType": "2",
+            "birthday": "2007-07-07",
+            "mateBirthday": "2007-07-07",
+            "creditCard": "6225000000000007",
+            "asset": 70000000,
+            "nativePlace": {
+                "province": "220000",
+                "provinceName": "吉林省",
+                "city": "220100",
+                "cityName": "长春市",
+                "area": "220102",
+                "areaName": "南关区"
+            },
+            "domicile": {
+                "code": "2201",
+                "name": "长春市"
+            },
+            "nation": {
+                "nation": "30",
+                "nationName": "珞巴族"
+            },
+            "zodiac": {
+                "zodiac": "07",
+                "zodiacName": "马"
+            },
+            "language": "German Spanish Russian",
+            "education": [
+                "1",
+                "2",
+                "3"
+            ],
+            "graduation": "2007",
+            "firstJob": "2007-07",
+            "mobile": "13800138777",
+            "email": "070707@070707.com",
+            "homepage": "http://www.070707.com",
+            "getUp": "07:07",
+            "importantMoment": "2007-07-07 07:07",
+            "character": 0,
+            "color": "rgba(55, 188, 155, 1)",
+            "constellation": [
+                "6",
+                "7",
+                "8"
+            ],
+            "tourism": [
+                {
+                    "code": "2201",
+                    "name": "长春市"
+                },
+                {
+                    "code": "4401",
+                    "name": "广州市"
+                },
+                {
+                    "code": "4402",
+                    "name": "韶关市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫童虎！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Libra.png",
+                "name": "Libra",
+                "extension": ".png",
+                "size": 34135
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(72, 207, 173, .8);'>我叫童虎！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid008",
+            "userName": "user008",
+            "realName": "米罗",
+            "nickName": "Milo",
+            "password": "080808080808",
+            "confirmPassword": "080808080808",
+            "online": true,
+            "gender": "2",
+            "age": 80,
+            "height": 1.8,
+            "bloodType": "3",
+            "birthday": "2008-08-08",
+            "mateBirthday": "2008-08-08",
+            "creditCard": "6225000000000008",
+            "asset": 80000000,
+            "nativePlace": {
+                "province": "230000",
+                "provinceName": "黑龙江省",
+                "city": "230100",
+                "cityName": "哈尔滨市",
+                "area": "230102",
+                "areaName": "道里区"
+            },
+            "domicile": {
+                "code": "2301",
+                "name": "哈尔滨市"
+            },
+            "nation": {
+                "nation": "35",
+                "nationName": "苗族"
+            },
+            "zodiac": {
+                "zodiac": "08",
+                "zodiacName": "羊"
+            },
+            "language": "Japanese Korean",
+            "education": [
+                "2",
+                "3",
+                "4"
+            ],
+            "graduation": "2008",
+            "firstJob": "2008-08",
+            "mobile": "13800138888",
+            "email": "080808@080808.com",
+            "homepage": "http://www.080808.com",
+            "getUp": "08:08",
+            "importantMoment": "2008-08-08 08:08",
+            "character": -2,
+            "color": "rgba(59, 175, 218, 1)",
+            "constellation": [
+                "7",
+                "8",
+                "9"
+            ],
+            "tourism": [
+                {
+                    "code": "2301",
+                    "name": "哈尔滨市"
+                },
+                {
+                    "code": "4501",
+                    "name": "南宁市"
+                },
+                {
+                    "code": "4502",
+                    "name": "柳州市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫米罗！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Scorpion.png",
+                "name": "Scorpion",
+                "extension": ".png",
+                "size": 38934
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(79, 193, 233, .8);'>我叫米罗！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid009",
+            "userName": "user009",
+            "realName": "艾俄洛斯",
+            "nickName": "Aiolos",
+            "password": "090909090909",
+            "confirmPassword": "090909090909",
+            "online": true,
+            "gender": "1",
+            "age": 90,
+            "height": 1.9,
+            "bloodType": "4",
+            "birthday": "2009-09-09",
+            "mateBirthday": "2009-09-09",
+            "creditCard": "6225000000000009",
+            "asset": 90000000,
+            "nativePlace": {
+                "province": "310000",
+                "provinceName": "上海市",
+                "city": "310100",
+                "cityName": "市辖区",
+                "area": "310104",
+                "areaName": "徐汇区"
+            },
+            "domicile": {
+                "code": "31",
+                "name": "上海市"
+            },
+            "nation": {
+                "nation": "40",
+                "nationName": "羌族"
+            },
+            "zodiac": {
+                "zodiac": "09",
+                "zodiacName": "猴"
+            },
+            "language": "普通话 英语 Chinese English",
+            "education": [
+                "3",
+                "4",
+                "5"
+            ],
+            "graduation": "2009",
+            "firstJob": "2009-09",
+            "mobile": "13800138999",
+            "email": "090909@090909.com",
+            "homepage": "http://www.090909.com",
+            "getUp": "09:09",
+            "importantMoment": "2009-09-09 09:09",
+            "character": -4,
+            "color": "rgba(74, 137, 220, 1)",
+            "constellation": [
+                "8",
+                "9",
+                "10"
+            ],
+            "tourism": [
+                {
+                    "code": "31",
+                    "name": "上海市"
+                },
+                {
+                    "code": "4601",
+                    "name": "海口市"
+                },
+                {
+                    "code": "4602",
+                    "name": "三亚市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫艾俄洛斯！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Sagittarius.png",
+                "name": "Sagittarius",
+                "extension": ".png",
+                "size": 35206
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(93, 156, 236, .8);'>我叫艾俄洛斯！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid010",
+            "userName": "user010",
+            "realName": "修罗",
+            "nickName": "Shura",
+            "password": "101010101010",
+            "confirmPassword": "101010101010",
+            "online": false,
+            "gender": "2",
+            "age": 100,
+            "height": 2,
+            "bloodType": "5",
+            "birthday": "2010-10-10",
+            "mateBirthday": "2010-10-10",
+            "creditCard": "6225000000000010",
+            "asset": 100000000,
+            "nativePlace": {
+                "province": "320000",
+                "provinceName": "江苏省",
+                "city": "320100",
+                "cityName": "南京市",
+                "area": "320102",
+                "areaName": "玄武区"
+            },
+            "domicile": {
+                "code": "3201",
+                "name": "南京市"
+            },
+            "nation": {
+                "nation": "45",
+                "nationName": "塔塔尔族"
+            },
+            "zodiac": {
+                "zodiac": "10",
+                "zodiacName": "鸡"
+            },
+            "language": "普通话 北方话 Chinese",
+            "education": [
+                "4",
+                "5",
+                "6"
+            ],
+            "graduation": "2010",
+            "firstJob": "2010-10",
+            "mobile": "13800138000",
+            "email": "101010@101010.com",
+            "homepage": "http://www.101010.com",
+            "getUp": "10:10",
+            "importantMoment": "2010-10-10 10:10",
+            "character": -6,
+            "color": "rgba(150, 122, 220, 1)",
+            "constellation": [
+                "9",
+                "10",
+                "11"
+            ],
+            "tourism": [
+                {
+                    "code": "3201",
+                    "name": "南京市"
+                },
+                {
+                    "code": "500101",
+                    "name": "万州区"
+                },
+                {
+                    "code": "500102",
+                    "name": "涪陵区"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫修罗！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Capricorn.png",
+                "name": "Capricorn",
+                "extension": ".png",
+                "size": 36570
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(172, 146, 236, .8);'>我叫修罗！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid011",
+            "userName": "user011",
+            "realName": "卡妙",
+            "nickName": "Camus",
+            "password": "111111111111",
+            "confirmPassword": "111111111111",
+            "online": false,
+            "gender": "1",
+            "age": 110,
+            "height": 2.1,
+            "bloodType": "1",
+            "birthday": "2011-11-11",
+            "mateBirthday": "2011-11-11",
+            "creditCard": "6225000000000011",
+            "asset": 110000000,
+            "nativePlace": {
+                "province": "330000",
+                "provinceName": "浙江省",
+                "city": "330100",
+                "cityName": "杭州市",
+                "area": "330102",
+                "areaName": "上城区"
+            },
+            "domicile": {
+                "code": "3301",
+                "name": "杭州市"
+            },
+            "nation": {
+                "nation": "50",
+                "nationName": "乌孜别克族"
+            },
+            "zodiac": {
+                "zodiac": "11",
+                "zodiacName": "狗"
+            },
+            "language": "英语 English",
+            "education": [
+                "5",
+                "6",
+                "7"
+            ],
+            "graduation": "2011",
+            "firstJob": "2011-11",
+            "mobile": "13800139111",
+            "email": "111111@111111.com",
+            "homepage": "http://www.111111.com",
+            "getUp": "11:11",
+            "importantMoment": "2011-11-11 11:11",
+            "character": -8,
+            "color": "rgba(67, 74, 84, 1)",
+            "constellation": [
+                "10",
+                "11",
+                "12"
+            ],
+            "tourism": [
+                {
+                    "code": "3301",
+                    "name": "杭州市"
+                },
+                {
+                    "code": "5101",
+                    "name": "成都市"
+                },
+                {
+                    "code": "5103",
+                    "name": "自贡市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫卡妙！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Aquarius.png",
+                "name": "Aquarius",
+                "extension": ".png",
+                "size": 37077
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(101, 109, 120, .8);'>我叫卡妙！这里是我的自我介绍哦~</span></strong>"
+        },
+        {
+            "id": "uid012",
+            "userName": "user012",
+            "realName": "阿布罗狄",
+            "nickName": "Aphrodite",
+            "password": "121212121212",
+            "confirmPassword": "121212121212",
+            "online": false,
+            "gender": "2",
+            "age": 120,
+            "height": 2.2,
+            "bloodType": "2",
+            "birthday": "2012-12-12",
+            "mateBirthday": "2012-12-12",
+            "creditCard": "6225000000000012",
+            "asset": 120000000,
+            "nativePlace": {
+                "province": "340000",
+                "provinceName": "安徽省",
+                "city": "340100",
+                "cityName": "合肥市",
+                "area": "340102",
+                "areaName": "瑶海区"
+            },
+            "domicile": {
+                "code": "3401",
+                "name": "合肥市"
+            },
+            "nation": {
+                "nation": "55",
+                "nationName": "藏族"
+            },
+            "zodiac": {
+                "zodiac": "12",
+                "zodiacName": "猪"
+            },
+            "language": "普通话 日语 朝鲜语",
+            "education": [
+                "6",
+                "7",
+                "8"
+            ],
+            "graduation": "2012",
+            "firstJob": "2012-12",
+            "mobile": "13800139222",
+            "email": "121212@121212.com",
+            "homepage": "http://www.121212.com",
+            "getUp": "12:12",
+            "importantMoment": "2012-12-12 12:12",
+            "character": -10,
+            "color": "rgba(170, 178, 189, 1)",
+            "constellation": [
+                "11",
+                "12",
+                "1"
+            ],
+            "tourism": [
+                {
+                    "code": "3401",
+                    "name": "合肥市"
+                },
+                {
+                    "code": "5201",
+                    "name": "贵阳市"
+                },
+                {
+                    "code": "5202",
+                    "name": "六盘水市"
+                }
+            ],
+            "summary": "\uD83C\uDF38我叫阿布罗狄！这里是我的自我介绍哦~",
+            "photo": {
+                "url": "img/temp/Picses.png",
+                "name": "Picses",
+                "extension": ".png",
+                "size": 40363
+            },
+            "sign": "\uD83C\uDF0C<strong><span style='color: rgb(0, 0, 0); background-color: rgb(204, 209, 217, .8);'>我叫阿布罗狄！这里是我的自我介绍哦~</span></strong>"
+        }
+    ]
+}

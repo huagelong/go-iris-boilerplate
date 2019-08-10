@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="renderer" content="webkit">
+        <meta name="force-rendering" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="IKKI, IKKI2000, IKKI Studio, IKKI-Studio, ikki, ikki2000, ikkistudio, Kendo, Kendo UI, KendoUI, Kendo-UI, kendo, kendoui, kendo-ui, admin, admin-ui, admin-dashboard, dashboard, dashboard-templates, template, framework, site, website, bootstrap, bootstrap4, responsive, responsive-design, responsive-web-design, responsive-layout, layout">
+        <meta name="description" content="Kendo UI Admin & Site base on Kendo UI for jQuery and Bootstrap 4.">
+        <meta name="author" content="IKKI &amp; Amikoko">
+        <meta name="copyright" content="UED Center">
+        <title>Kendo UI Admin by IKKI &amp; Amikoko</title>
+        <base href="https://ikki2000.gitee.io/kendoui-admin-site/" type="admin">
+        <link href="img/favicon.png" rel="icon" type="image/png">
+        <link href="css/fontawesome-all.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link id="Amikoko" href="css/themes/theme_default.min.css" rel="stylesheet">
+        <link href="css/amikoko.admin.css" rel="stylesheet">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/kendo.all.min.js"></script>
+        <script id="IKKI" src="js/global/kendo.zh-CHS.js"></script>
+        <script src="js/ikki.js"></script>
+    </head>
+    <body id="login">
+        <main>
+            <img id="avatar" src="img/avatar.png" alt="">
+            <h3>Kendo UI Admin<small>后台管理系统</small></h3>
+            <div id="toggle">
+                <form class="position-absolute" id="signIn">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input class="form-control form-control-lg" name="userName" type="text" placeholder="用户名：Admin" required data-required-msg="请输入用户名！" pattern="[A-Za-z0-9_\-\u4E00-\u9FA5]{2,20}" data-pattern-msg="请输入2-20个大小写字母、数字、下划线或汉字！">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input class="form-control form-control-lg" name="password" type="password" placeholder="密码：IKKI2000" required data-required-msg="请输入密码！" pattern="[A-Za-z0-9]{6,20}" data-pattern-msg="请输入6-20个大小写字母或数字！">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="verify"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input" id="remember" type="checkbox">
+                            <label class="custom-control-label" for="remember">记住密码</label>
+                        </div>
+                        <a class="float-right text-light" id="forgetPass" href="javascript:;">忘记密码</a>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-6">
+                            <button class="btn btn-primary btn-lg btn-block" type="button" disabled>登&emsp;录</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-secondary btn-lg btn-block toggle" type="button"><small>注册</small></button>
+                        </div>
+                    </div>
+                    <p class="mt-3">---------------=== 第三方登录 ===---------------</p>
+                    <div class="form-row">
+                        <div class="col-2">
+                            <a class="text-light" href="javascript:;"><i class="fab fa-2x fa-qq"></i></a>
+                        </div>
+                        <div class="col-2">
+                            <a class="text-light" href="javascript:;"><i class="fab fa-2x fa-weixin"></i></a>
+                        </div>
+                        <div class="col-2">
+                            <a class="text-light" href="javascript:;"><i class="fab fa-2x fa-alipay"></i></a>
+                        </div>
+                        <div class="col-2">
+                            <a class="text-light" href="javascript:;"><i class="fab fa-2x fa-weibo"></i></a>
+                        </div>
+                        <div class="col-2">
+                            <a class="text-light" href="javascript:;"><i class="fab fa-2x fa-facebook"></i></a>
+                        </div>
+                        <div class="col-2">
+                            <a class="text-light" href="javascript:;"><i class="fab fa-2x fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </form>
+                <form id="register">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input class="form-control form-control-lg" name="userName" type="text" placeholder="用户名" required data-required-msg="请输入用户名！" pattern="[A-Za-z0-9_\-\u4E00-\u9FA5]{2,20}" data-pattern-msg="请输入2-20个大小写字母、数字、下划线或汉字！">
+                            <div class="spinner-border spinner-border-sm text-primary hide"></div>
+                            <span class="k-invalid-msg" data-for="userName"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input class="form-control form-control-lg" name="password" type="password" placeholder="密码" required data-required-msg="请输入密码！" pattern="[A-Za-z0-9]{6,20}" data-pattern-msg="请输入6-20个大小写字母或数字！">
+                            <input class="form-control form-control-lg" name="confirmPassword" type="password" placeholder="确认密码" required data-required-msg="请输入确认密码！">
+                            <div class="input-group-append">
+                                <button class="btn input-group-text" id="showPass" type="button"><i class="fas fa-eye-slash"></i></button>
+                            </div>
+                            <span class="k-invalid-msg" data-for="password"></span>
+                            <span class="k-invalid-msg" data-for="confirmPassword"></span>
+                        </div>
+                        <div id="passStrength"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input class="form-control form-control-lg" name="email" type="email" placeholder="电子邮件" required data-required-msg="请输入电子邮件！" pattern="^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" data-pattern-msg="电子邮件格式不正确！">
+                            <div class="spinner-border spinner-border-sm text-primary hide"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                            </div>
+                            <input class="form-control form-control-lg" name="mobile" type="tel" placeholder="手机" required data-required-msg="请输入手机！" pattern="^1(3[0-9]|4[579]|5[0-35-9]|6[6]|7[0135-8]|8[0-9]|9[89])\d{8}$" data-pattern-msg="手机格式不正确！">
+                            <input class="form-control form-control-lg" name="vCode" type="tel" placeholder="验证码" required data-required-msg="请输入验证码！" pattern="[0-9]{6}" data-pattern-msg="验证码格式不正确！">
+                            <div class="input-group-append">
+                                <button class="btn input-group-text" id="getCode" type="button" disabled>获取验证码</button>
+                            </div>
+                            <div class="spinner-border spinner-border-sm text-primary hide"></div>
+                            <span class="k-invalid-msg" data-for="mobile"></span>
+                            <span class="k-invalid-msg" data-for="vCode"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-6">
+                            <button class="btn btn-primary btn-lg btn-block" type="button" disabled>注&emsp;册</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-secondary btn-lg btn-block toggle" type="button"><small>返回登录</small></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>Powered by IKKI &amp; Amikoko &copy; 2018-2019 UED Center</footer>
+        <div class="k-loading-image" id="loading"></div>
+        <script src="js/jquery.particleground.js"></script>
+        <script src="js/jquery.verify.js"></script>
+        <script>
+            $(function () {
+                // 动态背景
+                $('#login').particleground();
+                // 提示
+                noticeMsg('请输入任意用户名和密码登录', 'info', 'top', 5000);
+                // 登录注册切换
+                $('#toggle').height(400);
+                var effect = kendo.fx('#toggle').flipHorizontal($('#signIn'), $('#register')).duration(1000),
+                    reverse = false;
+                $('.toggle').click(function () {
+                    effect.stop();
+                    reverse ? effect.reverse() : effect.play();
+                    reverse = !reverse;
+                });
+                // 是否已登录
+                if (sessionStorage.getItem('logged')) {
+                    $('#avatar').attr({'src': sessionStorage.getItem('avatar'), 'alt': sessionStorage.getItem('userName')}).addClass('user-avatar').next().text(sessionStorage.getItem('userName'));
+                    goLogin();
+                }
+                // 记住密码
+                $('#signIn input[name="userName"]').val(localStorage.getItem('userName'));
+                $('#signIn input[name="password"]').val(localStorage.getItem('password'));
+                if (localStorage.getItem('remember')) {
+                    $('#remember').prop('checked', true);
+                } else {
+                    $('#remember').prop('checked', false);
+                }
+                // 登录表单验证
+                var validatorSignIn = $('#signIn').kendoValidator().data('kendoValidator');
+                // 登录滑块验证
+                $('#verify').slideVerify({
+                    success: function (obj) {
+                        $('#signIn .btn-primary').prop('disabled', false).unbind('click').click(function () {
+                            // 登录表单验证成功
+                            if (validatorSignIn.validate()) {
+                                $('#loading').show();
+                                $('#signIn .btn-primary').prop('disabled', true);
+                                $.fn.ajaxPost({
+                                    ajaxData: $('#signIn').serializeObject(),
+                                    ajaxUrl: 'json/login.json',
+                                    finished: function (res) {
+                                        $('#loading').hide();
+                                    },
+                                    succeed: function (res) {
+                                        // 记住密码
+                                        if ($('#remember').prop('checked')) {
+                                            localStorage.setItem('userName', $('#signIn input[name="userName"]').val());
+                                            localStorage.setItem('password', $('#signIn input[name="password"]').val());
+                                            localStorage.setItem('remember', true);
+                                        } else {
+                                            localStorage.removeItem('userName');
+                                            localStorage.removeItem('password');
+                                            localStorage.removeItem('remember');
+                                        }
+                                        // 存储登录状态
+                                        sessionStorage.setItem('token', res.data.token);
+                                        sessionStorage.setItem('userId', res.data.userId);
+                                        sessionStorage.setItem('avatar', res.data.avatar);
+                                        sessionStorage.setItem('userName', $('#signIn input[name="userName"]').val());
+                                        sessionStorage.setItem('password', $('#signIn input[name="password"]').val());
+                                        sessionStorage.setItem('logged', true);
+                                        sessionStorage.removeItem('locked');
+                                        // 头像动画及页面跳转
+                                        $('#avatar').attr({'src': res.data.avatar, 'alt': res.data.userName}).addClass('user-avatar').next().text(res.data.userName);
+                                        goLogin();
+                                    },
+                                    failed: function (res) {
+                                        obj.refresh();
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+                // 注册提示
+                $('#register input[name="userName"]').kendoTooltip({
+                    showOn: 'click',
+                    position: 'top',
+                    content: '用户名由2-20个大小写字母、数字、下划线或汉字组成！'
+                });
+                $('#register input[name="password"]').kendoTooltip({
+                    showOn: 'click',
+                    position: 'top',
+                    content: '密码由6-20个大小写字母或数字组成！'
+                });
+                // 显示密码
+                $('#showPass').unbind('click').click(function () {
+                    if ($(this).find('.fa-eye-slash').length === 1) {
+                        $('#register input[name="password"], #register input[name="confirmPassword"]').attr('type', 'text');
+                        $('#showPass i').removeClass('fa-eye-slash').addClass('fa-eye');
+                    } else {
+                        $('#register input[name="password"], #register input[name="confirmPassword"]').attr('type', 'password');
+                        $('#showPass i').removeClass('fa-eye').addClass('fa-eye-slash');
+                    }
+                });
+                // 密码强度
+                var passProgress = $('#passStrength').kendoProgressBar({
+                    animation: {
+                        duration: 200
+                    },
+                    min: 5,
+                    max: 16,
+                    change: function (e) {
+                        if (e.value < 6) {
+                            this.progressStatus.text('密码强度');
+                        } else if (e.value <= 7) {
+                            this.progressStatus.text('弱');
+                            this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-danger');
+                        } else if (e.value <= 9) {
+                            this.progressStatus.text('中');
+                            this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-warning');
+                        } else if (e.value <= 12) {
+                            this.progressStatus.text('强');
+                            this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-success');
+                        } else {
+                            this.progressStatus.text('超强');
+                            this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-info');
+                        }
+                    }
+                }).data('kendoProgressBar');
+                passProgress.progressStatus.text('密码强度');
+                $('#register input[name="password"]').keyup(function () {
+                    passProgress.value(this.value.length);
+                });
+                // 获取验证码
+                $('#getCode').unbind('click').click(function () {
+                    var sec = 60,
+                        intervalID = setInterval(function () {
+                            if (sec > 1) {
+                                sec = sec - 1;
+                                $('#getCode').find('strong').text(sec);
+                            } else {
+                                clearInterval(intervalID);
+                                $('#getCode').prop('disabled', false).text('重新获取');
+                            }
+                        }, 1000);
+                    $('#getCode').prop('disabled', true).html('等待<strong class="text-primary mx-1">'+ sec +'</strong>秒');
+                    $.fn.ajaxPost({
+                        ajaxData: {
+                            'mobile': $('#register input[name="mobile"]').val()
+                        },
+                        succeed: function (res) {
+                            alertMsg('已向<strong class="text-primary mx-1">' + $('#register input[name="mobile"]').val() + '</strong>发送验证码~ 请注意查收！', 'success');
+                        }
+                    });
+                });
+                // 注册表单验证
+                var validatorRegister = $('#register').kendoValidator({
+                    rules: {
+                        // 用户名
+                        userName: function (input) {
+                            if (!input.is('#register input[name="userName"]')) {
+                                return true;
+                            }
+                            input.nextAll('.spinner-border').show();
+                            var unique = true;
+                            $.fn.ajaxPost({
+                                ajaxAsync: false,
+                                ajaxData: {
+                                    'userName': input.val()
+                                },
+                                finished: function () {
+                                    input.nextAll('.spinner-border').hide();
+                                },
+                                succeed: function () {
+                                    unique = true;
+                                    input.removeClass('is-invalid').addClass('is-valid');
+                                },
+                                failed: function () {
+                                    unique = false;
+                                    input.removeClass('is-valid').addClass('is-invalid');
+                                }
+                            });
+                            return unique;
+                        },
+                        // 匹配密码
+                        matchPassword: function (input) {
+                            if (!input.is('#register input[name="confirmPassword"]')) {
+                                return true;
+                            }
+                            if (input.val() === $('#register input[name="password"]').val()) {
+                                $('#register input[name="password"]').removeClass('is-invalid').addClass('is-valid');
+                                input.removeClass('is-invalid').addClass('is-valid');
+                            } else {
+                                $('#register input[name="password"]').removeClass('is-valid').addClass('is-invalid');
+                                input.removeClass('is-valid').addClass('is-invalid');
+                            }
+                            return (input.val() === $('#register input[name="password"]').val());
+                        },
+                        // 电子邮件
+                        email: function (input) {
+                            if (!input.is('#register input[name="email"]')) {
+                                return true;
+                            }
+                            input.nextAll('.spinner-border').show();
+                            var unique = true;
+                            $.fn.ajaxPost({
+                                ajaxAsync: false,
+                                ajaxData: {
+                                    'email': input.val()
+                                },
+                                finished: function () {
+                                    input.nextAll('.spinner-border').hide();
+                                },
+                                succeed: function () {
+                                    unique = true;
+                                    input.removeClass('is-invalid').addClass('is-valid');
+                                },
+                                failed: function () {
+                                    unique = false;
+                                    input.removeClass('is-valid').addClass('is-invalid');
+                                }
+                            });
+                            return unique;
+                        },
+                        // 手机
+                        mobile: function (input) {
+                            if (!input.is('#register input[name="mobile"]')) {
+                                return true;
+                            }
+                            input.nextAll('.spinner-border').show();
+                            var unique = true;
+                            $.fn.ajaxPost({
+                                ajaxAsync: false,
+                                ajaxData: {
+                                    'mobile': input.val()
+                                },
+                                finished: function () {
+                                    input.nextAll('.spinner-border').hide();
+                                },
+                                succeed: function () {
+                                    unique = true;
+                                    input.removeClass('is-invalid').addClass('is-valid');
+                                    $('#getCode').prop('disabled', false);
+                                },
+                                failed: function () {
+                                    unique = false;
+                                    input.removeClass('is-valid').addClass('is-invalid');
+                                }
+                            });
+                            return unique;
+                        },
+                        // 验证码
+                        vCode: function (input) {
+                            if (!input.is('#register input[name="vCode"]')) {
+                                return true;
+                            }
+                            input.nextAll('.spinner-border').show();
+                            var passed = true;
+                            $.fn.ajaxPost({
+                                ajaxAsync: false,
+                                ajaxData: {
+                                    'vCode': input.val()
+                                },
+                                finished: function () {
+                                    input.nextAll('.spinner-border').hide();
+                                },
+                                succeed: function () {
+                                    passed = true;
+                                    input.removeClass('is-invalid').addClass('is-valid');
+                                    $('#register .btn-primary').prop('disabled', false);
+                                },
+                                failed: function () {
+                                    passed = false;
+                                    input.removeClass('is-valid').addClass('is-invalid');
+                                    $('#register .btn-primary').prop('disabled', true);
+                                }
+                            });
+                            return passed;
+                        }
+                    },
+                    messages: {
+                        userName: "此用户名已存在，请重新输入！",
+                        matchPassword: '两次输入的密码不一致！',
+                        email: "此邮箱已存在，请重新输入！",
+                        mobile: "此手机已存在，请重新输入！",
+                        vCode: "验证码不正确，请重新输入！"
+                    }
+                }).data('kendoValidator');
+                $('#register input').focus(function () {
+                    $(this).removeClass('is-valid is-invalid');
+                });
+                // 注册提交
+                $('#register .btn-primary').unbind('click').click(function () {
+                    if (validatorRegister.validate()) {
+                        $('#loading').show();
+                        $('#register .btn-primary').prop('disabled', true);
+                        $.fn.ajaxPost({
+                            ajaxData: $('#register').serializeObject(),
+                            finished: function (res) {
+                                $('#loading').hide();
+                            },
+                            succeed: function (res) {
+                                $('#signIn input[name="userName"]').val($('#register input[name="userName"]').val());
+                                $('#signIn input[name="password"]').val($('#register input[name="password"]').val());
+                                setTimeout(function (){
+                                    $('#register .btn-secondary').click();
+                                }, 2000);
+                            },
+                            isMsg: true
+                        });
+                    }
+                });
+                // 忘记密码
+                var popWidth = '40%',
+                    popHeight = '366px';
+                if ($(window).width() <= 768) {
+                    popWidth = '90%';
+                    popHeight = '420px';
+                } else if ($(window).width() > 768 && $(window).width() <= 991) {
+                    popWidth = '70%';
+                    popHeight = '420px';
+                } else if ($(window).width() > 991 && $(window).width() <= 1200) {
+                    popWidth = '70%';
+                } else if ($(window).width() > 1200 && $(window).width() <= 1800) {
+                    popWidth = '60%';
+                }
+                $('#forgetPass').click(function () {
+                    var divWindow = $('<div class="window-box"></div>').kendoWindow({
+                        animation: {open: {effects: 'zoom:in'}, close: {effects: 'zoom:out'}},
+                        title: '找回密码',
+                        width: popWidth,
+                        height: popHeight,
+                        modal: true,
+                        pinned: true,
+                        resizable: false,
+                        open: function() {
+                            switchGetType();
+                            $('#getPass_1 input[name="getType"]').change(function () {
+                                switchGetType();
+                            });
+                            var kendoStep = $('.k-step').kendoTabStrip({
+                                animation: false,
+                                show: function(e) {
+                                    $(e.contentElement).find('.k-step-prev').unbind('click').click(function () {
+                                        kendoStep.select($(e.item).index() - 1);
+                                    });
+                                    $(e.contentElement).find('.k-step-next').unbind('click').click(function () {
+                                        if ($(e.contentElement).find('form').kendoValidator().data('kendoValidator').validate()) {
+                                            $.fn.ajaxPost({
+                                                ajaxData: $(e.contentElement).find('form').serializeObject(),
+                                                ajaxUrl: $(e.contentElement).find('form').attr('action'),
+                                                succeed: function() {
+                                                    if ($(e.item).index() === 0) {
+                                                        alertMsg('已向<strong class="text-primary mx-1">' + $('#getPass_1 input[name="' + $('#getPass_1 input[name=getType]:checked').val() + '"]').val() + '</strong>发送验证码~ 请注意查收！', 'success');
+                                                        $('#getPass_2 input[name="email"]').val($('#getPass_1 input[name="email"]').val());
+                                                        $('#getPass_2 input[name="mobile"]').val($('#getPass_1 input[name="mobile"]').val());
+                                                    } else if ($(e.item).index() === 1) {
+                                                        alertMsgNoBtn('验证通过！请设置新密码~', 'success');
+                                                        $('#getPass_3 input[name="email"]').val($('#getPass_1 input[name="email"]').val());
+                                                        $('#getPass_3 input[name="mobile"]').val($('#getPass_1 input[name="mobile"]').val());
+                                                    }
+                                                    kendoStep.select($(e.item).index() + 1);
+                                                }
+                                            });
+                                        }
+                                    });
+                                    $(e.contentElement).find('.k-step-fin').unbind('click').click(function () {
+                                        var validatorGetPass = $(e.contentElement).find('form').kendoValidator({
+                                            rules: {
+                                                // 匹配密码
+                                                matchPassword: function (input) {
+                                                    if (!input.is('#getPass_3 input[name="confirmPassword"]')) {
+                                                        return true;
+                                                    }
+                                                    return (input.val() === $('#getPass_3 input[name="password"]').val());
+                                                }
+                                            },
+                                            messages: {
+                                                matchPassword: '两次输入的密码不一致！'
+                                            }
+                                        }).data('kendoValidator');
+                                        if (validatorGetPass.validate()) {
+                                            $(e.contentElement).find('.k-step-fin').addClass('k-state-disabled').removeClass('k-state-selected').prop('disabled', true);
+                                            $.fn.ajaxPost({
+                                                ajaxData: $(e.contentElement).find('form').serializeObject(),
+                                                ajaxUrl: $(e.contentElement).find('form').attr('action'),
+                                                succeed: function() {
+                                                    $('#signIn input[name="password"]').val($('#getPass_3 input[name="password"]').val());
+                                                    $('.window-box').data('kendoWindow').close();
+                                                },
+                                                failed: function(){
+                                                    $(e.contentElement).find('.k-step-fin').addClass('k-state-selected').removeClass('k-state-disabled').prop('disabled', false);
+                                                },
+                                                isMsg: true
+                                            });
+                                        }
+                                    });
+                                    // 显示密码
+                                    $('#showGetPass').unbind('click').click(function () {
+                                        if ($(this).find('.fa-eye-slash').length === 1) {
+                                            $('#getPass_3 input[name="password"], #getPass_3 input[name="confirmPassword"]').attr('type', 'text');
+                                            $('#showGetPass i').removeClass('fa-eye-slash').addClass('fa-eye');
+                                        } else {
+                                            $('#getPass_3 input[name="password"], #getPass_3 input[name="confirmPassword"]').attr('type', 'password');
+                                            $('#showGetPass i').removeClass('fa-eye').addClass('fa-eye-slash');
+                                        }
+                                    });
+                                    // 密码强度
+                                    var getPassProgress = $('#getPassStrength').kendoProgressBar({
+                                        animation: {
+                                            duration: 200
+                                        },
+                                        min: 5,
+                                        max: 16,
+                                        change: function (e) {
+                                            if (e.value < 6) {
+                                                this.progressStatus.text('密码强度');
+                                            } else if (e.value <= 7) {
+                                                this.progressStatus.text('弱');
+                                                this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-danger');
+                                            } else if (e.value <= 9) {
+                                                this.progressStatus.text('中');
+                                                this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-warning');
+                                            } else if (e.value <= 12) {
+                                                this.progressStatus.text('强');
+                                                this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-success');
+                                            } else {
+                                                this.progressStatus.text('超强');
+                                                this.progressWrapper.removeClass('bg-danger bg-warning bg-success bg-info').addClass('bg-info');
+                                            }
+                                        }
+                                    }).data('kendoProgressBar');
+                                    getPassProgress.progressStatus.text('密码强度');
+                                    $('#getPass_3 input[name="password"]').keyup(function () {
+                                        getPassProgress.value(this.value.length);
+                                    });
+                                }
+                            }).data('kendoTabStrip');
+                            kendoStep.disable(kendoStep.tabGroup.children()).select(0);
+                        },
+                        close: function () {
+                            divWindow.destroy();
+                        }
+                    }).data('kendoWindow');
+                    divWindow.content($('#getPass').html()).center().open();
+                });
+            });
+            // 完成登录
+            function goLogin() {
+                $('#toggle').removeAttr('style');
+                $('#signIn').removeClass('position-absolute');
+                $('.form-group, p, .form-row').slideUp(800, function () {
+                    location.href = $('base').attr('href') + $('base').attr('type') + '/index_gitee.html';
+                });
+            }
+            // 切换找回方式
+            function switchGetType() {
+                if ($('#getPass_1 input[name="getType"]:checked').val() === 'email') {
+                    $('#getPass_1 input[name="mobile"]').prop('required', false);
+                    $('#getPass_1 input[name="email"]').prop('required', true);
+                    $('.getTypeMobile').hide();
+                    $('.getTypeEmail').show();
+                } else if ($('#getPass_1 input[name="getType"]:checked').val() === 'mobile') {
+                    $('#getPass_1 input[name="email"]').prop('required', false);
+                    $('#getPass_1 input[name="mobile"]').prop('required', true);
+                    $('.getTypeEmail').hide();
+                    $('.getTypeMobile').show();
+                }
+            }
+        </script>
+        <script id="getPass" type="text/x-kendo-template">
+            <div class="k-step">
+                <ul>
+                    <li><em><strong>1</strong></em>找回方式</li>
+                    <li><em><strong>2</strong></em>安全验证</li>
+                    <li><em><strong>3</strong></em>设新密码</li>
+                </ul>
+                <div>
+                    <form class="p-0" id="getPass_1" action="json/response.json">
+                        <div class="form-group row justify-content-lg-center">
+                            <label class="col-form-label text-lg-right col-lg-2">找回方式：</label>
+                            <div class="col-lg-6">
+                                <div class="custom-control custom-radio custom-control-inline mt-1">
+                                    <input class="custom-control-input" id="getTypeEmail" name="getType" type="radio" value="email">
+                                    <label class="custom-control-label" for="getTypeEmail">电子邮件</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline mt-1">
+                                    <input class="custom-control-input" id="getTypeMobile" name="getType" type="radio" value="mobile" checked>
+                                    <label class="custom-control-label" for="getTypeMobile">手机</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-lg-center getTypeEmail">
+                            <label class="col-form-label text-lg-right col-lg-2">电子邮件：</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input class="form-control" name="email" type="email" data-required-msg="请输入电子邮件！" data-email-msg="电子邮件格式不正确！">
+                                    <span class="k-invalid-msg" data-for="email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-lg-center getTypeMobile">
+                            <label class="col-form-label text-lg-right col-lg-2">手机：</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                    </div>
+                                    <input class="form-control" name="mobile" type="tel" data-required-msg="请输入手机！" pattern="^1(3[0-9]|4[579]|5[0-35-9]|6[6]|7[0135-8]|8[0-9]|9[89])\d{8}$" data-pattern-msg="手机格式不正确！">
+                                    <span class="k-invalid-msg" data-for="mobile"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="k-step-btns">
+                            <button class="k-button k-button-lg k-state-selected k-step-next d-none d-sm-inline-block" type="button">下一步</button>
+                            <button class="k-button k-state-selected k-step-next d-inline-block d-sm-none" type="button">下一步</button>
+                        </p>
+                    </form>
+                </div>
+                <div>
+                    <form class="p-0" id="getPass_2" action="json/response.json">
+                        <div class="form-group row justify-content-lg-center getTypeEmail">
+                            <label class="col-form-label text-lg-right col-lg-2">电子邮件：</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input class="form-control" name="email" type="email" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-lg-center getTypeMobile">
+                            <label class="col-form-label text-lg-right col-lg-2">手机：</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                    </div>
+                                    <input class="form-control" name="mobile" type="tel" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-lg-center">
+                            <label class="col-form-label text-lg-right col-lg-2">验证码：</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-shield-alt"></i></span>
+                                    </div>
+                                    <input class="form-control" name="vCode" type="tel" required data-required-msg="请输入验证码！" pattern="[0-9]{6}" data-pattern-msg="验证码格式不正确！">
+                                    <span class="k-invalid-msg" data-for="vCode"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="k-step-btns">
+                            <button class="k-button k-button-lg k-step-prev d-none d-sm-inline-block" type="button">上一步</button>
+                            <button class="k-button k-step-prev d-inline-block d-sm-none" type="button">上一步</button>
+                            <button class="k-button k-button-lg k-state-selected k-step-next d-none d-sm-inline-block" type="button">下一步</button>
+                            <button class="k-button k-state-selected k-step-next d-inline-block d-sm-none" type="button">下一步</button>
+                        </p>
+                    </form>
+                </div>
+                <div>
+                    <form class="p-0" id="getPass_3" action="json/response.json">
+                        <input name="email" type="hidden">
+                        <input name="mobile" type="hidden">
+                        <div class="form-group row justify-content-lg-center">
+                            <label class="col-form-label text-lg-right col-lg-2">新密码：</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input class="form-control" name="password" type="password" required data-required-msg="请输入密码！" pattern="[A-Za-z0-9]{6,20}" data-pattern-msg="请输入6-20个大小写字母或数字！">
+                                    <div class="input-group-append">
+                                        <button class="btn input-group-text" id="showGetPass" type="button"><i class="fas fa-eye-slash"></i></button>
+                                    </div>
+                                    <span class="k-invalid-msg" data-for="password"></span>
+                                </div>
+                                <div id="getPassStrength"></div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-lg-center">
+                            <label class="col-form-label text-lg-right col-lg-2">确认密码：</label>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    <input class="form-control" name="confirmPassword" type="password" required data-required-msg="请输入确认密码！">
+                                    <span class="k-invalid-msg" data-for="confirmPassword"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="k-step-btns">
+                            <button class="k-button k-button-lg k-step-prev d-none d-sm-inline-block" type="button">上一步</button>
+                            <button class="k-button k-step-prev d-inline-block d-sm-none" type="button">上一步</button>
+                            <button class="k-button k-button-lg k-state-selected k-step-fin d-none d-sm-inline-block" type="button">完&emsp;成</button>
+                            <button class="k-button k-state-selected k-step-fin d-inline-block d-sm-none" type="button">完&nbsp;成</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </script>
+    </body>
+</html>

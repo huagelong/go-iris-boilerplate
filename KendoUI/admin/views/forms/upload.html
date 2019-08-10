@@ -1,0 +1,135 @@
+<script id="uploadTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 上传框</h5>
+                <div class="card-body">
+                    <input id="domUpload" type="file" multiple>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">普通上传框</h5>
+                <div class="card-body">
+                    <input id="generalUpload" type="file">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">禁用上传框</h5>
+                <div class="card-body">
+                    <input id="disabledUpload" type="file">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">默认值上传框</h5>
+                <div class="card-body">
+                    <div class="media">
+                        <img class="img-thumbnail w-20 mr-2" src="img/IKKI.png" alt="IKKI.png">
+                        <div class="media-body">
+                            <input id="defaultValueUpload" type="file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">图片本地预览上传框</h5>
+                <div class="card-body">
+                    <div class="media">
+                        <img class="img-thumbnail w-20 mr-2" src="img/avatar.png" alt="avatar.png">
+                        <div class="media-body">
+                            <input id="previewUpload" type="file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">拖放区域上传框</h5>
+                <div class="card-body">
+                    <div class="d-flex flex-column justify-content-center align-items-center k-alt p-5 mb-3" id="dropZone">
+                        <i class="fas fa-2x fa-plus theme-m mb-2"></i>
+                        <span class="lead">请将图片拖放到此处上传</span>
+                    </div>
+                    <input id="dropZoneUpload" type="file" multiple>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">多选上传框</h5>
+                <div class="card-body">
+                    <input id="multiUpload" type="file" multiple>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">目录上传框</h5>
+                <div class="card-body">
+                    <input id="directoryUpload" type="file" multiple>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">限制图片大小上传框</h5>
+                <div class="card-body">
+                    <input id="imageUpload" type="file">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">批量上传框</h5>
+                <div class="card-body">
+                    <input id="batchUpload" type="file" multiple>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">块状上传框</h5>
+                <div class="card-body">
+                    <input id="chunkSizeUpload" type="file" multiple>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义异步上传框</h5>
+                <div class="card-body">
+                    <input id="asyncUpload" type="file">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义上传框</h5>
+                <div class="card-body">
+                    <input id="customUpload" type="file">
+                </div>
+            </div>
+        </div>
+        <div class=" col-xl-8">
+            <div class="card mb-3">
+                <h5 class="card-header">等宽上传框</h5>
+                <div class="card-body">
+                    <input class="w-100" id="widthUpload" type="file">
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        #dropZone {
+            border: 2px dashed #ccc;
+        }
+    </style>
+</script>

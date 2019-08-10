@@ -1,0 +1,25 @@
+<script id="assign_dragTemp" type="text/x-kendo-template">
+    <div class="card position-absolute w-100 h-100">
+        <h5 class="card-header">分配展示</h5>
+        <div class="row no-gutters h-100 overflow-hidden">
+            <div class="col-lg-5 h-100 overflow-auto">
+                <div class="card-body h-100">
+                    <div class="mb-lg-3" id="dragFrom"></div>
+                </div>
+            </div>
+            <div class="col-lg-2 h-100 p-3 k-alt"></div>
+            <div class="col-lg-5 h-100 overflow-auto">
+                <div class="card-body h-100">
+                    <div class="mb-lg-3" id="dragTo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        @media only screen and (max-width: 991px) {
+            .position-absolute {
+                position: relative !important;
+            }
+        }
+    </style>
+</script>

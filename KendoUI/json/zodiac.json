@@ -1,0 +1,114 @@
+{
+    "result": "y",
+    "msg": "操作成功！",
+    "data": [
+        {
+            "zodiac": "01",
+            "zodiacName": "鼠",
+            "zodiacValue1": "1948",
+            "zodiacValue2": "1960",
+            "zodiacValue3": "1972",
+            "zodiacValue4": "1984",
+            "zodiacValue5": "1996"
+        },
+        {
+            "zodiac": "02",
+            "zodiacName": "牛",
+            "zodiacValue1": "1949",
+            "zodiacValue2": "1961",
+            "zodiacValue3": "1973",
+            "zodiacValue4": "1985",
+            "zodiacValue5": "1997"
+        },
+        {
+            "zodiac": "03",
+            "zodiacName": "虎",
+            "zodiacValue1": "1950",
+            "zodiacValue2": "1962",
+            "zodiacValue3": "1974",
+            "zodiacValue4": "1986",
+            "zodiacValue5": "1998"
+        },
+        {
+            "zodiac": "04",
+            "zodiacName": "兔",
+            "zodiacValue1": "1951",
+            "zodiacValue2": "1963",
+            "zodiacValue3": "1975",
+            "zodiacValue4": "1987",
+            "zodiacValue5": "1999"
+        },
+        {
+            "zodiac": "05",
+            "zodiacName": "龙",
+            "zodiacValue1": "1952",
+            "zodiacValue2": "1964",
+            "zodiacValue3": "1976",
+            "zodiacValue4": "1988",
+            "zodiacValue5": "2000"
+        },
+        {
+            "zodiac": "06",
+            "zodiacName": "蛇",
+            "zodiacValue1": "1953",
+            "zodiacValue2": "1965",
+            "zodiacValue3": "1977",
+            "zodiacValue4": "1989",
+            "zodiacValue5": "2001"
+        },
+        {
+            "zodiac": "07",
+            "zodiacName": "马",
+            "zodiacValue1": "1954",
+            "zodiacValue2": "1966",
+            "zodiacValue3": "1978",
+            "zodiacValue4": "1990",
+            "zodiacValue5": "2002"
+        },
+        {
+            "zodiac": "08",
+            "zodiacName": "羊",
+            "zodiacValue1": "1955",
+            "zodiacValue2": "1967",
+            "zodiacValue3": "1979",
+            "zodiacValue4": "1991",
+            "zodiacValue5": "2003"
+        },
+        {
+            "zodiac": "09",
+            "zodiacName": "猴",
+            "zodiacValue1": "1956",
+            "zodiacValue2": "1968",
+            "zodiacValue3": "1980",
+            "zodiacValue4": "1992",
+            "zodiacValue5": "2004"
+        },
+        {
+            "zodiac": "10",
+            "zodiacName": "鸡",
+            "zodiacValue1": "1957",
+            "zodiacValue2": "1969",
+            "zodiacValue3": "1981",
+            "zodiacValue4": "1993",
+            "zodiacValue5": "2005"
+        },
+        {
+            "zodiac": "11",
+            "zodiacName": "狗",
+            "zodiacValue1": "1958",
+            "zodiacValue2": "1970",
+            "zodiacValue3": "1982",
+            "zodiacValue4": "1994",
+            "zodiacValue5": "2006"
+        },
+        {
+            "zodiac": "12",
+            "zodiacName": "猪",
+            "zodiacValue1": "1959",
+            "zodiacValue2": "1971",
+            "zodiacValue3": "1983",
+            "zodiacValue4": "1995",
+            "zodiacValue5": "2007"
+        }
+    ]
+}

@@ -1,0 +1,156 @@
+<script id="colorpickerTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 颜色框</h5>
+                <div class="card-body">
+                    <input id="domColorPicker" type="color" value="#f35800">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">普通颜色框</h5>
+                <div class="card-body">
+                    <input id="generalColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">普通颜色板</h5>
+                <div class="card-body">
+                    <div id="generalColorPalette"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">禁用颜色框</h5>
+                <div class="card-body">
+                    <input id="disabledColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">禁用颜色板</h5>
+                <div class="card-body">
+                    <div id="disabledColorPalette"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">默认值颜色框</h5>
+                <div class="card-body">
+                    <div id="defaultValueColorPicker"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">默认值颜色板</h5>
+                <div class="card-body">
+                    <div id="defaultValueColorPalette"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">透明度颜色框</h5>
+                <div class="card-body">
+                    <div id="opacityColorPicker"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">无按钮颜色框</h5>
+                <div class="card-body">
+                    <input id="noButtonColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">带清除按钮颜色框</h5>
+                <div class="card-body">
+                    <input id="clearButtonColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">无预览颜色框</h5>
+                <div class="card-body">
+                    <input id="previewColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">图标颜色框</h5>
+                <div class="card-body">
+                    <input id="toolIconColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">网页安全色颜色框</h5>
+                <div class="card-body">
+                    <input id="webSafeColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">展平颜色框</h5>
+                <div class="card-body">
+                    <div id="flatColorPicker"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义色块颜色框</h5>
+                <div class="card-body">
+                    <input id="customColorPicker" type="color">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义色块颜色板</h5>
+                <div class="card-body">
+                    <div id="customColorPalette"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">等宽颜色框</h5>
+                <div class="card-body">
+                    <div id="widthColorPicker"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">等宽颜色板</h5>
+                <div class="card-body">
+                    <div class="w-100" id="widthColorPalette"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        #widthColorPicker + .k-colorpicker {
+            width: 100%;
+        }
+        #widthColorPicker + .k-colorpicker .k-selected-color {
+            width: calc(100% - 8px - 1.42857em);
+        }
+    </style>
+</script>

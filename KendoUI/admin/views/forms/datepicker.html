@@ -1,0 +1,148 @@
+<script id="datepickerTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 日期框</h5>
+                <div class="card-body">
+                    <input id="domDatePicker" type="date" placeholder="日期框" value="1949-10-01">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">普通日期框</h5>
+                <div class="card-body">
+                    <input id="generalDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">只读日期框</h5>
+                <div class="card-body">
+                    <input id="readonlyDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">禁用日期框</h5>
+                <div class="card-body">
+                    <input id="disabledDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">默认值日期框</h5>
+                <div class="card-body">
+                    <input id="defaultValueDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">星期数日期框</h5>
+                <div class="card-body">
+                    <input id="weekDatePicker" type="week">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">月份日期框</h5>
+                <div class="card-body">
+                    <input id="monthDatePicker" type="month">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">年份日期框</h5>
+                <div class="card-body">
+                    <input id="yearDatePicker">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">世纪日期框</h5>
+                <div class="card-body">
+                    <input id="centuryDatePicker">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">掩码日期框</h5>
+                <div class="card-body">
+                    <input id="maskedDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">屏蔽日期框</h5>
+                <div class="card-body">
+                    <input id="shieldDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">格式转换日期框</h5>
+                <div class="card-body">
+                    <input id="parseDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">节假日日期框</h5>
+                <div class="card-body">
+                    <input id="holidayDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">农历日期框</h5>
+                <div class="card-body">
+                    <input id="lunarDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">等宽日期框</h5>
+                <div class="card-body">
+                    <input class="w-100" id="widthDatePicker" type="date">
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-calendar .fa-star {
+            color: #f35800;
+        }
+        .festival {
+            border-color: #f35800;
+            background-color: #fff;
+            color: #f35800;
+        }
+        #lunarDatePicker_dateview .k-calendar-view {
+            width: 24em;
+            height: 24em;
+        }
+        #lunarDatePicker_dateview .k-calendar-view > table,
+        #lunarDatePicker_dateview .k-calendar-view .k-link {
+            width: 100%;
+            height: 100%;
+        }
+        #lunarDatePicker_dateview .k-calendar-view .k-century .k-link {
+            font-size: 12px;
+            text-align: center;
+            white-space: nowrap;
+        }
+    </style>
+</script>

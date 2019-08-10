@@ -1,0 +1,304 @@
+<script id="list_switchTemp" type="text/x-kendo-template">
+    <div class="card mb-3">
+        <h5 class="card-header">条件搜索</h5>
+        <div class="card-body">
+            <form class="condition">
+                <div class="form-group row justify-content-lg-center mb-lg-4">
+                    <label class="col-form-label text-lg-right col-lg-2 k-label-lg">搜索：</label>
+                    <div class="col-lg-4">
+                        <span class="k-textbox k-textbox-lg k-space-left w-100"><input id="searchKeywords" name="keywords" type="text" placeholder="请输入关键字并回车……"><a class="k-icon k-i-search k-required" href="javascript:;"></a></span>
+                    </div>
+                    <div class="col-lg-2 text-center text-lg-left">
+                        <button class="k-button k-button-lg k-state-selected mt-3 mt-lg-0" id="searchBtn" type="button" onclick="conditionSearch();">模糊搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <h5 class="card-header">列表展示</h5>
+        <div class="card-body">
+            <div id="toolbar"></div>
+            <div class="row mx-0 d-flex border-top-0 border-bottom-0" id="listView"></div>
+            <div id="pager"></div>
+        </div>
+    </div>
+    <script id="listTemplate" type="text/x-kendo-template">
+        <div class="listArea listItem card rounded-0 hide">
+            <div class="row no-gutters">
+                <div class="col-md-2 col-xl-1 border-right d-none d-md-block">
+                    <div class="card-body text-center p-2">
+                        <img class="img-thumbnail mb-1" src="#= photo.url #" alt="[#= kendo.toString(photo.size / 1024, '0.00') # KB]" title="#= id #：#= photo.name ##= photo.extension #">
+                        <p class="mb-2">
+                            <strong>#= userName #</strong>
+                            <br>
+                            # if (online) { #
+                                <span class="dot-color k-notification-success"></span><span class="k-notification-success bg-transparent ml-2">在线</span>
+                            # } else { #
+                                <span class="dot-color k-notification-error"></span><span class="k-notification-error bg-transparent ml-2">离线</span>
+                            # } #
+                        </p>
+                        <p class="text-muted mb-3"><small>#= summary #</small></p>
+                        <small class="text-left">
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">年龄：</dt>
+                                <dd class="text-black-50">#= age # 岁</dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">身高：</dt>
+                                <dd class="text-black-50">#= kendo.toString(height, '0.00') # m</dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">血型：</dt>
+                                <dd class="text-black-50">
+                                # if (bloodType === '1') { #
+                                    A 型
+                                # } else if (bloodType === '2') { #
+                                    B 型
+                                # } else if (bloodType === '3') { #
+                                    O 型
+                                # } else if (bloodType === '4') { #
+                                    AB 型
+                                # } else if (bloodType === '5') { #
+                                    其他
+                                # } #
+                                </dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">生日：</dt>
+                                <dd class="text-black-50">#= birthday #</dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">生肖：</dt>
+                                <dd class="text-black-50">#= zodiac.zodiacName #</dd>
+                            </dl>
+                        </small>
+                    </div>
+                </div>
+                <div class="w-100 border-bottom d-block d-md-none">
+                    <div class="card-body text-center p-2">
+                        <img class="img-thumbnail mb-1" src="#= photo.url #" alt="[#= kendo.toString(photo.size / 1024, '0.00') # KB]" title="#= id #：#= photo.name ##= photo.extension #">
+                        <p class="mb-2">
+                            <strong class="mr-3">#= userName #</strong>
+                            # if (online) { #
+                                <span class="dot-color k-notification-success"></span><span class="k-notification-success bg-transparent ml-2">在线</span>
+                            # } else { #
+                                <span class="dot-color k-notification-error"></span><span class="k-notification-error bg-transparent ml-2">离线</span>
+                            # } #
+                        </p>
+                        <p class="text-muted mb-3"><small>#= summary #</small></p>
+                        <small>
+                            <dl class="d-flex justify-content-center mb-0">
+                                <dt class="font-weight-bold text-nowrap">年龄：</dt>
+                                <dd class="text-black-50">#= age # 岁</dd>
+                                <dt class="font-weight-bold text-nowrap ml-3">身高：</dt>
+                                <dd class="text-black-50 mr-3">#= kendo.toString(height, '0.00') # m</dd>
+                                <dt class="font-weight-bold text-nowrap">血型：</dt>
+                                <dd class="text-black-50">
+                                    # if (bloodType === '1') { #
+                                        A 型
+                                    # } else if (bloodType === '2') { #
+                                        B 型
+                                    # } else if (bloodType === '3') { #
+                                        O 型
+                                    # } else if (bloodType === '4') { #
+                                        AB 型
+                                    # } else if (bloodType === '5') { #
+                                        其他
+                                    # } #
+                                </dd>
+                            </dl>
+                            <dl class="d-flex justify-content-center mb-0">
+                                <dt class="font-weight-bold text-nowrap">生日：</dt>
+                                <dd class="text-black-50">#= birthday #</dd>
+                                <dt class="font-weight-bold text-nowrap ml-3">生肖：</dt>
+                                <dd class="text-black-50">#= zodiac.zodiacName #</dd>
+                            </dl>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-10 col-xl-11">
+                    <div class="card h-100 border-0 rounded-0 bg-transparent">
+                        <div class="card-header d-flex align-items-center p-2">
+                            <h5 class="mx-1 mb-0">
+                            # if (gender === '1') { #
+                                <i class="fas fa-mars mars"></i>
+                            # } else if (gender === '2') { #
+                                <i class="fas fa-venus venus"></i>
+                            # } #
+                            </h5>
+                            <h4 class="mx-1 mb-0 font-weight-bold text-dark">#= realName #</h4>
+                            <small class="mx-1 text-black-50">[#= nickName #]</small>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>配偶生日：</strong>
+                                    #= mateBirthday #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>银行卡：</strong>
+                                    #= creditCard.replace(creditCard.substr(2, 12), '** **** **** **') #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>资产：</strong>
+                                    #= kendo.toString(asset, 'c') #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>民族：</strong>
+                                    #= nation.nationName #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>籍贯：</strong>
+                                    #= nativePlace.provinceName # - #= nativePlace.cityName # - #= nativePlace.areaName #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>居住地：</strong>
+                                    #= domicile.name #
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>语言：</strong>
+                                    #= language #
+                                </p>
+                                <p class="col-md-6 col-xl-9">
+                                    <strong>教育程度：</strong>
+                                    # for (var i = 0; i < education.length; i++) { #
+                                        # if (education[i] === '1') { #
+                                            小学&nbsp;
+                                        # } else if (education[i] === '2') { #
+                                            初中&nbsp;
+                                        # } else if (education[i] === '3') { #
+                                            高中&nbsp;
+                                        # } else if (education[i] === '4') { #
+                                            中专&nbsp;
+                                        # } else if (education[i] === '5') { #
+                                            大专&nbsp;
+                                        # } else if (education[i] === '6') { #
+                                            本科&nbsp;
+                                        # } else if (education[i] === '7') { #
+                                            硕士&nbsp;
+                                        # } else if (education[i] === '8') { #
+                                            博士&nbsp;
+                                        # } else if (education[i] === '9') { #
+                                            其他&nbsp;
+                                        # } #
+                                    # } #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>毕业年份：</strong>
+                                    #= graduation #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>参加工作年月：</strong>
+                                    #= firstJob #
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>手机：</strong>
+                                    #= mobile #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>电子邮件：</strong>
+                                    #= email #
+                                </p>
+                                <p class="col-md-12 col-xl-6">
+                                    <strong>个人主页：</strong>
+                                    #= homepage #
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>起床时间：</strong>
+                                    #= getUp #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>最有意义的时刻：</strong>
+                                    #= importantMoment #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>性格：</strong>
+                                    # if (character === 10) { #
+                                        超级开朗
+                                    # } else if (character === 8) { #
+                                        非常开朗
+                                    # } else if (character === 6) { #
+                                        很开朗
+                                    # } else if (character === 4) { #
+                                        比较开朗
+                                    # } else if (character === 2) { #
+                                        有点开朗
+                                    # } else if (character === 0) { #
+                                        普通
+                                    # } else if (character === -2) { #
+                                        有点内向
+                                    # } else if (character === -4) { #
+                                        比较内向
+                                    # } else if (character === -6) { #
+                                        很内向
+                                    # } else if (character === -8) { #
+                                        非常内向
+                                    # } else if (character === -10) { #
+                                        超级内向
+                                    # } #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>颜色喜好：</strong>
+                                    <span style="display: inline-block; width: 60%; height: 24px; background: #= color #; border: 1px solid \#c5c5c5; border-radius: 4px; vertical-align: middle;"></span>
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>相配的星座：</strong>
+                                    # for (var i = 0; i < constellation.length; i++) { #
+                                        # if (constellation[i] === "1") { #
+                                            白羊座&nbsp;
+                                        # } else if (constellation[i] === "2") { #
+                                            金牛座&nbsp;
+                                        # } else if (constellation[i] === "3") { #
+                                            双子座&nbsp;
+                                        # } else if (constellation[i] === "4") { #
+                                            巨蟹座&nbsp;
+                                        # } else if (constellation[i] === "5") { #
+                                            狮子座&nbsp;
+                                        # } else if (constellation[i] === "6") { #
+                                            处女座&nbsp;
+                                        # } else if (constellation[i] === "7") { #
+                                            天秤座&nbsp;
+                                        # } else if (constellation[i] === "8") { #
+                                            天蝎座&nbsp;
+                                        # } else if (constellation[i] === "9") { #
+                                            射手座&nbsp;
+                                        # } else if (constellation[i] === "10") { #
+                                            山羊座&nbsp;
+                                        # } else if (constellation[i] === "11") { #
+                                            水瓶座&nbsp;
+                                        # } else if (constellation[i] === "12") { #
+                                            双鱼座&nbsp;
+                                        # } #
+                                    # } #
+                                </p>
+                                <p class="col-md-6 col-xl-3">
+                                    <strong>旅游足迹：</strong>
+                                    # for (var i = 0; i < tourism.length; i++) { #
+                                        #= tourism[i].name #&nbsp;
+                                    # } #
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer">#= sign #</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="picArea listItem border-0 p-3 col-md-4 col-lg-3 col-xl-2">
+            <div class="card">
+                <img class="card-img-top" src="#= photo.url #" alt="#= nickName #" title="#= realName #">
+                <div class="card-footer p-2 text-center">
+                    <h5 class="mb-0"><strong class="text-dark">#= realName #</strong></h5>
+                    <h6 class="mb-0"><small class="text-black-50">#= nickName #</small></h6>
+                </div>
+            </div>
+        </div>
+    </script>
+</script>

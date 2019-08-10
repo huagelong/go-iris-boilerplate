@@ -1,0 +1,190 @@
+<script id="panelbarTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 折叠面板</h5>
+                <div class="card-body">
+                    <ul id="domPanelBar">
+                        <li>
+                            <a href="javascript:;">一级导航</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">二级导航</a>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">三级导航</a>
+                                        </li>
+                                        <li disabled>禁用导航</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">二级导航</a>
+                                </li>
+                                <li disabled>禁用导航</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">自定义导航</a>
+                            <div>
+                                <div class="media p-3">
+                                    <img class="rounded-lg border mr-3" src="img/IKKI.png" alt="IKKI">
+                                    <div class="media-body">
+                                        <h4>IKKI</h4>
+                                        <p class="mb-2">国籍：中国</p>
+                                        <p class="mb-2">星座：凤凰座</p>
+                                        <p class="mb-3">职业：前端攻城狮</p>
+                                        <p class="mb-0"><button class="k-button k-state-selected" type="button" onclick="alertMsgNoBtn('你点击了查看详情~', 'info');">查看详情</button></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;">导航</a>
+                        </li>
+                        <li disabled>禁用导航</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">图标折叠面板</h5>
+                <div class="card-body">
+                    <ul id="iconPanelBar"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">图片折叠面板</h5>
+                <div class="card-body">
+                    <ul id="imagePanelBar"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">单折叠面板</h5>
+                <div class="card-body">
+                    <ul id="singlePanelBar">
+                        <li>
+                            <a href="javascript:;">一级导航</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">二级导航</a>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">三级导航</a>
+                                        </li>
+                                        <li disabled>禁用导航</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">二级导航</a>
+                                </li>
+                                <li disabled>禁用导航</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">自定义导航</a>
+                            <div>
+                                <div class="media p-3">
+                                    <img class="rounded-lg border mr-3" src="img/IKKI.png" alt="IKKI">
+                                    <div class="media-body">
+                                        <h4>IKKI</h4>
+                                        <p class="mb-2">国籍：中国</p>
+                                        <p class="mb-2">星座：凤凰座</p>
+                                        <p class="mb-3">职业：前端攻城狮</p>
+                                        <p class="mb-0"><button class="k-button k-state-selected" type="button" onclick="alertMsgNoBtn('你点击了查看详情~', 'info');">查看详情</button></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;">导航</a>
+                        </li>
+                        <li disabled>禁用导航</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义折叠面板</h5>
+                <div class="card-body">
+                    <ul id="customPanelBar"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">Ajax 折叠面板</h5>
+                <div class="card-body">
+                    <ul id="ajaxPanelBar"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">折叠面板格式</h5>
+                <div class="card-body">
+                    <ul id="dataTypePanelBar"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        #domPanelBar .k-group,
+        #iconPanelBar .k-group,
+        #imagePanelBar .k-group,
+        #singlePanelBar .k-group,
+        #customPanelBar .k-group,
+        #ajaxPanelBar .k-group {
+            margin-left: 1rem;
+        }
+        #iconPanelBar .fas,
+        #iconPanelBar .fab,
+        #customPanelBar .fas,
+        #ajaxPanelBar .fas,
+        #dataTypePanelBar .fas {
+            width: 20px;
+            height: 16px;
+            font-size: 16px;
+            line-height: 16px;
+            text-align: center;
+        }
+        #imagePanelBar .k-image,
+        #customPanelBar .k-image,
+        #dataTypePanelBar .k-image {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+        }
+        #customPanelBar .k-state-selected .k-required {
+            color: #fff;
+        }
+        #ajaxPanelBar .k-item i {
+            margin-top: 2px;
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        #ajaxPanelBar .k-item small {
+            margin-left: 5px;
+            opacity: .6;
+        }
+        #ajaxPanelBar .k-item sub {
+            display: inline-block;
+            bottom: -1px;
+            margin-left: 6px;
+            border-radius: 4px;
+            padding: 2px 5px;
+            height: 16px;
+            font-family: "Microsoft YaHei", tahoma, sans-serif;
+            font-size: 12px;
+            line-height: 12px;
+        }
+        #dataTypePanelBar .k-content {
+            padding: 3rem;
+        }
+    </style>
+</script>

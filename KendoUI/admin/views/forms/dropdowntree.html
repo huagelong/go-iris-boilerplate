@@ -1,0 +1,165 @@
+<script id="dropdowntreeTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 树形单选下拉框</h5>
+                <div class="card-body">
+                    <select id="domDropDownTree">
+                        <option value="">树形下拉框</option>
+                        <option value="31" selected></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">普通树形单选下拉框</h5>
+                <div class="card-body">
+                    <select id="generalDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">普通树形多选下拉框</h5>
+                <div class="card-body">
+                    <select id="generalMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">只读树形单选下拉框</h5>
+                <div class="card-body">
+                    <select id="readonlyDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">只读树形多选下拉框</h5>
+                <div class="card-body">
+                    <select class="multiWidth" id="readonlyMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">禁用树形单选下拉框</h5>
+                <div class="card-body">
+                    <select id="disabledDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">禁用树形多选下拉框</h5>
+                <div class="card-body">
+                    <select id="disabledMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">默认值树形单选下拉框</h5>
+                <div class="card-body">
+                    <select id="defaultValueDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">默认值树形多选下拉框</h5>
+                <div class="card-body">
+                    <select class="multiWidth" id="defaultValueMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">筛选树形单选下拉框</h5>
+                <div class="card-body">
+                    <select id="filterDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">筛选树形多选下拉框</h5>
+                <div class="card-body">
+                    <select id="filterMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义首尾树形单选下拉框</h5>
+                <div class="card-body">
+                    <select id="headerFooterDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义首尾树形多选下拉框</h5>
+                <div class="card-body">
+                    <select id="headerFooterMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义列表项树形单选下拉框</h5>
+                <div class="card-body">
+                    <select class="w-100" id="customDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义列表项树形多选下拉框</h5>
+                <div class="card-body">
+                    <select class="w-100" id="customMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">统计模式树形下拉框</h5>
+                <div class="card-body">
+                    <select id="tagDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">等宽树形单选下拉框</h5>
+                <div class="card-body">
+                    <select class="w-100" id="widthDropDownTree"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">等宽树形多选下拉框</h5>
+                <div class="card-body">
+                    <select class="w-100" id="widthMultiDropDownTree" multiple></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .multiWidth {
+            width: 200px;
+        }
+        .k-dropdowntree .k-input img.rounded-circle,
+        .k-dropdowntree .k-button img.rounded-circle {
+            width: 20px;
+            height: 20px;
+        }
+        .k-treeview-lines .k-item .k-in img.rounded-circle {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</script>

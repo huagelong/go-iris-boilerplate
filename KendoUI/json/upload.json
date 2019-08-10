@@ -1,0 +1,89 @@
+{
+    "result": "y",
+    "msg": "上传成功！",
+    "data": {
+        "url": "img/IKKI.png",
+        "name": "IKKI",
+        "extension": ".png",
+        "size": 29399
+    },
+    "imageBrowser": [
+        {
+            "name": "Aries.png",
+            "type": "f",
+            "size": 38110
+        },
+        {
+            "name": "Taurus.png",
+            "type": "f",
+            "size": 39803
+        },
+        {
+            "name": "Gemini.png",
+            "type": "f",
+            "size": 36968
+        },
+        {
+            "name": "Cancer.png",
+            "type": "f",
+            "size": 40222
+        },
+        {
+            "name": "Leo.png",
+            "type": "f",
+            "size": 32804
+        },
+        {
+            "name": "Virgo.png",
+            "type": "f",
+            "size": 34011
+        },
+        {
+            "name": "Libra.png",
+            "type": "f",
+            "size": 34135
+        },
+        {
+            "name": "Scorpion.png",
+            "type": "f",
+            "size": 38934
+        },
+        {
+            "name": "Sagittarius.png",
+            "type": "f",
+            "size": 35206
+        },
+        {
+            "name": "Capricorn.png",
+            "type": "f",
+            "size": 36570
+        },
+        {
+            "name": "Aquarius.png",
+            "type": "f",
+            "size": 37077
+        },
+        {
+            "name": "Picses.png",
+            "type": "f",
+            "size": 40363
+        }
+    ],
+    "fileBrowser": [
+        {
+            "name": "grid.pdf",
+            "type": "f",
+            "size": 615935
+        },
+        {
+            "name": "grid.xlsx",
+            "type": "f",
+            "size": 10378
+        },
+        {
+            "name": "pdf_export.pdf",
+            "type": "f",
+            "size": 134028
+        }
+    ]
+}

@@ -4,13 +4,13 @@
   "data": [
     {
       "id": "01",
-      "text": "<i class='fas fa-object-group'></i><sup></sup><abbr>系统设置<small>Setting</small></abbr>",
+      "text": "<i class='fas fa-object-group'></i><sup></sup><abbr>系统设置</abbr>",
       "encoded": false,
       "expanded": true,
       "items": [
         {
           "id": "0101",
-          "text": "<i class='fas fa-tasks'></i>权限设置<small>Auth</small>",
+          "text": "<i class='fas fa-tasks'></i>权限设置",
           "encoded": false,
           "expanded": true,
           "items": [
@@ -19,28 +19,28 @@
               "text": "<i class='fas fa-genderless'></i>导航菜单",
               "encoded": false,
               "cssClass": "links-form_elements",
-              "url": "javascript:linkTo(\"/page/menu/\", \"ls\");"
+              "url": "javascript:linkTo(\"/\", \"menuls\");"
             },
             {
               "id": "010102",
               "text": "<i class='fas fa-genderless'></i>权限因子",
               "encoded": false,
               "cssClass": "links-form_post",
-              "url": "javascript:linkTo(\"/page/access/\", \"ls\");"
+              "url": "javascript:linkTo(\"/\", \"accessls\");"
             },
             {
               "id": "010103",
               "text": "<i class='fas fa-genderless'></i>角色管理",
               "encoded": false,
               "cssClass": "links-form_ajax",
-              "url": "javascript:linkTo(\"/page/role/\", \"ls\");"
+              "url": "javascript:linkTo(\"/\", \"rolels\");"
             },
             {
               "id": "010104",
               "text": "<i class='fas fa-genderless'></i>用户管理",
               "encoded": false,
               "cssClass": "links-form_range",
-              "url": "javascript:linkTo(\"/page/user/\", \"ls\");"
+              "url": "javascript:linkTo(\"/\", \"userls\");"
             }
           ]
         }

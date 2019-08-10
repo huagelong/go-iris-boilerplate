@@ -1,0 +1,195 @@
+<script id="tabstripTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 选项卡</h5>
+                <div class="card-body">
+                    <div id="domTabStrip">
+                        <ul>
+                            <li class="k-state-active">选项卡一</li>
+                            <li>选项卡二</li>
+                            <li><a href="https://github.com/IKKI2000/">选项卡链接</a></li>
+                            <li disabled>选项卡禁用</li>
+                        </ul>
+                        <div>内容一</div>
+                        <div>内容二</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">图标选项卡</h5>
+                <div class="card-body">
+                    <div id="iconTabStrip"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">图片选项卡</h5>
+                <div class="card-body">
+                    <div id="imageTabStrip"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">下方选项卡</h5>
+                <div class="card-body">
+                    <div id="bottomTabStrip">
+                        <ul>
+                            <li class="k-state-active">选项卡一</li>
+                            <li>选项卡二</li>
+                            <li><a href="https://github.com/IKKI2000/">选项卡链接</a></li>
+                            <li disabled>选项卡禁用</li>
+                        </ul>
+                        <div>内容一</div>
+                        <div>内容二</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">左侧选项卡</h5>
+                <div class="card-body">
+                    <div id="leftTabStrip">
+                        <ul>
+                            <li class="k-state-active">选项卡一</li>
+                            <li>选项卡二</li>
+                            <li><a href="https://github.com/IKKI2000/">选项卡链接</a></li>
+                            <li disabled>选项卡禁用</li>
+                        </ul>
+                        <div>内容一</div>
+                        <div>内容二</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">右侧选项卡</h5>
+                <div class="card-body">
+                    <div id="rightTabStrip">
+                        <ul>
+                            <li class="k-state-active">选项卡一</li>
+                            <li>选项卡二</li>
+                            <li><a href="https://github.com/IKKI2000/">选项卡链接</a></li>
+                            <li disabled>选项卡禁用</li>
+                        </ul>
+                        <div>内容一</div>
+                        <div>内容二</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">滚动选项卡</h5>
+                <div class="card-body">
+                    <div id="scrollTabStrip"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">Ajax 选项卡</h5>
+                <div class="card-body">
+                    <div id="ajaxTabStrip">
+                        <ul>
+                            <li class="k-state-active"><i class="fas fa-link"></i>页面</li>
+                            <li><i class="fas fa-file-excel"></i>Excel 二进制</li>
+                            <li><i class="fas fa-file-pdf"></i>PDF 二进制</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义选项卡</h5>
+                <div class="card-body">
+                    <div id="customTabStrip">
+                        <ul>
+                            <li class="k-state-active"><i class="fas fa-envelope"></i>消息<span class="badge theme-m-bg ml-2">9</span></li>
+                            <li>说明<i class="fas fa-question-circle ml-2 mr-0"></i></li>
+                            <li><a href="javascript:alertMsgNoBtn('你触发了回调~', 'info');">功能<i class="fas fa-cogs ml-2 mr-0"></i></a></li>
+                        </ul>
+                        <div>消息内容</div>
+                        <div>说明内容</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">选项卡新增</h5>
+                <div class="card-body">
+                    <div id="newTabStrip">
+                        <ul>
+                            <li class="k-state-active"><i class="fas fa-home"></i>首页</li>
+                            <li><a href="javascript:addTabStrip();"><i class="fas fa-plus-circle mr-0"></i></a></li>
+                        </ul>
+                        <div>首页内容</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">选项卡关闭</h5>
+                <div class="card-body">
+                    <div id="closeTabStrip">
+                        <ul>
+                            <li class="k-state-active"><i class="fas fa-home"></i>首页</li>
+                            <li><i class="fas fa-file"></i>页面 1<i class="fas fa-times-circle ml-2 mr-0"></i></li>
+                            <li><i class="fas fa-file"></i>页面 2<i class="fas fa-times-circle ml-2 mr-0"></i></li>
+                            <li><i class="fas fa-file"></i>页面 3<i class="fas fa-times-circle ml-2 mr-0"></i></li>
+                        </ul>
+                        <div>首页内容</div>
+                        <div>页面 1 内容</div>
+                        <div>页面 2 内容</div>
+                        <div>页面 3 内容</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">选项卡拖放排序</h5>
+                <div class="card-body">
+                    <div id="sortTabStrip">
+                        <ul>
+                            <li class="k-state-active"><i class="fas fa-home"></i>首页</li>
+                            <li><i class="fas fa-file"></i>页面 1</li>
+                            <li><i class="fas fa-file"></i>页面 2</li>
+                            <li><i class="fas fa-file"></i>页面 3</li>
+                        </ul>
+                        <div>首页内容</div>
+                        <div>页面 1 内容</div>
+                        <div>页面 2 内容</div>
+                        <div>页面 3 内容</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-tabstrip-wrapper .fas,
+        .k-tabstrip-wrapper .fab {
+            margin-right: 4px;
+            width: 20px;
+            height: 16px;
+            font-size: 16px;
+            line-height: 16px;
+            text-align: center;
+        }
+        .k-tabstrip-wrapper img {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</script>

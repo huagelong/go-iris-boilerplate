@@ -1,0 +1,133 @@
+<script id="drawerTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">左滑拉出抽屉</h5>
+                <div class="card-body">
+                    <nav>
+                        <ol class="breadcrumb rounded-0 mb-0">
+                            <li class="breadcrumb-item">
+                                <button class="k-button" id="leftDrawerBtn" type="button"><i class="fas fa-bars"></i></button>
+                                <span class="h5 align-middle ml-3">电子邮件</span>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div id="leftDrawer">
+                        <div class="d-flex justify-content-center align-items-center" id="leftDrawerContent">
+                            <div>收件箱列表</div>
+                            <div class="hide">未读邮件列表</div>
+                            <div class="hide">置顶邮件列表</div>
+                            <div class="hide">标签邮件列表</div>
+                            <div class="hide"></div>
+                            <div class="hide">草稿箱列表</div>
+                            <div class="hide">已发送邮件列表</div>
+                            <div class="hide">已删除邮件列表</div>
+                            <div class="hide">垃圾邮件列表</div>
+                            <div class="hide"></div>
+                            <div class="hide">自定义文件夹邮件列表</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">右滑拉出抽屉</h5>
+                <div class="card-body">
+                    <nav>
+                        <ol class="breadcrumb rounded-0 mb-0">
+                            <li class="breadcrumb-item">
+                                <button class="k-button" id="rightDrawerBtn" type="button"><i class="fas fa-bars"></i></button>
+                                <span class="h5 align-middle ml-3">电子邮件</span>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div id="rightDrawer">
+                        <div class="d-flex justify-content-center align-items-center" id="rightDrawerContent">
+                            <div>收件箱列表</div>
+                            <div class="hide">未读邮件列表</div>
+                            <div class="hide">置顶邮件列表</div>
+                            <div class="hide">标签邮件列表</div>
+                            <div class="hide"></div>
+                            <div class="hide">草稿箱列表</div>
+                            <div class="hide">已发送邮件列表</div>
+                            <div class="hide">已删除邮件列表</div>
+                            <div class="hide">垃圾邮件列表</div>
+                            <div class="hide"></div>
+                            <div class="hide">自定义文件夹邮件列表</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">左滑全屏抽屉</h5>
+                <div class="card-body">
+                    <nav>
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item">
+                                <button class="k-button" id="leftFullDrawerBtn" type="button"><i class="fas fa-bars"></i></button>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div class="border-0" id="leftFullDrawer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义迷你模式抽屉</h5>
+                <div class="card-body">
+                    <nav>
+                        <ol class="breadcrumb rounded-0 mb-0">
+                            <li class="breadcrumb-item">
+                                <button class="k-button" id="miniDrawerBtn" type="button"><i class="fas fa-bars"></i></button>
+                                <span class="h5 align-middle ml-3">电子邮件</span>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div id="miniDrawer">
+                        <div class="d-flex justify-content-center align-items-center" id="miniDrawerContent">
+                            <div>收件箱列表</div>
+                            <div class="hide">未读邮件列表</div>
+                            <div class="hide">置顶邮件列表</div>
+                            <div class="hide">标签邮件列表</div>
+                            <div class="hide"></div>
+                            <div class="hide">草稿箱列表</div>
+                            <div class="hide">已发送邮件列表</div>
+                            <div class="hide">已删除邮件列表</div>
+                            <div class="hide">垃圾邮件列表</div>
+                            <div class="hide"></div>
+                            <div class="hide">自定义文件夹邮件列表</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">右滑全屏抽屉</h5>
+                <div class="card-body">
+                    <nav>
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item">
+                                <button class="k-button" id="rightFullDrawerBtn" type="button"><i class="fas fa-bars"></i></button>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div class="border-0" id="rightFullDrawer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-drawer-items .fas {
+            width: 20px;
+            height: 16px;
+            font-size: 16px;
+            line-height: 16px;
+            text-align: center;
+        }
+    </style>
+</script>

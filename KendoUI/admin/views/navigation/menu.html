@@ -1,0 +1,201 @@
+<script id="menuTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 菜单</h5>
+                <div class="card-body">
+                    <menu id="domMenu">
+                        <li>
+                            <a href="javascript:;">一级菜单</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">二级菜单</a>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">三级菜单</a>
+                                        </li>
+                                        <li disabled>禁用菜单</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">二级菜单</a>
+                                </li>
+                                <li disabled>禁用菜单</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">自定义菜单</a>
+                            <ul>
+                                <li>
+                                    <div class="media p-3">
+                                        <img class="rounded-lg border mr-3" src="img/IKKI.png" alt="IKKI">
+                                        <div class="media-body">
+                                            <h4>IKKI</h4>
+                                            <p class="mb-2">国籍：中国</p>
+                                            <p class="mb-2">星座：凤凰座</p>
+                                            <p class="mb-3">职业：前端攻城狮</p>
+                                            <p class="mb-0"><button class="k-button k-state-selected" type="button" onclick="alertMsgNoBtn('你点击了查看详情~', 'info');">查看详情</button></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">菜单</a>
+                        </li>
+                        <li disabled>禁用菜单</li>
+                    </menu>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">图标菜单</h5>
+                <div class="card-body">
+                    <menu id="iconMenu"></menu>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">图片菜单</h5>
+                <div class="card-body">
+                    <menu id="imageMenu"></menu>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">垂直菜单</h5>
+                <div class="card-body">
+                    <menu id="verticalMenu">
+                        <li>
+                            <a href="javascript:;">一级菜单</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">二级菜单</a>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">三级菜单</a>
+                                        </li>
+                                        <li disabled>禁用菜单</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">二级菜单</a>
+                                </li>
+                                <li disabled>禁用菜单</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">自定义菜单</a>
+                            <ul>
+                                <li>
+                                    <div class="media p-3">
+                                        <img class="rounded-lg border mr-3" src="img/IKKI.png" alt="IKKI">
+                                        <div class="media-body">
+                                            <h4>IKKI</h4>
+                                            <p class="mb-2">国籍：中国</p>
+                                            <p class="mb-2">星座：凤凰座</p>
+                                            <p class="mb-3">职业：前端攻城狮</p>
+                                            <p class="mb-0"><button class="k-button k-state-selected" type="button" onclick="alertMsgNoBtn('你点击了查看详情~', 'info');">查看详情</button></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:;">菜单</a>
+                        </li>
+                        <li disabled>禁用菜单</li>
+                    </menu>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">滚动菜单</h5>
+                <div class="card-body">
+                    <p><menu class="border" id="scrollHorizontalMenu"></menu></p>
+                    <p><menu class="border" id="scrollVerticalMenu"></menu></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">右键菜单</h5>
+                <div class="card-body p-5" id="contextMenuBox">
+                    <menu id="contextMenu"></menu>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">Ajax 菜单</h5>
+                <div class="card-body">
+                    <menu id="ajaxMenu"></menu>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">菜单格式</h5>
+                <div class="card-body">
+                    <menu id="dataTypeMenu"></menu>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        #iconMenu .fas,
+        #iconMenu .fab,
+        #contextMenu .fas,
+        #dataTypeMenu .fas {
+            width: 20px;
+            height: 16px;
+            font-size: 16px;
+            line-height: 16px;
+            text-align: center;
+        }
+        #imageMenu .k-image {
+            width: 16px;
+            height: 16px;
+        }
+        #scrollVerticalMenu {
+            height: 100px;
+        }
+        #scrollHorizontalMenu hr,
+        #ajaxMenu hr {
+            border-top: none;
+            border-left: 1px solid #ccc;
+            width: 0;
+            height: 20px;
+        }
+        #scrollVerticalMenu hr,
+        #ajaxMenu hr {
+            margin: 0;
+            border-top: 1px solid #ccc;
+            width: 100%;
+        }
+        #scrollHorizontalMenu img,
+        #scrollVerticalMenu img,
+        #ajaxMenu img {
+            margin-left: 5px;
+            width: 20px;
+            height: 20px;
+        }
+        .k-menu-scroll-wrapper .k-item i,
+        #ajaxMenu i {
+            margin-right: 5px;
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            text-align: center;
+        }
+        #contextMenu hr {
+            margin: 0;
+            border-top: 1px solid #ccc;
+            width: 100%;
+        }
+    </style>
+</script>

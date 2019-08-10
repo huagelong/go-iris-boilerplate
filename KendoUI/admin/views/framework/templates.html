@@ -1,0 +1,250 @@
+<script id="templatesTemp" type="text/x-kendo-template">
+    <div class="card mb-3">
+        <h5 class="card-header">交互区域</h5>
+        <div class="card-body">选择数据：<select id="dataList"></select></div>
+    </div>
+    <div class="card">
+        <h5 class="card-header">结果区域</h5>
+        <div class="card-body">
+            <div id="templates"></div>
+        </div>
+    </div>
+    <script id="detailsTemplate" type="text/x-kendo-template">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img class="card-img-top" src="#= photo.url #" alt="[#= kendo.toString(photo.size / 1024, '0.00') # KB]" title="#= id #：#= photo.name ##= photo.extension #">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            # if (gender === '1') { #
+                                <i class="fas fa-mars mars"></i>
+                            # } else if (gender === '2') { #
+                                <i class="fas fa-venus venus"></i>
+                            # } #
+                            <strong class="text-dark">#= realName #</strong>
+                            <small class="text-black-50">[#= nickName #]</small>
+                        </h4>
+                        <p class="card-text">
+                            <span class="mr-2">#= userName #</span>
+                            # if (online) { #
+                                <span class="dot-color k-notification-success"></span><span class="k-notification-success bg-transparent ml-2">在线</span>
+                            # } else { #
+                                <span class="dot-color k-notification-error"></span><span class="k-notification-error bg-transparent ml-2">离线</span>
+                            # } #
+                        </p>
+                        <p class="card-text">#= sign #</p>
+                        <p class="card-text">#= summary #</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>年龄：</strong>
+                            #= age # 岁
+                        </li>
+                        <li class="list-group-item">
+                            <strong>身高：</strong>
+                            #= kendo.toString(height, '0.00') # m
+                        </li>
+                        <li class="list-group-item">
+                            <strong>血型：</strong>
+                            # if (bloodType === '1') { #
+                                A 型
+                            # } else if (bloodType === '2') { #
+                                B 型
+                            # } else if (bloodType === '3') { #
+                                O 型
+                            # } else if (bloodType === '4') { #
+                                AB 型
+                            # } else if (bloodType === '5') { #
+                                其他
+                            # } #
+                        </li>
+                        <li class="list-group-item">
+                            <strong>生日：</strong>
+                            #= birthday #
+                        </li>
+                        <li class="list-group-item">
+                            <strong>生肖：</strong>
+                            #= zodiac.zodiacName #
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card mb-3">
+                    <h5 class="card-header">家庭情况</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <p class="col-md-6">
+                                <strong>配偶生日：</strong>
+                                #= mateBirthday #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>民族：</strong>
+                                #= nation.nationName #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>籍贯：</strong>
+                                #= nativePlace.provinceName # - #= nativePlace.cityName # - #= nativePlace.areaName #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>居住地：</strong>
+                                #= domicile.name #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>银行卡：</strong>
+                                #= creditCard.replace(creditCard.substr(2, 12), '** **** **** **') #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>资产：</strong>
+                                #= kendo.toString(asset, 'c') #
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <h5 class="card-header">教育情况</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <p class="col-md-6">
+                                <strong>语言：</strong>
+                                #= language #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>教育程度：</strong>
+                                # for (var i = 0; i < education.length; i++) { #
+                                    # if (education[i] === '1') { #
+                                        小学&nbsp;
+                                    # } else if (education[i] === '2') { #
+                                        初中&nbsp;
+                                    # } else if (education[i] === '3') { #
+                                        高中&nbsp;
+                                    # } else if (education[i] === '4') { #
+                                        中专&nbsp;
+                                    # } else if (education[i] === '5') { #
+                                        大专&nbsp;
+                                    # } else if (education[i] === '6') { #
+                                        本科&nbsp;
+                                    # } else if (education[i] === '7') { #
+                                        硕士&nbsp;
+                                    # } else if (education[i] === '8') { #
+                                        博士&nbsp;
+                                    # } else if (education[i] === '9') { #
+                                        其他&nbsp;
+                                    # } #
+                                # } #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>毕业年份：</strong>
+                                #= graduation #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>参加工作年月：</strong>
+                                #= firstJob #
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <h5 class="card-header">联系方式</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <p class="col-md-6">
+                                <strong>手机：</strong>
+                                #= mobile #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>电子邮件：</strong>
+                                #= email #
+                            </p>
+                            <p class="col-md-12">
+                                <strong>个人主页：</strong>
+                                #= homepage #
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h5 class="card-header">个性介绍</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <p class="col-md-6">
+                                <strong>起床时间：</strong>
+                                #= getUp #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>最有意义的时刻：</strong>
+                                #= importantMoment #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>性格：</strong>
+                                # if (character === 10) { #
+                                    超级开朗
+                                # } else if (character === 8) { #
+                                    非常开朗
+                                # } else if (character === 6) { #
+                                    很开朗
+                                # } else if (character === 4) { #
+                                    比较开朗
+                                # } else if (character === 2) { #
+                                    有点开朗
+                                # } else if (character === 0) { #
+                                    普通
+                                # } else if (character === -2) { #
+                                    有点内向
+                                # } else if (character === -4) { #
+                                    比较内向
+                                # } else if (character === -6) { #
+                                    很内向
+                                # } else if (character === -8) { #
+                                    非常内向
+                                # } else if (character === -10) { #
+                                    超级内向
+                                # } #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>颜色喜好：</strong>
+                                <span style="display: inline-block; width: 60%; height: 24px; background: #= color #; border: 1px solid \#c5c5c5; border-radius: 4px; vertical-align: middle;"></span>
+                            </p>
+                            <p class="col-md-6">
+                                <strong>相配的星座：</strong>
+                                # for (var i = 0; i < constellation.length; i++) { #
+                                    # if (constellation[i] === "1") { #
+                                        白羊座&nbsp;
+                                    # } else if (constellation[i] === "2") { #
+                                        金牛座&nbsp;
+                                    # } else if (constellation[i] === "3") { #
+                                        双子座&nbsp;
+                                    # } else if (constellation[i] === "4") { #
+                                        巨蟹座&nbsp;
+                                    # } else if (constellation[i] === "5") { #
+                                        狮子座&nbsp;
+                                    # } else if (constellation[i] === "6") { #
+                                        处女座&nbsp;
+                                    # } else if (constellation[i] === "7") { #
+                                        天秤座&nbsp;
+                                    # } else if (constellation[i] === "8") { #
+                                        天蝎座&nbsp;
+                                    # } else if (constellation[i] === "9") { #
+                                        射手座&nbsp;
+                                    # } else if (constellation[i] === "10") { #
+                                        山羊座&nbsp;
+                                    # } else if (constellation[i] === "11") { #
+                                        水瓶座&nbsp;
+                                    # } else if (constellation[i] === "12") { #
+                                        双鱼座&nbsp;
+                                    # } #
+                                # } #
+                            </p>
+                            <p class="col-md-6">
+                                <strong>旅游足迹：</strong>
+                                # for (var i = 0; i < tourism.length; i++) { #
+                                    #= tourism[i].name #&nbsp;
+                                # } #
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+</script>

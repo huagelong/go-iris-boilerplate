@@ -1,0 +1,37 @@
+<script id="validatorTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 验证</h5>
+                <div class="card-body">
+                    <input class="k-textbox w-100" id="domValidator" type="text" required data-required-msg="请输入姓名！" pattern="[\u4E00-\u9FA5]{1,10}" data-pattern-msg="请输入1-10个汉字！">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">普通验证</h5>
+                <div class="card-body">
+                    <input class="k-textbox w-100" id="generalValidator" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义提示位置验证</h5>
+                <div class="card-body">
+                    <input class="w-100" id="msgValidator" name="birthday" type="date" required data-required-msg="请输入生日！">
+                    <span class="k-invalid-msg" data-for="birthday"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义提示验证</h5>
+                <div class="card-body">
+                    <input class="k-textbox" id="customValidator" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

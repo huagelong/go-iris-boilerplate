@@ -1,0 +1,298 @@
+<script id="mvvmTemp" type="text/x-kendo-template">
+    <div class="row position-absolute w-100 h-100 mx-0" id="mvvm">
+        <div class="col-lg-6 h-100 overflow-hidden mb-3 mb-lg-0">
+            <div class="card h-100 mx-n3 mr-lg-0">
+                <h5 class="card-header">交互区域</h5>
+                <div class="card-body h-100 overflow-auto">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">ID：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="text" data-bind="value: id">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">用户名：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="text" data-bind="value: userName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">姓名：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="text" data-bind="value: realName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">昵称：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="text" data-bind="value: nickName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">密码：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="password" data-bind="value: password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">确认密码：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="password" data-bind="value: confirmPassword">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">状态：</label>
+                            <div class="col-lg-8">
+                                <input data-role="switch" data-bind="checked: online" data-messages="{ checked: '', unchecked: '' }">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">性别：</label>
+                            <div class="col-lg-8">
+                                <input class="k-radio" id="gender1" type="radio" value="1" data-bind="checked: gender"><label class="k-radio-label" for="gender1">男</label>
+                                <input class="k-radio" id="gender2" type="radio" value="2" data-bind="checked: gender"><label class="k-radio-label" for="gender2">女</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">年龄：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="numerictextbox" data-bind="value: age" data-format="n0" data-decimals="0" data-min="1" data-max="120">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">身高：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="numerictextbox" data-bind="value: height" data-format="0.00 m" data-decimals="2" data-step="0.01" data-min="1.01" data-max="3.00">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">血型：</label>
+                            <div class="col-lg-8">
+                                <select class="w-100" data-role="dropdownlist" data-bind="source: bloodTypeData, value: bloodType" data-value-field="value" data-text-field="text"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">生日：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="datepicker" data-bind="value: birthday" data-format="yyyy-MM-dd" data-footer="今天：#= kendo.toString(data, 'yyyy年MM月dd日') #" data-min="1920-01-01" data-max="2018-12-31">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">配偶生日：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="dateinput" data-bind="value: mateBirthday" data-format="yyyy-MM-dd" data-min="1920-01-01" data-max="2018-12-31">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">银行卡：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="maskedtextbox" data-bind="value: creditCard" data-mask="0000 0000 0000 0000">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">资产：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="numerictextbox" data-bind="value: asset" data-format="c" data-decimals="2" data-step="10000">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">籍贯：</label>
+                            <div class="col-lg-8">
+                                <select class="w-100" id="province" data-role="dropdownlist" data-bind="source: provinceData, value: nativePlace.province, events: { change: provinceParse }" data-value-field="province" data-text-field="provinceName"></select>
+                                <select class="w-100 mt-2" id="city" data-role="dropdownlist" data-bind="source: cityData, value: nativePlace.city, events: { dataBound: cityParse, close: cityParse }" data-value-field="city" data-text-field="cityName" data-auto-bind="false" data-cascade-from="province"></select>
+                                <select class="w-100 mt-2" id="area" data-role="dropdownlist" data-bind="source: areaData, value: nativePlace.area, events: { dataBound: areaParse, close: areaParse }" data-value-field="area" data-text-field="areaName" data-auto-bind="false" data-cascade-from="city"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">居住地：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="dropdowntree" data-bind="source: domicileData, value: domicile" data-value-field="code" data-text-field="name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">民族：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="combobox" data-bind="source: nationData, value: nation" data-value-field="nation" data-text-field="nationName" data-suggest="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">生肖：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="multicolumncombobox" data-bind="source: zodiacData, value: zodiac" data-value-field="zodiac" data-text-field="zodiacName" data-columns="[{ field: 'zodiacName', title: '生肖' }, { field: 'zodiacValue1', title: '年份' }, { field: 'zodiacValue2', title: '年份' }, { field: 'zodiacValue3', title: '年份' }, { field: 'zodiacValue4', title: '年份' }, { field: 'zodiacValue5', title: '年份' }]" data-filter="contains" data-filter-fields="['zodiacValue1', 'zodiacValue2', 'zodiacValue3', 'zodiacValue4', 'zodiacValue5']" data-min-length="4" data-suggest="true">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">语言：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="autocomplete" data-bind="source: languageData, value: language" data-text-field="language" data-suggest="true" data-separator=" ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">教育程度：</label>
+                            <div class="col-lg-8">
+                                <input class="k-checkbox" id="education1" type="checkbox" value="1" data-bind="checked: education"><label class="k-checkbox-label" for="education1">小学</label>
+                                <input class="k-checkbox" id="education2" type="checkbox" value="2" data-bind="checked: education"><label class="k-checkbox-label" for="education2">初中</label>
+                                <input class="k-checkbox" id="education3" type="checkbox" value="3" data-bind="checked: education"><label class="k-checkbox-label" for="education3">高中</label>
+                                <input class="k-checkbox" id="education4" type="checkbox" value="4" data-bind="checked: education"><label class="k-checkbox-label" for="education4">中专</label>
+                                <input class="k-checkbox" id="education5" type="checkbox" value="5" data-bind="checked: education"><label class="k-checkbox-label" for="education5">大专</label>
+                                <input class="k-checkbox" id="education6" type="checkbox" value="6" data-bind="checked: education"><label class="k-checkbox-label" for="education6">本科</label>
+                                <input class="k-checkbox" id="education7" type="checkbox" value="7" data-bind="checked: education"><label class="k-checkbox-label" for="education7">硕士</label>
+                                <input class="k-checkbox" id="education8" type="checkbox" value="8" data-bind="checked: education"><label class="k-checkbox-label" for="education8">博士</label>
+                                <input class="k-checkbox" id="education9" type="checkbox" value="9" data-bind="checked: education"><label class="k-checkbox-label" for="education9">其他</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">毕业年份：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="datepicker" data-bind="value: graduation" data-start="decade" data-depth="decade" data-format="yyyy" data-footer="今年：#= kendo.toString(data, 'yyyy年') #">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">参加工作年月：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="datepicker" data-bind="value: firstJob" data-start="year" data-depth="year" data-format="yyyy-MM" data-footer="当月：#= kendo.toString(data, 'yyyy年MM月') #">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">手机：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="tel" data-bind="value: mobile">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">电子邮件：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="email" data-bind="value: email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">个人主页：</label>
+                            <div class="col-lg-8">
+                                <input class="k-textbox w-100" type="url" data-bind="value: homepage">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">起床时间：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="timepicker" data-bind="value: getUp" data-format="HH:mm">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">最有意义的时刻：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="datetimepicker" data-bind="value: importantMoment" data-format="yyyy-MM-dd HH:mm" data-footer="现在：#= kendo.toString(data, 'yyyy年MM月dd日 HH:mm') #">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">性格：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="slider" data-bind="value: character" data-decrease-button-title="内向" data-increase-button-title="开朗" data-min="-10" data-max="10" data-small-step="2" data-large-step="1">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">颜色喜好：</label>
+                            <div class="col-lg-8">
+                                <input class="w-100" data-role="colorpicker" data-bind="value: color" data-opacity="true" data-buttons="false">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">相配的星座：</label>
+                            <div class="col-lg-8">
+                                <select class="w-100" multiple data-role="multiselect" data-bind="source: constellationData, value: constellation" data-value-field="value" data-text-field="text" data-auto-close="false"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">旅游足迹：</label>
+                            <div class="col-lg-8">
+                                <select class="w-100" multiple data-role="dropdowntree" data-bind="source: tourismData, value: tourism" data-value-field="code" data-text-field="name" data-checkboxes="true" data-auto-close="false"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">自我介绍：</label>
+                            <div class="col-lg-8">
+                                <textarea class="k-textarea w-100" data-bind="value: summary"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">头像：</label>
+                            <div class="col-lg-8">
+                                <div class="media">
+                                    <img class="img-thumbnail w-20 mr-2" data-bind="attr: { src: photo.url, alt: photo.name, title: photo.size }">
+                                    <div class="media-body">
+                                        <input class="w-100" type="file" data-role="upload" data-bind="events: { success: photoData }" data-async="{ saveUrl: 'json/upload.json', removeUrl: 'json/upload.json', autoUpload: true }" data-multiple="false" data-files="[{ name: 'Leo.png', extension: '.png', size: 32804 }]" data-validation="{ allowedExtensions: ['.jpg', '.png', '.gif', '.bmp'], maxFileSize: 10485760 }">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label text-lg-right col-lg-3 pr-lg-0">签名：</label>
+                            <div class="col-lg-8">
+                                <textarea class="w-100" data-role="editor" data-bind="value: sign" data-tools="['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'fontName', 'fontSize', 'foreColor', 'backColor', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'insertUnorderedList', 'insertOrderedList', 'indent', 'outdent', 'createLink', 'unlink', 'insertImage', 'insertFile', 'tableWizard', 'createTable', 'addColumnLeft', 'addColumnRight', 'addRowAbove', 'addRowBelow', 'deleteRow', 'deleteColumn', 'formatting', 'cleanFormatting', 'insertHtml', 'viewHtml', 'print', 'pdf']"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 h-100 overflow-hidden">
+            <div class="card h-100 mx-n3 ml-lg-0">
+                <h5 class="card-header">结果区域</h5>
+                <div class="card-body h-100 overflow-auto">
+                    <pre>
+{
+    "id": "<code class="theme-m" data-bind='text: id'></code>",
+    "userName": "<code class="theme-m" data-bind='text: userName'></code>",
+    "realName": "<code class="theme-m" data-bind='text: realName'></code>",
+    "nickName": "<code class="theme-m" data-bind='text: nickName'></code>",
+    "password": "<code class="theme-m" data-bind='text: password'></code>",
+    "confirmPassword": "<code class="theme-m" data-bind='text: confirmPassword'></code>",
+    "online": <code class="theme-m" data-bind='text: online'></code>,
+    "gender": "<code class="theme-m" data-bind='text: gender'></code>",
+    "age": <code class="theme-m" data-bind='text: age'></code>,
+    "height": <code class="theme-m" data-bind='text: height'></code>,
+    "bloodType": "<code class="theme-m" data-bind='text: bloodType'></code>",
+    "birthday": "<code class="theme-m" data-bind='text: birthdayParse'></code>",
+    "mateBirthday": "<code class="theme-m" data-bind='text: mateBirthdayParse'></code>",
+    "creditCard": "<code class="theme-m" data-bind='text: creditCardParse'></code>",
+    "asset": <code class="theme-m" data-bind='text: asset'></code>,
+    "nativePlace": {
+        "province": "<code class="theme-m" data-bind='text: nativePlace.province'></code>",
+        "provinceName": "<code class="theme-m" data-bind='text: nativePlace.provinceName'></code>",
+        "city": "<code class="theme-m" data-bind='text: nativePlace.city'></code>",
+        "cityName": "<code class="theme-m" data-bind='text: nativePlace.cityName'></code>",
+        "area": "<code class="theme-m" data-bind='text: nativePlace.area'></code>",
+        "areaName": "<code class="theme-m" data-bind='text: nativePlace.areaName'></code>"
+    },
+    "domicile": <code class="theme-m" data-bind='text: domicileParse'></code>,
+    "nation": <code class="theme-m" data-bind='text: nationParse'></code>,
+    "zodiac": <code class="theme-m" data-bind='text: zodiacParse'></code>,
+    "language": "<code class="theme-m" data-bind='text: languageParse'></code>",
+    "education": <code class="theme-m" data-bind='text: educationParse'></code>,
+    "graduation": "<code class="theme-m" data-bind='text: graduationParse'></code>",
+    "firstJob": "<code class="theme-m" data-bind='text: firstJobParse'></code>",
+    "mobile": "<code class="theme-m" data-bind='text: mobile'></code>",
+    "email": "<code class="theme-m" data-bind='text: email'></code>",
+    "homepage": "<code class="theme-m" data-bind='text: homepage'></code>",
+    "getUp": "<code class="theme-m" data-bind='text: getUpParse'></code>",
+    "importantMoment": "<code class="theme-m" data-bind='text: importantMomentParse'></code>",
+    "character": <code class="theme-m" data-bind='text: character'></code>,
+    "color": "<code class="theme-m" data-bind='text: color'></code>",
+    "constellation": <code class="theme-m" data-bind='text: constellationParse'></code>,
+    "tourism": <code class="theme-m" data-bind='text: tourismParse'></code>,
+    "summary": "<code class="theme-m" data-bind='text: summary'></code>",
+    "photo": <code class="theme-m" data-bind='text: photoParse'></code>,
+    "sign": "<code class="theme-m" data-bind='text: sign'></code>"
+}                   </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        @media only screen and (max-width: 991px) {
+            .position-absolute {
+                position: relative !important;
+            }
+        }
+    </style>
+</script>

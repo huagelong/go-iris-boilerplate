@@ -1,0 +1,619 @@
+<script id="list_layoutTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-9 mb-3 mb-lg-0">
+            <div class="card">
+                <h5 class="card-header">条件搜索</h5>
+                <div class="card-body">
+                    <form class="condition">
+                        <div class="form-group row justify-content-lg-center mb-lg-4">
+                            <label class="col-form-label text-lg-right col-lg-2 k-label-lg">搜索：</label>
+                            <div class="col-lg-4">
+                                <span class="k-textbox k-textbox-lg k-space-left w-100"><input id="searchKeywords" name="keywords" type="text" placeholder="请输入关键字并回车……"><a class="k-icon k-i-search k-required" href="javascript:;"></a></span>
+                            </div>
+                            <div class="col-lg-2 text-center text-lg-left">
+                                <button class="k-button k-button-lg k-state-selected mt-3 mt-lg-0" id="searchBtn" type="button" onclick="conditionSearch();">模糊搜索</button>
+                            </div>
+                        </div>
+                        <div class="adv-search-area">
+                            <div class="form-row">
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">姓名：</label>
+                                    <input class="k-textbox w-100" name="realName" type="text" placeholder="文本框">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">性别：</label>
+                                    <input class="k-radio" id="gender1" name="gender" type="radio" value="1"><label class="k-radio-label" for="gender1">男</label>
+                                    <input class="k-radio" id="gender2" name="gender" type="radio" value="2"><label class="k-radio-label" for="gender2">女</label>
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">年龄：</label>
+                                    <input class="w-100" id="ageStart" name="ageStart" type="number" placeholder="数字框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="ageEnd" name="ageEnd" type="number" placeholder="数字框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">身高：</label>
+                                    <input class="w-100" id="heightStart" name="heightStart" type="number" placeholder="小数单位数字框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="heightEnd" name="heightEnd" type="number" placeholder="小数单位数字框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">血型：</label>
+                                    <select class="w-100" id="bloodType" name="bloodType">
+                                        <option value="">单选下拉框</option>
+                                        <option value="1">A 型</option>
+                                        <option value="2">B 型</option>
+                                        <option value="3">O 型</option>
+                                        <option value="4">AB 型</option>
+                                        <option value="5">其他</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">生日：</label>
+                                    <input class="w-100" id="birthdayStart" name="birthdayStart" type="date" placeholder="日期框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="birthdayEnd" name="birthdayEnd" type="date" placeholder="日期框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">配偶生日：</label>
+                                    <input class="w-100" id="mateBirthdayStart" name="mateBirthdayStart" type="date" placeholder="日期时间掩码框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="mateBirthdayEnd" name="mateBirthdayEnd" type="date" placeholder="日期时间掩码框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">银行卡：</label>
+                                    <input class="w-100" id="creditCard" name="creditCard" type="text" placeholder="掩码框">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">资产：</label>
+                                    <input class="w-100" id="assetStart" name="assetStart" type="number" placeholder="金融数字框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="assetEnd" name="assetEnd" type="number" placeholder="金融数字框结束">
+                                </div>
+                                <div class="form-group col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">籍贯：</label>
+                                    <select class="w-100" id="province" name="province"></select>
+                                </div>
+                                <div class="form-group col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">&nbsp;</label>
+                                    <select class="w-100" id="city" name="city"></select>
+                                </div>
+                                <div class="form-group col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">&nbsp;</label>
+                                    <select class="w-100" id="area" name="area"></select>
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">居住地：</label>
+                                    <input class="w-100" id="domicile" name="domicile" type="text">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">民族：</label>
+                                    <input class="w-100" id="nation" name="nation" type="text" placeholder="输入下拉框">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">生肖：</label>
+                                    <input class="w-100" id="zodiac" name="zodiac" type="text" placeholder="表格下拉框">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">语言：</label>
+                                    <input class="w-100" id="language" name="language" type="text" placeholder="自动完成框">
+                                </div>
+                                <div class="form-group col-lg-9 col-xl-6">
+                                    <label class="d-block">教育程度：</label>
+                                    <input class="k-checkbox" id="education1" name="education" type="checkbox" value="1"><label class="k-checkbox-label" for="education1">小学</label>
+                                    <input class="k-checkbox" id="education2" name="education" type="checkbox" value="2"><label class="k-checkbox-label" for="education2">初中</label>
+                                    <input class="k-checkbox" id="education3" name="education" type="checkbox" value="3"><label class="k-checkbox-label" for="education3">高中</label>
+                                    <input class="k-checkbox" id="education4" name="education" type="checkbox" value="4"><label class="k-checkbox-label" for="education4">中专</label>
+                                    <input class="k-checkbox" id="education5" name="education" type="checkbox" value="5"><label class="k-checkbox-label" for="education5">大专</label>
+                                    <input class="k-checkbox" id="education6" name="education" type="checkbox" value="6"><label class="k-checkbox-label" for="education6">本科</label>
+                                    <input class="k-checkbox" id="education7" name="education" type="checkbox" value="7"><label class="k-checkbox-label" for="education7">硕士</label>
+                                    <input class="k-checkbox" id="education8" name="education" type="checkbox" value="8"><label class="k-checkbox-label" for="education8">博士</label>
+                                    <input class="k-checkbox" id="education9" name="education" type="checkbox" value="9"><label class="k-checkbox-label" for="education9">其他</label>
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">毕业年份：</label>
+                                    <input class="w-100" id="graduationStart" name="graduationStart" placeholder="年份框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="graduationEnd" name="graduationEnd" placeholder="年份框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">参加工作年月：</label>
+                                    <input class="w-100" id="firstJobStart" name="firstJobStart" type="month" placeholder="月份框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="firstJobEnd" name="firstJobEnd" type="month" placeholder="月份框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">手机：</label>
+                                    <input class="k-textbox w-100" name="mobile" type="tel" placeholder="手机框">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">电子邮件：</label>
+                                    <input class="k-textbox w-100" name="email" type="email" placeholder="电子邮件框">
+                                </div>
+                                <div class="form-group col-lg-6 col-xl-4">
+                                    <label class="d-block">个人主页：</label>
+                                    <input class="k-textbox w-100" name="homepage" type="url" placeholder="网址框">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">起床时间：</label>
+                                    <input class="w-100" id="getUpStart" name="getUpStart" type="time" placeholder="时间框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="getUpEnd" name="getUpEnd" type="time" placeholder="时间框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">最有意义的时刻：</label>
+                                    <input class="w-100" id="importantMomentStart" name="importantMomentStart" type="datetime" placeholder="日期时间框起始">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-none d-md-block">至</label>
+                                    <input class="w-100" id="importantMomentEnd" name="importantMomentEnd" type="datetime" placeholder="日期时间框结束">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">性格：</label>
+                                    <input id="character" name="character" type="range" value="0">
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">颜色喜好：</label>
+                                    <input id="color" name="color">
+                                </div>
+                                <div class="form-group col-lg-6 col-xl-4">
+                                    <label class="d-block">相配的星座：</label>
+                                    <select class="w-100" id="constellation" name="constellation" multiple>
+                                        <option value="1">白羊座</option>
+                                        <option value="2">金牛座</option>
+                                        <option value="3">双子座</option>
+                                        <option value="4">巨蟹座</option>
+                                        <option value="5">狮子座</option>
+                                        <option value="6">处女座</option>
+                                        <option value="7">天秤座</option>
+                                        <option value="8">天蝎座</option>
+                                        <option value="9">射手座</option>
+                                        <option value="10">山羊座</option>
+                                        <option value="11">水瓶座</option>
+                                        <option value="12">双鱼座</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-6 col-xl-4">
+                                    <label class="d-block">旅游足迹：</label>
+                                    <select class="w-100" id="tourism" name="tourism" multiple></select>
+                                </div>
+                                <div class="form-group col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                                    <label class="d-block">是否在线：</label>
+                                    <input id="online" name="online" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-center mb-3">
+                                <button class="k-button k-button-lg k-state-selected mx-3" id="advSearchBtn" type="button" onclick="conditionSearch();">精确搜索</button>
+                                <button class="k-button k-button-lg mx-3" type="reset">重 置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="adv-search-btn">
+                <button class="k-button" type="button" onclick="advSearch(this);"><i class='fas fa-angle-double-down'></i>高级搜索</button>
+            </div>
+            <div class="card">
+                <h5 class="card-header">列表展示</h5>
+                <div class="card-body">
+                    <div id="toolbar"></div>
+                    <div class="border-top-0 border-bottom-0" id="listView"></div>
+                    <div id="pager"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card mb-3">
+                <h5 class="card-header">文本条状<small><a class="k-link float-right mt-1" href="javascript:;">更多<span class="fas fa-angle-double-right ml-1"></span></a></small></h5>
+                <div class="card-body p-0">
+                    <div class="border-0" id="textView"></div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h5 class="card-header">图片块状<small><a class="k-link float-right mt-1" href="javascript:;">更多<span class="fas fa-angle-double-right ml-1"></span></a></small></h5>
+                <div class="card-body pb-2">
+                    <div class="row d-flex border-0" id="pictureView"></div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h5 class="card-header">图文混排条状<small><a class="k-link float-right mt-1" href="javascript:;">更多<span class="fas fa-angle-double-right ml-1"></span></a></small></h5>
+                <div class="card-body p-0">
+                    <div class="border-0" id="stripView"></div>
+                </div>
+            </div>
+            <div class="card">
+                <h5 class="card-header">图文混排块状<small><a class="k-link float-right mt-1" href="javascript:;">更多<span class="fas fa-angle-double-right ml-1"></span></a></small></h5>
+                <div class="card-body pb-2">
+                    <div class="row d-flex border-0" id="blockView"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="listTemplate" type="text/x-kendo-template">
+        <div class="listItem card rounded-0">
+            <div class="row no-gutters">
+                <div class="col-md-2 border-right d-none d-md-block">
+                    <div class="card-body text-center p-2">
+                        <a href="javascript:;"><img class="img-thumbnail mb-1" src="#= photo.url #" alt="[#= kendo.toString(photo.size / 1024, '0.00') # KB]" title="#= id #：#= photo.name ##= photo.extension #"></a>
+                        <p class="mb-2">
+                            <strong>#= userName #</strong>
+                            <br>
+                            # if (online) { #
+                                <span class="dot-color k-notification-success"></span><span class="k-notification-success bg-transparent ml-2">在线</span>
+                            # } else { #
+                                <span class="dot-color k-notification-error"></span><span class="k-notification-error bg-transparent ml-2">离线</span>
+                            # } #
+                        </p>
+                        <p class="text-muted mb-3"><small>#= summary #</small></p>
+                        <small class="text-left">
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">年龄：</dt>
+                                <dd class="text-black-50">#= age # 岁</dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">身高：</dt>
+                                <dd class="text-black-50">#= kendo.toString(height, '0.00') # m</dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">血型：</dt>
+                                <dd class="text-black-50">
+                                # if (bloodType === '1') { #
+                                    A 型
+                                # } else if (bloodType === '2') { #
+                                    B 型
+                                # } else if (bloodType === '3') { #
+                                    O 型
+                                # } else if (bloodType === '4') { #
+                                    AB 型
+                                # } else if (bloodType === '5') { #
+                                    其他
+                                # } #
+                                </dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">生日：</dt>
+                                <dd class="text-black-50">#= birthday #</dd>
+                            </dl>
+                            <dl class="d-flex mb-0">
+                                <dt class="font-weight-bold text-nowrap">生肖：</dt>
+                                <dd class="text-black-50">#= zodiac.zodiacName #</dd>
+                            </dl>
+                        </small>
+                    </div>
+                </div>
+                <div class="w-100 border-bottom d-block d-md-none">
+                    <div class="card-body text-center p-2">
+                        <a href="javascript:;"><img class="img-thumbnail mb-1" src="#= photo.url #" alt="[#= kendo.toString(photo.size / 1024, '0.00') # KB]" title="#= id #：#= photo.name ##= photo.extension #"></a>
+                        <p class="mb-2">
+                            <strong class="mr-3">#= userName #</strong>
+                            # if (online) { #
+                                <span class="dot-color k-notification-success"></span><span class="k-notification-success bg-transparent ml-2">在线</span>
+                            # } else { #
+                                <span class="dot-color k-notification-error"></span><span class="k-notification-error bg-transparent ml-2">离线</span>
+                            # } #
+                        </p>
+                        <p class="text-muted mb-3"><small>#= summary #</small></p>
+                        <small>
+                            <dl class="d-flex justify-content-center mb-0">
+                                <dt class="font-weight-bold text-nowrap">年龄：</dt>
+                                <dd class="text-black-50">#= age # 岁</dd>
+                                <dt class="font-weight-bold text-nowrap ml-3">身高：</dt>
+                                <dd class="text-black-50 mr-3">#= kendo.toString(height, '0.00') # m</dd>
+                                <dt class="font-weight-bold text-nowrap">血型：</dt>
+                                <dd class="text-black-50">
+                                    # if (bloodType === '1') { #
+                                        A 型
+                                    # } else if (bloodType === '2') { #
+                                        B 型
+                                    # } else if (bloodType === '3') { #
+                                        O 型
+                                    # } else if (bloodType === '4') { #
+                                        AB 型
+                                    # } else if (bloodType === '5') { #
+                                        其他
+                                    # } #
+                                </dd>
+                            </dl>
+                            <dl class="d-flex justify-content-center mb-0">
+                                <dt class="font-weight-bold text-nowrap">生日：</dt>
+                                <dd class="text-black-50">#= birthday #</dd>
+                                <dt class="font-weight-bold text-nowrap ml-3">生肖：</dt>
+                                <dd class="text-black-50">#= zodiac.zodiacName #</dd>
+                            </dl>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="card h-100 border-0 rounded-0 bg-transparent">
+                        <div class="card-header d-flex align-items-center p-2">
+                            <h5 class="mx-1 mb-0">
+                            # if (gender === '1') { #
+                                <i class="fas fa-mars mars"></i>
+                            # } else if (gender === '2') { #
+                                <i class="fas fa-venus venus"></i>
+                            # } #
+                            </h5>
+                            <h4 class="mx-1 mb-0 font-weight-bold text-dark"><a class="k-link theme-m" href="javascript:;">#= realName #</a></h4>
+                            <small class="mx-1 text-black-50">[#= nickName #]</small>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>配偶生日：</strong>
+                                    #= mateBirthday #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>银行卡：</strong>
+                                    #= creditCard.replace(creditCard.substr(2, 12), '** **** **** **') #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>资产：</strong>
+                                    #= kendo.toString(asset, 'c') #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>籍贯：</strong>
+                                    #= nativePlace.provinceName # - #= nativePlace.cityName # - #= nativePlace.areaName #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>居住地：</strong>
+                                    #= domicile.name #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>民族：</strong>
+                                    #= nation.nationName #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>语言：</strong>
+                                    #= language #
+                                </p>
+                                <p class="col-md-6 col-xl-8">
+                                    <strong>教育程度：</strong>
+                                    # for (var i = 0; i < education.length; i++) { #
+                                        # if (education[i] === '1') { #
+                                            小学&nbsp;
+                                        # } else if (education[i] === '2') { #
+                                            初中&nbsp;
+                                        # } else if (education[i] === '3') { #
+                                            高中&nbsp;
+                                        # } else if (education[i] === '4') { #
+                                            中专&nbsp;
+                                        # } else if (education[i] === '5') { #
+                                            大专&nbsp;
+                                        # } else if (education[i] === '6') { #
+                                            本科&nbsp;
+                                        # } else if (education[i] === '7') { #
+                                            硕士&nbsp;
+                                        # } else if (education[i] === '8') { #
+                                            博士&nbsp;
+                                        # } else if (education[i] === '9') { #
+                                            其他&nbsp;
+                                        # } #
+                                    # } #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>毕业年份：</strong>
+                                    #= graduation #
+                                </p>
+                                <p class="col-md-6 col-xl-8">
+                                    <strong>参加工作年月：</strong>
+                                    #= firstJob #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>手机：</strong>
+                                    #= mobile #
+                                </p>
+                                <p class="col-md-6 col-xl-8">
+                                    <strong>电子邮件：</strong>
+                                    #= email #
+                                </p>
+                                <p class="col-md-12 col-xl-12">
+                                    <strong>个人主页：</strong>
+                                    #= homepage #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>起床时间：</strong>
+                                    #= getUp #
+                                </p>
+                                <p class="col-md-6 col-xl-8">
+                                    <strong>最有意义的时刻：</strong>
+                                    #= importantMoment #
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>性格：</strong>
+                                    # if (character === 10) { #
+                                        超级开朗
+                                    # } else if (character === 8) { #
+                                        非常开朗
+                                    # } else if (character === 6) { #
+                                        很开朗
+                                    # } else if (character === 4) { #
+                                        比较开朗
+                                    # } else if (character === 2) { #
+                                        有点开朗
+                                    # } else if (character === 0) { #
+                                        普通
+                                    # } else if (character === -2) { #
+                                        有点内向
+                                    # } else if (character === -4) { #
+                                        比较内向
+                                    # } else if (character === -6) { #
+                                        很内向
+                                    # } else if (character === -8) { #
+                                        非常内向
+                                    # } else if (character === -10) { #
+                                        超级内向
+                                    # } #
+                                </p>
+                                <p class="col-md-6 col-xl-8">
+                                    <strong>颜色喜好：</strong>
+                                    <span style="display: inline-block; width: 60%; height: 24px; background: #= color #; border: 1px solid \#c5c5c5; border-radius: 4px; vertical-align: middle;"></span>
+                                </p>
+                                <p class="col-md-6 col-xl-4">
+                                    <strong>相配的星座：</strong>
+                                    # for (var i = 0; i < constellation.length; i++) { #
+                                        # if (constellation[i] === "1") { #
+                                            白羊座&nbsp;
+                                        # } else if (constellation[i] === "2") { #
+                                            金牛座&nbsp;
+                                        # } else if (constellation[i] === "3") { #
+                                            双子座&nbsp;
+                                        # } else if (constellation[i] === "4") { #
+                                            巨蟹座&nbsp;
+                                        # } else if (constellation[i] === "5") { #
+                                            狮子座&nbsp;
+                                        # } else if (constellation[i] === "6") { #
+                                            处女座&nbsp;
+                                        # } else if (constellation[i] === "7") { #
+                                            天秤座&nbsp;
+                                        # } else if (constellation[i] === "8") { #
+                                            天蝎座&nbsp;
+                                        # } else if (constellation[i] === "9") { #
+                                            射手座&nbsp;
+                                        # } else if (constellation[i] === "10") { #
+                                            山羊座&nbsp;
+                                        # } else if (constellation[i] === "11") { #
+                                            水瓶座&nbsp;
+                                        # } else if (constellation[i] === "12") { #
+                                            双鱼座&nbsp;
+                                        # } #
+                                    # } #
+                                </p>
+                                <p class="col-md-6 col-xl-8">
+                                    <strong>旅游足迹：</strong>
+                                    # for (var i = 0; i < tourism.length; i++) { #
+                                        #= tourism[i].name #&nbsp;
+                                    # } #
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-footer">#= sign #</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="textTemplate" type="text/x-kendo-template">
+        <div class="p-3">
+            # if (online) { #
+                <span class="dot-color k-notification-success"></span><span class="k-notification-success bg-transparent ml-2">在线</span>
+            # } else { #
+                <span class="dot-color k-notification-error"></span><span class="k-notification-error bg-transparent ml-2">离线</span>
+            # } #
+            <a class="k-link font-weight-bold theme-m mx-2" href="javascript:;">#= realName #</a>
+            <div class="w-100 d-none d-lg-block d-xl-none"></div>
+            <small class="text-black-50">[#= nickName #]</small>
+            # if (gender === '1') { #
+                <i class="fas fa-mars mars ml-2"></i>
+            # } else if (gender === '2') { #
+                <i class="fas fa-venus venus ml-2"></i>
+            # } #
+        </div>
+    </script>
+    <script id="pictureTemplate" type="text/x-kendo-template">
+        <figure class="col-4 col-md-3 col-lg-6 col-xl-4">
+            <a href="javascript:;"><img class="img-thumbnail" src="#= photo.url #" alt="#= nickName #" title="#= realName #"></a>
+        </figure>
+    </script>
+    <script id="stripTemplate" type="text/x-kendo-template">
+        <div class="media p-3">
+            <a class="w-30" href="javascript:;"><img class="img-thumbnail" src="#= photo.url #" alt="#= nickName #" title="#= realName #"></a>
+            <div class="media-body ml-3">
+                <h5 class="mt-2 mb-3">
+                    <a class="k-link font-weight-bold theme-m mr-2" href="javascript:;">#= realName #</a>
+                    <small class="text-black-50">[#= nickName #]</small>
+                    # if (gender === '1') { #
+                        <i class="fas fa-mars mars ml-2"></i>
+                    # } else if (gender === '2') { #
+                        <i class="fas fa-venus venus ml-2"></i>
+                    # } #
+                </h5>
+                <dl class="d-flex mb-0">
+                    <dt class="font-weight-bold text-nowrap">血型：</dt>
+                    <dd class="text-black-50">
+                        # if (bloodType === '1') { #
+                            A 型
+                        # } else if (bloodType === '2') { #
+                            B 型
+                        # } else if (bloodType === '3') { #
+                            O 型
+                        # } else if (bloodType === '4') { #
+                            AB 型
+                        # } else if (bloodType === '5') { #
+                            其他
+                        # } #
+                    </dd>
+                </dl>
+                <dl class="d-flex mb-0">
+                    <dt class="font-weight-bold text-nowrap">生日：</dt>
+                    <dd class="text-black-50">#= birthday #</dd>
+                </dl>
+                <dl class="d-flex mb-0">
+                    <dt class="font-weight-bold text-nowrap">生肖：</dt>
+                    <dd class="text-black-50">#= zodiac.zodiacName #</dd>
+                </dl>
+            </div>
+        </div>
+    </script>
+    <script id="blockTemplate" type="text/x-kendo-template">
+        <figure class="col-6 col-md-4 col-lg-12 col-xl-6 text-center">
+            <a href="javascript:;"><img class="img-thumbnail" src="#= photo.url #" alt="#= nickName #" title="#= realName #"></a>
+            <h5 class="my-2">
+                <a class="k-link font-weight-bold theme-m" href="javascript:;">#= realName #</a>
+                # if (gender === '1') { #
+                    <i class="fas fa-mars mars ml-1"></i>
+                # } else if (gender === '2') { #
+                    <i class="fas fa-venus venus ml-1"></i>
+                # } #
+            </h5>
+            <h6><small class="text-black-50">[#= nickName #]</small></h6>
+            <dl class="d-flex justify-content-center mb-0">
+                <dt class="font-weight-bold text-nowrap">年龄：</dt>
+                <dd class="text-black-50">#= age # 岁</dd>
+            </dl>
+            <dl class="d-flex justify-content-center mb-0">
+                <dt class="font-weight-bold text-nowrap">身高：</dt>
+                <dd class="text-black-50">#= kendo.toString(height, '0.00') # m</dd>
+            </dl>
+            <dl class="d-flex justify-content-center mb-0">
+                <dt class="font-weight-bold text-nowrap">血型：</dt>
+                <dd class="text-black-50">
+                    # if (bloodType === '1') { #
+                        A 型
+                    # } else if (bloodType === '2') { #
+                        B 型
+                    # } else if (bloodType === '3') { #
+                        O 型
+                    # } else if (bloodType === '4') { #
+                        AB 型
+                    # } else if (bloodType === '5') { #
+                        其他
+                    # } #
+                </dd>
+            </dl>
+            <dl class="d-flex justify-content-center mb-0">
+                <dt class="font-weight-bold text-nowrap">生日：</dt>
+                <dd class="text-black-50">#= birthday #</dd>
+            </dl>
+            <dl class="d-flex justify-content-center mb-0">
+                <dt class="font-weight-bold text-nowrap">生肖：</dt>
+                <dd class="text-black-50">#= zodiac.zodiacName #</dd>
+            </dl>
+        </figure>
+    </script>
+</script>

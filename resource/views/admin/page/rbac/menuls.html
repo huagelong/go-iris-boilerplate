@@ -1,3 +1,87 @@
 <script id="menulsTemp" type="text/x-kendo-template">
-
+    <div class="card position-absolute w-100 h-100">
+        <h5 class="card-header">树形展示</h5>
+        <div class="row no-gutters h-100 overflow-hidden">
+            <div class="col-xl-3 h-100 overflow-auto">
+                <div class="card-body">
+                    <div id="treeView"></div>
+                </div>
+            </div>
+            <div class="col-xl-9 h-100 overflow-auto k-alt">
+                <div class="card-body">
+                    <div id="treeDetail"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="editTemplate" type="text/x-kendo-template">
+        <div class="card">
+            <h6 class="card-header">
+                <span class="add hide">新增</span>
+                <span class="edit hide">编辑</span>
+                <button class="k-button k-button-icontext theme-m-box view" onclick="createTree();"><span class="k-icon k-i-add"></span>新增子节点</button>
+            </h6>
+            <div class="card-body">
+                <form>
+                    <div class="form-group row justify-content-lg-center">
+                        <label class="col-form-label text-lg-right col-lg-2"><span class="view edit">当前</span><span class="add hide">父</span>节点 ID：</label>
+                        <div class="col-lg-6">
+                            <div class="mt-1 view">#= id #</div>
+                            <input class="k-textbox w-100 add hide" name="parentId" type="text" value="#= id #" readonly>
+                            <input class="k-textbox w-100 edit hide" name="id" type="text" value="#= id #" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row justify-content-lg-center">
+                        <label class="col-form-label text-lg-right col-lg-2"><strong class="k-required add edit hide">*</strong>菜单名称：</label>
+                        <div class="col-lg-6">
+                            <div class="mt-1 view">#= text #</div>
+                            <input class="k-textbox w-100 add hide" name="text" type="text" required data-required-msg="请输入菜单名称！">
+                            <input class="k-textbox w-100 edit hide" name="text" type="text" value="#= text #" required data-required-msg="请输入菜单名称！">
+                            <span class="k-invalid-msg" data-for="text"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row justify-content-lg-center">
+                        <label class="col-form-label text-lg-right col-lg-2"><strong class="k-required add edit hide">*</strong>菜单地址：</label>
+                        <div class="col-lg-6">
+                            <div class="mt-1 view">#= text #</div>
+                            <input class="k-textbox w-100 add hide" name="text" type="text" required data-required-msg="请输入菜单地址！">
+                            <input class="k-textbox w-100 edit hide" name="text" type="text" value="#= text #" required data-required-msg="请输入菜单地址！">
+                            <span class="k-invalid-msg" data-for="text"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row justify-content-lg-center">
+                        <label class="col-form-label text-lg-right col-lg-2">样式：</label>
+                        <div class="col-lg-6">
+                            <div class="mt-1 view">#= spriteCssClass #</div>
+                            <input class="k-textbox w-100 add hide" name="spriteCssClass" type="text">
+                            <input class="k-textbox w-100 edit hide" name="spriteCssClass" type="text" value="#= spriteCssClass #">
+                        </div>
+                    </div>
+                    <div class="form-group row justify-content-lg-center">
+                        <label class="col-form-label text-lg-right col-lg-2"><strong class="k-required add edit hide">*</strong>排序：</label>
+                        <div class="col-lg-6">
+                            <div class="mt-1 view">#= text #</div>
+                            <input class="k-textbox w-100 add hide" name="text" type="number" required data-required-msg="请输入排序！">
+                            <input class="k-textbox w-100 edit hide" name="text" type="number" value="#= text #" required data-required-msg="请输入排序！">
+                            <span class="k-invalid-msg" data-for="text"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <button class="k-button k-button-icontext mx-3 k-state-selected view" onclick="updateTree();"><span class="k-icon k-i-edit"></span>编辑当前菜单</button>
+                <button class="k-button k-button-icontext mx-3 theme-s-box view" onclick="destroyTree('#= id #', '#= text #');"><span class="k-icon k-i-close"></span>删除当前菜单</button>
+                <button class="k-button k-button-icontext mx-3 k-state-selected add hide" onclick="saveCreateTree();"><span class="k-icon k-i-save"></span>保存</button>
+                <button class="k-button k-button-icontext mx-3 k-state-selected edit hide" onclick="saveUpdateTree();"><span class="k-icon k-i-check"></span>更新</button>
+                <button class="k-button k-button-icontext mx-3 theme-s-box add edit hide" onclick="cancelTree();"><span class="k-icon k-i-cancel"></span>取消</button>
+            </div>
+        </div>
+</script>
+<style scoped>
+    @media only screen and (max-width: 1199px) {
+        .position-absolute {
+            position: relative !important;
+        }
+    }
+</style>
 </script>

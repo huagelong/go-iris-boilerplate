@@ -1,0 +1,132 @@
+<script id="dialogTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-success" id="alertMsgSuccess" type="button">成功信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-success" id="confirmMsgSuccess" type="button">成功信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="alertMsgInfo" type="button">普通信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="confirmMsgInfo" type="button">普通信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="alertMsgQuestion" type="button">提问信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="confirmMsgQuestion" type="button">提问信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-warning" id="alertMsgWarning" type="button">警告信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-warning" id="confirmMsgWarning" type="button">警告信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-error" id="alertMsgError" type="button">错误信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-error" id="confirmMsgError" type="button">错误信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">对话框无按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-state-selected" id="alertMsgNoBtn" type="button">无按钮信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义对话框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-state-selected" id="customDialog" type="button">弹出信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+                <h5 class="card-header">Kendo UI 原生警告框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button theme-m-box" id="alertBtn" type="button">弹出信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+                <h5 class="card-header">Kendo UI 原生确认框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button theme-m-box" id="confirmBtn" type="button">弹出信息</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+                <h5 class="card-header">Kendo UI 原生提示框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button theme-m-box" id="promptBtn" type="button">弹出信息</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-dialog-button-layout-stretched .k-button.k-state-focused,
+        .k-dialog-button-layout-stretched .k-button:focus,
+        .k-dialog-button-layout-stretched .k-button.k-primary.k-state-focused,
+        .k-dialog-button-layout-stretched .k-button.k-primary:focus {
+            box-shadow: none;
+        }
+    </style>
+</script>

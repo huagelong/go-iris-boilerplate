@@ -1,0 +1,86 @@
+<script id="assign_listboxTemp" type="text/x-kendo-template">
+    <div class="card position-absolute w-100 h-100">
+        <h5 class="card-header">分配展示</h5>
+        <div class="row no-gutters h-100 overflow-hidden">
+            <div class="col-lg-6 h-100 overflow-auto">
+                <div class="card-body h-100 pr-lg-5">
+                    <select class="w-100" id="listboxFrom"></select>
+                </div>
+            </div>
+            <div class="col-lg-6 h-100 overflow-auto">
+                <div class="card-body h-100 pl-lg-3">
+                    <select class="w-100" id="listboxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button class="k-button k-button-icontext mx-2 k-state-selected" id="submitIdAssign"><span class="k-icon k-i-check"></span>提交 ID</button>
+            <button class="k-button k-button-icontext mx-2 theme-m-box" id="submitDataAssign"><span class="k-icon k-i-validation-data"></span>提交数据</button>
+            <button class="k-button k-button-icontext mx-2" id="refreshAssign"><span class="k-icon k-i-reset"></span>重置</button>
+        </div>
+    </div>
+    <script id="listboxTemplate" type="text/x-kendo-template">
+        <div class="media align-items-center p-1">
+            <img class="img-thumbnail" src="#= photo.url #" alt="#= nickName #" title="#= realName #">
+            <div class="media-body ml-4">
+                <h5 class="mb-3">
+                    <strong class="h4 font-weight-bold text-dark mr-2">#= realName #</strong>
+                    <small class="text-black-50">[#= nickName #]</small>
+                    # if (gender === '1') { #
+                        <i class="fas fa-mars mars ml-2"></i>
+                    # } else if (gender === '2') { #
+                        <i class="fas fa-venus venus ml-2"></i>
+                    # } #
+                </h5>
+                <p class="mb-2">
+                    # if (online) { #
+                        <span class="dot-color k-notification-success"></span><span class="k-notification-success bg-transparent ml-2">在线</span>
+                    # } else { #
+                        <span class="dot-color k-notification-error"></span><span class="k-notification-error bg-transparent ml-2">离线</span>
+                    # } #
+                </p>
+                <dl class="d-flex mb-0">
+                    <dt class="font-weight-bold text-nowrap">生日：</dt>
+                    <dd class="text-black-50">#= birthday #</dd>
+                </dl>
+                <dl class="d-flex mb-0">
+                    <dt class="font-weight-bold text-nowrap">生肖：</dt>
+                    <dd class="text-black-50">#= zodiac.zodiacName #</dd>
+                </dl>
+            </div>
+        </div>
+    </script>
+    <style scoped>
+        @media only screen and (min-width: 992px) {
+            .k-listbox {
+                min-height: 100%;
+            }
+            .k-listbox-toolbar {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -ms-flex-pack: center;
+                justify-content: center;
+                position: absolute;
+                right: 0;
+                height: calc(100% - 36px);
+            }
+        }
+        @media only screen and (max-width: 991px) {
+            .position-absolute {
+                position: relative !important;
+            }
+            .pr-lg-5 {
+                padding-bottom: 0;
+            }
+            .k-listbox-toolbar {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-pack: center;
+                justify-content: center;
+                margin-top: 18px !important;
+            }
+        }
+    </style>
+</script>

@@ -1,0 +1,132 @@
+<script id="windowTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-success" id="alertMsgSuccess" type="button">成功窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-success" id="confirmMsgSuccess" type="button">成功窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="alertMsgInfo" type="button">普通窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="confirmMsgInfo" type="button">普通窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="alertMsgQuestion" type="button">提问窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-info" id="confirmMsgQuestion" type="button">提问窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-warning" id="alertMsgWarning" type="button">警告窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-warning" id="confirmMsgWarning" type="button">警告窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">警告框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-error" id="alertMsgError" type="button">错误窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">确认框小按钮</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-notification-error" id="confirmMsgError" type="button">错误窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">弹出层</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-state-selected" id="divWindow" type="button">弹出 DIV 层</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">弹出页</h5>
+                <div class="card-body text-center">
+                    <button class="k-button k-state-selected" id="iframeWindow" type="button">弹出 iFrame 页</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义模态框</h5>
+                <div class="card-body text-center">
+                    <button class="k-button theme-m-box" id="customWindow" type="button">弹出窗口</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+                <h5 class="card-header">大图预览</h5>
+                <div class="card-body text-center">
+                    <img class="w-100 h-100" id="showBigPic" src="img/lock_bg.jpg" alt="小图">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-3">
+                <h5 class="card-header">限制范围</h5>
+                <div class="card-body text-center">
+                    <button class="k-button theme-m-box" id="rangeWindow" type="button">弹出窗口</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="window" type="text/x-kendo-template">
+        <div class="d-flex justify-content-center align-items-center w-100 h-100">这里是弹出层的内容~</div>
+    </script>
+    <style scoped>
+        #showBigPic {
+            cursor: pointer;
+        }
+    </style>
+</script>

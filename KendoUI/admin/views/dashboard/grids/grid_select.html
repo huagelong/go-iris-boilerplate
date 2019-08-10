@@ -1,0 +1,34 @@
+<script id="grid_selectTemp" type="text/x-kendo-template">
+    <div class="card mb-3">
+        <h5 class="card-header">条件搜索</h5>
+        <div class="card-body">
+            <form class="condition">
+                <div class="form-group row justify-content-lg-center mb-lg-4">
+                    <label class="col-form-label text-lg-right col-lg-2 k-label-lg">搜索：</label>
+                    <div class="col-lg-4">
+                        <span class="k-textbox k-textbox-lg k-space-left w-100"><input id="searchKeywords" name="keywords" type="text" placeholder="请输入关键字并回车……"><a class="k-icon k-i-search k-required" href="javascript:;"></a></span>
+                    </div>
+                    <div class="col-lg-2 text-center text-lg-left">
+                        <button class="k-button k-button-lg k-state-selected mt-3 mt-lg-0" id="searchBtn" type="button" onclick="conditionSearch();">模糊搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <h5 class="card-header">表格展示</h5>
+        <div class="card-body">
+            <div id="grid"></div>
+        </div>
+    </div>
+    <!-- 临时修复 Kendo UI 自定义表格复选框无法选中的 BUG -->
+    <style scoped>
+        .ids {
+            z-index: 1;
+            width: 16px;
+            height: 16px;
+            clip: auto;
+            pointer-events: auto;
+        }
+    </style>
+</script>

@@ -1,0 +1,89 @@
+<script id="calendarTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">普通日历</h5>
+                <div class="card-body">
+                    <div id="generalCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">星期日历</h5>
+                <div class="card-body">
+                    <div id="weekCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">月份日历</h5>
+                <div class="card-body">
+                    <div id="monthCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">年份日历</h5>
+                <div class="card-body">
+                    <div id="yearCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">世纪日历</h5>
+                <div class="card-body">
+                    <div id="centuryCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xl-3">
+            <div class="card mb-3">
+                <h5 class="card-header">节假日日历</h5>
+                <div class="card-body">
+                    <div id="holidayCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">农历日历</h5>
+                <div class="card-body">
+                    <div id="lunarCalendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-calendar .fa-star {
+            color: #f35800;
+        }
+        .festival {
+            border-color: #f35800;
+            background-color: #fff;
+            color: #f35800;
+        }
+        .k-calendar,
+        .k-calendar .k-calendar-view,
+        .k-calendar.k-week-number .k-calendar-view,
+        .k-calendar .k-calendar-view > table,
+        .k-calendar .k-calendar-view .k-link {
+            width: 100%;
+        }
+        #lunarCalendar .k-calendar-view {
+            height: 24em;
+        }
+        .k-calendar .k-calendar-view > table,
+        #lunarCalendar .k-calendar-view .k-link {
+            height: 100%;
+        }
+        #lunarCalendar .k-calendar-view .k-century .k-link {
+            font-size: 12px;
+            text-align: center;
+            white-space: nowrap;
+        }
+    </style>
+</script>

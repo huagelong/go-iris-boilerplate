@@ -1,0 +1,35 @@
+<script id="assign_treeTemp" type="text/x-kendo-template">
+    <div class="card position-absolute w-100 h-100">
+        <h5 class="card-header">分配展示</h5>
+        <div class="row no-gutters h-100 overflow-hidden">
+            <div class="col-lg-5 h-100 overflow-auto">
+                <div class="card-body h-100">
+                    <p><span class="k-textbox k-space-left w-100"><input name="keywords" type="text" placeholder="关键字搜索"><a class="k-icon k-i-search k-required ml-1" href="javascript:;"></a></span></p>
+                    <div class="mb-lg-3" id="treeFrom"></div>
+                </div>
+            </div>
+            <div class="col-lg-2 h-100 d-flex flex-row flex-lg-column justify-content-center k-alt">
+                <button class="k-button k-button-icontext m-3" id="addNodes"><span class="k-icon k-i-add"></span>添加</button>
+                <button class="k-button k-button-icontext m-3" id="delNodes"><span class="k-icon k-i-x"></span>删除</button>
+            </div>
+            <div class="col-lg-5 h-100 overflow-auto">
+                <div class="card-body h-100">
+                    <p><span class="k-textbox k-space-left w-100"><input name="keywords" type="text" placeholder="关键字搜索"><a class="k-icon k-i-search k-required ml-1" href="javascript:;"></a></span></p>
+                    <div class="mb-lg-3" id="treeTo"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button class="k-button k-button-icontext mx-2 k-state-selected" id="submitIdAssign"><span class="k-icon k-i-check"></span>提交 ID</button>
+            <button class="k-button k-button-icontext mx-2 theme-m-box" id="submitDataAssign"><span class="k-icon k-i-validation-data"></span>提交数据</button>
+            <button class="k-button k-button-icontext mx-2" id="refreshAssign"><span class="k-icon k-i-reset"></span>重置</button>
+        </div>
+    </div>
+    <style scoped>
+        @media only screen and (max-width: 991px) {
+            .position-absolute {
+                position: relative !important;
+            }
+        }
+    </style>
+</script>

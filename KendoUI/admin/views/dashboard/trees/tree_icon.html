@@ -1,0 +1,39 @@
+<script id="tree_iconTemp" type="text/x-kendo-template">
+    <div class="card position-absolute w-100 h-100">
+        <h5 class="card-header">树形展示</h5>
+        <div class="row no-gutters h-100 overflow-hidden">
+            <div class="col-xl-3 h-100 overflow-auto">
+                <div class="card-body">
+                    <div id="treeView"></div>
+                </div>
+            </div>
+            <div class="col-xl-9 h-100 overflow-auto k-alt">
+                <div class="card-body">
+                    <div id="treeDetail"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-treeview .k-in i {
+            margin-top: 2px;
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        .k-treeview .k-in small {
+            margin-left: 5px;
+            opacity: .6;
+        }
+        .k-treeview .k-in sub {
+            display: inline-block;
+            bottom: -1px;
+            margin-left: 6px;
+            border-radius: 4px;
+            padding: 2px 5px;
+            height: 16px;
+            font-family: "Microsoft YaHei", tahoma, sans-serif;
+            font-size: 12px;
+            line-height: 12px;
+        }
+    </style>
+</script>

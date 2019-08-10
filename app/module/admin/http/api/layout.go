@@ -20,6 +20,14 @@ func (c *Controller) PostMenujson() {
 	c.Ctx.WriteString(data)
 }
 
+func (c *Controller) PostMenutreejson() {
+	filename := "./resource/public/static/js/json/tree.json"
+	plan, _ := ioutil.ReadFile(filename)
+	data := string(plan[:])
+	c.Ctx.Header("Content-type", "application/json")
+	c.Ctx.WriteString(data)
+}
+
 func (c *Controller) PostHomejson() {
 	filename := "./resource/public/static/js/json/home.json"
 	plan, _ := ioutil.ReadFile(filename)
@@ -27,3 +35,5 @@ func (c *Controller) PostHomejson() {
 	c.Ctx.Header("Content-type", "application/json")
 	c.Ctx.WriteString(data)
 }
+
+

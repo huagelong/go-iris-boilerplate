@@ -1,0 +1,107 @@
+<script id="toolbarTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">按钮工具栏</h5>
+                <div class="card-body">
+                    <div id="buttonToolBar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">切换按钮工具栏</h5>
+                <div class="card-body">
+                    <div id="toggleToolBar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">单选按钮组工具栏</h5>
+                <div class="card-body">
+                    <div id="groupToolBar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">多选按钮组工具栏</h5>
+                <div class="card-body">
+                    <div id="buttonGroupToolBar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">菜单按钮工具栏</h5>
+                <div class="card-body">
+                    <div id="splitToolBar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">折叠工具栏及分隔线</h5>
+                <div class="card-body">
+                    <div id="overflowToolBar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义工具栏</h5>
+                <div class="card-body">
+                    <div id="customToolBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-toolbar > .k-button-group > .k-button,
+        .k-toolbar > .k-button:not(.k-overflow-anchor) {
+            border-color: #ccc !important;
+        }
+        .k-toolbar .k-button-group .k-button:first-child,
+        .k-toolbar .k-button-group .k-group-start {
+            border-radius: 4px 0 0 4px;
+        }
+        .k-toolbar .k-button-group .k-button:last-child,
+        .k-toolbar .k-button-group .k-group-end {
+            border-radius: 0 4px 4px 0;
+        }
+        .k-toolbar .fas,
+        .k-split-container .fas,
+        .k-overflow-container .fas {
+            width: 20px;
+            height: 16px;
+            font-family: "Font Awesome 5 Free";
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 16px;
+            text-align: center;
+        }
+        .k-toolbar .fab,
+        .k-split-container .fab,
+        .k-overflow-container .fab {
+            width: 20px;
+            height: 16px;
+            font-family: "Font Awesome 5 Brands";
+            font-size: 16px;
+            line-height: 16px;
+            text-align: center;
+        }
+        .k-toolbar .k-image,
+        .k-split-container .k-image,
+        .k-overflow-container .k-image {
+            margin-left: -2px;
+            margin-right: 6px;
+            width: 16px;
+            height: 16px;
+        }
+        #customToolBar .rounded-circle {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</script>

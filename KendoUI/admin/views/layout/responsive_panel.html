@@ -1,0 +1,45 @@
+<script id="responsive_panelTemp" type="text/x-kendo-template">
+    <button class="k-button" id="toggle"><span class="k-icon k-i-menu"></span></button>
+    <div class="row no-gutters">
+        <aside class="col-2" id="responsivePanel">
+            <nav id="navigation"></nav>
+        </aside>
+        <section class="col-8">
+            <div class="d-none d-xl-block p-5">请在宽度小于 <strong class="theme-m">1200px</strong> 的环境下查看~</div>
+        </section>
+    </div>
+    <style scoped>
+        #navigation .k-item i {
+            margin-right: 5px;
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            text-align: center;
+        }
+        #navigation .k-item small {
+            margin-left: 5px;
+            opacity: .6;
+        }
+        #navigation .k-item sub {
+            display: inline-block;
+            bottom: -1px;
+            margin-left: 6px;
+            border-radius: 4px;
+            padding: 2px 5px;
+            height: 16px;
+            font-family: "Microsoft YaHei", tahoma, sans-serif;
+            font-size: 12px;
+            line-height: 12px;
+        }
+        #navigation .k-group {
+            padding-left: 20px;
+            font-size: 12px;
+            line-height: 12px;
+        }
+        #navigation .k-group .k-link {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            cursor: pointer !important;
+        }
+    </style>
+</script>

@@ -1,0 +1,156 @@
+<script id="multiviewcalendarTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">普通多重日历</h5>
+                <div class="card-body">
+                    <div id="generalMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">星期多重日历</h5>
+                <div class="card-body">
+                    <div id="weekMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">月份多重日历</h5>
+                <div class="card-body">
+                    <div id="monthMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">年份多重日历</h5>
+                <div class="card-body">
+                    <div id="yearMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">世纪多重日历</h5>
+                <div class="card-body">
+                    <div id="centuryMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-3">
+                <h5 class="card-header">节假日多重日历</h5>
+                <div class="card-body">
+                    <div id="holidayMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">农历多重日历</h5>
+                <div class="card-body">
+                    <div id="lunarMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义多重日历</h5>
+                <div class="card-body">
+                    <div id="customMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">中国年历多重日历</h5>
+                <div class="card-body">
+                    <div id="chinaMultiViewCalendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .k-calendar .fa-star {
+            color: #f35800;
+        }
+        .festival {
+            border-color: #f35800;
+            background-color: #fff;
+            color: #f35800;
+        }
+        .k-calendar.k-calendar-range,
+        .k-calendar.k-calendar-range .k-calendar-view .k-link {
+            width: 100%;
+        }
+        .k-calendar.k-calendar-range .k-calendar-view {
+            height: 17em;
+        }
+        .k-calendar.k-calendar-range .k-month-header {
+            text-align: center;
+        }
+        #lunarMultiViewCalendar .k-calendar-view {
+            height: 24em;
+        }
+        .k-calendar.k-calendar-range .k-calendar-view > table,
+        #lunarMultiViewCalendar .k-calendar-view .k-link {
+            height: 100%;
+        }
+        #lunarMultiViewCalendar .k-calendar-view .k-century .k-link,
+        #chinaMultiViewCalendar .k-calendar-view .k-century .k-link {
+            font-size: 12px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        #chinaMultiViewCalendar .k-calendar-view {
+            flex-wrap: wrap;
+            height: 115em;
+            background: #eee;
+        }
+        #chinaMultiViewCalendar .k-calendar-view > table {
+            margin-left: 1em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 30%;
+            height: 25em;
+        }
+        #chinaMultiViewCalendar .k-calendar-view > table:nth-child(3n) {
+            margin-right: 1em;
+        }
+        #chinaMultiViewCalendar .k-calendar-view .k-link {
+            height: auto;
+        }
+        @media only screen and (max-width: 1023px) {
+            .k-calendar.k-calendar-range .k-calendar-view > table {
+                width: 100%;
+            }
+            #customMultiViewCalendar .k-calendar-view > table {
+                width: auto;
+            }
+            #chinaMultiViewCalendar .k-calendar-view {
+                height: 338em;
+            }
+            #chinaMultiViewCalendar .k-calendar-view > table {
+                margin-left: 1em;
+                margin-right: 1em;
+                width: 100%;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .k-calendar.k-calendar-range .k-calendar-view {
+                flex-wrap: wrap;
+                height: 34em;
+            }
+            #lunarMultiViewCalendar .k-calendar-view {
+                height: 48em;
+            }
+            .k-calendar.k-calendar-range .k-calendar-view > table {
+                height: 17em;
+            }
+        }
+    </style>
+</script>

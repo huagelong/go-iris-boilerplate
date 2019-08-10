@@ -1,0 +1,285 @@
+{
+    "result": "y",
+    "msg": "数据获取错误，请重试！",
+    "data": [
+        {
+            "id": "01",
+            "text": "圣域",
+            "spriteCssClass": "fas fa-university k-required",
+            "expanded": true,
+            "items": [
+                {
+                    "id": "0101",
+                    "text": "神",
+                    "spriteCssClass": "fas fa-user-tie k-required"
+                },
+                {
+                    "id": "0102",
+                    "text": "教皇",
+                    "spriteCssClass": "fas fa-user-graduate k-required"
+                },
+                {
+                    "id": "0103",
+                    "text": "黄金圣斗士",
+                    "spriteCssClass": "fas fa-user k-required",
+                    "expanded": true,
+                    "items": [
+                        {
+                            "id": "010301",
+                            "text": "白羊座-穆",
+                            "imageUrl": "img/temp/Aries.png",
+                            "url": "javascript:viewDetails(\"uid001\");",
+                            "checked": true
+                        },
+                        {
+                            "id": "010302",
+                            "text": "金牛座-阿鲁迪巴",
+                            "imageUrl": "img/temp/Taurus.png",
+                            "url": "javascript:viewDetails(\"uid002\");",
+                            "checked": true
+                        },
+                        {
+                            "id": "010303",
+                            "text": "双子座-撒加",
+                            "imageUrl": "img/temp/Gemini.png",
+                            "url": "javascript:viewDetails(\"uid003\");"
+                        },
+                        {
+                            "id": "010304",
+                            "text": "巨蟹座-迪斯马斯克",
+                            "imageUrl": "img/temp/Cancer.png",
+                            "url": "javascript:viewDetails(\"uid004\");"
+                        },
+                        {
+                            "id": "010305",
+                            "text": "狮子座-艾欧里亚",
+                            "imageUrl": "img/temp/Leo.png",
+                            "url": "javascript:viewDetails(\"uid005\");",
+                            "selected": true,
+                            "checked": true
+                        },
+                        {
+                            "id": "010306",
+                            "text": "处女座-沙加",
+                            "imageUrl": "img/temp/Virgo.png",
+                            "url": "javascript:viewDetails(\"uid006\");",
+                            "checked": true
+                        },
+                        {
+                            "id": "010307",
+                            "text": "天秤座-童虎",
+                            "imageUrl": "img/temp/Libra.png",
+                            "url": "javascript:viewDetails(\"uid007\");",
+                            "checked": true
+                        },
+                        {
+                            "id": "010308",
+                            "text": "天蝎座-米罗",
+                            "imageUrl": "img/temp/Scorpion.png",
+                            "url": "javascript:viewDetails(\"uid008\");",
+                            "checked": true
+                        },
+                        {
+                            "id": "010309",
+                            "text": "射手座-艾俄洛斯",
+                            "imageUrl": "img/temp/Sagittarius.png",
+                            "url": "javascript:viewDetails(\"uid009\");",
+                            "checked": true
+                        },
+                        {
+                            "id": "010310",
+                            "text": "山羊座-修罗",
+                            "imageUrl": "img/temp/Capricorn.png",
+                            "url": "javascript:viewDetails(\"uid010\");"
+                        },
+                        {
+                            "id": "010311",
+                            "text": "水瓶座-卡妙",
+                            "imageUrl": "img/temp/Aquarius.png",
+                            "url": "javascript:viewDetails(\"uid011\");"
+                        },
+                        {
+                            "id": "010312",
+                            "text": "双鱼座-阿布罗狄",
+                            "imageUrl": "img/temp/Picses.png",
+                            "url": "javascript:viewDetails(\"uid012\");"
+                        }
+                    ]
+                },
+                {
+                    "id": "0104",
+                    "text": "白银圣斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0105",
+                    "text": "青铜圣斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0106",
+                    "text": "暗黑圣斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0107",
+                    "text": "钢铁圣斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0108",
+                    "text": "圣斗士",
+                    "spriteCssClass": "fas fa-users k-required"
+                },
+                {
+                    "id": "0109",
+                    "text": "杂兵",
+                    "spriteCssClass": "fas fa-user-injured k-required"
+                }
+            ]
+        },
+        {
+            "id": "02",
+            "text": "仙宫",
+            "spriteCssClass": "fas fa-university k-required",
+            "items": [
+                {
+                    "id": "0201",
+                    "text": "神",
+                    "spriteCssClass": "fas fa-user-tie k-required"
+                },
+                {
+                    "id": "0202",
+                    "text": "人间代言人",
+                    "spriteCssClass": "fas fa-user-graduate k-required"
+                },
+                {
+                    "id": "0203",
+                    "text": "神斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0204",
+                    "text": "杂兵",
+                    "spriteCssClass": "fas fa-user-injured k-required"
+                }
+            ]
+        },
+        {
+            "id": "03",
+            "text": "海界",
+            "spriteCssClass": "fas fa-university k-required",
+            "items": [
+                {
+                    "id": "0301",
+                    "text": "神",
+                    "spriteCssClass": "fas fa-user-tie k-required"
+                },
+                {
+                    "id": "0302",
+                    "text": "海将军",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0303",
+                    "text": "海斗士",
+                    "spriteCssClass": "fas fa-users k-required"
+                },
+                {
+                    "id": "0304",
+                    "text": "杂兵",
+                    "spriteCssClass": "fas fa-user-injured k-required"
+                }
+            ]
+        },
+        {
+            "id": "04",
+            "text": "冥界",
+            "spriteCssClass": "fas fa-university k-required",
+            "items": [
+                {
+                    "id": "0401",
+                    "text": "神",
+                    "spriteCssClass": "fas fa-user-tie k-required"
+                },
+                {
+                    "id": "0402",
+                    "text": "指挥官",
+                    "spriteCssClass": "fas fa-user-graduate k-required"
+                },
+                {
+                    "id": "0403",
+                    "text": "三巨头",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0404",
+                    "text": "天罡冥斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0405",
+                    "text": "地煞冥斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0406",
+                    "text": "冥斗士",
+                    "spriteCssClass": "fas fa-users k-required"
+                },
+                {
+                    "id": "0407",
+                    "text": "杂兵",
+                    "spriteCssClass": "fas fa-user-injured k-required"
+                }
+            ]
+        },
+        {
+            "id": "05",
+            "text": "天界",
+            "spriteCssClass": "fas fa-university k-required",
+            "items": [
+                {
+                    "id": "0501",
+                    "text": "天神",
+                    "spriteCssClass": "fas fa-user-secret k-required"
+                },
+                {
+                    "id": "0502",
+                    "text": "众神",
+                    "spriteCssClass": "fas fa-user-tie k-required"
+                },
+                {
+                    "id": "0503",
+                    "text": "邪神",
+                    "spriteCssClass": "fas fa-user-tie k-required"
+                },
+                {
+                    "id": "0504",
+                    "text": "亡灵圣斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0505",
+                    "text": "日冕圣斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0506",
+                    "text": "圣魔天使",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0507",
+                    "text": "狂斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                },
+                {
+                    "id": "0508",
+                    "text": "天斗士",
+                    "spriteCssClass": "fas fa-user k-required"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,276 @@
+<script id="schedulerTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">普通日程表</h5>
+                <div class="card-body">
+                    <div class="row" id="saint">
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Aries"><img class="card-img-top" src="img/temp/Aries.png" alt="Mu"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #c39b8f;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Aries" type="checkbox" value="Aries" checked>
+                                        <label class="k-checkbox-label" for="Aries"><span>穆</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Taurus"><img class="card-img-top" src="img/temp/Taurus.png" alt="Aldebaran"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #d770ad;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Taurus" type="checkbox" value="Taurus" checked>
+                                        <label class="k-checkbox-label" for="Taurus"><span>阿鲁迪巴</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Gemini"><img class="card-img-top" src="img/temp/Gemini.png" alt="Saga"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #da4453;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Gemini" type="checkbox" value="Gemini" checked>
+                                        <label class="k-checkbox-label" for="Gemini"><span>撒加</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Cancer"><img class="card-img-top" src="img/temp/Cancer.png" alt="Death Mask"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #ff9800;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Cancer" type="checkbox" value="Cancer" checked>
+                                        <label class="k-checkbox-label" for="Cancer"><span>迪斯马斯克</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Leo"><img class="card-img-top" src="img/temp/Leo.png" alt="Aiolia"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #f6bb42;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Leo" type="checkbox" value="Leo" checked>
+                                        <label class="k-checkbox-label" for="Leo"><span>艾欧里亚</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Virgo"><img class="card-img-top" src="img/temp/Virgo.png" alt="Shaka"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #8cc152;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Virgo" type="checkbox" value="Virgo" checked>
+                                        <label class="k-checkbox-label" for="Virgo"><span>沙加</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Libra"><img class="card-img-top" src="img/temp/Libra.png" alt="Dohko"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #37bc9b;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Libra" type="checkbox" value="Libra" checked>
+                                        <label class="k-checkbox-label" for="Libra"><span>童虎</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Scorpion"><img class="card-img-top" src="img/temp/Scorpion.png" alt="Milo"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #3bafda;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Scorpion" type="checkbox" value="Scorpion" checked>
+                                        <label class="k-checkbox-label" for="Scorpion"><span>米罗</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Sagittarius"><img class="card-img-top" src="img/temp/Sagittarius.png" alt="Aiolos"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #4a89dc;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Sagittarius" type="checkbox" value="Sagittarius" checked>
+                                        <label class="k-checkbox-label" for="Sagittarius"><span>艾俄洛斯</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Capricorn"><img class="card-img-top" src="img/temp/Capricorn.png" alt="Shura"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #967adc;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Capricorn" type="checkbox" value="Capricorn" checked>
+                                        <label class="k-checkbox-label" for="Capricorn"><span>修罗</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Aquarius"><img class="card-img-top" src="img/temp/Aquarius.png" alt="Camus"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #434a54;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Aquarius" type="checkbox" value="Aquarius" checked>
+                                        <label class="k-checkbox-label" for="Aquarius"><span>卡妙</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Picses"><img class="card-img-top" src="img/temp/Picses.png" alt="Aphrodite"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #aab2bd;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Picses" type="checkbox" value="Picses" checked>
+                                        <label class="k-checkbox-label" for="Picses"><span>阿布罗狄</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Pegasus"><img class="card-img-top" src="img/temp/Pegasus.png" alt="SEIYA"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #007bff;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Pegasus" type="checkbox" value="Pegasus" checked>
+                                        <label class="k-checkbox-label" for="Pegasus"><span>星矢</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Dragon"><img class="card-img-top" src="img/temp/Dragon.png" alt="SHIRYU"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #28a745;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Dragon" type="checkbox" value="Dragon" checked>
+                                        <label class="k-checkbox-label" for="Dragon"><span>紫龙</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Cygnus"><img class="card-img-top" src="img/temp/Cygnus.png" alt="HYOGA"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #17a2b8;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Cygnus" type="checkbox" value="Cygnus" checked>
+                                        <label class="k-checkbox-label" for="Cygnus"><span>冰河</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Andromeda"><img class="card-img-top" src="img/temp/Andromeda.png" alt="SHUN"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #dc3545;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Andromeda" type="checkbox" value="Andromeda" checked>
+                                        <label class="k-checkbox-label" for="Andromeda"><span>瞬</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Phoenix"><img class="card-img-top" src="img/temp/Phoenix.png" alt="IKKI"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #ffc107;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Phoenix" type="checkbox" value="Phoenix" checked>
+                                        <label class="k-checkbox-label" for="Phoenix"><span>一辉</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 col-xl-1">
+                            <div class="card mb-3">
+                                <label class="mb-0" for="Goddess"><img class="card-img-top" src="img/temp/Goddess.png" alt="Athena"></label>
+                                <div class="card-body text-center text-white p-1" style="background: #6c757d;">
+                                    <p class="card-title mb-0">
+                                        <input class="k-checkbox" id="Goddess" type="checkbox" value="Goddess" checked>
+                                        <label class="k-checkbox-label" for="Goddess"><span>雅典娜</span></label>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="generalScheduler"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="editTemplate" type="text/x-kendo-template">
+        <div class="k-edit-form-container">
+            <div class="k-edit-label"><strong class="k-required">*</strong>事件标题</div>
+            <div class="k-edit-field">
+                <input class="k-textbox" name="title" type="text" required data-required-msg="请输入事件标题！">
+            </div>
+            <div class="k-edit-label">开始时间</div>
+            <div class="k-edit-field">
+                <input id="startEdit" name="start" type="datetime">
+            </div>
+            <div class="k-edit-label">结束时间</div>
+            <div class="k-edit-field">
+                <input id="endEdit" name="end" type="datetime">
+            </div>
+            <div class="k-edit-label">全天事件</div>
+            <div class="k-edit-field">
+                <input class="k-checkbox" id="isAllDayEdit" name="isAllDay" type="checkbox"><label class="k-checkbox-label" for="isAllDayEdit"></label>
+            </div>
+            <div class="k-edit-label">重复</div>
+            <div class="k-edit-field">
+                <select id="recurrenceRuleEdit" name="recurrenceRule"></select>
+            </div>
+            <div class="k-edit-label">描述</div>
+            <div class="k-edit-field">
+                <textarea class="k-textarea" name="description"></textarea>
+            </div>
+            <div class="k-edit-label">圣斗士</div>
+            <div class="k-edit-field">
+                <select id="ownerIdEdit" name="ownerId"></select>
+            </div>
+        </div>
+    </script>
+    <style scoped>
+        #saint img {
+            cursor: pointer;
+        }
+        #saint .k-checkbox-label {
+            line-height: 14px;
+        }
+        @media only screen and (min-width: 1200px) and (max-width: 1799px) {
+            #saint .k-checkbox-label {
+                padding-left: 16px;
+            }
+            #saint .k-checkbox-label span {
+                display: none;
+            }
+        }
+        #generalScheduler .img-s {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+        }
+        #generalScheduler .img-m {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+        }
+        .festival {
+            color: #f35800;
+        }
+    </style>
+</script>

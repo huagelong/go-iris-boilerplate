@@ -1,0 +1,118 @@
+<script id="listboxTemp" type="text/x-kendo-template">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">DOM 穿梭框</h5>
+                <div class="card-body">
+                    <select id="domListBoxFrom">
+                        <option value="Mu">穆</option>
+                        <option value="Aldebaran">阿鲁迪巴</option>
+                        <option value="Aiolia">艾欧里亚</option>
+                        <option value="Shaka">沙加</option>
+                        <option value="Dohko">童虎</option>
+                        <option value="Milo">米罗</option>
+                        <option value="Aiolos">艾俄洛斯</option>
+                    </select>
+                    <select id="domListBoxTo">
+                        <option value="Saga">撒加</option>
+                        <option value="Death Mask">迪斯马斯克</option>
+                        <option value="Shura">修罗</option>
+                        <option value="Camus">卡妙</option>
+                        <option value="Aphrodite">阿布罗狄</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">普通穿梭框</h5>
+                <div class="card-body">
+                    <select id="generalListBoxFrom"></select>
+                    <select id="generalListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">多选穿梭框</h5>
+                <div class="card-body">
+                    <select id="multiListBoxFrom" multiple></select>
+                    <select id="multiListBoxTo" multiple></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">拖放穿梭框</h5>
+                <div class="card-body">
+                    <select id="dragDropListBoxFrom"></select>
+                    <select id="dragDropListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">左侧工具栏穿梭框</h5>
+                <div class="card-body">
+                    <select id="leftListBoxFrom"></select>
+                    <select id="leftListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">右侧工具栏穿梭框</h5>
+                <div class="card-body">
+                    <select id="rightListBoxFrom"></select>
+                    <select id="rightListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">顶部工具栏穿梭框</h5>
+                <div class="card-body">
+                    <select id="topListBoxFrom"></select>
+                    <select id="topListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">底部工具栏穿梭框</h5>
+                <div class="card-body">
+                    <select id="bottomListBoxFrom"></select>
+                    <select id="bottomListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card mb-3">
+                <h5 class="card-header">自定义穿梭框</h5>
+                <div class="card-body">
+                    <select id="customListBoxFrom"></select>
+                    <select id="customListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card mb-3">
+                <h5 class="card-header">等宽穿梭框</h5>
+                <div class="card-body">
+                    <select class="w-50" id="widthListBoxFrom"></select>
+                    <select class="w-49" id="widthListBoxTo"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style scoped>
+        .w-49 {
+            width: calc(50% - 5px);
+        }
+        .k-listbox img,
+        .k-drag-clue img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</script>
