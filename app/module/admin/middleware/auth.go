@@ -10,6 +10,8 @@ func Auth(serviceObj *service.Service) iris.Handler {
 		uid := serviceObj.GetSessionUid(ctx)
 		if uid == 0 {
 			serviceObj.Support.ResponseJson(ctx, 403, "你的登录已失效，请重新登录")
+			ctx.StopExecution()
+			return
 		}
 		ctx.Next()
 	}

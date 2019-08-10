@@ -6,6 +6,7 @@ import (
 	"trensy/app/module/admin/http/api"
 	"trensy/app/module/admin/http/api/stateless"
 	"trensy/app/module/admin/http/web"
+	"trensy/app/module/admin/http/web/page"
 	"trensy/app/module/admin/middleware"
 	"trensy/app/module/admin/service"
 	"trensy/lib/boot"
@@ -34,6 +35,11 @@ func New(app *boot.Bootstrapper) {
 	webMvc.Register(serviceObj, app)
 	webMvc.Router.Use(middleware.WebMvcInit(app))
 	webMvc.Handle(new(web.Controller))
+
+	pageMvc := mvc.New(app.Party("/page"))
+	pageMvc.Register(serviceObj, app)
+	pageMvc.Router.Use(middleware.Auth(serviceObj))
+	pageMvc.Handle(new(page.Controller))
 
 	apiMvc := mvc.New(app.Party("/api"))
 	apiMvc.Register(serviceObj, app)

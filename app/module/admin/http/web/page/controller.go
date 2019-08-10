@@ -1,4 +1,4 @@
-package http
+package page
 
 import (
 	"github.com/kataras/iris"

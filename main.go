@@ -67,6 +67,7 @@ func install(app *boot.Bootstrapper) {
 		new(model.Role),
 		new(model.RoleAccess),
 		new(model.RoleUser),
+		new(model.Menu),
 	)
 	if err != nil {
 		golog.Fatal("sync database struct fail ", err)
