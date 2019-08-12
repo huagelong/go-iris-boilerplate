@@ -3,44 +3,51 @@
     "msg": "数据获取错误，请重试！",
     "data": [
         {
-            "id": "01",
-            "text": "系统设置",
-            "spriteCssClass": "fas fa-object-group k-required",
+            "id": "0",
+            "text": "根节点",
+            "spriteCssClass": "fas fa-home k-required",
             "expanded": true,
-            "items": [
+            "items":[
                 {
-                    "id": "0101",
-                    "text": "权限设置",
-                    "spriteCssClass": "fas fa-tasks k-required",
+                    "id": "1",
+                    "text": "系统设置",
+                    "spriteCssClass": "fas fa-object-group k-required",
                     "expanded": true,
                     "items": [
                         {
-                            "id": "010101",
-                            "text": "导航菜单",
-                            "spriteCssClass": "fas fa-genderless k-required",
-                            "expanded": true
-                        },
-                        {
-                            "id": "010102",
-                            "text": "权限因子",
-                            "spriteCssClass": "fas fa-genderless k-required",
-                            "expanded": true
-                        },
-                        {
-                            "id": "010303",
-                            "text": "角色管理",
-                            "spriteCssClass": "fas fa-genderless k-required",
-                            "expanded": true
-                        },
-                        {
-                            "id": "010304",
-                            "text": "用户管理",
-                            "spriteCssClass": "fas fa-genderless k-required",
-                            "expanded": true
+                            "id": "101",
+                            "text": "权限设置",
+                            "spriteCssClass": "fas fa-tasks k-required",
+                            "expanded": true,
+                            "items": [
+                                {
+                                    "id": "10101",
+                                    "text": "导航菜单",
+                                    "spriteCssClass": "fas fa-genderless k-required",
+                                    "expanded": true
+                                },
+                                {
+                                    "id": "10102",
+                                    "text": "权限因子",
+                                    "spriteCssClass": "fas fa-genderless k-required",
+                                    "expanded": true
+                                },
+                                {
+                                    "id": "10303",
+                                    "text": "角色管理",
+                                    "spriteCssClass": "fas fa-genderless k-required",
+                                    "expanded": true
+                                },
+                                {
+                                    "id": "10304",
+                                    "text": "用户管理",
+                                    "spriteCssClass": "fas fa-genderless k-required",
+                                    "expanded": true
+                                }
+                            ]
                         }
                     ]
-                }
-            ]
+                }]
         }
     ]
 }

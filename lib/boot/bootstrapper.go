@@ -54,10 +54,14 @@ func New(conf *toml.Tree) *Bootstrapper {
 
 // SetupViews loads the templates.
 func (app *Bootstrapper) SetupViews(resourcesPath string) {
-
 	staticAssets := resourcesPath + "/public"
 	app.Favicon(staticAssets + "/favicon.ico")
-	app.StaticWeb("/", staticAssets)
+	//app.StaticWeb("/", staticAssets)
+	app.HandleDir("/",staticAssets,iris.DirOptions{
+		IndexName: "/index.html",
+		Gzip: true,
+		ShowList: false,
+	})
 
 	viewsDir := resourcesPath + "/views"
 	htmlEngine := iris.Django(viewsDir, ".html")

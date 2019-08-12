@@ -28,7 +28,7 @@ $(function () {
 
 // 增删改查
 function editTree(node) {
-    $('#treeDetail').html(kendo.template($('#editTemplate').html())(node));
+        $('#treeDetail').html(kendo.template($('#editTemplate').html())(node));
 }
 
 // 增
@@ -45,6 +45,7 @@ function saveCreateTree() {
     if ($('#treeDetail form').kendoValidator().data('kendoValidator').validate()) {
         $.fn.ajaxPost({
             ajaxData: $('#treeDetail form').serializeObject(),
+            ajaxUrl:"/page/add/update/menu",
             succeed: function () {
                 refreshTree();
             },

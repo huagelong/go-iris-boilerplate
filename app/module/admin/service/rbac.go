@@ -210,3 +210,23 @@ func (s *Service) GetUserAccess(uid int) ([]model.Access, error) {
 	}
 	return allAccess, nil
 }
+
+//更新添加菜单
+func (s *Service) AddUpdateMenu(id int, name, url ,style string, pid, sort int) error {
+	menu := &model.Menu{Name:name, Url:url, Style:style, Pid:pid, Sort:sort}
+	menu.UpdatedAt = int(time.Now().Unix())
+	if id !=0{
+		_, err := s.DB.Id(id).Update(menu)
+		if err !=nil{
+			return err
+		}
+	}else{
+		menu.CreatedAt = int(time.Now().Unix())
+		_, erri := s.DB.Insert(menu)
+		if erri !=nil{
+			return erri
+		}
+	}
+
+	return nil
+}

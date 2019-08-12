@@ -4,7 +4,6 @@ import (
 	"github.com/kataras/golog"
 	"github.com/kataras/iris/sessions"
 	"github.com/kataras/iris/sessions/sessiondb/redis"
-	"github.com/kataras/iris/sessions/sessiondb/redis/service"
 	"github.com/pelletier/go-toml"
 	"sync"
 	"time"
@@ -53,11 +52,9 @@ func redisConn(conf *toml.Tree) *redis.Database {
 		return instanceRedis
 	}
 	golog.Info("session redis created!...")
-	db := redis.New(service.Config{
+	db := redis.New(redis.Config{
 		Network:     conf.Get("db.redis.network").(string),
 		Addr:        conf.Get("db.redis.addr").(string),
-		IdleTimeout: time.Duration(int(conf.Get("db.redis.idleTimeout").(int64))) * time.Second,
-		MaxIdle:     int(conf.Get("db.redis.maxIdle").(int64)),
 		MaxActive:   int(conf.Get("db.redis.maxActive").(int64)),
 		Password:    conf.Get("db.redis.password").(string),
 		Database:    conf.Get("db.redis.database").(string),
