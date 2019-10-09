@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/kataras/iris"
-	"trensy/app/module/admin/service"
+	"trensy/application/service"
 )
 
 func Auth(serviceObj *service.Service) iris.Handler {

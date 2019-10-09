@@ -5,8 +5,8 @@ import (
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 	"time"
-	"trensy/app/model"
-	"trensy/app/module/admin"
+	"trensy/application"
+	"trensy/application/model"
 	"trensy/lib/boot"
 	"trensy/lib/db"
 	"trensy/lib/support"
@@ -40,7 +40,7 @@ func main() {
 		return
 	}
 
-	app.Configure(admin.New)
+	app.Configure(application.New)
 
 	app.Use(func(ctx iris.Context) {
 		//开始时间

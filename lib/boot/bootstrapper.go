@@ -33,6 +33,7 @@ type Bootstrapper struct {
 	Session      *sessions.Sessions
 	DB           *db.DBEngine
 	Redis        *redis.Redis
+	New          Configurator
 }
 
 // New returns a new Bootstrapper.

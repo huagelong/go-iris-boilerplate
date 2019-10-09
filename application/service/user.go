@@ -4,8 +4,8 @@ import (
 	"github.com/kataras/iris"
 	"github.com/rs/xid"
 	"time"
-	"trensy/app/model"
-	"trensy/app/module/admin/constdata"
+	"trensy/application/model"
+	"trensy/application/constdata"
 )
 
 //通过idToken 获取用户信息

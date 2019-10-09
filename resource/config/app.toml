@@ -38,10 +38,10 @@ drive="mysql"
     maxOpenConns=5
 [db.redis]
     network = "tcp"
-    addr = "mysqlHost:6379"
+    addr = "127.0.0.1:6379"
     idleTimeout = 300
     maxActive = 10000
     maxIdle = 10000
     password = ""
-    database = "1"
+    database = "6"
     prefix =  "trensy_"

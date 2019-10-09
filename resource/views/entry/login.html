@@ -118,6 +118,7 @@ id="login"
                             },
                             succeed: function (res) {
                                 if (res.status == 200) {
+
                                     // 记住密码
                                     if ($('#remember').prop('checked')) {
                                         localStorage.setItem('userName', $('#signIn input[name="userName"]').val());

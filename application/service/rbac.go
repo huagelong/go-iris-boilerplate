@@ -2,7 +2,7 @@ package service
 
 import (
 	"time"
-	"trensy/app/model"
+	"trensy/application/model"
 )
 
 //添加access

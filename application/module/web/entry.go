@@ -1,9 +1,9 @@
 package web
 
 func (c *Controller) Get() {
-	c.Ctx.View("admin/entry/index.html")
+	c.Ctx.View("entry/index.html")
 }
 
 func (c *Controller) GetLogin() {
-	c.Ctx.View("admin/entry/login.html")
+	c.Ctx.View("entry/login.html")
 }
