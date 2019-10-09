@@ -3,3 +3,5 @@
 /bin
 /go.sum
 /vendor
+/go_iris_boilerplate-build
+/go_iris_boilerplate-package
